@@ -14,7 +14,7 @@ void clock_init() {
   R8_SAFE_ACCESS_SIG = 0;
 }
 
-void led_init() {
+void gpio_init() {
   // Set all ports to floating input
   R32_PA_PD  = 0;
   R32_PA_PU  = 0;
@@ -30,9 +30,12 @@ void led_init() {
 }
 
 int main() {
+  // Initialize system clock to 120MHz
   clock_init();
-  led_init();
+  // Initialize GPIOs
+  gpio_init();
 
+  // USB initialization
   R32_USB_CONTROL = 0;
 	PFIC_EnableIRQ(USBSS_IRQn);
 	PFIC_EnableIRQ(LINK_IRQn);
@@ -42,15 +45,15 @@ int main() {
   {
     // Delay a litle
     for(volatile int i = 0; i < 10000000; i++);
-    // Invert LED on PB22 to indicate the main loop is running
+    // Blink LED on PB22 to indicate the main loop is running
     R32_PB_OUT ^= (1<<22);
   }
 }
 
 __attribute__((interrupt())) void USBSS_IRQHandler(void)
 {
-  // Turn on LED PB24 to indicate USB interrupt
-  R32_PB_OUT = (R32_PB_OUT & ~(1<<24));
+  // Turn on LED PB23 to indicate USB interrupt
+  R32_PB_OUT = (R32_PB_OUT & ~(1<<23));
 }
 
 __attribute__((interrupt())) void LINK_IRQHandler(void)
