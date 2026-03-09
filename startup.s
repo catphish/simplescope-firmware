@@ -171,9 +171,3 @@ __app_main_enter:
     jal   ra,   main /* Call main() with return address */
 __app_main_exit:
     j     __app_main_exit /* Endless loop */
-/*
-	// Code to jump to main() function without Machine mode privilege (all core_riscv.h macro __get_MXX() or __set_MXX() trig an exception)
-	la t0, main
-	csrw mepc, t0
-	mret
-*/

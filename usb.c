@@ -38,8 +38,8 @@ void USB30D_init(void)
 {
     // Enable USB, on failure, stay in an infinite loop
 	if(USB30_device_init()) {
-		// Turn on LED on all LEDs to indicate USB initialization failure
-		R32_PB_OUT = (R32_PB_OUT & ~(1<<22) & ~(1<<23) & ~(1<<24));
+		// Turn on LED PB22 to indicate initialization failure
+		R32_PB_OUT = (R32_PB_OUT & ~(1<<22));
 		while(1);
 	}
 }

@@ -3,7 +3,7 @@ COMPILER_PREFIX=riscv32-none-elf
 # Build main.c and startup.s into an executable
 all: main.bin
 main.elf: main.c usb.c startup.s linker.ld
-	$(COMPILER_PREFIX)-gcc -o main.elf main.c usb.c startup.s -nostartfiles -T linker.ld
+	$(COMPILER_PREFIX)-gcc -march=rv32imac_zicsr -mabi=ilp32 -O2 -o main.elf main.c usb.c startup.s -nostartfiles -T linker.ld
 main.bin: main.elf
 	$(COMPILER_PREFIX)-objcopy -O binary main.elf main.bin
 clean:
