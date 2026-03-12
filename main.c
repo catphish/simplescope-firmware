@@ -1,63 +1,54 @@
-#include "ch569.h"
-#include "core_riscv.h"
-#include "usb.h"
+#include "drv/CH56x_common.h"
 
-void clock_init() {
-  // Enable safe access mode to modify protected registers
-  R8_SAFE_ACCESS_SIG = 0x57;
-  R8_SAFE_ACCESS_SIG = 0xa8;
-  // Set PLL division factor to 4. 480MHz/4 = 120MHz
-  R8_CLK_PLL_DIV = 0x40 | 0x04;
-  // Select PLL as the system clock source
-  R8_CLK_CFG_CTRL = 0x80 | RB_CLK_SEL_PLL;
-  // Disable safe access mode after configuration
-  R8_SAFE_ACCESS_SIG = 0;
-}
+#include "drv/CH56x_usb30_devbulk.h"
+#include "drv/CH56x_usb20_devbulk.h"
+#include "drv/CH56x_usb30_devbulk_LIB.h"
+#include "drv/CH56x_usb_devbulk_desc_cmd.h"
 
-void gpio_init() {
-  // Set all ports to floating input
-  R32_PA_PD  = 0;
-  R32_PA_PU  = 0;
-  R32_PA_DIR = 0;
-  R32_PB_PD  = 0;
-  R32_PB_PU  = 0;
-  R32_PB_DIR = 0;
+// Default USB Vendor ID
+// Default VID 0x16C0 "Van Ooijen Technische Informatica"
+#define USB_VID_BYTE_MSB (0x16)
+#define USB_VID_BYTE_LSB (0xC0)
+#define USB_VID ((USB_VID_BYTE_MSB << 8) | USB_VID_BYTE_LSB)
+// Default USB Product ID
+// Default PID 0x05DC
+#define USB_PID_BYTE_MSB (0x05)
+#define USB_PID_BYTE_LSB (0xDC)
+#define USB_PID ((USB_PID_BYTE_MSB << 8) | USB_PID_BYTE_LSB)
 
-  // Set PB22, PB23, PB24 as output
-  R32_PB_DIR |= (1<<22) | (1<<23) | (1<<24);
-  // Turn off all LEDs initially
-  R32_PB_OUT = 0xffffffff; //Turn off all LEDs
-}
+/* FLASH_ROMA Read Unique ID (8bytes/64bits) */
+#define FLASH_ROMA_UID_ADDR (0x77fe4)
+usb_descriptor_serial_number_t unique_id;
+
+/* USB VID PID */
+usb_descriptor_usb_vid_pid_t vid_pid =
+{
+	.vid = USB_VID,
+	.pid = USB_PID
+};
 
 int main() {
   // Initialize system clock to 120MHz
-  clock_init();
-  // Initialize GPIOs
-  gpio_init();
+  SystemInit(120000000);
 
   // USB initialization
   R32_USB_CONTROL = 0;
 	PFIC_EnableIRQ(USBSS_IRQn);
 	PFIC_EnableIRQ(LINK_IRQn);
-	USB30D_init();
+	PFIC_EnableIRQ(TMR0_IRQn);
+	R8_TMR0_INTER_EN = RB_TMR_IE_CYC_END;
+	TMR0_TimerInit(67000000); // USB3.0 connection failure timeout about 0.56 seconds
 
+	/* USB Descriptor set String Serial Number with CH569 Unique ID */
+	usb_descriptor_set_string_serial_number(&unique_id);
+
+	/* USB Descriptor set USB VID/PID */
+	usb_descriptor_set_usb_vid_pid(&vid_pid);
+
+	/* USB3.0 initialization, make sure that the two USB3.0 interrupts are enabled before initialization */
+	USB30D_init(ENABLE);
   while(1)
   {
-    // Delay a litle
-    for(volatile int i = 0; i < 10000000; i++);
-    // Blink LED on PB22 to indicate the main loop is running
-    R32_PB_OUT ^= (1<<22);
+    // Main loop
   }
-}
-
-__attribute__((interrupt())) void USBSS_IRQHandler(void)
-{
-  // Turn on LED PB23 to indicate USB interrupt
-  R32_PB_OUT = (R32_PB_OUT & ~(1<<23));
-}
-
-__attribute__((interrupt())) void LINK_IRQHandler(void)
-{
-  // Turn on LED PB24 to indicate LINK interrupt
-  R32_PB_OUT = (R32_PB_OUT & ~(1<<24));
 }

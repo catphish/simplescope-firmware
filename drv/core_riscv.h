@@ -11,11 +11,18 @@
 #ifndef __CORE_RV3A_H__
 #define __CORE_RV3A_H__
 
-#include <stdint.h>
-#include "ch569.h"
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "CH56xSFR.h"
 
 /* IO definitions */
+#ifdef __cplusplus
+#define     __I     volatile                /*!< defines 'read only' permissions      */
+#else
 #define     __I     volatile const          /*!< defines 'read only' permissions     */
+#endif
 #define     __O     volatile                  /*!< defines 'write only' permissions     */
 #define     __IO    volatile                  /*!< defines 'read / write' permissions   */
 #define   RV_STATIC_INLINE  static  inline
@@ -378,5 +385,14 @@ extern uint32_t __get_MIMPID(void);
 extern uint32_t __get_MHARTID(void);
 extern uint32_t __get_SP(void);
 
+#ifdef __cplusplus
+}
+#endif
+
 
 #endif/* __CORE_RV3A_H__ */
+
+
+
+
+

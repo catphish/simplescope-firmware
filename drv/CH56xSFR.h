@@ -14,11 +14,19 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* ********************************************************************************************************************* */
 /* Base types & constants */
 
 #ifndef NULL
 #define NULL    0
+#endif
+
+#ifndef bool_t
+typedef _Bool bool_t;
 #endif
 
 #ifndef vuint8_t
@@ -91,10 +99,18 @@ typedef volatile unsigned long *vpuint32_t;
 #define NUMBER_OF(Array) (sizeof(Array) / sizeof((Array)[0]))
 #define NUMBER_OF_FIELD(Type, Field) (NUMBER_OF(FIELD_TYPE(Type, Field)))
 
+#ifdef __cplusplus
+}
+#endif
+
 #endif // __BASE_TYPE__
 
 #ifndef __CH56xGPSFR_H__
 #define __CH56xGPSFR_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* ********************************************************************************************************************* */
 // Address Space
@@ -1303,10 +1319,18 @@ typedef enum IRQn
 } IRQn_Type;
 #endif
 
+#ifdef __cplusplus
+}
+#endif
+
 #endif // __CH56xGPSFR_H__
 
 #ifndef __CH56xUSBSFR_H__
 #define __CH56xUSBSFR_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /******************************************************************************/
 /*                         Peripheral memory map                              */
@@ -1736,10 +1760,18 @@ typedef struct __PACKED
 #define USBSS     ((USBSS_TypeDef *)USBSS_BASE)
 #define USBSSH    ((USBSSH_TypeDef *)USBSS_BASE)
 
+#ifdef __cplusplus
+}
+#endif
+
 #endif // __CH56xUSBSFR_H__
 
 #ifndef __USB_TYPE__
 #define __USB_TYPE__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Connecting Device Speed Definition */
 #define USB_DEV_SPEED_LS 0x01 /* USB Low Speed */
@@ -2114,10 +2146,18 @@ typedef struct __PACKED _UDISK_BOC_CSW
 	uint8_t  mCSW_Status; /* Returns: command execution result status */
 } UDISK_BOC_CSW, *PUDISK_BOC_CSW;
 
+#ifdef __cplusplus
+}
+#endif
+
 #endif // __USB_TYPE__
 
 #ifndef __CH56xSDSSFR_H__
 #define __CH56xSDSSFR_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define SERDES_BASE    (0x4000B000)
 
@@ -2137,10 +2177,18 @@ typedef struct
 
 #define SDS    ((SDS_TypeDef *)SERDES_BASE)
 
+#ifdef __cplusplus
+}
+#endif
+
 #endif // __CH56xSDSSFR_H__
 
 #ifndef __CH56xETHSFR_H__
 #define __CH56xETHSFR_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define ETH_BASE        (0x4000C000)
 
@@ -2420,5 +2468,9 @@ typedef struct
 #define ETH_DMATxDesc_ES                     ((uint32_t)0x00008000) /*!< Error summary: OR of the following bits: UE || ED || EC || LCO || NC || LCA || FF || JT */
 #define ETH_DMATxDesc_JT                     ((uint32_t)0x00004000) /*!< Jabber Timeout */
 #define ETH_DMATxDesc_FF                     ((uint32_t)0x00002000) /*!< Frame Flushed: DMA/MTL flushed the frame due */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // __CH56xETHSFR_H__
