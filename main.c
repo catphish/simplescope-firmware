@@ -21,10 +21,10 @@
 usb_descriptor_serial_number_t unique_id;
 
 /* USB VID PID */
-usb_descriptor_usb_vid_pid_t vid_pid =
+usb_descriptor_usb_vid_pid_t vid_pid = 
 {
-	.vid = USB_VID,
-	.pid = USB_PID
+	.vid = { .id_16b = USB_VID },
+	.pid = { .id_16b = USB_PID }
 };
 
 int main() {
@@ -33,20 +33,22 @@ int main() {
 
   // USB initialization
   R32_USB_CONTROL = 0;
-	PFIC_EnableIRQ(USBSS_IRQn);
-	PFIC_EnableIRQ(LINK_IRQn);
-	PFIC_EnableIRQ(TMR0_IRQn);
-	R8_TMR0_INTER_EN = RB_TMR_IE_CYC_END;
-	TMR0_TimerInit(67000000); // USB3.0 connection failure timeout about 0.56 seconds
+  PFIC_EnableIRQ(USBSS_IRQn);
+  PFIC_EnableIRQ(LINK_IRQn);
+  PFIC_EnableIRQ(TMR0_IRQn);
+  R8_TMR0_INTER_EN = RB_TMR_IE_CYC_END;
+  TMR0_TimerInit(67000000); // USB3.0 connection failure timeout about 0.56 seconds
 
-	/* USB Descriptor set String Serial Number with CH569 Unique ID */
-	usb_descriptor_set_string_serial_number(&unique_id);
+  FLASH_ROMA_READ(FLASH_ROMA_UID_ADDR, (uint32_t*)&unique_id, 8);
 
-	/* USB Descriptor set USB VID/PID */
-	usb_descriptor_set_usb_vid_pid(&vid_pid);
+  /* USB Descriptor set String Serial Number with CH569 Unique ID */
+  usb_descriptor_set_string_serial_number(&unique_id);
 
-	/* USB3.0 initialization, make sure that the two USB3.0 interrupts are enabled before initialization */
-	USB30D_init(ENABLE);
+  /* USB Descriptor set USB VID/PID */
+  usb_descriptor_set_usb_vid_pid(&vid_pid);
+
+  /* USB3.0 initialization, make sure that the two USB3.0 interrupts are enabled before initialization */
+  USB30D_init(ENABLE);
   while(1)
   {
     // Main loop

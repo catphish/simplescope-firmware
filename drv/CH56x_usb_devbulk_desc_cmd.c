@@ -278,14 +278,14 @@ uint8_t USB_StringVendor[LEN_USB_StringVendor] =
 {
 	LEN_USB_StringVendor, // length of this descriptor
 	0x03, /* USB Descriptor Type String */
-	'H', 0x00,
-	'y', 0x00,
-	'd', 0x00,
-	'r', 0x00,
+	'c', 0x00,
 	'a', 0x00,
-	'B', 0x00,
-	'u', 0x00,
-	's', 0x00
+	't', 0x00,
+	'p', 0x00,
+	'h', 0x00,
+	'i', 0x00,
+	's', 0x00,
+	'h', 0x00
 };
 
 /*  USB 2.0 High Speed String Product USB_DESCR_PRODUCT_STRING */
@@ -293,15 +293,17 @@ uint8_t USB_HS_StringProduct[LEN_USB_HS_StringProduct]=
 {
 	LEN_USB_HS_StringProduct, // length of this descriptor
 	0x03, /* USB Descriptor Type String */
-	'H', 0x00,
-	'y', 0x00,
-	'd', 0x00,
-	'r', 0x00,
-	'a', 0x00,
-	'U', 0x00,
+	's', 0x00,
+	'i', 0x00,
+	'm', 0x00,
+	'p', 0x00,
+	'l', 0x00,
+	'e', 0x00,
 	'S', 0x00,
-	'B', 0x00,
-	'3', 0x00
+	'c', 0x00,
+	'o', 0x00,
+	'p', 0x00,
+	'e', 0x00
 };
 
 /*  USB 3.0 SuperSpeed String Product USB_DESCR_PRODUCT_STRING */
@@ -309,36 +311,25 @@ uint8_t USB_SS_StringProduct[LEN_USB_SS_StringProduct] =
 {
 	LEN_USB_SS_StringProduct, // length of this descriptor
 	0x03, /* USB Descriptor Type String */
-	'H', 0x00,
-	'y', 0x00,
-	'd', 0x00,
-	'r', 0x00,
-	'a', 0x00,
-	'U', 0x00,
+	's', 0x00,
+	'i', 0x00,
+	'm', 0x00,
+	'p', 0x00,
+	'l', 0x00,
+	'e', 0x00,
 	'S', 0x00,
-	'B', 0x00,
-	'3', 0x00
+	'c', 0x00,
+	'o', 0x00,
+	'p', 0x00,
+	'e', 0x00
 };
 
 /*  USB 2.0 / 3.0  String Serial USB_DESCR_SERIAL_STRING */
-#define USB_DESCRIPTOR_SN_POS (28)
+#define USB_DESCRIPTOR_SN_POS (2) // position of first byte of serial number in USB_StringSerial
 uint8_t USB_StringSerial[LEN_USB_StringSerial] =
 {
 	LEN_USB_StringSerial, // length of this descriptor
 	0x03, /* USB Descriptor Type String */
-	'H', 0x00,
-	'y', 0x00,
-	'd', 0x00,
-	'r', 0x00,
-	'a', 0x00,
-	'U', 0x00,
-	'S', 0x00,
-	'B', 0x00,
-	'3', 0x00,
-	'_', 0x00,
-	'S', 0x00,
-	'N', 0x00,
-	':', 0x00,
 	/* Data set by usb_descriptor_set_string_serial_number() with 64bits Serial Number from WCH CH569 UID to ASCII HEX */
 	' ', 0x00,
 	' ', 0x00,

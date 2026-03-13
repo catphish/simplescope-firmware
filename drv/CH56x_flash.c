@@ -221,7 +221,7 @@ static void FLASH_ROMA_WriteDisable()
 uint8_t FLASH_ROMA_WRITE( uint32_t StartAddr, void* Buffer, uint32_t Length )
 {
 	// rom writes need to be word aligned
-	uint32_t rom_addr = ~0b11 & StartAddr + ROM_ADDR_OFFSET;
+	uint32_t rom_addr = (~0b11 & StartAddr) + ROM_ADDR_OFFSET;
 
 	if (  rom_addr          >= ROM_END
 			|| rom_addr + Length >= ROM_END
@@ -237,7 +237,7 @@ uint8_t FLASH_ROMA_WRITE( uint32_t StartAddr, void* Buffer, uint32_t Length )
 		FLASH_ROMA_WriteAddr(rom_addr);
 
 		// write word per word
-		for (int i = 0; i < (Length >> 2); i ++)
+		for (unsigned int i = 0; i < (Length >> 2); i ++)
 		{
 			R32_SPI_ROM_DATA = ((puint32_t)Buffer)[i];
 			uint8_t cr_value = R8_SPI_ROM_CR | 0x10;
@@ -267,7 +267,7 @@ uint8_t FLASH_ROMA_WRITE( uint32_t StartAddr, void* Buffer, uint32_t Length )
 uint8_t FLASH_ROMA_ERASE_4K( uint32_t Addr )
 {
 	// rom writes need to be word aligned
-	uint32_t rom_addr = ~0xfff & Addr + ROM_ADDR_OFFSET;
+	uint32_t rom_addr = (~0xfff & Addr) + ROM_ADDR_OFFSET;
 
 	if (rom_addr >= ROM_END) return 0;
 
@@ -292,7 +292,7 @@ uint8_t FLASH_ROMA_ERASE_4K( uint32_t Addr )
 uint8_t FLASH_ROMA_ERASE_64K( uint32_t Addr )
 {
 	// rom writes need to be word aligned
-	uint32_t rom_addr = ~0xffff & Addr + ROM_ADDR_OFFSET;
+	uint32_t rom_addr = (~0xffff & Addr) + ROM_ADDR_OFFSET;
 
 	if (rom_addr >= ROM_END) return 0;
 

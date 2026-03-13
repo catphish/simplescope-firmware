@@ -118,14 +118,14 @@ extern uint8_t USB_StringVendor[LEN_USB_StringVendor];
 /* StringProduct */
 /*****************/
 /* USB 2.0 HS_String Product */
-#define LEN_USB_HS_StringProduct (20)
+#define LEN_USB_HS_StringProduct (24)
 extern uint8_t USB_HS_StringProduct[LEN_USB_HS_StringProduct];
 /* USB 3.0 SS_String Product */
-#define LEN_USB_SS_StringProduct (20)
+#define LEN_USB_SS_StringProduct (24)
 extern uint8_t USB_SS_StringProduct[LEN_USB_SS_StringProduct];
 
 /* USB 2.0 / 3.0 String Serial */
-#define LEN_USB_StringSerial (60)
+#define LEN_USB_StringSerial (34)
 extern uint8_t USB_StringSerial[LEN_USB_StringSerial];
 
 /* USB 2.0 / 3.0 OS String Descriptor */

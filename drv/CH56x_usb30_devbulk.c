@@ -9,7 +9,6 @@
 * SPDX-License-Identifier: Apache-2.0
 *******************************************************************************/
 #include "CH56x_common.h"
-#include "CH56x_debug_log.h"
 
 #include "CH56x_usb20_devbulk.h"
 #include "CH56x_usb30_devbulk.h"
@@ -34,7 +33,8 @@ vuint8_t g_DeviceUsbType = 0;
 __attribute__((aligned(16))) uint8_t endp0RTbuff[512] __attribute__((section(".DMADATA"))); // Endpoint 0 data transceiver buffer
 __attribute__((aligned(16))) uint8_t endp1Rbuff[DEF_ENDP1_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 1 data Receive buffer
 __attribute__((aligned(16))) uint8_t endp1Tbuff[DEF_ENDP1_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 1 data Transmit buffer
-__attribute__((aligned(16))) uint8_t endp2RTbuff[DEF_ENDP2_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 2 data transceiver buffer
+__attribute__((aligned(16))) uint8_t endp2Rbuff[DEF_ENDP2_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 2 data Receive buffer
+__attribute__((aligned(16))) uint8_t endp2Tbuff[DEF_ENDP2_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 2 data Transmit buffer
 
 /*******************************************************************************
  * @fn     USB3_force
@@ -77,6 +77,38 @@ void USB30_BusReset(void)
 	USB30D_init(ENABLE); //USB3.0 initialization
 }
 
+// USB30_Device_Init
+//static int USB30_Device_Open(void)
+
+static int USB30_device_init(void)
+{
+	USBSS->LINK_CFG = 0x140;
+	USBSS->LINK_CTRL = 0x12;
+	uint32_t t = 0x4c4b41;
+	while(USBSS->LINK_STATUS&4)
+	{
+		t--;
+		if(t == 0)
+			return -1;
+	}
+	for(int i = 0; i < 8; i++)
+	{
+		SS_TX_CONTRL(i) = 0;
+		SS_RX_CONTRL(i) = 0;
+	}
+	USBSS->USB_STATUS = 0x13;
+
+	USBSS->USB_CONTROL = 0x30021;
+	USBSS->UEP_CFG = 0;
+
+	USBSS->LINK_CFG |= 2;
+
+	USBSS->LINK_INT_CTRL = 0x10bc7d;
+
+	USBSS->LINK_CTRL = 2;
+	return 0;
+}
+
 /*******************************************************************************
  * @fn     USB30D_init
  *
@@ -102,10 +134,10 @@ void USB30D_init(FunctionalState sta)
 
 		USBSS->UEP0_DMA = (uint32_t)(uint8_t *)endp0RTbuff;
 		USBSS->UEP1_TX_DMA = (uint32_t)(uint8_t *)endp1Tbuff;
-		USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)endp2RTbuff;
+		USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)endp2Tbuff;
 
 		USBSS->UEP1_RX_DMA = (uint32_t)(uint8_t *)endp1Rbuff;
-		USBSS->UEP2_RX_DMA = (uint32_t)(uint8_t *)endp2RTbuff;
+		USBSS->UEP2_RX_DMA = (uint32_t)(uint8_t *)endp2Rbuff;
 
 		USB30_OUT_set(ENDP_1, ACK, DEF_ENDP1_OUT_BURST_LEVEL); // endpoint1 receive setting
 		USB30_OUT_set(ENDP_2, ACK, DEF_ENDP2_OUT_BURST_LEVEL); // endpoint2 receive setting
@@ -589,11 +621,13 @@ void EP1_IN_Callback(void)
 #endif
 	if(nump == 0)
 	{
-		// All sent
+		// The output buffer is now empty. All data has been sent to the host, and the endpoint is waiting for new data to be loaded into the output buffer.
+		// Reset the DMA address to the beginning of the output buffer for the next burst transfer, and set the endpoint to be able to send
+		// DEF_ENDP2_IN_BURST_LEVEL packets. This causes the host to continuously read data from the Tbuff in a loop.
 		USBSS->UEP1_TX_DMA = (uint32_t)(uint8_t *)endp1Tbuff; // Burst transfer DMA address offset Need to reset
 		USB30_IN_clearIT(ENDP_1); // Clear endpoint state Keep only packet sequence number
 		USB30_IN_set(ENDP_1, ENABLE, ACK, DEF_ENDP1_IN_BURST_LEVEL, 1024); // Set the endpoint to be able to send 4 packets
-		USB30_send_ERDY(ENDP_1 | IN, DEF_ENDP1_IN_BURST_LEVEL); // Notify the host to send 4 packets
+		USB30_send_ERDY(ENDP_1 | IN, DEF_ENDP1_IN_BURST_LEVEL); // Notify the host to receive 4 packets
 	}
 	else
 	{
@@ -623,11 +657,13 @@ void EP2_IN_Callback(void)
 #endif
 	if(nump == 0)
 	{
-		// All sent
-		USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)endp2RTbuff; // Burst transfer DMA address offset Need to reset
+		// The output buffer is now empty. All data has been sent to the host, and the endpoint is waiting for new data to be loaded into the output buffer.
+		// Reset the DMA address to the beginning of the output buffer for the next burst transfer, and set the endpoint to be able to send
+		// DEF_ENDP2_IN_BURST_LEVEL packets. This causes the host to continuously read data from the Tbuff in a loop.
+		USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)endp2Tbuff; // Burst transfer DMA address offset Need to reset
 		USB30_IN_clearIT(ENDP_2); // Clear endpoint state Keep only packet sequence number
 		USB30_IN_set(ENDP_2, ENABLE, ACK, DEF_ENDP2_IN_BURST_LEVEL, 1024); // Set the endpoint to be able to receive DEF_ENDP2_IN_BURST_LEVEL packets
-		USB30_send_ERDY(ENDP_2 | IN, DEF_ENDP2_IN_BURST_LEVEL); // Notify the host to send DEF_ENDP2_IN_BURST_LEVEL packets
+		USB30_send_ERDY(ENDP_2 | IN, DEF_ENDP2_IN_BURST_LEVEL); // Notify the host to receive DEF_ENDP2_IN_BURST_LEVEL packets
 	}
 	else
 	{
@@ -735,7 +771,7 @@ void EP1_OUT_Callback(void)
 	if(nump == 0)
 	{
 		// All received
-		usb_cmd_rx(USB_TYPE_USB3, endp1Rbuff, endp1Tbuff);
+		//usb_cmd_rx(USB_TYPE_USB3, endp1Rbuff, endp1Tbuff);
 		USB30_OUT_clearIT(ENDP_1); // Clear all state of the endpoint Keep only the packet sequence
 		USBSS->UEP1_RX_DMA = (uint32_t)(uint8_t *)endp1Rbuff; // In burst mode, the address needs to be reset due to automatic address offset.
 		USB30_OUT_set(ENDP_1, ACK, DEF_ENDP1_OUT_BURST_LEVEL); // Able to send DEF_ENDP1_OUT_BURST_LEVEL packets on endpoint 1
@@ -778,7 +814,7 @@ void EP2_OUT_Callback(void)
 	{
 		// All data received
 		USB30_OUT_clearIT(ENDP_2);                                // Clear all state of the endpoint Keep only the packet sequence
-		USBSS->UEP2_RX_DMA = (uint32_t)(uint8_t *)endp2RTbuff;    // In burst mode, the address needs to be reset due to automatic address offset.
+		USBSS->UEP2_RX_DMA = (uint32_t)(uint8_t *)endp2Rbuff;    // In burst mode, the address needs to be reset due to automatic address offset.
 		USB30_OUT_set(ENDP_2, ACK, DEF_ENDP2_OUT_BURST_LEVEL);    // Set the endpoint to be able to receive DEF_ENDP2_OUT_BURST_LEVEL packets
 		USB30_send_ERDY(ENDP_2 | OUT, DEF_ENDP2_OUT_BURST_LEVEL); // Notify the host to deliver DEF_ENDP2_OUT_BURST_LEVEL packets
 	}
@@ -866,6 +902,7 @@ void EP7_OUT_Callback(void)
  */
 void USB30_ITP_Callback(uint32_t ITPCounter)
 {
+	(void)(ITPCounter);
 #if DEBUG_USB3_EPX
 	cprintf("USB30_ITP_Callback\n");
 #endif
