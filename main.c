@@ -23,8 +23,8 @@ usb_descriptor_serial_number_t unique_id;
 /* USB VID PID */
 usb_descriptor_usb_vid_pid_t vid_pid = 
 {
-	.vid = { .id_16b = USB_VID },
-	.pid = { .id_16b = USB_PID }
+  .vid = { .id_16b = USB_VID },
+  .pid = { .id_16b = USB_PID }
 };
 
 volatile uint8_t ep1_data_received = 0; // Flag to indicate data received on EP1
@@ -128,7 +128,7 @@ int main() {
       USBSS->UEP1_TX_DMA = (uint32_t)(uint8_t *)endp1Tbuff;
       // Set endpoint 1 to ACK and notify the host to take the data
       USB30_IN_set(ENDP_1, ENABLE, ACK, DEF_ENDP1_IN_BURST_LEVEL, rx_len);
-		  USB30_send_ERDY(ENDP_1 | IN, DEF_ENDP1_IN_BURST_LEVEL);
+      USB30_send_ERDY(ENDP_1 | IN, DEF_ENDP1_IN_BURST_LEVEL);
 
       // Point the EP1 OUT buffer to the start of the buffer for the next reception
       USBSS->UEP1_RX_DMA = (uint32_t)(uint8_t *)endp1Rbuff;
@@ -145,14 +145,14 @@ void EP1_OUT_Callback(void)
   // Invert LED B23 to indicate that data has been received on EP1
   // GPIOB_InverseBits(GPIO_Pin_23);
 
-	// Clear interrupt
-	USB30_OUT_clearIT(ENDP_1);
+  // Clear interrupt
+  USB30_OUT_clearIT(ENDP_1);
   // Set a flag to indicate that data has been received on EP1, which can be processed in the main loop
   ep1_data_received = 1;
 }
 
 void EP1_IN_Callback(void)
 {
-	// Clear the interrupt and continue
-	USB30_IN_clearIT(ENDP_1);
+  // Clear the interrupt and continue
+  USB30_IN_clearIT(ENDP_1);
 }
