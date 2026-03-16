@@ -19,7 +19,7 @@
  */
 void SPI0_MasterDefInit(void)
 {
-	R8_SPI0_CLOCK_DIV = 4; // Main frequency clock divided by 4
+	R8_SPI0_CLOCK_DIV = 120; // Main frequency clock divided by 120, SPI clock is 1MHz when the main frequency is 120MHz
 	R8_SPI0_CTRL_MOD = RB_SPI_ALL_CLEAR; // FIFO/counter/interrupt flag register is cleared to 0, write 1 to force clear or clear
 	R8_SPI0_CTRL_MOD = RB_SPI_MOSI_OE | RB_SPI_SCK_OE ; // MOSI pin and SCK pin output enable
 	R8_SPI0_CTRL_CFG |= RB_SPI_AUTO_IF; // Enable access to BUFFER/FIFO auto clear flag
