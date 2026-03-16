@@ -31,6 +31,43 @@ int main() {
   // Initialize system clock to 120MHz
   SystemInit(120000000);
 
+  // Configure all GPIO pins as floating input by default
+  GPIOA_ModeCfg(GPIO_Pin_All, GPIO_ModeIN_Floating);
+  GPIOB_ModeCfg(GPIO_Pin_All, GPIO_ModeIN_Floating);
+
+  // Configure SPI0 CLK pin PA13 as push-pull output
+  GPIOA_ModeCfg(GPIO_Pin_13, GPIO_Highspeed_PP_8mA);
+  // Configure SPI0 MOSI pin PA14 as push-pull output
+  GPIOA_ModeCfg(GPIO_Pin_14, GPIO_Highspeed_PP_8mA);
+  // Configure SPI0 CS pin PA12 as push-pull output
+  GPIOA_ModeCfg(GPIO_Pin_12, GPIO_Highspeed_PP_8mA);
+
+  // Configure PROGRAMN pin PA23 as push-pull output
+  GPIOA_ModeCfg(GPIO_Pin_23, GPIO_Highspeed_PP_8mA);
+
+  // Configure HTCLK pin PA11 as push-pull output
+  GPIOA_ModeCfg(GPIO_Pin_11, GPIO_Highspeed_PP_8mA);
+  // Configure HTACK pin PA10 as push-pull output
+  GPIOA_ModeCfg(GPIO_Pin_10, GPIO_Highspeed_PP_8mA);
+  // Configure HRCLK pin PA19 as pull-down input
+  GPIOA_ModeCfg(GPIO_Pin_19, GPIO_ModeIN_PD_NSMT);
+  // Configure HRACT pin PA18 as pull-down input
+  GPIOA_ModeCfg(GPIO_Pin_18, GPIO_ModeIN_PD_NSMT);
+  // Configure HRVLD pin PA6 as pull-down input
+  GPIOA_ModeCfg(GPIO_Pin_6, GPIO_ModeIN_PD_NSMT);
+
+  // Temporary LEDs on PB22, PB23, PB24 for debugging
+  GPIOB_ModeCfg(GPIO_Pin_22, GPIO_Highspeed_PP_8mA);
+  GPIOB_ModeCfg(GPIO_Pin_23, GPIO_Highspeed_PP_8mA);
+  GPIOB_ModeCfg(GPIO_Pin_24, GPIO_Highspeed_PP_8mA);
+  // Turn off the LEDs by setting the pins high
+  GPIOB_SetBits(GPIO_Pin_22 | GPIO_Pin_23 | GPIO_Pin_24);
+
+  // Initialize SPI0 in master mode
+  SPI0_MasterDefInit();
+  // Set SPI data mode to Mode 0, MSB first
+  SPI0_DataMode(Mode0_HighBitINFront);
+
   // USB initialization
   R32_USB_CONTROL = 0;
   PFIC_EnableIRQ(USBSS_IRQn);
@@ -49,6 +86,10 @@ int main() {
 
   /* USB3.0 initialization, make sure that the two USB3.0 interrupts are enabled before initialization */
   USB30D_init(ENABLE);
+
+  // Turn on the LED on PB22 to indicate that the device is running
+  GPIOB_ResetBits(GPIO_Pin_22);
+
   while(1)
   {
     // Main loop

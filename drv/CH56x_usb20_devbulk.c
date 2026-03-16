@@ -86,7 +86,6 @@ void USB20_Endp_Init(void)
 	R32_UEP1_RX_DMA = (uint32_t)(uint8_t *)endp1Rbuff;
 
 	R32_UEP2_TX_DMA = (uint32_t)(uint8_t *)endp2Tbuff;
-	R32_UEP2_RX_DMA = (uint32_t)(uint8_t *)endp2Rbuff;
 
 	R16_UEP0_T_LEN = 0;
 	R8_UEP0_TX_CTRL = 0;
@@ -700,12 +699,6 @@ __attribute__((interrupt())) void USBHS_IRQHandler(void)
 					// The endpoint status is set to ACK, if the transmission length remains unchanged,
 					// there is no need to rewrite the R16_UEP2_T_LEN register
 					R8_UEP2_TX_CTRL = (R8_UEP2_TX_CTRL & ~RB_UEP_TRES_MASK) | UEP_T_RES_ACK;
-				}
-				else if(rx_token == PID_OUT)
-				{
-					R32_UEP2_RX_DMA = (uint32_t)(uint8_t *)endp2Rbuff;
-					R8_UEP2_RX_CTRL ^= RB_UEP_R_TOG_1;
-					R8_UEP2_RX_CTRL = (R8_UEP2_RX_CTRL &~RB_UEP_RRES_MASK)|UEP_R_RES_ACK;
 				}
 				break;
 			default:
