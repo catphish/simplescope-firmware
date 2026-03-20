@@ -85,8 +85,6 @@ void USB20_Endp_Init(void)
 	R32_UEP1_TX_DMA = (uint32_t)(uint8_t *)endp1Tbuff;
 	R32_UEP1_RX_DMA = (uint32_t)(uint8_t *)endp1Rbuff;
 
-	R32_UEP2_TX_DMA = (uint32_t)(uint8_t *)endp2Tbuff;
-
 	R16_UEP0_T_LEN = 0;
 	R8_UEP0_TX_CTRL = 0;
 	R8_UEP0_RX_CTRL = 0;
@@ -693,7 +691,7 @@ __attribute__((interrupt())) void USBHS_IRQHandler(void)
 				if(rx_token == PID_IN)
 				{
 					// Flip the synchronization trigger bit to be sent next time bulk transfer data0 data1 flip back and forth
-					R32_UEP2_TX_DMA = (uint32_t)(uint8_t *)endp2Tbuff;
+					//R32_UEP2_TX_DMA = (uint32_t)(uint8_t *)endp2Tbuff;
 					R8_UEP2_TX_CTRL ^= RB_UEP_T_TOG_1;
 
 					// The endpoint status is set to ACK, if the transmission length remains unchanged,

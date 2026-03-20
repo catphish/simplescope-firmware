@@ -16,6 +16,10 @@
 #define USB_PID_BYTE_LSB (0xDC)
 #define USB_PID ((USB_PID_BYTE_MSB << 8) | USB_PID_BYTE_LSB)
 
+#define HSPI_RX_DMA_LENGTH   4096
+__attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr0[HSPI_RX_DMA_LENGTH]	__attribute__((section(".DMADATA")));
+__attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr1[HSPI_RX_DMA_LENGTH]	__attribute__((section(".DMADATA")));
+
 /* FLASH_ROMA Read Unique ID (8bytes/64bits) */
 #define FLASH_ROMA_UID_ADDR (0x77fe4)
 usb_descriptor_serial_number_t unique_id;
@@ -31,7 +35,11 @@ volatile uint8_t ep1_data_received = 0; // Flag to indicate data received on EP1
 
 int main() {
   // Initialize system clock to 120MHz
-  SystemInit(120000000);
+  bsp_init(120000000);
+
+  // Set All GPIO pins to logic 1 output to avoid unexpected pulldowns
+  GPIOA_SetBits(GPIO_Pin_All);
+  GPIOB_SetBits(GPIO_Pin_All);
 
   // Configure all GPIO pins as floating input by default
   GPIOA_ModeCfg(GPIO_Pin_All, GPIO_ModeIN_Floating);
@@ -43,8 +51,6 @@ int main() {
   GPIOA_ModeCfg(GPIO_Pin_14, GPIO_Highspeed_PP_8mA);
   // Configure SPI0 CS pin PA12 as push-pull output
   GPIOA_ModeCfg(GPIO_Pin_12, GPIO_Highspeed_PP_8mA);
-  // Set SPI0 CS pin high to deselect the SPI slave device
-  GPIOA_SetBits(GPIO_Pin_12);
 
   // Configure PROGRAMN pin PA23 as push-pull output
   GPIOA_ModeCfg(GPIO_Pin_23, GPIO_Highspeed_PP_8mA);
@@ -64,8 +70,6 @@ int main() {
   // GPIOB_ModeCfg(GPIO_Pin_22, GPIO_Highspeed_PP_8mA);
   // GPIOB_ModeCfg(GPIO_Pin_23, GPIO_Highspeed_PP_8mA);
   // GPIOB_ModeCfg(GPIO_Pin_24, GPIO_Highspeed_PP_8mA);
-  // Turn off the LEDs by setting the pins high
-  // GPIOB_SetBits(GPIO_Pin_22 | GPIO_Pin_23 | GPIO_Pin_24);
 
   // Initialize SPI0 in master mode
   SPI0_MasterDefInit();
@@ -91,8 +95,19 @@ int main() {
   /* USB3.0 initialization, make sure that the two USB3.0 interrupts are enabled before initialization */
   USB30D_init(ENABLE);
 
-  // Turn on the LED on PB24 to indicate that the device is running
-  // GPIOB_ResetBits(GPIO_Pin_24);
+  // Send "Hello World!" on EP2 IN as an example
+  memcpy((void*)HSPI_RX_Addr0, "Hello World!", 12);
+  // Clear the EP2 IN interrupt
+  USB30_IN_clearIT(ENDP_2);
+  // Point the EP2 IN buffer to the data received from SPI0
+  USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)HSPI_RX_Addr0;
+  // Set endpoint 2 to ACK and notify the host to take the data
+  USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 12);
+  USB30_send_ERDY(ENDP_2 | IN, 1);
+
+  HSPI_DoubleDMA_Init(HSPI_DEVICE, RB_HSPI_DAT32_MOD,
+    (unsigned long int)HSPI_RX_Addr0,
+    (unsigned long int)HSPI_RX_Addr1, 0);
 
   while(1)
   {
@@ -115,9 +130,6 @@ int main() {
       }
       // Set SPI0 CS high to deselect the SPI slave device
       GPIOA_SetBits(GPIO_Pin_12);
-
-      // Invert LED B22 to indicate that data has been received on EP1
-      // if(rx_len == 8) GPIOB_InverseBits(GPIO_Pin_22);
 
       // After processing, clear the flag
       ep1_data_received = 0;
@@ -142,9 +154,6 @@ int main() {
 
 void EP1_OUT_Callback(void)
 {
-  // Invert LED B23 to indicate that data has been received on EP1
-  // GPIOB_InverseBits(GPIO_Pin_23);
-
   // Clear interrupt
   USB30_OUT_clearIT(ENDP_1);
   // Set a flag to indicate that data has been received on EP1, which can be processed in the main loop
@@ -155,4 +164,41 @@ void EP1_IN_Callback(void)
 {
   // Clear the interrupt and continue
   USB30_IN_clearIT(ENDP_1);
+}
+
+void EP2_IN_Callback(void)
+{
+  // Clear the interrupt and continue
+  USB30_IN_clearIT(ENDP_2);
+}
+
+
+__attribute__((interrupt())) void HSPI_IRQHandler(void)
+{
+	uint8_t error_flags = R8_HSPI_RTX_STATUS;
+	uint8_t int_flag = R8_HSPI_INT_FLAG;
+  uint8_t error = 0;
+
+	if (int_flag & RB_HSPI_IF_R_DONE) // Single packet reception completed
+	{
+		if (error_flags & RB_HSPI_CRC_ERR) {
+      error = 1;
+		}
+		if (int_flag & RB_HSPI_IF_FIFO_OV) {
+      error = 1;
+		}
+		if (error_flags & RB_HSPI_NUM_MIS) {
+      error = 1;
+		}
+
+    // Clear the EP2 IN interrupt
+    USB30_IN_clearIT(ENDP_2);
+    // Point the EP2 IN buffer to the data received from SPI0
+    USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)HSPI_RX_Addr0;
+    // Set endpoint 2 to ACK and notify the host to take the data
+    USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 128);
+    USB30_send_ERDY(ENDP_2 | IN, 1);
+
+		R8_HSPI_INT_FLAG = RB_HSPI_IF_R_DONE; // Clear Interrupt
+	}
 }

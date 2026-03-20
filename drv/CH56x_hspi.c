@@ -35,13 +35,6 @@ void HSPI_DoubleDMA_Init(HSPI_ModeTypeDef mode_type, uint8_t mode_data,
 						 uint32_t DMA0_addr, uint32_t DMA1_addr,
 						 uint16_t DMA_addr_len)
 {
-	/* HSPI GPIO configuration */
-	// TX GPIO PA9/PA11/PA21 Push-pull output
-	R32_PA_DIR |= (1<<9) | (1<<11) | (1<<21);
-	// clk 16mA
-	R32_PA_DRV |= (1<<11);
-	// RX GPIO PA10 Push-pull output
-	R32_PA_DIR |= (1<<10);
 	bsp_wait_us_delay(1); /* Wait "GPIO stabilization" mandatory before HSPI configuration to avoid potential CRC error */
 
 	R8_HSPI_CFG &= ~(RB_HSPI_MODE | RB_HSPI_MSK_SIZE); // Clear HSPI Configuration

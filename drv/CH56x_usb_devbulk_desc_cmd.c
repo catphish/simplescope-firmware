@@ -191,7 +191,7 @@ uint8_t USB_SS_ConfigDescriptor[LEN_USB_SS_ConfigDescriptor] =
 	0x04, // INTERFACE (4)
 	0x00, // Zero based index 0f this interface
 	0x00, // Alternate setting value (?)
-	0x04, // Number of endpoints (not counting 0)
+	0x03, // Number of endpoints (not counting 0)
 	0xff, // Interface class, ff is vendor specific
 	0xff, // Interface sub-class
 	0xff, // Interface protocol

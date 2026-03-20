@@ -39,7 +39,6 @@ extern "C" {
 extern __attribute__ ((aligned(16))) uint8_t endp0RTbuff[512] __attribute__((section(".DMADATA"))); // Endpoint0 Data send/receive buffer
 extern __attribute__ ((aligned(16))) uint8_t endp1Tbuff[DEF_ENDP1_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint1 Data send buffer
 extern __attribute__ ((aligned(16))) uint8_t endp1Rbuff[DEF_ENDP1_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint1 Data receive buffer
-extern __attribute__ ((aligned(16))) uint8_t endp2Tbuff[DEF_ENDP2_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint2 Data send buffer
 
 /* USB Connection Status & USB Type */
 #define USB_INT_CONNECT       (0x01) /* USB device connection event detected */

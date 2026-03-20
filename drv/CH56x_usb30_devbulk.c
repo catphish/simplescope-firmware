@@ -33,7 +33,6 @@ vuint8_t g_DeviceUsbType = 0;
 __attribute__((aligned(16))) uint8_t endp0RTbuff[512] __attribute__((section(".DMADATA"))); // Endpoint 0 data transceiver buffer
 __attribute__((aligned(16))) uint8_t endp1Rbuff[DEF_ENDP1_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 1 data Receive buffer
 __attribute__((aligned(16))) uint8_t endp1Tbuff[DEF_ENDP1_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 1 data Transmit buffer
-__attribute__((aligned(16))) uint8_t endp2Tbuff[DEF_ENDP2_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 2 data Transmit buffer
 
 /*******************************************************************************
  * @fn     USB3_force
@@ -131,8 +130,6 @@ void USB30D_init(FunctionalState sta)
 
 		USBSS->UEP0_DMA = (uint32_t)(uint8_t *)endp0RTbuff;
 		USBSS->UEP1_TX_DMA = (uint32_t)(uint8_t *)endp1Tbuff;
-		USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)endp2Tbuff;
-
 		USBSS->UEP1_RX_DMA = (uint32_t)(uint8_t *)endp1Rbuff;
 
 		USB30_OUT_set(ENDP_1, ACK, DEF_ENDP1_OUT_BURST_LEVEL); // endpoint1 receive setting
@@ -594,171 +591,6 @@ __attribute__((interrupt())) void LINK_IRQHandler(void)
 }
 
 /*******************************************************************************
- * @fn     EP2_IN_Callback
- *
- * @brief  USB3.0 endpoint2 in callback called from USBSS_IRQHandler (Send data to Host).
- *
- * @return None
- */
-void EP2_IN_Callback(void)
-{
-	// Clear the interrupt and continue
-	USB30_IN_clearIT(ENDP_2);
-}
-
-/*******************************************************************************
- * @fn     EP3_IN_Callback
- *
- * @brief  USB3.0 endpoint3 in callback called from USBSS_IRQHandler (Send data to Host).
- *
- * @return None
- */
-void EP3_IN_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP3 IN\n");
-#endif
-}
-
-/*******************************************************************************
- * @fn     EP4_IN_Callback
- *
- * @brief  USB3.0 endpoint4 in callback called from USBSS_IRQHandler (Send data to Host).
- *
- * @return None
- */
-void EP4_IN_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP4 IN\n");
-#endif
-}
-/*******************************************************************************
- * @fn     EP5_IN_Callback
- *
- * @brief  USB3.0 endpoint5 in callback called from USBSS_IRQHandler (Send data to Host).
- *
- * @return None
- */
-void EP5_IN_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP5 IN\n");
-#endif
-}
-/*******************************************************************************
- * @fn     EP6_IN_Callback
- *
- * @brief  USB3.0 endpoint6 in callback called from USBSS_IRQHandler (Send data to Host).
- *
- * @return None
- */
-void EP6_IN_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP6 IN\n");
-#endif
-}
-/*******************************************************************************
- * @fn     EP7_IN_Callback
- *
- * @brief  USB3.0 endpoint7 in callback called from USBSS_IRQHandler (Send data to Host).
- *
- * @return None
- */
-void EP7_IN_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP7 IN\n");
-#endif
-}
-/*************** Endpointn OUT Transaction Processing *******************/
-
-/*******************************************************************************
- * @fn     EP1_OUT_Callback
- *
- * @brief  USB3.0 endpoint1 out callback called from USBSS_IRQHandler (Receive data from Host).
- *
- * @return None
- */
-
-/*******************************************************************************
- * @fn     EP2_OUT_Callback
- *
- * @brief  USB3.0 endpoint2 out callback called from USBSS_IRQHandler (Receive data from Host).
- *
- * @return None
- */
-void EP2_OUT_Callback(void)
-{
-}
-/*******************************************************************************
- * @fn     EP3_OUT_Callback
- *
- * @brief  USB3.0 endpoint3 out callback called from USBSS_IRQHandler (Receive data from Host).
- *
- * @return None
- */
-void EP3_OUT_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP3 OUT\n");
-#endif
-}
-/*******************************************************************************
- * @fn     EP4_OUT_Callback
- *
- * @brief  USB3.0 endpoint4 out callback called from USBSS_IRQHandler (Receive data from Host).
- *
- * @return None
- */
-void EP4_OUT_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP4 OUT\n");
-#endif
-}
-/*******************************************************************************
- * @fn     EP5_OUT_Callback
- *
- * @brief  USB3.0 endpoint5 out callback called from USBSS_IRQHandler (Receive data from Host).
- *
- * @return None
- */
-void EP5_OUT_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP5 OUT\n");
-#endif
-}
-/*******************************************************************************
- * @fn     EP6_OUT_Callback
- *
- * @brief  USB3.0 endpoint6 out callback called from USBSS_IRQHandler (Receive data from Host).
- *
- * @return None
- */
-void EP6_OUT_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP6 OUT\n");
-#endif
-}
-/*******************************************************************************
- * @fn     EP7_OUT_Callback
- *
- * @brief  USB3.0 endpoint7 out callback called from USBSS_IRQHandler (Receive data from Host).
- *
- * @return None
- */
-void EP7_OUT_Callback(void)
-{
-#if DEBUG_USB3_EPX
-	cprintf("USB3 EP7 OUT\n");
-#endif
-}
-
-/*******************************************************************************
  * @fn     USB30_ITP_Callback
  *
  * @brief  USB3.0 Isochronous Timestamp Packet (ITP) Callback
@@ -821,21 +653,6 @@ __attribute__((interrupt())) void USBSS_IRQHandler(void)
 				case 2:
 					EP2_IN_Callback();
 					break;
-				case 3:
-					EP3_IN_Callback();
-					return;
-				case 4:
-					EP4_IN_Callback();
-					return;
-				case 5:
-					EP5_IN_Callback();
-					return;
-				case 6:
-					EP6_IN_Callback();
-					return;
-				case 7:
-					EP7_IN_Callback();
-					return;
 			}
 			return;
 		}
@@ -844,24 +661,6 @@ __attribute__((interrupt())) void USBSS_IRQHandler(void)
 			case 1:
 				EP1_OUT_Callback();
 				break;
-			case 2:
-				EP2_OUT_Callback();
-				return;
-			case 3:
-				EP3_OUT_Callback();
-				return;
-			case 4:
-				EP4_OUT_Callback();
-				return;
-			case 5:
-				EP5_OUT_Callback();
-				return;
-			case 6:
-				EP6_OUT_Callback();
-				return;
-			case 7:
-				EP7_OUT_Callback();
-				return;
 		}
 		return;
 	}
