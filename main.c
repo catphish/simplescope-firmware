@@ -19,6 +19,7 @@
 #define HSPI_RX_DMA_LENGTH   4096
 __attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr0[HSPI_RX_DMA_LENGTH]	__attribute__((section(".DMADATA")));
 __attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr1[HSPI_RX_DMA_LENGTH]	__attribute__((section(".DMADATA")));
+__attribute__((aligned(16))) volatile uint8_t error_str[6]	__attribute__((section(".DMADATA")));
 
 /* FLASH_ROMA Read Unique ID (8bytes/64bits) */
 #define FLASH_ROMA_UID_ADDR (0x77fe4)
@@ -172,33 +173,49 @@ void EP2_IN_Callback(void)
   USB30_IN_clearIT(ENDP_2);
 }
 
-
 __attribute__((interrupt())) void HSPI_IRQHandler(void)
 {
-	uint8_t error_flags = R8_HSPI_RTX_STATUS;
-	uint8_t int_flag = R8_HSPI_INT_FLAG;
   uint8_t error = 0;
 
-	if (int_flag & RB_HSPI_IF_R_DONE) // Single packet reception completed
+  if (R8_HSPI_INT_FLAG & RB_HSPI_IF_FIFO_OV) {
+    R8_HSPI_INT_FLAG = RB_HSPI_IF_FIFO_OV; // Clear FIFO overflow interrupt
+  }
+
+	if (R8_HSPI_INT_FLAG & RB_HSPI_IF_R_DONE) // Single packet reception completed
 	{
-		if (error_flags & RB_HSPI_CRC_ERR) {
+    error_str[0] = ' '; // Clear error string
+    error_str[1] = ' ';
+    error_str[2] = ' ';
+    error_str[3] = ' ';
+    error_str[4] = ' ';
+    error_str[5] = ' ';
+		if (R8_HSPI_RTX_STATUS & RB_HSPI_CRC_ERR) {
+      error_str[0] = 'C';
+      error_str[1] = 'R';
+      error_str[2] = 'C';
       error = 1;
 		}
-		if (int_flag & RB_HSPI_IF_FIFO_OV) {
+		if (R8_HSPI_RTX_STATUS & RB_HSPI_NUM_MIS) {
+      error_str[3] = 'N';
+      error_str[4] = 'U';
+      error_str[5] = 'M';
       error = 1;
 		}
-		if (error_flags & RB_HSPI_NUM_MIS) {
-      error = 1;
-		}
-
-    // Clear the EP2 IN interrupt
-    USB30_IN_clearIT(ENDP_2);
-    // Point the EP2 IN buffer to the data received from SPI0
-    USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)HSPI_RX_Addr0;
-    // Set endpoint 2 to ACK and notify the host to take the data
-    USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 128);
-    USB30_send_ERDY(ENDP_2 | IN, 1);
-
-		R8_HSPI_INT_FLAG = RB_HSPI_IF_R_DONE; // Clear Interrupt
+    if(error) {
+      // Point the EP2 IN buffer to the data received from SPI0
+      USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)error_str;
+      // Set endpoint 2 to ACK and notify the host to take the data
+      USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 6);
+      USB30_send_ERDY(ENDP_2 | IN, 1);
+    } else {
+      // Determine which buffer was filled by checking the toggle bit
+      uint32_t addr = (R8_HSPI_RX_SC & RB_HSPI_RX_TOG) ? (uint32_t)HSPI_RX_Addr0 : (uint32_t)HSPI_RX_Addr1  ;
+      // Point the EP2 IN buffer to the data received from SPI0
+      USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)addr;
+      // Set endpoint 2 to ACK and notify the host to take the data
+      USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 20*4);
+      USB30_send_ERDY(ENDP_2 | IN, 1);
+    }
+    R8_HSPI_INT_FLAG = RB_HSPI_IF_R_DONE; // Clear Interrupt
 	}
 }
