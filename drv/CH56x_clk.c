@@ -36,8 +36,8 @@ void SystemInit(uint32_t systemclck)
 		case CLK_SOURCE_PLL_30MHz:
 			R8_SAFE_ACCESS_SIG = 0x57; // enable safe access mode
 			R8_SAFE_ACCESS_SIG = 0xa8;
-			R8_CLK_PLL_DIV = 0x40; // BaseCLK= 480MHz/1 => 30MHz
-			R8_CLK_CFG_CTRL = 0x80 | RB_CLK_SEL_PLL;
+			R8_CLK_PLL_DIV = 0x40 | 0x01; // BaseCLK= 30MHz/1 => 30MHz
+			R8_CLK_CFG_CTRL = 0x80;
 
 			break;
 		case CLK_SOURCE_PLL_60MHz:

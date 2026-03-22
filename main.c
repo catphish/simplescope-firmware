@@ -20,6 +20,7 @@
 __attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr0[HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
 __attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr1[HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
 __attribute__((aligned(16))) volatile uint8_t error_str[6]  __attribute__((section(".DMADATA")));
+__attribute__((aligned(16))) volatile uint8_t hello_str[12]  __attribute__((section(".DMADATA")));
 
 /* FLASH_ROMA Read Unique ID (8bytes/64bits) */
 #define FLASH_ROMA_UID_ADDR (0x77fe4)
@@ -35,8 +36,8 @@ usb_descriptor_usb_vid_pid_t vid_pid =
 volatile uint8_t ep1_data_received = 0; // Flag to indicate data received on EP1
 
 int main() {
-  // Initialize system clock to 120MHz
-  bsp_init(120000000);
+  // Initialize system clock to 80MHz
+  bsp_init(80000000);
 
   // Set All GPIO pins to logic 1 output to avoid unexpected pulldowns
   GPIOA_SetBits(GPIO_Pin_All);
@@ -95,16 +96,6 @@ int main() {
 
   /* USB3.0 initialization, make sure that the two USB3.0 interrupts are enabled before initialization */
   USB30D_init(ENABLE);
-
-  // Send "Hello World!" on EP2 IN as an example
-  memcpy((void*)HSPI_RX_Addr0, "Hello World!", 12);
-  // Clear the EP2 IN interrupt
-  USB30_IN_clearIT(ENDP_2);
-  // Point the EP2 IN buffer to the data received from SPI0
-  USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)HSPI_RX_Addr0;
-  // Set endpoint 2 to ACK and notify the host to take the data
-  USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 12);
-  USB30_send_ERDY(ENDP_2 | IN, 1);
 
   HSPI_DoubleDMA_Init(HSPI_DEVICE, RB_HSPI_DAT32_MOD,
     (unsigned long int)HSPI_RX_Addr0,
@@ -167,14 +158,41 @@ void EP1_IN_Callback(void)
   USB30_IN_clearIT(ENDP_1);
 }
 
+volatile uint8_t usb_rdy = 1; // Flag to indicate if USB is ready to send data
+volatile uint32_t data_waiting = 0; // Flag to indicate that USB data is waiting to be sent on EP2
 void EP2_IN_Callback(void)
 {
-  // Clear the interrupt and continue
+  bsp_disable_interrupt();
+
+	uint8_t nump;
+	nump = USB30_IN_nump(ENDP_2); //nump: number of remaining packets to be sent
   USB30_IN_clearIT(ENDP_2);
+
+	if(nump == 0)
+	{
+    if(data_waiting) {
+      data_waiting = 0; // Clear the flag to indicate that the waiting data has been sent
+      // Point the EP2 IN buffer to the data received from SPI0
+      USBSS->UEP2_TX_DMA = data_waiting;
+      // Set endpoint 2 to ACK and notify the host to take the data
+      USB30_IN_set(ENDP_2, ENABLE, ACK, 2, 1024);
+      USB30_send_ERDY(ENDP_2 | IN, 2);
+    } else {
+      usb_rdy = 1; // Set the flag to indicate that USB is ready to send data on EP2
+    }
+	}
+	else
+	{
+		if(nump > DEF_ENDP2_IN_BURST_LEVEL) nump = DEF_ENDP2_IN_BURST_LEVEL;
+		USB30_IN_set(ENDP_2, ENABLE, ACK, nump, 1024); // Able to send nump packet
+		USB30_send_ERDY(ENDP_2 | IN, nump);
+	}
+  bsp_enable_interrupt();
 }
 
 __attribute__((interrupt())) void HSPI_IRQHandler(void)
 {
+  bsp_disable_interrupt();
   uint8_t error = 0;
 
   if (R8_HSPI_INT_FLAG & RB_HSPI_IF_FIFO_OV) {
@@ -183,39 +201,48 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
 
   if (R8_HSPI_INT_FLAG & RB_HSPI_IF_R_DONE) // Single packet reception completed
   {
-    error_str[0] = ' '; // Clear error string
-    error_str[1] = ' ';
-    error_str[2] = ' ';
-    error_str[3] = ' ';
-    error_str[4] = ' ';
-    error_str[5] = ' ';
+    // error_str[0] = ' '; // Clear error string
+    // error_str[1] = ' ';
+    // error_str[2] = ' ';
+    // error_str[3] = ' ';
+    // error_str[4] = ' ';
+    // error_str[5] = ' ';
     if (R8_HSPI_RTX_STATUS & RB_HSPI_CRC_ERR) {
-      error_str[0] = 'C';
-      error_str[1] = 'R';
-      error_str[2] = 'C';
+      // error_str[0] = 'C';
+      // error_str[1] = 'R';
+      // error_str[2] = 'C';
       error = 1;
     }
     if (R8_HSPI_RTX_STATUS & RB_HSPI_NUM_MIS) {
-      error_str[3] = 'N';
-      error_str[4] = 'U';
-      error_str[5] = 'M';
+      // error_str[3] = 'N';
+      // error_str[4] = 'U';
+      // error_str[5] = 'M';
       error = 1;
     }
     if(error) {
-      // Point the EP2 IN buffer to the data received from SPI0
-      USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)error_str;
-      // Set endpoint 2 to ACK and notify the host to take the data
-      USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 6);
-      USB30_send_ERDY(ENDP_2 | IN, 1);
+      // if(usb_rdy) {
+      //   usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2
+      //   // Point the EP2 IN buffer to the data received from SPI0
+      //   USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)error_str;
+      //   // Set endpoint 2 to ACK and notify the host to take the data
+      //   USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 6);
+      //   USB30_send_ERDY(ENDP_2 | IN, 1);
+      // } // If USB is not ready, drop the error
     } else {
       // Determine which buffer was filled by checking the toggle bit
-      uint32_t addr = (R8_HSPI_RX_SC & RB_HSPI_RX_TOG) ? (uint32_t)HSPI_RX_Addr0 : (uint32_t)HSPI_RX_Addr1  ;
-      // Point the EP2 IN buffer to the data received from SPI0
-      USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)addr;
-      // Set endpoint 2 to ACK and notify the host to take the data
-      USB30_IN_set(ENDP_2, ENABLE, ACK, 2, 10);
-      USB30_send_ERDY(ENDP_2 | IN, 2);
+      uint32_t addr = (R8_HSPI_RX_SC & RB_HSPI_RX_TOG) ? (uint32_t)HSPI_RX_Addr0 : (uint32_t)HSPI_RX_Addr1;
+      if(usb_rdy) {
+        usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2
+        // Point the EP2 IN buffer to the data received from SPI0
+        USBSS->UEP2_TX_DMA = addr;
+        // Set endpoint 2 to ACK and notify the host to take the data
+        USB30_IN_set(ENDP_2, ENABLE, ACK, 2, 1024);
+        USB30_send_ERDY(ENDP_2 | IN, 2);
+      } else {
+        data_waiting = addr; // Set the flag to indicate that there is data waiting to be sent on EP2
+      }
     }
     R8_HSPI_INT_FLAG = RB_HSPI_IF_R_DONE; // Clear Interrupt
   }
+  bsp_enable_interrupt();
 }

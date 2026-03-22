@@ -69,7 +69,9 @@ void HSPI_DoubleDMA_Init(HSPI_ModeTypeDef mode_type, uint8_t mode_data,
 	R8_HSPI_AUX |= RB_HSPI_REQ_FT;
 
 	// TX sampling edge
-	R8_HSPI_AUX |= RB_HSPI_TCK_MOD; // falling edge sampling
+	// R8_HSPI_AUX |= RB_HSPI_TCK_MOD; // falling edge sampling
+	// RX sampling edge
+	// R8_HSPI_AUX |= RB_HSPI_RCK_MOD; // falling edge sampling
 
 	// Hardware Auto ack time disabled
 	R8_HSPI_AUX &= ~RB_HSPI_ACK_TX_MOD;
