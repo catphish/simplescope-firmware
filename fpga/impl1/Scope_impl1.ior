@@ -1,0 +1,67 @@
+Loading design for application iotiming from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: M
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+// Design: adc_ft601
+// Package: TQFP100
+// ncd File: Scope_impl1.ncd
+// Version: Diamond (64-bit) 3.14.0.75.2
+// Written on Sun Mar 22 21:59:10 2026
+// M: Minimum Performance Grade
+// iotiming Scope_impl1.ncd Scope_impl1.prf -gui -msgset /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/promote.xml
+
+I/O Timing Report (All units are in ns)
+
+Worst Case Results across Performance Grades (M, 6):
+
+// Input Setup and Hold Times
+
+Port  Clock Edge  Setup Performance_Grade  Hold Performance_Grade
+----------------------------------------------------------------------
+htack htclk R     4.860      6       0.246     6
+
+
+// Clock to Output Delay
+
+Port        Clock Edge  Max_Delay Performance_Grade  Min_Delay Performance_Grade
+------------------------------------------------------------------------
+ch_data[0]  htclk R     8.263         6        2.653          M
+ch_data[10] htclk R     8.522         6        2.673          M
+ch_data[11] htclk R     8.460         6        2.677          M
+ch_data[12] htclk R     8.460         6        2.676          M
+ch_data[13] htclk R     8.188         6        2.604          M
+ch_data[14] htclk R     7.760         6        2.468          M
+ch_data[15] htclk R     7.543         6        2.394          M
+ch_data[16] htclk R     8.828         6        2.782          M
+ch_data[17] htclk R     8.001         6        2.553          M
+ch_data[18] htclk R     7.545         6        2.394          M
+ch_data[19] htclk R     8.423         6        2.719          M
+ch_data[1]  htclk R     8.328         6        2.681          M
+ch_data[20] htclk R     8.142         6        2.586          M
+ch_data[21] htclk R     8.793         6        2.769          M
+ch_data[22] htclk R     7.776         6        2.496          M
+ch_data[23] htclk R     8.097         6        2.603          M
+ch_data[24] htclk R     8.117         6        2.596          M
+ch_data[25] htclk R     8.526         6        2.740          M
+ch_data[26] htclk R     8.394         6        2.672          M
+ch_data[27] htclk R     8.762         6        2.777          M
+ch_data[28] htclk R     7.858         6        2.539          M
+ch_data[29] htclk R     8.452         6        2.722          M
+ch_data[2]  htclk R     7.626         6        2.439          M
+ch_data[30] htclk R     7.955         6        2.552          M
+ch_data[31] htclk R     7.633         6        2.441          M
+ch_data[3]  htclk R     7.903         6        2.523          M
+ch_data[4]  htclk R     9.420         6        2.971          M
+ch_data[5]  htclk R     8.942         6        2.840          M
+ch_data[6]  htclk R     8.579         6        2.773          M
+ch_data[7]  htclk R     9.584         6        3.062          M
+ch_data[8]  htclk R     7.921         6        2.529          M
+ch_data[9]  htclk R     8.255         6        2.629          M
+hract       htclk R     7.897         6        2.526          M
+hrvld       htclk R     7.433         6        2.389          M
+WARNING: you must also run trce with hold speed: 6

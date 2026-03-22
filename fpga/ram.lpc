@@ -1,0 +1,52 @@
+[Device]
+Family=machxo2
+PartType=LCMXO2-1200HC
+PartName=LCMXO2-1200HC-6TG100I
+SpeedGrade=6
+Package=TQFP100
+OperatingCondition=IND
+Status=S
+
+[IP]
+VendorName=Lattice Semiconductor Corporation
+CoreType=LPM
+CoreStatus=Demo
+CoreName=RAM_DQ
+CoreRevision=7.5
+ModuleName=ram
+SourceFormat=Verilog HDL
+ParameterFileVersion=1.0
+Date=03/22/2026
+Time=18:20:46
+
+[Parameters]
+Verilog=1
+VHDL=0
+EDIF=1
+Destination=Synplicity
+Expression=BusA(0 to 7)
+Order=[MSB:LSB]
+IO=0
+Address=2048
+Data=32
+enByte=0
+ByteSize=9
+OutputEn=0
+ClockEn=0
+Optimization=Speed
+Reset=Sync
+Reset1=Sync
+Init=0
+MemFile=
+MemFormat=bin
+EnECC=0
+Pipeline=0
+Write=Normal
+init_data=0
+no_init=0
+
+[FilesGenerated]
+=mem
+
+[Command]
+cmd_line= -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ramdq -device LCMXO2-1200HC -addr_width 11 -data_width 32 -num_words 2048 -cascade -1 -mem_init0 -writemode NORMAL

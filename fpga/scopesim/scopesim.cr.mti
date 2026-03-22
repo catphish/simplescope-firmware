@@ -1,0 +1,15 @@
+{/home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v} {1 {vlog -work work -vopt -stats=none {/home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v}
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module fifo
+
+Top level modules:
+	fifo
+
+} {} {}} {/home/charlie/Hardware/scope order 1/scope/lattice/scopesim/scope.v} {1 {vlog -work work -vopt -stats=none {/home/charlie/Hardware/scope order 1/scope/lattice/scopesim/scope.v}
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module adc_ft601
+
+Top level modules:
+	adc_ft601
+
+} {} {}}

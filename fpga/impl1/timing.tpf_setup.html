@@ -1,0 +1,429 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<STYLE type=text/css>
+<!--
+.blink {text-decoration:blink}
+.ms  {font-size: 9pt; font-family: monospace; font-weight: normal}
+.msb {font-size: 9pt; font-family: monospace; font-weight: bold  }
+-->
+</STYLE>
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY><B>
+</B>
+<BR><PRE><A name="Report Header"></A>
+--------------------------------------------------------------------------------
+Lattice TRACE Report - Setup, Version Diamond (64-bit) 3.14.0.75.2
+Sat Mar 21 23:47:08 2026
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+
+Report Information
+------------------
+Design file:     adc_ft601
+Device,speed:    LCMXO2-1200HC,6
+Report level:    verbose report, limited to 10 items per preference
+--------------------------------------------------------------------------------
+
+WARNING - No timing preferences found. Doing default enumeration.
+
+
+
+</A><A name="Default path enumeration
+"></A>================================================================================
+Preference: Default path enumeration
+            4096 items scored, 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+Report:   12.818ns delay ram0 to ch_data[29]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C10.CLKR to  EBR_R6C10.DO6 <A href="#@comp:ram0">ram0</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     1.221<A href="#@net:n1035:EBR_R6C10.DO6:R4C12C.D1:1.221">  EBR_R6C10.DO6 to R4C12C.D1     </A> <A href="#@net:n1035">n1035</A>
+CTOF_DEL    ---     0.410      R4C12C.D1 to      R4C12C.F1 <A href="#@comp:SLICE_90">SLICE_90</A>
+ROUTE         3     0.799<A href="#@net:n871:R4C12C.F1:R4C14B.A1:0.799">      R4C12C.F1 to R4C14B.A1     </A> <A href="#@net:n871">n871</A>
+CTOF_DEL    ---     0.410      R4C14B.A1 to      R4C14B.F1 <A href="#@comp:SLICE_167">SLICE_167</A>
+ROUTE         4     2.804<A href="#@net:n2741:R4C14B.F1:42.PADDO:2.804">      R4C14B.F1 to 42.PADDO      </A> <A href="#@net:n2741">n2741</A>
+DOPAD_DEL   ---     2.869       42.PADDO to         42.PAD <A href="#@comp:ch_data[29]">ch_data[29]</A>
+                  --------
+                   12.818   (62.4% logic, 37.6% route), 4 logic levels.
+
+Report:   12.605ns delay ram1 to ch_data[11]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C14.CLKR to  EBR_R6C14.DO2 <A href="#@comp:ram1">ram1</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     1.322<A href="#@net:n1017:EBR_R6C14.DO2:R5C12C.B1:1.322">  EBR_R6C14.DO2 to R5C12C.B1     </A> <A href="#@net:n1017">n1017</A>
+CTOF_DEL    ---     0.410      R5C12C.B1 to      R5C12C.F1 <A href="#@comp:SLICE_81">SLICE_81</A>
+ROUTE         3     0.760<A href="#@net:n853:R5C12C.F1:R3C12A.D1:0.760">      R5C12C.F1 to R3C12A.D1     </A> <A href="#@net:n853">n853</A>
+CTOF_DEL    ---     0.410      R3C12A.D1 to      R3C12A.F1 <A href="#@comp:SLICE_160">SLICE_160</A>
+ROUTE         5     2.529<A href="#@net:n2738:R3C12A.F1:69.PADDO:2.529">      R3C12A.F1 to 69.PADDO      </A> <A href="#@net:n2738">n2738</A>
+DOPAD_DEL   ---     2.869       69.PADDO to         69.PAD <A href="#@comp:ch_data[11]">ch_data[11]</A>
+                  --------
+                   12.605   (63.4% logic, 36.6% route), 4 logic levels.
+
+Report:   12.105ns delay ram0 to ch_data[22]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C10.CLKR to EBR_R6C10.DO17 <A href="#@comp:ram0">ram0</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     1.297<A href="#@net:n1028:EBR_R6C10.DO17:R5C16B.D0:1.297"> EBR_R6C10.DO17 to R5C16B.D0     </A> <A href="#@net:n1028">n1028</A>
+CTOF_DEL    ---     0.410      R5C16B.D0 to      R5C16B.F0 <A href="#@comp:SLICE_87">SLICE_87</A>
+ROUTE         3     0.606<A href="#@net:n864:R5C16B.F0:R5C15A.C1:0.606">      R5C16B.F0 to R5C15A.C1     </A> <A href="#@net:n864">n864</A>
+CTOF_DEL    ---     0.410      R5C15A.C1 to      R5C15A.F1 <A href="#@comp:SLICE_175">SLICE_175</A>
+ROUTE         3     2.208<A href="#@net:n2747:R5C15A.F1:58.PADDO:2.208">      R5C15A.F1 to 58.PADDO      </A> <A href="#@net:n2747">n2747</A>
+DOPAD_DEL   ---     2.869       58.PADDO to         58.PAD <A href="#@comp:ch_data[22]">ch_data[22]</A>
+                  --------
+                   12.105   (66.0% logic, 34.0% route), 4 logic levels.
+
+Report:   12.063ns delay ram0 to ch_data[26]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C10.CLKR to  EBR_R6C10.DO3 <A href="#@comp:ram0">ram0</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     1.459<A href="#@net:n1032:EBR_R6C10.DO3:R5C17A.D0:1.459">  EBR_R6C10.DO3 to R5C17A.D0     </A> <A href="#@net:n1032">n1032</A>
+CTOF_DEL    ---     0.410      R5C17A.D0 to      R5C17A.F0 <A href="#@comp:SLICE_89">SLICE_89</A>
+ROUTE         3     0.824<A href="#@net:n868:R5C17A.F0:R3C17B.B1:0.824">      R5C17A.F0 to R3C17B.B1     </A> <A href="#@net:n868">n868</A>
+CTOF_DEL    ---     0.410      R3C17B.B1 to      R3C17B.F1 <A href="#@comp:SLICE_190">SLICE_190</A>
+ROUTE         3     1.786<A href="#@net:n2748:R3C17B.F1:52.PADDO:1.786">      R3C17B.F1 to 52.PADDO      </A> <A href="#@net:n2748">n2748</A>
+DOPAD_DEL   ---     2.869       52.PADDO to         52.PAD <A href="#@comp:ch_data[26]">ch_data[26]</A>
+                  --------
+                   12.063   (66.3% logic, 33.7% route), 4 logic levels.
+
+Report:   12.008ns delay ram0 to ch_data[15]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C10.CLKR to EBR_R6C10.DO10 <A href="#@comp:ram0">ram0</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     0.914<A href="#@net:n1021:EBR_R6C10.DO10:R4C10D.D1:0.914"> EBR_R6C10.DO10 to R4C10D.D1     </A> <A href="#@net:n1021">n1021</A>
+CTOF_DEL    ---     0.410      R4C10D.D1 to      R4C10D.F1 <A href="#@comp:SLICE_83">SLICE_83</A>
+ROUTE         3     0.258<A href="#@net:n857:R4C10D.F1:R4C10C.D1:0.258">      R4C10D.F1 to R4C10C.D1     </A> <A href="#@net:n857">n857</A>
+CTOF_DEL    ---     0.410      R4C10C.D1 to      R4C10C.F1 <A href="#@comp:SLICE_131">SLICE_131</A>
+ROUTE         6     2.842<A href="#@net:n2724:R4C10C.F1:65.PADDO:2.842">      R4C10C.F1 to 65.PADDO      </A> <A href="#@net:n2724">n2724</A>
+DOPAD_DEL   ---     2.869       65.PADDO to         65.PAD <A href="#@comp:ch_data[15]">ch_data[15]</A>
+                  --------
+                   12.008   (66.6% logic, 33.4% route), 4 logic levels.
+
+Report:   11.913ns delay ram1 to ch_data[12]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C14.CLKR to  EBR_R6C14.DO3 <A href="#@comp:ram1">ram1</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     1.016<A href="#@net:n1018:EBR_R6C14.DO3:R4C13D.D0:1.016">  EBR_R6C14.DO3 to R4C13D.D0     </A> <A href="#@net:n1018">n1018</A>
+CTOF_DEL    ---     0.410      R4C13D.D0 to      R4C13D.F0 <A href="#@comp:SLICE_82">SLICE_82</A>
+ROUTE         3     0.760<A href="#@net:n854:R4C13D.F0:R2C13A.D1:0.760">      R4C13D.F0 to R2C13A.D1     </A> <A href="#@net:n854">n854</A>
+CTOF_DEL    ---     0.410      R2C13A.D1 to      R2C13A.F1 <A href="#@comp:SLICE_166">SLICE_166</A>
+ROUTE         4     2.143<A href="#@net:n2740:R2C13A.F1:68.PADDO:2.143">      R2C13A.F1 to 68.PADDO      </A> <A href="#@net:n2740">n2740</A>
+DOPAD_DEL   ---     2.869       68.PADDO to         68.PAD <A href="#@comp:ch_data[12]">ch_data[12]</A>
+                  --------
+                   11.913   (67.1% logic, 32.9% route), 4 logic levels.
+
+Report:   11.851ns delay ram0 to ch_data[19]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C10.CLKR to EBR_R6C10.DO14 <A href="#@comp:ram0">ram0</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     0.956<A href="#@net:n1025:EBR_R6C10.DO14:R5C11B.B1:0.956"> EBR_R6C10.DO14 to R5C11B.B1     </A> <A href="#@net:n1025">n1025</A>
+CTOF_DEL    ---     0.410      R5C11B.B1 to      R5C11B.F1 <A href="#@comp:SLICE_85">SLICE_85</A>
+ROUTE         3     0.628<A href="#@net:n861:R5C11B.F1:R4C11B.C1:0.628">      R5C11B.F1 to R4C11B.C1     </A> <A href="#@net:n861">n861</A>
+CTOF_DEL    ---     0.410      R4C11B.C1 to      R4C11B.F1 <A href="#@comp:SLICE_126">SLICE_126</A>
+ROUTE         4     2.273<A href="#@net:n2722:R4C11B.F1:61.PADDO:2.273">      R4C11B.F1 to 61.PADDO      </A> <A href="#@net:n2722">n2722</A>
+DOPAD_DEL   ---     2.869       61.PADDO to         61.PAD <A href="#@comp:ch_data[19]">ch_data[19]</A>
+                  --------
+                   11.851   (67.5% logic, 32.5% route), 4 logic levels.
+
+Report:   11.839ns delay ram0 to ch_data[20]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C10.CLKR to EBR_R6C10.DO15 <A href="#@comp:ram0">ram0</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     0.672<A href="#@net:n1026:EBR_R6C10.DO15:R5C12D.D0:0.672"> EBR_R6C10.DO15 to R5C12D.D0     </A> <A href="#@net:n1026">n1026</A>
+CTOF_DEL    ---     0.410      R5C12D.D0 to      R5C12D.F0 <A href="#@comp:SLICE_86">SLICE_86</A>
+ROUTE         3     0.760<A href="#@net:n862:R5C12D.F0:R3C13A.D1:0.760">      R5C12D.F0 to R3C13A.D1     </A> <A href="#@net:n862">n862</A>
+CTOF_DEL    ---     0.410      R3C13A.D1 to      R3C13A.F1 <A href="#@comp:SLICE_137">SLICE_137</A>
+ROUTE         3     2.413<A href="#@net:n2751:R3C13A.F1:60.PADDO:2.413">      R3C13A.F1 to 60.PADDO      </A> <A href="#@net:n2751">n2751</A>
+DOPAD_DEL   ---     2.869       60.PADDO to         60.PAD <A href="#@comp:ch_data[20]">ch_data[20]</A>
+                  --------
+                   11.839   (67.5% logic, 32.5% route), 4 logic levels.
+
+Report:   11.813ns delay ram0 to ch_data[23]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C10.CLKR to  EBR_R6C10.DO0 <A href="#@comp:ram0">ram0</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     1.459<A href="#@net:n1029:EBR_R6C10.DO0:R5C16B.D1:1.459">  EBR_R6C10.DO0 to R5C16B.D1     </A> <A href="#@net:n1029">n1029</A>
+CTOF_DEL    ---     0.410      R5C16B.D1 to      R5C16B.F1 <A href="#@comp:SLICE_87">SLICE_87</A>
+ROUTE         3     0.868<A href="#@net:n865:R5C16B.F1:R2C16D.C1:0.868">      R5C16B.F1 to R2C16D.C1     </A> <A href="#@net:n865">n865</A>
+CTOF_DEL    ---     0.410      R2C16D.C1 to      R2C16D.F1 <A href="#@comp:SLICE_147">SLICE_147</A>
+ROUTE         5     1.492<A href="#@net:n2733:R2C16D.F1:57.PADDO:1.492">      R2C16D.F1 to 57.PADDO      </A> <A href="#@net:n2733">n2733</A>
+DOPAD_DEL   ---     2.869       57.PADDO to         57.PAD <A href="#@comp:ch_data[23]">ch_data[23]</A>
+                  --------
+                   11.813   (67.7% logic, 32.3% route), 4 logic levels.
+
+Report:   11.784ns delay ram0 to ch_data[24]
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     4.305 EBR_R6C10.CLKR to  EBR_R6C10.DO1 <A href="#@comp:ram0">ram0</A> (from <A href="#@net:htclk_c">htclk_c</A>)
+ROUTE         1     0.672<A href="#@net:n1030:EBR_R6C10.DO1:R5C10D.D0:0.672">  EBR_R6C10.DO1 to R5C10D.D0     </A> <A href="#@net:n1030">n1030</A>
+CTOF_DEL    ---     0.410      R5C10D.D0 to      R5C10D.F0 <A href="#@comp:SLICE_88">SLICE_88</A>
+ROUTE         3     0.910<A href="#@net:n866:R5C10D.F0:R2C12B.D1:0.910">      R5C10D.F0 to R2C12B.D1     </A> <A href="#@net:n866">n866</A>
+CTOF_DEL    ---     0.410      R2C12B.D1 to      R2C12B.F1 <A href="#@comp:SLICE_174">SLICE_174</A>
+ROUTE         3     2.208<A href="#@net:n2746:R2C12B.F1:54.PADDO:2.208">      R2C12B.F1 to 54.PADDO      </A> <A href="#@net:n2746">n2746</A>
+DOPAD_DEL   ---     2.869       54.PADDO to         54.PAD <A href="#@comp:ch_data[24]">ch_data[24]</A>
+                  --------
+                   11.784   (67.8% logic, 32.2% route), 4 logic levels.
+
+Report:   87.451MHz is the maximum frequency for this preference.
+
+Report:   12.818ns is the maximum delay for this preference.
+
+
+================================================================================
+Preference: Default net enumeration
+            612 items scored, 0 timing errors detected.
+--------------------------------------------------------------------------------
+
+Report:    3.373ns maximum delay on htclk_c
+
+           Delays             Connection(s)
+           2.122ns         86.PADDI to EBR_R6C10.CLKR  
+           2.122ns         86.PADDI to EBR_R6C10.CLKW  
+           2.122ns         86.PADDI to EBR_R6C14.CLKR  
+           2.122ns         86.PADDI to EBR_R6C14.CLKW  
+           3.373ns         86.PADDI to 88.PADDO        
+           1.988ns         86.PADDI to R7C14D.CLK      
+           1.988ns         86.PADDI to R7C12A.CLK      
+           1.988ns         86.PADDI to R7C12C.CLK      
+           1.988ns         86.PADDI to R5C12B.CLK      
+           1.988ns         86.PADDI to R4C12C.CLK      
+           1.988ns         86.PADDI to R5C17A.CLK      
+           1.988ns         86.PADDI to R5C10D.CLK      
+           1.988ns         86.PADDI to R5C16B.CLK      
+           1.988ns         86.PADDI to R5C12D.CLK      
+           1.988ns         86.PADDI to R5C11B.CLK      
+           1.988ns         86.PADDI to R7C11B.CLK      
+           1.988ns         86.PADDI to R4C10D.CLK      
+           1.988ns         86.PADDI to R4C13D.CLK      
+           1.988ns         86.PADDI to R5C12C.CLK      
+           1.988ns         86.PADDI to R4C16B.CLK      
+           1.988ns         86.PADDI to R4C16C.CLK      
+           1.988ns         86.PADDI to R4C15C.CLK      
+           1.988ns         86.PADDI to R5C15D.CLK      
+           1.988ns         86.PADDI to R5C16D.CLK      
+           1.988ns         86.PADDI to R7C12D.CLK      
+           1.988ns         86.PADDI to R2C11B.CLK      
+           1.988ns         86.PADDI to R2C15C.CLK      
+           1.988ns         86.PADDI to R2C16C.CLK      
+           1.988ns         86.PADDI to R3C11A.CLK      
+           1.988ns         86.PADDI to R2C17D.CLK      
+           1.988ns         86.PADDI to R5C9A.CLK       
+           1.988ns         86.PADDI to R4C9B.CLK       
+           1.988ns         86.PADDI to R5C13B.CLK      
+           1.988ns         86.PADDI to R3C18A.CLK      
+           1.988ns         86.PADDI to R3C12C.CLK      
+           1.988ns         86.PADDI to R5C9B.CLK       
+           1.988ns         86.PADDI to R3C15D.CLK      
+           1.988ns         86.PADDI to R4C15D.CLK      
+           1.988ns         86.PADDI to R2C13B.CLK      
+           1.988ns         86.PADDI to R4C19D.CLK      
+           1.988ns         86.PADDI to R4C18D.CLK      
+           1.988ns         86.PADDI to R8C14C.CLK      
+           1.988ns         86.PADDI to R7C13C.CLK      
+           1.988ns         86.PADDI to R7C14A.CLK      
+           1.988ns         86.PADDI to R8C13D.CLK      
+           1.988ns         86.PADDI to R8C13A.CLK      
+           1.988ns         86.PADDI to R8C13C.CLK      
+           1.988ns         86.PADDI to R8C14D.CLK      
+           1.988ns         86.PADDI to R8C14A.CLK      
+           1.988ns         86.PADDI to R8C12C.CLK      
+           1.988ns         86.PADDI to R8C12D.CLK      
+           1.988ns         86.PADDI to R8C12B.CLK      
+           1.988ns         86.PADDI to R9C14D.CLK      
+           1.988ns         86.PADDI to R2C11D.CLK      
+           1.988ns         86.PADDI to R2C15A.CLK      
+           1.988ns         86.PADDI to R2C16B.CLK      
+           1.988ns         86.PADDI to R3C11B.CLK      
+           1.988ns         86.PADDI to R2C17B.CLK      
+           1.988ns         86.PADDI to R5C9C.CLK       
+           1.988ns         86.PADDI to R4C9C.CLK       
+           1.988ns         86.PADDI to R5C13A.CLK      
+           1.988ns         86.PADDI to R3C18D.CLK      
+           1.988ns         86.PADDI to R2C12A.CLK      
+           1.988ns         86.PADDI to R5C9D.CLK       
+           1.988ns         86.PADDI to R3C15B.CLK      
+           1.988ns         86.PADDI to R4C15B.CLK      
+           1.988ns         86.PADDI to R2C13C.CLK      
+           1.988ns         86.PADDI to R4C19C.CLK      
+           1.988ns         86.PADDI to R4C18A.CLK      
+           1.988ns         86.PADDI to R7C18C.CLK      
+           1.988ns         86.PADDI to R7C18D.CLK      
+           1.988ns         86.PADDI to R7C19A.CLK      
+           1.988ns         86.PADDI to R7C16D.CLK      
+           1.988ns         86.PADDI to R7C17A.CLK      
+           1.988ns         86.PADDI to R8C15C.CLK      
+           1.988ns         86.PADDI to R8C15B.CLK      
+           1.988ns         86.PADDI to R7C17B.CLK      
+           1.988ns         86.PADDI to R8C16A.CLK      
+           1.988ns         86.PADDI to R7C16A.CLK      
+           1.988ns         86.PADDI to R7C16B.CLK      
+           1.988ns         86.PADDI to R7C16C.CLK      
+           1.988ns         86.PADDI to R8C15A.CLK      
+           1.988ns         86.PADDI to R7C17C.CLK      
+           1.988ns         86.PADDI to R7C17D.CLK      
+           1.988ns         86.PADDI to R7C15A.CLK      
+           1.988ns         86.PADDI to R7C15B.CLK      
+           1.988ns         86.PADDI to R7C18A.CLK      
+           1.988ns         86.PADDI to R7C15C.CLK      
+           1.988ns         86.PADDI to R7C15D.CLK      
+           1.988ns         86.PADDI to R8C15D.CLK      
+           1.988ns         86.PADDI to R7C18B.CLK      
+
+Report:    3.222ns maximum delay on crc_2
+
+           Delays             Connection(s)
+           1.791ns        R4C19C.Q0 to R5C11C.A1       
+           1.630ns        R4C19C.Q0 to R4C9D.C1        
+           1.630ns        R4C19C.Q0 to R4C8C.C1        
+           1.630ns        R4C19C.Q0 to R4C8C.C0        
+           2.025ns        R4C19C.Q0 to R2C14D.C0       
+           0.501ns        R4C19C.Q0 to R4C18B.D1       
+           0.791ns        R4C19C.Q0 to R4C17D.A0       
+           2.252ns        R4C19C.Q0 to R2C15D.B0       
+           2.529ns        R4C19C.Q0 to R2C14C.B0       
+           3.222ns        R4C19C.Q0 to R3C12C.B0       
+           3.026ns        R4C19C.Q0 to R2C12A.C0       
+
+Report:    2.842ns maximum delay on n2724
+
+           Delays             Connection(s)
+           2.842ns        R4C10C.F1 to 65.PADDO        
+           1.328ns        R4C10C.F1 to R5C11C.C0       
+           0.910ns        R4C10C.F1 to R3C12D.D0       
+           0.525ns        R4C10C.F1 to R5C10B.D0       
+           2.021ns        R4C10C.F1 to R4C15A.C0       
+           0.804ns        R4C10C.F1 to R4C10C.B0       
+
+Report:    2.837ns maximum delay on n2785
+
+           Delays             Connection(s)
+           2.068ns        R7C12A.Q0 to R5C18A.C1       
+           2.659ns        R7C12A.Q0 to R4C17A.B1       
+           1.864ns        R7C12A.Q0 to R2C12B.B1       
+           2.213ns        R7C12A.Q0 to R3C16C.B1       
+           1.988ns        R7C12A.Q0 to R4C12A.C1       
+           1.162ns        R7C12A.Q0 to R5C13C.B1       
+           1.526ns        R7C12A.Q0 to R4C14B.B1       
+           1.526ns        R7C12A.Q0 to R4C14D.B1       
+           2.219ns        R7C12A.Q0 to R5C16A.B1       
+           1.905ns        R7C12A.Q0 to R3C16B.B1       
+           1.860ns        R7C12A.Q0 to R3C15C.B1       
+           2.463ns        R7C12A.Q0 to R4C17B.C1       
+           1.829ns        R7C12A.Q0 to R4C13C.B1       
+           1.866ns        R7C12A.Q0 to R5C10C.B1       
+           1.526ns        R7C12A.Q0 to R4C15A.B1       
+           2.528ns        R7C12A.Q0 to R4C10C.A1       
+           2.204ns        R7C12A.Q0 to R5C14A.B1       
+           2.018ns        R7C12A.Q0 to R3C11D.C1       
+           1.571ns        R7C12A.Q0 to R4C11B.D1       
+           2.204ns        R7C12A.Q0 to R2C17C.B1       
+           2.362ns        R7C12A.Q0 to R4C11A.C1       
+           0.796ns        R7C12A.Q0 to R7C13B.A1       
+           1.512ns        R7C12A.Q0 to R5C11D.B1       
+           1.522ns        R7C12A.Q0 to R4C13A.B1       
+           1.860ns        R7C12A.Q0 to R2C14C.B1       
+           1.571ns        R7C12A.Q0 to R4C12B.D1       
+           2.291ns        R7C12A.Q0 to R3C18B.B1       
+           1.829ns        R7C12A.Q0 to R3C13C.B1       
+           2.291ns        R7C12A.Q0 to R3C17D.B1       
+           1.866ns        R7C12A.Q0 to R5C10A.B1       
+           1.840ns        R7C12A.Q0 to R2C12C.A1       
+           2.219ns        R7C12A.Q0 to R5C16C.B1       
+           2.837ns        R7C12A.Q0 to R4C10B.A1       
+           1.138ns        R7C12A.Q0 to R5C13D.A1       
+           0.531ns        R7C12A.Q0 to R7C12A.A0       
+
+Report:    2.804ns maximum delay on n2741
+
+           Delays             Connection(s)
+           2.804ns        R4C14B.F1 to 42.PADDO        
+           0.361ns        R4C14B.F1 to R4C14B.C0       
+           0.627ns        R4C14B.F1 to R2C14B.C1       
+           1.173ns        R4C14B.F1 to R3C16A.B1       
+
+Report:    2.691ns maximum delay on htack_c
+
+           Delays             Connection(s)
+           2.175ns         38.PADDI to R7C14C.A0       
+           2.691ns         38.PADDI to R7C13D.D0       
+           2.003ns         38.PADDI to R7C14A.C1       
+
+Report:    2.688ns maximum delay on crc32/n673
+
+           Delays             Connection(s)
+           0.799ns        R5C11C.F1 to R3C11A.A1       
+           2.664ns        R5C11C.F1 to R3C18A.A1       
+           2.315ns        R5C11C.F1 to R4C18D.A1       
+           1.131ns        R5C11C.F1 to R3C11B.B1       
+           2.688ns        R5C11C.F1 to R3C18D.B1       
+           2.027ns        R5C11C.F1 to R4C18A.D1       
+
+Report:    2.638ns maximum delay on crc_15
+
+           Delays             Connection(s)
+           2.605ns        R3C18D.Q1 to R5C11C.B0       
+           1.601ns        R3C18D.Q1 to R3C12D.B0       
+           2.638ns        R3C18D.Q1 to R5C10B.B0       
+           1.535ns        R3C18D.Q1 to R4C15A.A0       
+           2.273ns        R3C18D.Q1 to R4C10C.A0       
+           2.296ns        R3C18D.Q1 to R3C10D.D1       
+
+Report:    2.571ns maximum delay on n2728
+
+           Delays             Connection(s)
+           2.571ns        R5C10C.F1 to 53.PADDO        
+           1.103ns        R5C10C.F1 to R4C11C.D1       
+           0.806ns        R5C10C.F1 to R4C10A.A0       
+           1.344ns        R5C10C.F1 to R3C13B.C0       
+           1.542ns        R5C10C.F1 to R3C13D.D0       
+           1.859ns        R5C10C.F1 to R4C13C.A0       
+           0.368ns        R5C10C.F1 to R5C10C.C0       
+           1.161ns        R5C10C.F1 to R3C11C.A1       
+
+Report:    2.558ns maximum delay on crc_5
+
+           Delays             Connection(s)
+           1.933ns        R2C13C.Q1 to R5C17D.D1       
+           2.558ns        R2C13C.Q1 to R4C17B.A0       
+           0.769ns        R2C13C.Q1 to R3C13C.A1       
+
+Report:    3.373ns is the maximum delay for this preference.
+
+<A name="Report Summary"></A><B><U><big>Report Summary</big></U></B>
+--------------
+----------------------------------------------------------------------------
+Preference                              |   Constraint|       Actual|Levels
+----------------------------------------------------------------------------
+                                        |             |             |
+Default path enumeration                |     0.000 ns|    12.818 ns|   0  
+                                        |             |             |
+Default net enumeration                 |     0.000 ns|     3.373 ns|   0  
+                                        |             |             |
+----------------------------------------------------------------------------
+
+
+All preferences were met.
+
+
+<A name="Clock Domains Analysis"></A><B><U><big>Clock Domains Analysis</big></U></B>
+------------------------
+
+Found 1 clocks:
+
+Clock Domain: <A href="#@net:htclk_c">htclk_c</A>   Source: htclk.PAD   Loads: 91
+   Covered under: Default path enumeration
+
+
+Timing summary (Setup):
+---------------
+
+Timing errors: 0  Score: 0
+Cumulative negative slack: 0
+
+Constraints cover 9341 paths, 612 nets, and 1732 connections (100.00% coverage)
+

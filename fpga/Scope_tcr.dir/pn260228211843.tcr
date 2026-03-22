@@ -1,0 +1,4 @@
+#Start recording tcl command: 2/28/2026 21:18:14
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+#Stop recording: 2/28/2026 21:18:43

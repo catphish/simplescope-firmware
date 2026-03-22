@@ -1,0 +1,66 @@
+[ START MERGED ]
+[ END MERGED ]
+[ START CLIPPED ]
+GND_net
+VCC_net
+buffer_index_214_add_4_1/S0
+buffer_index_214_add_4_1/CI
+data_counter_213_add_4_1/S0
+data_counter_213_add_4_1/CI
+buffer_index_214_add_4_11/S1
+buffer_index_214_add_4_11/CO
+counter_211_246_add_4_1/S0
+counter_211_246_add_4_1/CI
+add_85_1/S0
+add_85_1/CI
+add_85_17/S1
+add_85_17/CO
+counter_211_246_add_4_5/CO
+data_counter_213_add_4_33/S1
+data_counter_213_add_4_33/CO
+[ END CLIPPED ]
+[ START DESIGN PREFS ]
+SCHEMATIC START ;
+# map:  version Diamond (64-bit) 3.14.0.75.2 -- WARNING: Map write only section -- Sun Mar 22 21:59:03 2026
+
+SYSCONFIG SDM_PORT=PROGRAMN SLAVE_SPI_PORT=ENABLE I2C_PORT=DISABLE MASTER_SPI_PORT=DISABLE COMPRESS_CONFIG=OFF CONFIGURATION=CFG MY_ASSP=OFF ONE_TIME_PROGRAM=OFF CONFIG_SECURE=OFF MCCLK_FREQ=2.08 JTAG_PORT=ENABLE ENABLE_TRANSFR=DISABLE SHAREDEBRINIT=DISABLE MUX_CONFIGURATION_PORTS=DISABLE BACKGROUND_RECONFIG=OFF INBUF=ON ;
+LOCATE COMP "ch_data[28]" SITE "43" ;
+LOCATE COMP "ch_data[29]" SITE "42" ;
+LOCATE COMP "ch_data[30]" SITE "41" ;
+LOCATE COMP "ch_data[31]" SITE "40" ;
+LOCATE COMP "ch_data[27]" SITE "51" ;
+LOCATE COMP "ch_data[26]" SITE "52" ;
+LOCATE COMP "ch_data[25]" SITE "53" ;
+LOCATE COMP "ch_data[24]" SITE "54" ;
+LOCATE COMP "ch_data[23]" SITE "57" ;
+LOCATE COMP "ch_data[22]" SITE "58" ;
+LOCATE COMP "ch_data[21]" SITE "59" ;
+LOCATE COMP "ch_data[20]" SITE "60" ;
+LOCATE COMP "ch_data[19]" SITE "61" ;
+LOCATE COMP "ch_data[18]" SITE "62" ;
+LOCATE COMP "ch_data[17]" SITE "63" ;
+LOCATE COMP "ch_data[16]" SITE "64" ;
+LOCATE COMP "ch_data[15]" SITE "65" ;
+LOCATE COMP "ch_data[14]" SITE "66" ;
+LOCATE COMP "ch_data[13]" SITE "67" ;
+LOCATE COMP "ch_data[12]" SITE "68" ;
+LOCATE COMP "ch_data[11]" SITE "69" ;
+LOCATE COMP "ch_data[10]" SITE "70" ;
+LOCATE COMP "ch_data[9]" SITE "71" ;
+LOCATE COMP "ch_data[8]" SITE "74" ;
+LOCATE COMP "ch_data[7]" SITE "75" ;
+LOCATE COMP "ch_data[6]" SITE "76" ;
+LOCATE COMP "ch_data[5]" SITE "77" ;
+LOCATE COMP "ch_data[4]" SITE "78" ;
+LOCATE COMP "ch_data[3]" SITE "82" ;
+LOCATE COMP "ch_data[2]" SITE "83" ;
+LOCATE COMP "ch_data[1]" SITE "84" ;
+LOCATE COMP "ch_data[0]" SITE "85" ;
+LOCATE COMP "hrvld" SITE "39" ;
+LOCATE COMP "hract" SITE "87" ;
+LOCATE COMP "hrclk" SITE "88" ;
+LOCATE COMP "htack" SITE "38" ;
+LOCATE COMP "htclk" SITE "86" ;
+FREQUENCY PORT "htclk" 120.000000 MHz ;
+SCHEMATIC END ;
+[ END DESIGN PREFS ]

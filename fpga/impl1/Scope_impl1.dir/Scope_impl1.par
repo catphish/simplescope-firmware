@@ -1,0 +1,27 @@
+PAR: Place And Route Diamond (64-bit) 3.14.0.75.2.
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+Sun Mar 22 21:59:03 2026
+
+/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/par -f Scope_impl1.p2t
+Scope_impl1_map.ncd Scope_impl1.dir Scope_impl1.prf -gui -msgset
+/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/promote.xml
+
+
+Preference file: Scope_impl1.prf.
+
+Level/       Number       Worst        Timing       Worst        Timing       Run          NCD
+Cost [ncd]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
+----------   --------     -----        ------       -----------  -----------  ----         ------
+5_1   *      0            -0.206       335          0.218        0            04           Completed
+
+* : Design saved.
+
+Total (real) run time for 1-seed: 4 secs 
+
+par done!
+
+Note: user must run 'Trace' for timing closure signoff.

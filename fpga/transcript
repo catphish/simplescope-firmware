@@ -1,0 +1,109 @@
+# //  Questa Lattice OEM Edition-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do {/home/charlie/Hardware/scope order 1/scope/lattice/scopesim/scopesim.mdo}
+# Loading project scopesim
+# Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 13:40:13 on Jan 28,2026
+# vlog -reportprogress 300 "+incdir+/home/charlie/Hardware/scope" order 1/scope/lattice/scopesim -work work /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v 
+# ** Error: (vlog-7) Failed to open design unit file "order" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 13:40:13 on Jan 28,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /home/charlie/lscc/diamond/3.14/questasim/linux_x86_64/vlog failed.
+# Error in macro /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/scopesim.mdo line 13
+# /home/charlie/lscc/diamond/3.14/questasim/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  +incdir+/home/charlie/Hardware/scope order 1/scope/lattice/scopesim  -work work  "/home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fi..."
+#     invoked from within
+# "if {![file exists "/home/charlie/Hardware/scope order 1/scope/lattice/scopesim/scopesim.mpf"]} { 
+# 	project new "/home/charlie/Hardware/scope order 1/s..."
+# Compile of fifo.v was successful.
+# Compile of scope.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.adc_ft601 work.fifo
+# vsim work.adc_ft601 work.fifo 
+# Start time: 13:40:29 on Jan 28,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(42): Module 'FIFO8KB' is not defined.
+#  For instance 'fifo_0_3' at path 'fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(69): Module 'FIFO8KB' is not defined.
+#  For instance 'fifo_1_2' at path 'fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(95): Module 'FIFO8KB' is not defined.
+#  For instance 'fifo_2_1' at path 'fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(107): Module 'VHI' is not defined.
+#  For instance 'scuba_vhi_inst' at path 'fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(109): Module 'VLO' is not defined.
+#  For instance 'scuba_vlo_inst' at path 'fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(125): Module 'FIFO8KB' is not defined.
+#  For instance 'fifo_3_0' at path 'fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(42): Module 'FIFO8KB' is not defined.
+#  For instance 'fifo_0_3' at path 'adc_ft601.data_fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(69): Module 'FIFO8KB' is not defined.
+#  For instance 'fifo_1_2' at path 'adc_ft601.data_fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(95): Module 'FIFO8KB' is not defined.
+#  For instance 'fifo_2_1' at path 'adc_ft601.data_fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(107): Module 'VHI' is not defined.
+#  For instance 'scuba_vhi_inst' at path 'adc_ft601.data_fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(109): Module 'VLO' is not defined.
+#  For instance 'scuba_vlo_inst' at path 'adc_ft601.data_fifo'
+# ** Error: /home/charlie/Hardware/scope order 1/scope/lattice/scopesim/fifo.v(125): Module 'FIFO8KB' is not defined.
+#  For instance 'fifo_3_0' at path 'adc_ft601.data_fifo'
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=12, Warnings=0.
+# Error loading design
+# End time: 13:40:29 on Jan 28,2026, Elapsed time: 0:00:00
+# Errors: 12, Warnings: 6
+vsim work.adc_ft601 work.fifo -L machxo2
+# vsim work.adc_ft601 work.fifo -L machxo2 
+# Start time: 13:40:47 on Jan 28,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): /home/rel2/3_14p.75/rtf/ispfpga/cae_library/simulation/verilog/machxo2/FIFO8KB.v(66): (vopt-7063) Failed to find 'GSR_INST' in hierarchical name 'GSR_INST.GSRNET'.
+#         Region: fifo.fifo_3_0
+# ** Error (suppressible): /home/rel2/3_14p.75/rtf/ispfpga/cae_library/simulation/verilog/machxo2/FIFO8KB.v(67): (vopt-7063) Failed to find 'PUR_INST' in hierarchical name 'PUR_INST.PURNET'.
+#         Region: fifo.fifo_3_0
+# ** Error (suppressible): /home/rel2/3_14p.75/rtf/ispfpga/cae_library/simulation/verilog/machxo2/FIFO8KB.v(66): (vopt-7063) Failed to find 'GSR_INST' in hierarchical name 'GSR_INST.GSRNET'.
+#         Region: fifo.fifo_0_3
+# ** Error (suppressible): /home/rel2/3_14p.75/rtf/ispfpga/cae_library/simulation/verilog/machxo2/FIFO8KB.v(67): (vopt-7063) Failed to find 'PUR_INST' in hierarchical name 'PUR_INST.PURNET'.
+#         Region: fifo.fifo_0_3
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=4, Warnings=0.
+# Error loading design
+# End time: 13:40:47 on Jan 28,2026, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 1
+# Compile of scope.v failed with 2 errors.
+# Compile of scope.v failed with 2 errors.
+# Load canceled
+# Compile of scope.v failed with 1 errors.
+# Compile of scope.v failed with 1 errors.
+# Compile of scope.v was successful.
+# Compile of scope.v was successful.
+vsim work.adc_ft601 work.fifo -L machxo2
+# vsim work.adc_ft601 work.fifo -L machxo2 
+# Start time: 13:42:36 on Jan 28,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): /home/rel2/3_14p.75/rtf/ispfpga/cae_library/simulation/verilog/machxo2/FIFO8KB.v(66): (vopt-7063) Failed to find 'GSR_INST' in hierarchical name 'GSR_INST.GSRNET'.
+#         Region: fifo.fifo_3_0
+# ** Error (suppressible): /home/rel2/3_14p.75/rtf/ispfpga/cae_library/simulation/verilog/machxo2/FIFO8KB.v(67): (vopt-7063) Failed to find 'PUR_INST' in hierarchical name 'PUR_INST.PURNET'.
+#         Region: fifo.fifo_3_0
+# ** Error (suppressible): /home/rel2/3_14p.75/rtf/ispfpga/cae_library/simulation/verilog/machxo2/FIFO8KB.v(66): (vopt-7063) Failed to find 'GSR_INST' in hierarchical name 'GSR_INST.GSRNET'.
+#         Region: fifo.fifo_0_3
+# ** Error (suppressible): /home/rel2/3_14p.75/rtf/ispfpga/cae_library/simulation/verilog/machxo2/FIFO8KB.v(67): (vopt-7063) Failed to find 'PUR_INST' in hierarchical name 'PUR_INST.PURNET'.
+#         Region: fifo.fifo_0_3
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=4, Warnings=0.
+# Error loading design
+# End time: 13:42:36 on Jan 28,2026, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 7
+# Load canceled

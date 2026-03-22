@@ -1,0 +1,470 @@
+<HTML>
+<HEAD><TITLE>Lattice TCL Log</TITLE>
+<STYLE TYPE="text/css">
+<!--
+ body,pre{    font-family:'Courier New', monospace;    color: #000000;    font-size:88%;    background-color: #ffffff;}h1 {    font-weight: bold;    margin-top: 24px;    margin-bottom: 10px;    border-bottom: 3px solid #000;    font-size: 1em;}h2 {    font-weight: bold;    margin-top: 18px;    margin-bottom: 5px;    font-size: 0.90em;}h3 {    font-weight: bold;    margin-top: 12px;    margin-bottom: 5px;    font-size: 0.80em;}p {    font-size:78%;}P.Table {    margin-top: 4px;    margin-bottom: 4px;    margin-right: 4px;    margin-left: 4px;}table{    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    border-collapse: collapse;}th {    font-weight:bold;    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    text-align:left;    font-size:78%;}td {    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    font-size:78%;}a {    color:#013C9A;    text-decoration:none;}a:visited {    color:#013C9A;}a:hover, a:active {    text-decoration:underline;    color:#5BAFD4;}.pass{background-color: #00ff00;}.fail{background-color: #ff0000;}.comment{    font-size: 90%;    font-style: italic;}
+-->
+</STYLE>
+</HEAD>
+<PRE><A name="pn260224001737"></A><B><U><big>pn260224001737</big></U></B>
+#Start recording tcl command: 2/23/2026 22:48:23
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+#Stop recording: 2/24/2026 00:17:37
+
+
+
+<A name="pn260228211843"></A><B><U><big>pn260228211843</big></U></B>
+#Start recording tcl command: 2/28/2026 21:18:14
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+#Stop recording: 2/28/2026 21:18:43
+
+
+
+<A name="pn260317014952"></A><B><U><big>pn260317014952</big></U></B>
+#Start recording tcl command: 3/17/2026 01:43:04
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+prj_run Export -impl impl1 -task Bitgen
+#Stop recording: 3/17/2026 01:49:52
+
+
+
+<A name="pn260317182544"></A><B><U><big>pn260317182544</big></U></B>
+#Start recording tcl command: 3/17/2026 16:37:53
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+/home/charlie/Hardware/usb-scope/scope-digital/lattice
+Scope
+#Start recording tcl command: 3/17/2026 18:25:44
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+pgr_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/impl1/prog1.xcf"
+prj_src add -exclude "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/impl1/prog1.xcf"
+prj_src enable "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/impl1/prog1.xcf"
+pgr_project close
+prj_project save
+prj_project close
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital/lattice/Scope.ldf"
+#Stop recording: 3/17/2026 18:25:44
+
+
+
+<A name="pn260317205123"></A><B><U><big>pn260317205123</big></U></B>
+#Start recording tcl command: 3/17/2026 18:26:15
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -forceAll
+#Stop recording: 3/17/2026 20:51:23
+
+
+
+<A name="pn260319020535"></A><B><U><big>pn260319020535</big></U></B>
+#Start recording tcl command: 3/18/2026 23:43:41
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+prj_run Synthesis -impl impl1
+prj_run Map -impl impl1
+prj_run Map -impl impl1
+prj_run Export -impl impl1
+prj_src add "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/crc32.v"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+#Stop recording: 3/19/2026 02:05:35
+
+
+
+<A name="pn260320032847"></A><B><U><big>pn260320032847</big></U></B>
+#Start recording tcl command: 3/19/2026 14:08:58
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Map -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Map -impl impl1
+prj_run Map -impl impl1
+prj_src add "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/fifo.ipx"
+prj_src remove "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/fifo.ipx"
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1 -forceOne
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1 -forceOne
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1 -forceOne
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -task IBIS
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Map -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1 -forceOne
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+#Stop recording: 3/20/2026 03:28:47
+
+
+
+<A name="pn260322000658"></A><B><U><big>pn260322000658</big></U></B>
+#Start recording tcl command: 3/21/2026 17:16:11
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1 -task IOTiming
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Map -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_src add "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/pll.ipx"
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1 -forceOne
+prj_run Export -impl impl1
+prj_run PAR -impl impl1 -task PARTrace -forceOne
+prj_run PAR -impl impl1 -forceAll
+prj_run Export -impl impl1
+prj_run PAR -impl impl1 -task IOTiming
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1 -forceOne
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1 -task IOTiming
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1 -forceAll
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_run Map -impl impl1
+prj_run Map -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1 -forceOne
+prj_run Synthesis -impl impl1
+prj_run Map -impl impl1
+prj_run PAR -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Map -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Map -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Map -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1 -task IBIS
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1 -forceOne
+prj_run Map -impl impl1
+prj_run PAR -impl impl1
+prj_run Synthesis -impl impl1 -task Lattice_Synthesis
+prj_run Map -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1 -forceAll
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1 -task IOTiming
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1 -forceOne
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -forceOne
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+#Stop recording: 3/22/2026 00:06:58
+
+
+
+<A name="pn260322141337"></A><B><U><big>pn260322141337</big></U></B>
+#Start recording tcl command: 3/22/2026 11:22:57
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1 -task PARTrace
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+#Stop recording: 3/22/2026 14:13:37
+
+
+
+<A name="pn260322222646"></A><B><U><big>pn260322222646</big></U></B>
+#Start recording tcl command: 3/22/2026 18:01:50
+#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
+prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
+prj_run Export -impl impl1
+prj_run Map -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1 -forceOne
+prj_run Synthesis -impl impl1
+prj_run Map -impl impl1
+prj_src add "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/ram.ipx"
+prj_src remove "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/pll.ipx"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_src remove "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/ram.ipx"
+prj_src add "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/pll.ipx"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+#Stop recording: 3/22/2026 22:26:46
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></FONT>
+</BODY>
+</HTML>
