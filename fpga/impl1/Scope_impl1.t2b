@@ -2,4 +2,4 @@
 
 -g RamCfg:Reset
 
--path "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice"  
+-path "/home/charlie/scope/fpga"  

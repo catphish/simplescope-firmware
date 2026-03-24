@@ -1,29 +1,27 @@
 ----------------------------------------------------------------------
 Report for cell adc_ft601.TECH
-Register bits:  135 of 1520 (8.882%)
+Register bits:  133 of 1520 (8.750%)
 I/O cells:      37
                                   Cell usage:
                                cell     count   Res Usage(%)
-                              CCU2D        35          100.0
-                            FD1P3AX        78          100.0
-                            FD1P3AY        14          100.0
+                              CCU2D        33          100.0
+                            FD1P3AX       110          100.0
                             FD1P3IX         4          100.0
-                            FD1P3JX        32          100.0
-                            FD1S3AX         6          100.0
-                            FD1S3IX         1          100.0
+                            FD1S3AX         2          100.0
+                            FD1S3IX        17          100.0
                                 GSR         1          100.0
                                  IB         2          100.0
-                               LUT4       343          100.0
+                               LUT4       314          100.0
                                  OB        35          100.0
                             PDPW8KC         4          100.0
-                              PFUMX         1          100.0
+                              PFUMX         4          100.0
 SUB MODULES
                               crc32         1
-                              TOTAL       557
+                              TOTAL       527
 ----------------------------------------------------------------------
 Report for cell crc32.v1
 Instance Path : crc32
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4       187           54.5
-                              TOTAL       187
+                               LUT4       185           58.9
+                              TOTAL       185

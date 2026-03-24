@@ -1,11 +1,11 @@
 [ActiveSupport MAP]
 Device = LCMXO2-1200HC;
 Package = TQFP100;
-Performance = 6;
+Performance = 4;
 LUTS_avail = 1280;
-LUTS_used = 414;
+LUTS_used = 380;
 FF_avail = 1360;
-FF_used = 135;
+FF_used = 133;
 INPUT_LVCMOS33 = 2;
 OUTPUT_LVCMOS33 = 35;
 IO_avail = 80;
@@ -13,7 +13,7 @@ IO_used = 37;
 EBR_avail = 7;
 EBR_used = 4;
 ; Begin EBR Section
-Instance_Name = ram0;
+Instance_Name = ram1;
 Type = PDPW8KC;
 Width = 18;
 Depth_R = 512;
@@ -22,7 +22,7 @@ REGMODE = NOREG;
 RESETMODE = SYNC;
 ASYNC_RESET_RELEASE = SYNC;
 GSR = DISABLED;
-Instance_Name = ram1;
+Instance_Name = ram0;
 Type = PDPW8KC;
 Width = 18;
 Depth_R = 512;

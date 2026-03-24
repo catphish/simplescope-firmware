@@ -1,7 +1,7 @@
 -a "MachXO2"
 -d LCMXO2-1200HC
 -t TQFP100
--s 6
+-s 4
 -frequency 200
 -optimization_goal Balanced
 -bram_utilization 100
@@ -31,14 +31,14 @@
 
 
 -lpf 1
--p "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice"
--ver "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v"
-"/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/crc32.v"
-"/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/pll.v"
+-p "/home/charlie/scope/fpga"
+-ver "/home/charlie/scope/fpga/scope.v"
+"/home/charlie/scope/fpga/crc32.v"
+"/home/charlie/scope/fpga/pll.v"
 -top adc_ft601
 
 
--p "/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data" "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/impl1" "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice"
+-p "/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data" "/home/charlie/scope/fpga/impl1" "/home/charlie/scope/fpga"
 
 -ngd "Scope_impl1.ngd"
 

@@ -6,7 +6,7 @@
 #define ENDPOINT 0x82
 #define INTERFACE 0
 
-#define BUF_SIZE 4096
+#define BUF_SIZE 1024*4096
 #define TIMEOUT 1000
 
 double now_seconds()
@@ -72,9 +72,9 @@ int main(void)
                 static double last_time = 0;
                 double current_time = now_seconds();
                 total_bytes += transferred;
-                if (current_time - last_time >= 10.0) {
-                    double mbps = (total_bytes / (1024.0 * 1024.0)) / (current_time - last_time);
-                    printf("Total: %.2f MB, Average rate: %.2f MB/s\n", total_bytes / (1024.0 * 1024.0), mbps);
+                if (current_time - last_time >= 1.0) {
+                    double mbps = (total_bytes / (1000.0 * 1000.0)) / (current_time - last_time);
+                    printf("Total: %.2f MB, Average rate: %.2f MB/s\n", total_bytes / (1000.0 * 1000.0), mbps);
                     total_bytes = 0;
                     last_time = current_time;
                 }
@@ -87,7 +87,7 @@ int main(void)
                     static uint32_t prev_value;
                     uint32_t value = buffer[i] | (buffer[i + 1] << 8) | (buffer[i + 2] << 16) | (buffer[i + 3] << 24);
                     if (value != prev_value + 1) {
-                        printf("Value at index %d: %u (expected %u), difference: %d\n", i / 4, value, prev_value + 1, value - (prev_value + 1));
+                        //printf("Value at index %d: %u (expected %u), difference: %d\n", i / 4, value, prev_value + 1, value - (prev_value + 1));
                     } else {
                         //printf("Value at index %d: %u\n", i / 4, value);
                     }

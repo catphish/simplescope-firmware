@@ -36,8 +36,8 @@ usb_descriptor_usb_vid_pid_t vid_pid =
 volatile uint8_t ep1_data_received = 0; // Flag to indicate data received on EP1
 
 int main() {
-  // Initialize system clock to 80MHz
-  bsp_init(80000000);
+  // Initialize system clock to 120MHz
+  bsp_init(120000000);
 
   // Set All GPIO pins to logic 1 output to avoid unexpected pulldowns
   GPIOA_SetBits(GPIO_Pin_All);
@@ -201,33 +201,33 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
 
   if (R8_HSPI_INT_FLAG & RB_HSPI_IF_R_DONE) // Single packet reception completed
   {
-    // error_str[0] = ' '; // Clear error string
-    // error_str[1] = ' ';
-    // error_str[2] = ' ';
-    // error_str[3] = ' ';
-    // error_str[4] = ' ';
-    // error_str[5] = ' ';
+    error_str[0] = ' '; // Clear error string
+    error_str[1] = ' ';
+    error_str[2] = ' ';
+    error_str[3] = ' ';
+    error_str[4] = ' ';
+    error_str[5] = ' ';
     if (R8_HSPI_RTX_STATUS & RB_HSPI_CRC_ERR) {
-      // error_str[0] = 'C';
-      // error_str[1] = 'R';
-      // error_str[2] = 'C';
+      error_str[0] = 'C';
+      error_str[1] = 'R';
+      error_str[2] = 'C';
       error = 1;
     }
     if (R8_HSPI_RTX_STATUS & RB_HSPI_NUM_MIS) {
-      // error_str[3] = 'N';
-      // error_str[4] = 'U';
-      // error_str[5] = 'M';
+      error_str[3] = 'N';
+      error_str[4] = 'U';
+      error_str[5] = 'M';
       error = 1;
     }
     if(error) {
-      // if(usb_rdy) {
-      //   usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2
-      //   // Point the EP2 IN buffer to the data received from SPI0
-      //   USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)error_str;
-      //   // Set endpoint 2 to ACK and notify the host to take the data
-      //   USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 6);
-      //   USB30_send_ERDY(ENDP_2 | IN, 1);
-      // } // If USB is not ready, drop the error
+      if(usb_rdy) {
+        usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2
+        // Point the EP2 IN buffer to the data received from SPI0
+        USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)error_str;
+        // Set endpoint 2 to ACK and notify the host to take the data
+        USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 6);
+        USB30_send_ERDY(ENDP_2 | IN, 1);
+      } // If USB is not ready, drop the error
     } else {
       // Determine which buffer was filled by checking the toggle bit
       uint32_t addr = (R8_HSPI_RX_SC & RB_HSPI_RX_TOG) ? (uint32_t)HSPI_RX_Addr0 : (uint32_t)HSPI_RX_Addr1;

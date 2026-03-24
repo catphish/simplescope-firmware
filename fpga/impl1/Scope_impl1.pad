@@ -2,11 +2,11 @@ PAD Specification File
 ***************************
 
 PART TYPE:        LCMXO2-1200HC
-Performance Grade:      6
+Performance Grade:      4
 PACKAGE:          TQFP100
 Package Status:                     Final          Version 1.44
 
-Sun Mar 22 21:59:06 2026
+Tue Mar 24 01:03:10 2026
 
 Pinout by Port Name:
 +-------------+----------+--------------+-------+-----------+-----------+----------------------------+
@@ -249,5 +249,5 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Sun Mar 22 21:59:06 2026
+Tue Mar 24 01:03:10 2026
 

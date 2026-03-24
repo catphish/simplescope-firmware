@@ -30,55 +30,53 @@
         <Message>
             <ID>35901018</ID>
             <Severity>Info</Severity>
-            <Dynamic>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v(1): </Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(1): </Dynamic>
             <Dynamic>adc_ft601</Dynamic>
-            <Navigation>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v</Navigation>
+            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
             <Navigation>1</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>Info</Severity>
-            <Dynamic>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/crc32.v(1): </Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/crc32.v(1): </Dynamic>
             <Dynamic>crc32</Dynamic>
-            <Navigation>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/crc32.v</Navigation>
+            <Navigation>/home/charlie/scope/fpga/crc32.v</Navigation>
             <Navigation>1</Navigation>
         </Message>
         <Message>
             <ID>35901209</ID>
             <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v(50): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Navigation>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v</Navigation>
-            <Navigation>50</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v(74): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>4</Dynamic>
-            <Navigation>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v</Navigation>
-            <Navigation>74</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v(82): </Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(40): </Dynamic>
             <Dynamic>32</Dynamic>
             <Dynamic>16</Dynamic>
-            <Navigation>/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v</Navigation>
-            <Navigation>82</Navigation>
+            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
+            <Navigation>40</Navigation>
         </Message>
         <Message>
-            <ID>35001779</ID>
+            <ID>35901209</ID>
             <Severity>Warning</Severity>
-            <Dynamic>dword_i1</Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(46): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>10</Dynamic>
+            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
+            <Navigation>46</Navigation>
         </Message>
         <Message>
-            <ID>35001779</ID>
+            <ID>35901209</ID>
             <Severity>Warning</Severity>
-            <Dynamic>dword_i9</Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(71): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
+            <Navigation>71</Navigation>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(94): </Dynamic>
+            <Dynamic>state_i2</Dynamic>
+            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
+            <Navigation>94</Navigation>
         </Message>
         <Message>
             <ID>35001611</ID>

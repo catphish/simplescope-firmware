@@ -7,19 +7,19 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Sun Mar 22 21:59:02 2026
+Tue Mar 24 01:03:06 2026
 
 
-Command Line:  synthesis -f Scope_impl1_lattice.synproj -gui -msgset /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/promote.xml 
+Command Line:  synthesis -f Scope_impl1_lattice.synproj -gui -msgset /home/charlie/scope/fpga/promote.xml 
 
     <postMsg mid="35002000" type="Info"    dynamic="0" navigation="0"  />
 Synthesis options:
 The -a option is MachXO2.
-The -s option is 6.
+The -s option is 4.
 The -t option is TQFP100.
 The -d option is LCMXO2-1200HC.
 Using package TQFP100.
-Using performance grade 6.
+Using performance grade 4.
                                                           
 
 ##########################################################
@@ -30,7 +30,7 @@ Using performance grade 6.
 
 ### Package : TQFP100
 
-### Speed   : 6
+### Speed   : 4
 
 ##########################################################
 
@@ -64,13 +64,13 @@ ROM style = auto
 RAM style = auto
 The -comp option is FALSE.
 The -syn option is FALSE.
--p /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice (searchpath added)
+-p /home/charlie/scope/fpga (searchpath added)
 -p /home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data (searchpath added)
--p /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/impl1 (searchpath added)
--p /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice (searchpath added)
-Verilog design file = /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v
-Verilog design file = /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/crc32.v
-Verilog design file = /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/pll.v
+-p /home/charlie/scope/fpga/impl1 (searchpath added)
+-p /home/charlie/scope/fpga (searchpath added)
+Verilog design file = /home/charlie/scope/fpga/scope.v
+Verilog design file = /home/charlie/scope/fpga/crc32.v
+Verilog design file = /home/charlie/scope/fpga/pll.v
 NGD file = Scope_impl1.ngd
 -sdc option: SDC file input not used.
 -lpf option: Output file option is ON.
@@ -81,16 +81,16 @@ Technology check ok...
 Analyzing Verilog file /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
 Compile design.
 Compile Design Begin
-Analyzing Verilog file /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v. VERI-1482
-Analyzing Verilog file /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/crc32.v. VERI-1482
-Analyzing Verilog file /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/pll.v. VERI-1482
+Analyzing Verilog file /home/charlie/scope/fpga/scope.v. VERI-1482
+Analyzing Verilog file /home/charlie/scope/fpga/crc32.v. VERI-1482
+Analyzing Verilog file /home/charlie/scope/fpga/pll.v. VERI-1482
 Analyzing Verilog file /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
 Top module name (Verilog): adc_ft601
-    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v(1): " arg1="adc_ft601" arg2="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v" arg3="1"  />
-    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/crc32.v(1): " arg1="crc32" arg2="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/crc32.v" arg3="1"  />
-    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v(50): " arg1="32" arg2="10" arg3="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v" arg4="50"  />
-    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v(74): " arg1="32" arg2="4" arg3="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v" arg4="74"  />
-    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v(82): " arg1="32" arg2="16" arg3="/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/scope.v" arg4="82"  />
+    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(1): " arg1="adc_ft601" arg2="/home/charlie/scope/fpga/scope.v" arg3="1"  />
+    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/scope/fpga/crc32.v(1): " arg1="crc32" arg2="/home/charlie/scope/fpga/crc32.v" arg3="1"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(40): " arg1="32" arg2="16" arg3="/home/charlie/scope/fpga/scope.v" arg4="40"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(46): " arg1="32" arg2="10" arg3="/home/charlie/scope/fpga/scope.v" arg4="46"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(71): " arg1="32" arg2="4" arg3="/home/charlie/scope/fpga/scope.v" arg4="71"  />
 Last elaborated design is adc_ft601()
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00a/data/xo2alib.ngl'...
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data/xo2clib.ngl'...
@@ -105,9 +105,8 @@ Top-level module name = adc_ft601.
 ######## Found 1 RTL RAMs in the design.
 ######## Mapping RTL RAM ram to 4 EBR blocks in PSEUDO_DUAL_PORT Mode
 
+    <postMsg mid="35935013" type="Warning" dynamic="2" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(94): " arg1="state_i2" arg2="/home/charlie/scope/fpga/scope.v" arg3="94"  />
 GSR will not be inferred because no asynchronous signal was found in the netlist.
-    <postMsg mid="35001779" type="Warning" dynamic="1" navigation="0" arg0="dword_i1"  />
-    <postMsg mid="35001779" type="Warning" dynamic="1" navigation="0" arg0="dword_i9"  />
 Applying 200.000000 MHz constraint to all clocks
 
     <postMsg mid="35001611" type="Warning" dynamic="0" navigation="0"  />
@@ -123,26 +122,24 @@ Running DRC...
 DRC complete with no errors or warnings
 
 Design Results:
-    559 blocks expanded
+    529 blocks expanded
 completed the first expansion
 All blocks are expanded and NGD expansion is successful.
 Writing NGD file Scope_impl1.ngd.
 
 ################### Begin Area Report (adc_ft601)######################
-Number of register bits => 135 of 1520 (8 % )
-CCU2D => 35
-FD1P3AX => 78
-FD1P3AY => 14
+Number of register bits => 133 of 1520 (8 % )
+CCU2D => 33
+FD1P3AX => 110
 FD1P3IX => 4
-FD1P3JX => 32
-FD1S3AX => 6
-FD1S3IX => 1
+FD1S3AX => 2
+FD1S3IX => 17
 GSR => 1
 IB => 2
-LUT4 => 343
+LUT4 => 314
 OB => 35
 PDPW8KC => 4
-PFUMX => 1
+PFUMX => 4
 ################### End Area Report ##################
 
 ################### Begin BlackBox Report ######################
@@ -152,31 +149,31 @@ TSALL => 1
 ################### Begin Clock Report ######################
 Clock Nets
 Number of Clocks: 1
-  Net : htclk_c, loads : 144
+  Net : htclk_c, loads : 142
 Clock Enable Nets
 Number of Clock Enables: 9
 Top 9 highest fanout Clock Enables:
-  Net : htclk_c_enable_76, loads : 45
-  Net : buffer_index_9__N_203, loads : 45
-  Net : htclk_c_enable_86, loads : 32
-  Net : htclk_c_enable_90, loads : 16
-  Net : htclk_c_enable_79, loads : 8
-  Net : htclk_c_enable_87, loads : 5
-  Net : htclk_c_enable_21, loads : 2
-  Net : htclk_c_enable_20, loads : 2
-  Net : htclk_c_enable_85, loads : 1
+  Net : htclk_c_enable_118, loads : 42
+  Net : htclk_c_enable_77, loads : 32
+  Net : htclk_c_enable_106, loads : 32
+  Net : htclk_c_enable_4, loads : 6
+  Net : htclk_c_enable_109, loads : 5
+  Net : htclk_c_enable_7, loads : 2
+  Net : htclk_c_enable_48, loads : 2
+  Net : htclk_c_enable_10, loads : 2
+  Net : htclk_c_enable_47, loads : 1
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : n3317, loads : 52
-  Net : buffer_index_9__N_203, loads : 45
-  Net : htclk_c_enable_76, loads : 45
-  Net : n2669, loads : 44
-  Net : n3313, loads : 41
-  Net : n2414, loads : 32
-  Net : n1301, loads : 32
-  Net : htclk_c_enable_86, loads : 32
-  Net : htclk_c_enable_90, loads : 16
-  Net : dword_0, loads : 14
+  Net : state_1, loads : 78
+  Net : state_0, loads : 74
+  Net : htclk_c_enable_118, loads : 42
+  Net : n1280, loads : 32
+  Net : htclk_c_enable_77, loads : 32
+  Net : htclk_c_enable_106, loads : 32
+  Net : n1153, loads : 16
+  Net : ch_data_c_2, loads : 13
+  Net : ch_data_c_3, loads : 12
+  Net : ch_data_c_0, loads : 12
 ################### End Clock Report ##################
 
 Timing Report Summary
@@ -186,7 +183,7 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets htclk_c]                 |  200.000 MHz|   99.069 MHz|     7 *
+clk0 [get_nets htclk_c]                 |  200.000 MHz|   83.507 MHz|     8 *
                                         |             |             |
 --------------------------------------------------------------------------------
 
@@ -194,13 +191,13 @@ clk0 [get_nets htclk_c]                 |  200.000 MHz|   99.069 MHz|     7 *
 1 constraints not met.
 
 
-Peak Memory Usage: 181.863  MB
+Peak Memory Usage: 178.367  MB
 
 --------------------------------------------------------------
-Elapsed CPU time for LSE flow : 0.555  secs
+Elapsed CPU time for LSE flow : 0.415  secs
 --------------------------------------------------------------
 
-map -a "MachXO2" -p LCMXO2-1200HC -t TQFP100 -s 6 -oc Industrial   "Scope_impl1.ngd" -o "Scope_impl1_map.ncd" -pr "Scope_impl1.prf" -mp "Scope_impl1.mrp" -lpf "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/impl1/Scope_impl1.lpf" -lpf "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.lpf"  -c 0           
+map -a "MachXO2" -p LCMXO2-1200HC -t TQFP100 -s 4 -oc Industrial   "Scope_impl1.ngd" -o "Scope_impl1_map.ncd" -pr "Scope_impl1.prf" -mp "Scope_impl1.mrp" -lpf "/home/charlie/scope/fpga/impl1/Scope_impl1.lpf" -lpf "/home/charlie/scope/fpga/Scope.lpf"  -c 0           
 map:  version Diamond (64-bit) 3.14.0.75.2
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
@@ -213,13 +210,13 @@ Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
 
    Pictype="TQFP100"
 
-   Picspeed=6
+   Picspeed=4
 
    Remove unused logic
 
    Do not produce over sized NCDs.
 
-Part used: LCMXO2-1200HCTQFP100, Performance used: 6.
+Part used: LCMXO2-1200HCTQFP100, Performance used: 4.
 
 Loading device for application map from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
 Package Status:                     Final          Version 1.44.
@@ -234,17 +231,17 @@ Optimizing...
 
 
 Design Summary:
-   Number of registers:    135 out of  1520 (9%)
-      PFU registers:          135 out of  1280 (11%)
+   Number of registers:    133 out of  1520 (9%)
+      PFU registers:          133 out of  1280 (10%)
       PIO registers:            0 out of   240 (0%)
-   Number of SLICEs:       207 out of   640 (32%)
-      SLICEs as Logic/ROM:    207 out of   640 (32%)
+   Number of SLICEs:       190 out of   640 (30%)
+      SLICEs as Logic/ROM:    190 out of   640 (30%)
       SLICEs as RAM:            0 out of   480 (0%)
-      SLICEs as Carry:         35 out of   640 (5%)
-   Number of LUT4s:        414 out of  1280 (32%)
-      Number used as logic LUTs:        344
+      SLICEs as Carry:         33 out of   640 (5%)
+   Number of LUT4s:        380 out of  1280 (30%)
+      Number used as logic LUTs:        314
       Number used as distributed RAM:     0
-      Number used as ripple logic:       70
+      Number used as ripple logic:       66
       Number used as shift registers:     0
    Number of PIO sites used: 37 + 4(JTAG) out of 80 (51%)
    Number of block RAMs:  4 out of 7 (57%)
@@ -272,32 +269,32 @@ Design Summary:
    Number of clocks:  1
      Net htclk_c: 82 loads, 82 rising, 0 falling (Driver: PIO htclk )
    Number of Clock Enables:  9
-     Net htclk_c_enable_86: 16 loads, 16 LSLICEs
-     Net htclk_c_enable_90: 10 loads, 10 LSLICEs
-     Net htclk_c_enable_21: 2 loads, 0 LSLICEs
-     Net htclk_c_enable_20: 2 loads, 0 LSLICEs
-     Net htclk_c_enable_76: 16 loads, 16 LSLICEs
-     Net buffer_index_9__N_203: 23 loads, 23 LSLICEs
-     Net htclk_c_enable_79: 2 loads, 2 LSLICEs
-     Net htclk_c_enable_87: 1 loads, 1 LSLICEs
-     Net htclk_c_enable_85: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_106: 16 loads, 16 LSLICEs
+     Net htclk_c_enable_7: 2 loads, 0 LSLICEs
+     Net htclk_c_enable_4: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_10: 2 loads, 0 LSLICEs
+     Net htclk_c_enable_77: 18 loads, 18 LSLICEs
+     Net htclk_c_enable_109: 2 loads, 2 LSLICEs
+     Net counter_0: 23 loads, 23 LSLICEs
+     Net htclk_c_enable_48: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_47: 1 loads, 1 LSLICEs
    Number of LSRs:  4
-     Net n2414: 16 loads, 16 LSLICEs
-     Net n1157: 1 loads, 1 LSLICEs
-     Net htclk_c_enable_87: 3 loads, 3 LSLICEs
-     Net n3014: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_4: 2 loads, 2 LSLICEs
+     Net n2877: 1 loads, 1 LSLICEs
+     Net n2306: 1 loads, 1 LSLICEs
+     Net n1153: 9 loads, 9 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net n3317: 52 loads
-     Net n2669: 44 loads
-     Net n3313: 41 loads
-     Net n1301: 32 loads
-     Net htclk_c_enable_76: 29 loads
-     Net buffer_index_9__N_203: 26 loads
-     Net htclk_c_enable_86: 16 loads
-     Net n2414: 16 loads
-     Net dword_0: 14 loads
-     Net ch_data_c_0: 13 loads
+     Net state_1: 78 loads
+     Net state_0: 74 loads
+     Net n1280: 32 loads
+     Net counter_0: 27 loads
+     Net htclk_c_enable_77: 18 loads
+     Net htclk_c_enable_106: 16 loads
+     Net ch_data_c_2: 13 loads
+     Net ch_data_c_0: 12 loads
+     Net ch_data_c_3: 12 loads
+     Net crc_2: 12 loads
  
 
    Number of warnings:  0
@@ -322,10 +319,10 @@ Removing old design directory at request of -rem command line option to this pro
 Running par. Please wait . . .
 
 Lattice Place and Route Report for Design "Scope_impl1_map.ncd"
-Sun Mar 22 21:59:03 2026
+Tue Mar 24 01:03:07 2026
 
 PAR: Place And Route Diamond (64-bit) 3.14.0.75.2.
-Command Line: par -w -l 5 -i 6 -t 1 -c 0 -e 0 -gui -msgset /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/promote.xml -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=OFF:parASE=1 Scope_impl1_map.ncd Scope_impl1.dir/5_1.ncd Scope_impl1.prf
+Command Line: par -w -l 5 -i 6 -t 1 -c 0 -e 0 -gui -msgset /home/charlie/scope/fpga/promote.xml -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=OFF:parASE=1 Scope_impl1_map.ncd Scope_impl1.dir/5_1.ncd Scope_impl1.prf
 Preference file: Scope_impl1.prf.
 Placement level-cost: 5-1.
 Routing Iterations: 6
@@ -336,7 +333,7 @@ NCD version: 3.3
 Vendor:      LATTICE
 Device:      LCMXO2-1200HC
 Package:     TQFP100
-Performance: 6
+Performance: 4
 Loading device for application par from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
 Package Status:                     Final          Version 1.44.
 Performance Hardware Data Status:   Final          Version 36.4.
@@ -349,13 +346,13 @@ Device utilization summary:
    PIO (prelim)   37+4(JTAG)/108     38% used
                   37+4(JTAG)/80      51% bonded
 
-   SLICE            207/640          32% used
+   SLICE            190/640          29% used
 
    EBR                4/7            57% used
 
 
-Number of Signals: 638
-Number of Connections: 1738
+Number of Signals: 597
+Number of Connections: 1637
     <postMsg mid="61061045" type="Warning" dynamic="0" navigation="0"  />
 
 Pin Constraint Summary:
@@ -365,12 +362,10 @@ The following 1 signal is selected to use the primary clock routing resources:
     htclk_c (driver: htclk, clk load #: 82)
 
 
-The following 5 signals are selected to use the secondary clock routing resources:
-    buffer_index_9__N_203 (driver: SLICE_160, clk load #: 0, sr load #: 0, ce load #: 23)
-    htclk_c_enable_86 (driver: SLICE_68, clk load #: 0, sr load #: 0, ce load #: 16)
-    n2414 (driver: SLICE_172, clk load #: 0, sr load #: 16, ce load #: 0)
-    htclk_c_enable_76 (driver: SLICE_72, clk load #: 0, sr load #: 0, ce load #: 16)
-    htclk_c_enable_90 (driver: SLICE_162, clk load #: 0, sr load #: 0, ce load #: 10)
+The following 3 signals are selected to use the secondary clock routing resources:
+    counter_0 (driver: SLICE_28, clk load #: 0, sr load #: 0, ce load #: 23)
+    htclk_c_enable_77 (driver: SLICE_158, clk load #: 0, sr load #: 0, ce load #: 18)
+    htclk_c_enable_106 (driver: SLICE_69, clk load #: 0, sr load #: 0, ce load #: 16)
 
 No signal is selected as Global Set/Reset.
 Starting Placer Phase 0.
@@ -378,13 +373,13 @@ Starting Placer Phase 0.
 Finished Placer Phase 0.  REAL time: 0 secs 
 
 Starting Placer Phase 1.
-....................
-Placer score = 122749.
+..................
+Placer score = 133022.
 Finished Placer Phase 1.  REAL time: 3 secs 
 
 Starting Placer Phase 2.
 .
-Placer score =  122394
+Placer score =  127590
 Finished Placer Phase 2.  REAL time: 3 secs 
 
 
@@ -398,14 +393,12 @@ Global Clock Resources:
 
 Global Clocks:
   PRIMARY "htclk_c" from comp "htclk" on CLK_PIN site "86 (PT12C)", clk load = 82
-  SECONDARY "buffer_index_9__N_203" from F1 on comp "SLICE_160" on site "R7C12D", clk load = 0, ce load = 23, sr load = 0
-  SECONDARY "htclk_c_enable_86" from F1 on comp "SLICE_68" on site "R7C14B", clk load = 0, ce load = 16, sr load = 0
-  SECONDARY "n2414" from F1 on comp "SLICE_172" on site "R7C12A", clk load = 0, ce load = 0, sr load = 16
-  SECONDARY "htclk_c_enable_76" from F1 on comp "SLICE_72" on site "R7C12C", clk load = 0, ce load = 16, sr load = 0
-  SECONDARY "htclk_c_enable_90" from F1 on comp "SLICE_162" on site "R7C14C", clk load = 0, ce load = 10, sr load = 0
+  SECONDARY "counter_0" from Q1 on comp "SLICE_28" on site "R7C12C", clk load = 0, ce load = 23, sr load = 0
+  SECONDARY "htclk_c_enable_77" from F1 on comp "SLICE_158" on site "R7C14A", clk load = 0, ce load = 18, sr load = 0
+  SECONDARY "htclk_c_enable_106" from F1 on comp "SLICE_69" on site "R7C14C", clk load = 0, ce load = 16, sr load = 0
 
   PRIMARY  : 1 out of 8 (12%)
-  SECONDARY: 5 out of 8 (62%)
+  SECONDARY: 3 out of 8 (37%)
 
 Edge Clocks:
   No edge clock selected.
@@ -433,12 +426,12 @@ Total placer CPU time: 2 secs
 
 Dumping design to file Scope_impl1.dir/5_1.ncd.
 
-0 connections routed; 1738 unrouted.
+0 connections routed; 1637 unrouted.
 Starting router resource preassignment
 
 Completed router resource preassignment. Real time: 3 secs 
 
-Start NBR router at Sun Mar 22 21:59:06 GMT 2026
+Start NBR router at Tue Mar 24 01:03:10 GMT 2026
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -453,108 +446,116 @@ Note: NBR uses a different method to calculate timing slacks. The
       your design.                                               
 *****************************************************************
 
-Start NBR special constraint process at Sun Mar 22 21:59:06 GMT 2026
+Start NBR special constraint process at Tue Mar 24 01:03:10 GMT 2026
 
-Start NBR section for initial routing at Sun Mar 22 21:59:06 GMT 2026
+Start NBR section for initial routing at Tue Mar 24 01:03:10 GMT 2026
 Level 1, iteration 1
-12(0.01%) conflicts; 1363(78.42%) untouched conns; 288 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.072ns/-0.288ns; real time: 3 secs 
+20(0.02%) conflicts; 1258(76.85%) untouched conns; 136294 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.067ns/-136.294ns; real time: 3 secs 
 Level 2, iteration 1
-75(0.09%) conflicts; 1135(65.30%) untouched conns; 288 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.072ns/-0.288ns; real time: 3 secs 
+87(0.10%) conflicts; 1015(62.00%) untouched conns; 60311 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.114ns/-60.311ns; real time: 3 secs 
 Level 3, iteration 1
-117(0.14%) conflicts; 264(15.19%) untouched conns; 510 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.074ns/-0.510ns; real time: 3 secs 
+121(0.14%) conflicts; 290(17.72%) untouched conns; 87471 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.114ns/-87.472ns; real time: 4 secs 
 Level 4, iteration 1
-59(0.07%) conflicts; 0(0.00%) untouched conn; 510 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.074ns/-0.510ns; real time: 3 secs 
+69(0.08%) conflicts; 0(0.00%) untouched conn; 89674 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.067ns/-89.674ns; real time: 4 secs 
 
 Info: Initial congestion level at 75% usage is 0
 Info: Initial congestion area  at 75% usage is 0 (0.00%)
 
-Start NBR section for normal routing at Sun Mar 22 21:59:06 GMT 2026
+Start NBR section for normal routing at Tue Mar 24 01:03:11 GMT 2026
 Level 1, iteration 1
-43(0.05%) conflicts; 22(1.27%) untouched conns; 1001 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.001ns; real time: 4 secs 
+46(0.05%) conflicts; 29(1.77%) untouched conns; 110895 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.241ns/-110.895ns; real time: 4 secs 
 Level 1, iteration 2
-31(0.04%) conflicts; 33(1.90%) untouched conns; 1103 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.103ns; real time: 4 secs 
+32(0.04%) conflicts; 35(2.14%) untouched conns; 116257 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.241ns/-116.257ns; real time: 4 secs 
 Level 2, iteration 1
-23(0.03%) conflicts; 32(1.84%) untouched conns; 1103 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.103ns; real time: 4 secs 
-Level 2, iteration 2
-15(0.02%) conflicts; 34(1.96%) untouched conns; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
-Level 2, iteration 3
-10(0.01%) conflicts; 39(2.24%) untouched conns; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
-Level 2, iteration 4
-10(0.01%) conflicts; 59(3.39%) untouched conns; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
-Level 2, iteration 5
-5(0.01%) conflicts; 60(3.45%) untouched conns; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
-Level 2, iteration 6
-3(0.00%) conflicts; 60(3.45%) untouched conns; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
+31(0.04%) conflicts; 34(2.08%) untouched conns; 115083 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.241ns/-115.083ns; real time: 4 secs 
 Level 3, iteration 1
-17(0.02%) conflicts; 13(0.75%) untouched conns; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
+31(0.04%) conflicts; 16(0.98%) untouched conns; 123500 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.288ns/-123.500ns; real time: 4 secs 
+Level 3, iteration 2
+23(0.03%) conflicts; 15(0.92%) untouched conns; 130104 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.288ns/-130.105ns; real time: 4 secs 
 Level 4, iteration 1
-9(0.01%) conflicts; 0(0.00%) untouched conn; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
+16(0.02%) conflicts; 0(0.00%) untouched conn; 140550 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.288ns/-140.551ns; real time: 4 secs 
 Level 4, iteration 2
-5(0.01%) conflicts; 0(0.00%) untouched conn; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
+12(0.01%) conflicts; 0(0.00%) untouched conn; 140783 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.288ns/-140.783ns; real time: 4 secs 
 Level 4, iteration 3
-3(0.00%) conflicts; 0(0.00%) untouched conn; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
+5(0.01%) conflicts; 0(0.00%) untouched conn; 146426 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.360ns/-146.426ns; real time: 4 secs 
 Level 4, iteration 4
-0(0.00%) conflict; 0(0.00%) untouched conn; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
+4(0.00%) conflicts; 0(0.00%) untouched conn; 146426 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.360ns/-146.426ns; real time: 4 secs 
+Level 4, iteration 5
+2(0.00%) conflicts; 0(0.00%) untouched conn; 147159 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.360ns/-147.159ns; real time: 4 secs 
+Level 4, iteration 6
+0(0.00%) conflict; 0(0.00%) untouched conn; 147159 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.360ns/-147.159ns; real time: 4 secs 
 
-Start NBR section for performance tuning (iteration 1) at Sun Mar 22 21:59:07 GMT 2026
+Start NBR section for performance tuning (iteration 1) at Tue Mar 24 01:03:11 GMT 2026
 Level 4, iteration 1
-0(0.00%) conflict; 0(0.00%) untouched conn; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
+1(0.00%) conflict; 0(0.00%) untouched conn; 148328 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.288ns/-148.329ns; real time: 4 secs 
+Level 4, iteration 2
+2(0.00%) conflicts; 0(0.00%) untouched conn; 148104 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.288ns/-148.105ns; real time: 4 secs 
+Level 4, iteration 3
+0(0.00%) conflict; 0(0.00%) untouched conn; 149545 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.288ns/-149.546ns; real time: 4 secs 
 
-Start NBR section for re-routing at Sun Mar 22 21:59:07 GMT 2026
+Start NBR section for performance tuning (iteration 2) at Tue Mar 24 01:03:11 GMT 2026
 Level 4, iteration 1
-0(0.00%) conflict; 0(0.00%) untouched conn; 1307 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.206ns/-1.307ns; real time: 4 secs 
+2(0.00%) conflicts; 0(0.00%) untouched conn; 148104 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.288ns/-148.105ns; real time: 4 secs 
+Level 4, iteration 2
+0(0.00%) conflict; 0(0.00%) untouched conn; 148544 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.360ns/-148.545ns; real time: 4 secs 
 
-Start NBR section for post-routing at Sun Mar 22 21:59:07 GMT 2026
+Start NBR section for re-routing at Tue Mar 24 01:03:11 GMT 2026
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 149545 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -1.288ns/-149.546ns; real time: 4 secs 
+
+Start NBR section for post-routing at Tue Mar 24 01:03:11 GMT 2026
 
 End NBR router with 0 unrouted connection
 
 NBR Summary
 -----------
   Number of unrouted connections : 0 (0.00%)
-  Number of connections with timing violations : 15 (0.86%)
-  Estimated worst slack<setup> : -0.206ns
-  Timing score<setup> : 335
+  Number of connections with timing violations : 349 (21.32%)
+  Estimated worst slack<setup> : -1.288ns
+  Timing score<setup> : 66652
 -----------
 Notes: The timing info is calculated for SETUP only and all PAR_ADJs are ignored.
 
 
 
-Total CPU time 4 secs 
+Total CPU time 3 secs 
 Total REAL time: 4 secs 
 Completely routed.
-End of route.  1738 routed (100.00%); 0 unrouted.
+End of route.  1637 routed (100.00%); 0 unrouted.
 
 Hold time timing score: 0, hold timing errors: 0
 
-Timing score: 335 
+Timing score: 66652 
 
 Dumping design to file Scope_impl1.dir/5_1.ncd.
 
 
 PAR_SUMMARY::Run status = Completed
 PAR_SUMMARY::Number of unrouted conns = 0
-PAR_SUMMARY::Worst  slack<setup/<ns>> = -0.206
-PAR_SUMMARY::Timing score<setup/<ns>> = 0.335
-PAR_SUMMARY::Worst  slack<hold /<ns>> = 0.218
+PAR_SUMMARY::Worst  slack<setup/<ns>> = -1.288
+PAR_SUMMARY::Timing score<setup/<ns>> = 66.652
+PAR_SUMMARY::Worst  slack<hold /<ns>> = 0.199
 PAR_SUMMARY::Timing score<hold /<ns>> = 0.000
 PAR_SUMMARY::Number of errors = 0
 
@@ -588,7 +589,7 @@ NCD version: 3.3
 Vendor:      LATTICE
 Device:      LCMXO2-1200HC
 Package:     TQFP100
-Performance: 6
+Performance: 4
 Loading device for application trce from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
 Package Status:                     Final          Version 1.44.
 Performance Hardware Data Status:   Final          Version 36.4.
@@ -596,7 +597,7 @@ Setup and Hold Report
 
 --------------------------------------------------------------------------------
 Lattice TRACE Report - Setup, Version Diamond (64-bit) 3.14.0.75.2
-Sun Mar 22 21:59:09 2026
+Tue Mar 24 01:03:14 2026
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -606,10 +607,10 @@ Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
 
 Report Information
 ------------------
-Command line:    trce -v 10 -gt -sethld -sp 6 -sphld m -o Scope_impl1.twr -gui -msgset /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/promote.xml Scope_impl1.ncd Scope_impl1.prf 
+Command line:    trce -v 10 -gt -sethld -sp 4 -sphld m -o Scope_impl1.twr -gui -msgset /home/charlie/scope/fpga/promote.xml Scope_impl1.ncd Scope_impl1.prf 
 Design file:     Scope_impl1.ncd
 Preference file: Scope_impl1.prf
-Device,speed:    LCMXO2-1200HC,6
+Device,speed:    LCMXO2-1200HC,4
 Report level:    verbose report, limited to 10 items per preference
 --------------------------------------------------------------------------------
 
@@ -622,14 +623,14 @@ BLOCK RESETPATHS
 Timing summary (Setup):
 ---------------
 
-Timing errors: 4  Score: 335
-Cumulative negative slack: 335
+Timing errors: 206  Score: 66652
+Cumulative negative slack: 66652
 
-Constraints cover 8665 paths, 1 nets, and 1695 connections (97.53% coverage)
+Constraints cover 3150 paths, 1 nets, and 1594 connections (97.37% coverage)
 
 --------------------------------------------------------------------------------
 Lattice TRACE Report - Hold, Version Diamond (64-bit) 3.14.0.75.2
-Sun Mar 22 21:59:09 2026
+Tue Mar 24 01:03:14 2026
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -639,7 +640,7 @@ Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
 
 Report Information
 ------------------
-Command line:    trce -v 10 -gt -sethld -sp 6 -sphld m -o Scope_impl1.twr -gui -msgset /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/promote.xml Scope_impl1.ncd Scope_impl1.prf 
+Command line:    trce -v 10 -gt -sethld -sp 4 -sphld m -o Scope_impl1.twr -gui -msgset /home/charlie/scope/fpga/promote.xml Scope_impl1.ncd Scope_impl1.prf 
 Design file:     Scope_impl1.ncd
 Preference file: Scope_impl1.prf
 Device,speed:    LCMXO2-1200HC,m
@@ -658,16 +659,16 @@ Timing summary (Hold):
 Timing errors: 0  Score: 0
 Cumulative negative slack: 0
 
-Constraints cover 8665 paths, 1 nets, and 1695 connections (97.53% coverage)
+Constraints cover 3150 paths, 1 nets, and 1594 connections (97.37% coverage)
 
 
 
 Timing summary (Setup and Hold):
 ---------------
 
-Timing errors: 4 (setup), 0 (hold)
-Score: 335 (setup), 0 (hold)
-Cumulative negative slack: 335 (335+0)
+Timing errors: 206 (setup), 0 (hold)
+Score: 66652 (setup), 0 (hold)
+Cumulative negative slack: 66652 (66652+0)
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
@@ -693,8 +694,38 @@ NCD version: 3.3
 Vendor:      LATTICE
 Device:      LCMXO2-1200HC
 Package:     TQFP100
-Performance: 6
+Performance: 4
 Loading device for application iotiming from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Running Performance Grade: 4
+Computing Setup Time ...
+Computing Max Clock to Output Delay ...
+Computing Hold Time ...
+Computing Min Clock to Output Delay ...
+
+Loading design for application iotiming from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 5
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Running Performance Grade: 5
+Computing Setup Time ...
+Computing Max Clock to Output Delay ...
+Computing Hold Time ...
+Computing Min Clock to Output Delay ...
+
+Loading design for application iotiming from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 6
 Package Status:                     Final          Version 1.44.
 Performance Hardware Data Status:   Final          Version 36.4.
 Running Performance Grade: 6
@@ -739,7 +770,7 @@ NCD version: 3.3
 Vendor:      LATTICE
 Device:      LCMXO2-1200HC
 Package:     TQFP100
-Performance: 6
+Performance: 4
 Loading device for application Bitgen from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
 Package Status:                     Final          Version 1.44.
 Performance Hardware Data Status:   Final          Version 36.4.
@@ -810,7 +841,7 @@ Initialized UFM Pages:                     0 Page.
 =========
 Padding summary
 =========
-Padded 257024 bits for this design
+Padded 259584 bits for this design
 
 
 Total CPU Time: 1 secs 

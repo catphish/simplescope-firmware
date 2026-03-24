@@ -1,15 +1,15 @@
 NOTE Copyright (C), 1992-2010, Lattice Semiconductor Corporation *
 NOTE All Rights Reserved *
-NOTE DATE CREATED: Sun Mar 22 21:59:11 2026 *
+NOTE DATE CREATED: Tue Mar 24 01:03:16 2026 *
 NOTE DESIGN NAME: adc_ft601 *
-NOTE DEVICE NAME: LCMXO2-1200HC-6TQFP100 *
+NOTE DEVICE NAME: LCMXO2-1200HC-4TQFP100 *
 NOTE PIN ASSIGNMENTS *
+NOTE PINS ch_data[26] : 52 : out *
+NOTE PINS ch_data[27] : 51 : out *
 NOTE PINS ch_data[28] : 43 : out *
 NOTE PINS ch_data[29] : 42 : out *
 NOTE PINS ch_data[30] : 41 : out *
 NOTE PINS ch_data[31] : 40 : out *
-NOTE PINS ch_data[27] : 51 : out *
-NOTE PINS ch_data[26] : 52 : out *
 NOTE PINS ch_data[25] : 53 : out *
 NOTE PINS ch_data[24] : 54 : out *
 NOTE PINS ch_data[23] : 57 : out *

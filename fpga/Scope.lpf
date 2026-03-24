@@ -39,5 +39,4 @@ LOCATE COMP "ch_data[0]" SITE "85" ;
 LOCATE COMP "htclk" SITE "86" ;
 LOCATE COMP "hract" SITE "87" ;
 LOCATE COMP "hrclk" SITE "88" ;
-
-FREQUENCY PORT "htclk" 120 MHz;
+FREQUENCY PORT "htclk" 120.000000 MHz ;

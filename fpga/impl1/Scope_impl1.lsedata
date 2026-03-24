@@ -63,7 +63,7 @@
     </pins>
 
     <!--
-        Instances in netlist: 191
+        Instances in netlist: 196
     -->
 
     <instance  name = "crc32/i56"  library = "work"  arch = ""  type = "comb">
@@ -94,7 +94,7 @@
         </nets>
     </instance>
 
-    <instance  name = "htclk_I_0_81"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "htclk_I_0_87"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "i"  direction = "in"  />
         <pitem  name = "o"  direction = "out"  />
@@ -102,11 +102,11 @@
 
         <nets>
         <nitem  name = "htclk"  />
-        <nitem  name = "htclk_N_353"  />
+        <nitem  name = "htclk_N_362"  />
         </nets>
     </instance>
 
-    <instance  name = "buffer_index_9__I_0_72"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "buffer_index_9__I_0_78"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "i"  direction = "in"  />
         <pitem  name = "o"  direction = "out"  />
@@ -114,11 +114,11 @@
 
         <nets>
         <nitem  name = "buffer_index[9]"  />
-        <nitem  name = "buffer_index_9__N_192"  />
+        <nitem  name = "buffer_index_9__N_195"  />
         </nets>
     </instance>
 
-    <instance  name = "tx_31__I_0"  library = "work"  arch = ""  type = "seq">
+    <instance  name = "ch_data_d_31__I_0"  library = "work"  arch = ""  type = "seq">
         <pins>
         <pitem  name = "read_enable"  direction = "in"  />
         <pitem  name = "read_address[9]"  direction = "in"  />
@@ -168,7 +168,7 @@
 
         <nets>
         <nitem  name = "pwr"  />
-        <nitem  name = "buffer_index_9__N_192"  />
+        <nitem  name = "buffer_index_9__N_195"  />
         <nitem  name = "dword[8]"  />
         <nitem  name = "dword[7]"  />
         <nitem  name = "dword[6]"  />
@@ -178,39 +178,162 @@
         <nitem  name = "dword[2]"  />
         <nitem  name = "dword[1]"  />
         <nitem  name = "dword[0]"  />
-        <nitem  name = "tx_31__N_159[31]"  />
-        <nitem  name = "tx_31__N_159[30]"  />
-        <nitem  name = "tx_31__N_159[29]"  />
-        <nitem  name = "tx_31__N_159[28]"  />
-        <nitem  name = "tx_31__N_159[27]"  />
-        <nitem  name = "tx_31__N_159[26]"  />
-        <nitem  name = "tx_31__N_159[25]"  />
-        <nitem  name = "tx_31__N_159[24]"  />
-        <nitem  name = "tx_31__N_159[23]"  />
-        <nitem  name = "tx_31__N_159[22]"  />
-        <nitem  name = "tx_31__N_159[21]"  />
-        <nitem  name = "tx_31__N_159[20]"  />
-        <nitem  name = "tx_31__N_159[19]"  />
-        <nitem  name = "tx_31__N_159[18]"  />
-        <nitem  name = "tx_31__N_159[17]"  />
-        <nitem  name = "tx_31__N_159[16]"  />
-        <nitem  name = "tx_31__N_159[15]"  />
-        <nitem  name = "tx_31__N_159[14]"  />
-        <nitem  name = "tx_31__N_159[13]"  />
-        <nitem  name = "tx_31__N_159[12]"  />
-        <nitem  name = "tx_31__N_159[11]"  />
-        <nitem  name = "tx_31__N_159[10]"  />
-        <nitem  name = "tx_31__N_159[9]"  />
-        <nitem  name = "tx_31__N_159[8]"  />
-        <nitem  name = "tx_31__N_159[7]"  />
-        <nitem  name = "tx_31__N_159[6]"  />
-        <nitem  name = "tx_31__N_159[5]"  />
-        <nitem  name = "tx_31__N_159[4]"  />
-        <nitem  name = "tx_31__N_159[3]"  />
-        <nitem  name = "tx_31__N_159[2]"  />
-        <nitem  name = "tx_31__N_159[1]"  />
-        <nitem  name = "tx_31__N_159[0]"  />
+        <nitem  name = "ch_data_d_31__N_33[31]"  />
+        <nitem  name = "ch_data_d_31__N_33[30]"  />
+        <nitem  name = "ch_data_d_31__N_33[29]"  />
+        <nitem  name = "ch_data_d_31__N_33[28]"  />
+        <nitem  name = "ch_data_d_31__N_33[27]"  />
+        <nitem  name = "ch_data_d_31__N_33[26]"  />
+        <nitem  name = "ch_data_d_31__N_33[25]"  />
+        <nitem  name = "ch_data_d_31__N_33[24]"  />
+        <nitem  name = "ch_data_d_31__N_33[23]"  />
+        <nitem  name = "ch_data_d_31__N_33[22]"  />
+        <nitem  name = "ch_data_d_31__N_33[21]"  />
+        <nitem  name = "ch_data_d_31__N_33[20]"  />
+        <nitem  name = "ch_data_d_31__N_33[19]"  />
+        <nitem  name = "ch_data_d_31__N_33[18]"  />
+        <nitem  name = "ch_data_d_31__N_33[17]"  />
+        <nitem  name = "ch_data_d_31__N_33[16]"  />
+        <nitem  name = "ch_data_d_31__N_33[15]"  />
+        <nitem  name = "ch_data_d_31__N_33[14]"  />
+        <nitem  name = "ch_data_d_31__N_33[13]"  />
+        <nitem  name = "ch_data_d_31__N_33[12]"  />
+        <nitem  name = "ch_data_d_31__N_33[11]"  />
+        <nitem  name = "ch_data_d_31__N_33[10]"  />
+        <nitem  name = "ch_data_d_31__N_33[9]"  />
+        <nitem  name = "ch_data_d_31__N_33[8]"  />
+        <nitem  name = "ch_data_d_31__N_33[7]"  />
+        <nitem  name = "ch_data_d_31__N_33[6]"  />
+        <nitem  name = "ch_data_d_31__N_33[5]"  />
+        <nitem  name = "ch_data_d_31__N_33[4]"  />
+        <nitem  name = "ch_data_d_31__N_33[3]"  />
+        <nitem  name = "ch_data_d_31__N_33[2]"  />
+        <nitem  name = "ch_data_d_31__N_33[1]"  />
+        <nitem  name = "ch_data_d_31__N_33[0]"  />
         <nitem  name = "ram"  />
+        </nets>
+    </instance>
+
+    <instance  name = "add_6"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "cin"  direction = "in"  />
+        <pitem  name = "a[31]"  direction = "in"  />
+        <pitem  name = "a[30]"  direction = "in"  />
+        <pitem  name = "a[29]"  direction = "in"  />
+        <pitem  name = "a[28]"  direction = "in"  />
+        <pitem  name = "a[27]"  direction = "in"  />
+        <pitem  name = "a[26]"  direction = "in"  />
+        <pitem  name = "a[25]"  direction = "in"  />
+        <pitem  name = "a[24]"  direction = "in"  />
+        <pitem  name = "a[23]"  direction = "in"  />
+        <pitem  name = "a[22]"  direction = "in"  />
+        <pitem  name = "a[21]"  direction = "in"  />
+        <pitem  name = "a[20]"  direction = "in"  />
+        <pitem  name = "a[19]"  direction = "in"  />
+        <pitem  name = "a[18]"  direction = "in"  />
+        <pitem  name = "a[17]"  direction = "in"  />
+        <pitem  name = "a[16]"  direction = "in"  />
+        <pitem  name = "a[15]"  direction = "in"  />
+        <pitem  name = "a[14]"  direction = "in"  />
+        <pitem  name = "a[13]"  direction = "in"  />
+        <pitem  name = "a[12]"  direction = "in"  />
+        <pitem  name = "a[11]"  direction = "in"  />
+        <pitem  name = "a[10]"  direction = "in"  />
+        <pitem  name = "a[9]"  direction = "in"  />
+        <pitem  name = "a[8]"  direction = "in"  />
+        <pitem  name = "a[7]"  direction = "in"  />
+        <pitem  name = "a[6]"  direction = "in"  />
+        <pitem  name = "a[5]"  direction = "in"  />
+        <pitem  name = "a[4]"  direction = "in"  />
+        <pitem  name = "a[3]"  direction = "in"  />
+        <pitem  name = "a[2]"  direction = "in"  />
+        <pitem  name = "a[1]"  direction = "in"  />
+        <pitem  name = "a[0]"  direction = "in"  />
+        <pitem  name = "b[31]"  direction = "in"  />
+        <pitem  name = "b[30]"  direction = "in"  />
+        <pitem  name = "b[29]"  direction = "in"  />
+        <pitem  name = "b[28]"  direction = "in"  />
+        <pitem  name = "b[27]"  direction = "in"  />
+        <pitem  name = "b[26]"  direction = "in"  />
+        <pitem  name = "b[25]"  direction = "in"  />
+        <pitem  name = "b[24]"  direction = "in"  />
+        <pitem  name = "b[23]"  direction = "in"  />
+        <pitem  name = "b[22]"  direction = "in"  />
+        <pitem  name = "b[21]"  direction = "in"  />
+        <pitem  name = "b[20]"  direction = "in"  />
+        <pitem  name = "b[19]"  direction = "in"  />
+        <pitem  name = "b[18]"  direction = "in"  />
+        <pitem  name = "b[17]"  direction = "in"  />
+        <pitem  name = "b[16]"  direction = "in"  />
+        <pitem  name = "b[15]"  direction = "in"  />
+        <pitem  name = "b[14]"  direction = "in"  />
+        <pitem  name = "b[13]"  direction = "in"  />
+        <pitem  name = "b[12]"  direction = "in"  />
+        <pitem  name = "b[11]"  direction = "in"  />
+        <pitem  name = "b[10]"  direction = "in"  />
+        <pitem  name = "b[9]"  direction = "in"  />
+        <pitem  name = "b[8]"  direction = "in"  />
+        <pitem  name = "b[7]"  direction = "in"  />
+        <pitem  name = "b[6]"  direction = "in"  />
+        <pitem  name = "b[5]"  direction = "in"  />
+        <pitem  name = "b[4]"  direction = "in"  />
+        <pitem  name = "b[3]"  direction = "in"  />
+        <pitem  name = "b[2]"  direction = "in"  />
+        <pitem  name = "b[1]"  direction = "in"  />
+        <pitem  name = "b[0]"  direction = "in"  />
+        <pitem  name = "o[15]"  direction = "out"  />
+        <pitem  name = "o[14]"  direction = "out"  />
+        <pitem  name = "o[13]"  direction = "out"  />
+        <pitem  name = "o[12]"  direction = "out"  />
+        <pitem  name = "o[11]"  direction = "out"  />
+        <pitem  name = "o[10]"  direction = "out"  />
+        <pitem  name = "o[9]"  direction = "out"  />
+        <pitem  name = "o[8]"  direction = "out"  />
+        <pitem  name = "o[7]"  direction = "out"  />
+        <pitem  name = "o[6]"  direction = "out"  />
+        <pitem  name = "o[5]"  direction = "out"  />
+        <pitem  name = "o[4]"  direction = "out"  />
+        <pitem  name = "o[3]"  direction = "out"  />
+        <pitem  name = "o[2]"  direction = "out"  />
+        <pitem  name = "o[1]"  direction = "out"  />
+        <pitem  name = "o[0]"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "gnd"  />
+        <nitem  name = "dword[15]"  />
+        <nitem  name = "dword[14]"  />
+        <nitem  name = "dword[13]"  />
+        <nitem  name = "dword[12]"  />
+        <nitem  name = "dword[11]"  />
+        <nitem  name = "dword[10]"  />
+        <nitem  name = "dword[9]"  />
+        <nitem  name = "dword[8]"  />
+        <nitem  name = "dword[7]"  />
+        <nitem  name = "dword[6]"  />
+        <nitem  name = "dword[5]"  />
+        <nitem  name = "dword[4]"  />
+        <nitem  name = "dword[3]"  />
+        <nitem  name = "dword[2]"  />
+        <nitem  name = "dword[1]"  />
+        <nitem  name = "dword[0]"  />
+        <nitem  name = "pwr"  />
+        <nitem  name = "n87"  />
+        <nitem  name = "n88"  />
+        <nitem  name = "n89"  />
+        <nitem  name = "n90"  />
+        <nitem  name = "n91"  />
+        <nitem  name = "n92"  />
+        <nitem  name = "n93"  />
+        <nitem  name = "n94"  />
+        <nitem  name = "n95"  />
+        <nitem  name = "n96"  />
+        <nitem  name = "n97"  />
+        <nitem  name = "n98"  />
+        <nitem  name = "n99"  />
+        <nitem  name = "n100"  />
+        <nitem  name = "n101"  />
+        <nitem  name = "n102"  />
         </nets>
     </instance>
 
@@ -350,42 +473,42 @@
         <nitem  name = "counter[1]"  />
         <nitem  name = "counter[0]"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "counter_31__N_43[31]"  />
-        <nitem  name = "counter_31__N_43[30]"  />
-        <nitem  name = "counter_31__N_43[29]"  />
-        <nitem  name = "counter_31__N_43[28]"  />
-        <nitem  name = "counter_31__N_43[27]"  />
-        <nitem  name = "counter_31__N_43[26]"  />
-        <nitem  name = "counter_31__N_43[25]"  />
-        <nitem  name = "counter_31__N_43[24]"  />
-        <nitem  name = "counter_31__N_43[23]"  />
-        <nitem  name = "counter_31__N_43[22]"  />
-        <nitem  name = "counter_31__N_43[21]"  />
-        <nitem  name = "counter_31__N_43[20]"  />
-        <nitem  name = "counter_31__N_43[19]"  />
-        <nitem  name = "counter_31__N_43[18]"  />
-        <nitem  name = "counter_31__N_43[17]"  />
-        <nitem  name = "counter_31__N_43[16]"  />
-        <nitem  name = "counter_31__N_43[15]"  />
-        <nitem  name = "counter_31__N_43[14]"  />
-        <nitem  name = "counter_31__N_43[13]"  />
-        <nitem  name = "counter_31__N_43[12]"  />
-        <nitem  name = "counter_31__N_43[11]"  />
-        <nitem  name = "counter_31__N_43[10]"  />
-        <nitem  name = "counter_31__N_43[9]"  />
-        <nitem  name = "counter_31__N_43[8]"  />
-        <nitem  name = "counter_31__N_43[7]"  />
-        <nitem  name = "counter_31__N_43[6]"  />
-        <nitem  name = "counter_31__N_43[5]"  />
-        <nitem  name = "counter_31__N_43[4]"  />
-        <nitem  name = "counter_31__N_43[3]"  />
-        <nitem  name = "counter_31__N_43[2]"  />
-        <nitem  name = "counter_31__N_43[1]"  />
-        <nitem  name = "counter_31__N_43[0]"  />
+        <nitem  name = "counter_31__N_75[31]"  />
+        <nitem  name = "counter_31__N_75[30]"  />
+        <nitem  name = "counter_31__N_75[29]"  />
+        <nitem  name = "counter_31__N_75[28]"  />
+        <nitem  name = "counter_31__N_75[27]"  />
+        <nitem  name = "counter_31__N_75[26]"  />
+        <nitem  name = "counter_31__N_75[25]"  />
+        <nitem  name = "counter_31__N_75[24]"  />
+        <nitem  name = "counter_31__N_75[23]"  />
+        <nitem  name = "counter_31__N_75[22]"  />
+        <nitem  name = "counter_31__N_75[21]"  />
+        <nitem  name = "counter_31__N_75[20]"  />
+        <nitem  name = "counter_31__N_75[19]"  />
+        <nitem  name = "counter_31__N_75[18]"  />
+        <nitem  name = "counter_31__N_75[17]"  />
+        <nitem  name = "counter_31__N_75[16]"  />
+        <nitem  name = "counter_31__N_75[15]"  />
+        <nitem  name = "counter_31__N_75[14]"  />
+        <nitem  name = "counter_31__N_75[13]"  />
+        <nitem  name = "counter_31__N_75[12]"  />
+        <nitem  name = "counter_31__N_75[11]"  />
+        <nitem  name = "counter_31__N_75[10]"  />
+        <nitem  name = "counter_31__N_75[9]"  />
+        <nitem  name = "counter_31__N_75[8]"  />
+        <nitem  name = "counter_31__N_75[7]"  />
+        <nitem  name = "counter_31__N_75[6]"  />
+        <nitem  name = "counter_31__N_75[5]"  />
+        <nitem  name = "counter_31__N_75[4]"  />
+        <nitem  name = "counter_31__N_75[3]"  />
+        <nitem  name = "counter_31__N_75[2]"  />
+        <nitem  name = "counter_31__N_75[1]"  />
+        <nitem  name = "counter_31__N_75[0]"  />
         </nets>
     </instance>
 
-    <instance  name = "counter_4__I_0"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "counter_0__I_0"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "a[31]"  direction = "in"  />
         <pitem  name = "a[30]"  direction = "in"  />
@@ -456,16 +579,12 @@
 
         <nets>
         <nitem  name = "gnd"  />
-        <nitem  name = "counter[4]"  />
-        <nitem  name = "counter[3]"  />
-        <nitem  name = "counter[2]"  />
-        <nitem  name = "counter[1]"  />
         <nitem  name = "counter[0]"  />
-        <nitem  name = "buffer_index_9__N_203"  />
+        <nitem  name = "buffer_index_9__N_206"  />
         </nets>
     </instance>
 
-    <instance  name = "add_8"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "add_9"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "cin"  direction = "in"  />
         <pitem  name = "a[31]"  direction = "in"  />
@@ -557,16 +676,16 @@
         <nitem  name = "buffer_index[1]"  />
         <nitem  name = "buffer_index[0]"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "buffer_index_9__N_193[9]"  />
-        <nitem  name = "buffer_index_9__N_193[8]"  />
-        <nitem  name = "buffer_index_9__N_193[7]"  />
-        <nitem  name = "buffer_index_9__N_193[6]"  />
-        <nitem  name = "buffer_index_9__N_193[5]"  />
-        <nitem  name = "buffer_index_9__N_193[4]"  />
-        <nitem  name = "buffer_index_9__N_193[3]"  />
-        <nitem  name = "buffer_index_9__N_193[2]"  />
-        <nitem  name = "buffer_index_9__N_193[1]"  />
-        <nitem  name = "buffer_index_9__N_193[0]"  />
+        <nitem  name = "buffer_index_9__N_196[9]"  />
+        <nitem  name = "buffer_index_9__N_196[8]"  />
+        <nitem  name = "buffer_index_9__N_196[7]"  />
+        <nitem  name = "buffer_index_9__N_196[6]"  />
+        <nitem  name = "buffer_index_9__N_196[5]"  />
+        <nitem  name = "buffer_index_9__N_196[4]"  />
+        <nitem  name = "buffer_index_9__N_196[3]"  />
+        <nitem  name = "buffer_index_9__N_196[2]"  />
+        <nitem  name = "buffer_index_9__N_196[1]"  />
+        <nitem  name = "buffer_index_9__N_196[0]"  />
         </nets>
     </instance>
 
@@ -621,7 +740,7 @@
 
         <nets>
         <nitem  name = "htclk"  />
-        <nitem  name = "buffer_index_9__N_203"  />
+        <nitem  name = "buffer_index_9__N_206"  />
         <nitem  name = "buffer_index[9]"  />
         <nitem  name = "buffer_index[8]"  />
         <nitem  name = "buffer_index[7]"  />
@@ -668,7 +787,7 @@
         </nets>
     </instance>
 
-    <instance  name = "add_10"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "add_11"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "cin"  direction = "in"  />
         <pitem  name = "a[31]"  direction = "in"  />
@@ -804,38 +923,38 @@
         <nitem  name = "data_counter[1]"  />
         <nitem  name = "data_counter[0]"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "data_counter_31__N_204[31]"  />
-        <nitem  name = "data_counter_31__N_204[30]"  />
-        <nitem  name = "data_counter_31__N_204[29]"  />
-        <nitem  name = "data_counter_31__N_204[28]"  />
-        <nitem  name = "data_counter_31__N_204[27]"  />
-        <nitem  name = "data_counter_31__N_204[26]"  />
-        <nitem  name = "data_counter_31__N_204[25]"  />
-        <nitem  name = "data_counter_31__N_204[24]"  />
-        <nitem  name = "data_counter_31__N_204[23]"  />
-        <nitem  name = "data_counter_31__N_204[22]"  />
-        <nitem  name = "data_counter_31__N_204[21]"  />
-        <nitem  name = "data_counter_31__N_204[20]"  />
-        <nitem  name = "data_counter_31__N_204[19]"  />
-        <nitem  name = "data_counter_31__N_204[18]"  />
-        <nitem  name = "data_counter_31__N_204[17]"  />
-        <nitem  name = "data_counter_31__N_204[16]"  />
-        <nitem  name = "data_counter_31__N_204[15]"  />
-        <nitem  name = "data_counter_31__N_204[14]"  />
-        <nitem  name = "data_counter_31__N_204[13]"  />
-        <nitem  name = "data_counter_31__N_204[12]"  />
-        <nitem  name = "data_counter_31__N_204[11]"  />
-        <nitem  name = "data_counter_31__N_204[10]"  />
-        <nitem  name = "data_counter_31__N_204[9]"  />
-        <nitem  name = "data_counter_31__N_204[8]"  />
-        <nitem  name = "data_counter_31__N_204[7]"  />
-        <nitem  name = "data_counter_31__N_204[6]"  />
-        <nitem  name = "data_counter_31__N_204[5]"  />
-        <nitem  name = "data_counter_31__N_204[4]"  />
-        <nitem  name = "data_counter_31__N_204[3]"  />
-        <nitem  name = "data_counter_31__N_204[2]"  />
-        <nitem  name = "data_counter_31__N_204[1]"  />
-        <nitem  name = "data_counter_31__N_204[0]"  />
+        <nitem  name = "data_counter_31__N_207[31]"  />
+        <nitem  name = "data_counter_31__N_207[30]"  />
+        <nitem  name = "data_counter_31__N_207[29]"  />
+        <nitem  name = "data_counter_31__N_207[28]"  />
+        <nitem  name = "data_counter_31__N_207[27]"  />
+        <nitem  name = "data_counter_31__N_207[26]"  />
+        <nitem  name = "data_counter_31__N_207[25]"  />
+        <nitem  name = "data_counter_31__N_207[24]"  />
+        <nitem  name = "data_counter_31__N_207[23]"  />
+        <nitem  name = "data_counter_31__N_207[22]"  />
+        <nitem  name = "data_counter_31__N_207[21]"  />
+        <nitem  name = "data_counter_31__N_207[20]"  />
+        <nitem  name = "data_counter_31__N_207[19]"  />
+        <nitem  name = "data_counter_31__N_207[18]"  />
+        <nitem  name = "data_counter_31__N_207[17]"  />
+        <nitem  name = "data_counter_31__N_207[16]"  />
+        <nitem  name = "data_counter_31__N_207[15]"  />
+        <nitem  name = "data_counter_31__N_207[14]"  />
+        <nitem  name = "data_counter_31__N_207[13]"  />
+        <nitem  name = "data_counter_31__N_207[12]"  />
+        <nitem  name = "data_counter_31__N_207[11]"  />
+        <nitem  name = "data_counter_31__N_207[10]"  />
+        <nitem  name = "data_counter_31__N_207[9]"  />
+        <nitem  name = "data_counter_31__N_207[8]"  />
+        <nitem  name = "data_counter_31__N_207[7]"  />
+        <nitem  name = "data_counter_31__N_207[6]"  />
+        <nitem  name = "data_counter_31__N_207[5]"  />
+        <nitem  name = "data_counter_31__N_207[4]"  />
+        <nitem  name = "data_counter_31__N_207[3]"  />
+        <nitem  name = "data_counter_31__N_207[2]"  />
+        <nitem  name = "data_counter_31__N_207[1]"  />
+        <nitem  name = "data_counter_31__N_207[0]"  />
         </nets>
     </instance>
 
@@ -873,7 +992,7 @@
         <nitem  name = "buffer_index[1]"  />
         <nitem  name = "buffer_index[0]"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "transmit_now_N_357"  />
+        <nitem  name = "transmit_now_N_366"  />
         </nets>
     </instance>
 
@@ -888,8 +1007,8 @@
         <nets>
         <nitem  name = "transmit_now"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "transmit_now_N_357"  />
-        <nitem  name = "transmit_now_N_356"  />
+        <nitem  name = "transmit_now_N_366"  />
+        <nitem  name = "transmit_now_N_365"  />
         </nets>
     </instance>
 
@@ -939,27 +1058,27 @@
         <nitem  name = "buffer_index[2]"  />
         <nitem  name = "buffer_index[1]"  />
         <nitem  name = "buffer_index[0]"  />
-        <nitem  name = "buffer_index_9__N_193[9]"  />
-        <nitem  name = "buffer_index_9__N_193[8]"  />
-        <nitem  name = "buffer_index_9__N_193[7]"  />
-        <nitem  name = "buffer_index_9__N_193[6]"  />
-        <nitem  name = "buffer_index_9__N_193[5]"  />
-        <nitem  name = "buffer_index_9__N_193[4]"  />
-        <nitem  name = "buffer_index_9__N_193[3]"  />
-        <nitem  name = "buffer_index_9__N_193[2]"  />
-        <nitem  name = "buffer_index_9__N_193[1]"  />
-        <nitem  name = "buffer_index_9__N_193[0]"  />
-        <nitem  name = "buffer_index_9__N_203"  />
-        <nitem  name = "buffer_index_9__N_33[9]"  />
-        <nitem  name = "buffer_index_9__N_33[8]"  />
-        <nitem  name = "buffer_index_9__N_33[7]"  />
-        <nitem  name = "buffer_index_9__N_33[6]"  />
-        <nitem  name = "buffer_index_9__N_33[5]"  />
-        <nitem  name = "buffer_index_9__N_33[4]"  />
-        <nitem  name = "buffer_index_9__N_33[3]"  />
-        <nitem  name = "buffer_index_9__N_33[2]"  />
-        <nitem  name = "buffer_index_9__N_33[1]"  />
-        <nitem  name = "buffer_index_9__N_33[0]"  />
+        <nitem  name = "buffer_index_9__N_196[9]"  />
+        <nitem  name = "buffer_index_9__N_196[8]"  />
+        <nitem  name = "buffer_index_9__N_196[7]"  />
+        <nitem  name = "buffer_index_9__N_196[6]"  />
+        <nitem  name = "buffer_index_9__N_196[5]"  />
+        <nitem  name = "buffer_index_9__N_196[4]"  />
+        <nitem  name = "buffer_index_9__N_196[3]"  />
+        <nitem  name = "buffer_index_9__N_196[2]"  />
+        <nitem  name = "buffer_index_9__N_196[1]"  />
+        <nitem  name = "buffer_index_9__N_196[0]"  />
+        <nitem  name = "buffer_index_9__N_206"  />
+        <nitem  name = "buffer_index_9__N_65[9]"  />
+        <nitem  name = "buffer_index_9__N_65[8]"  />
+        <nitem  name = "buffer_index_9__N_65[7]"  />
+        <nitem  name = "buffer_index_9__N_65[6]"  />
+        <nitem  name = "buffer_index_9__N_65[5]"  />
+        <nitem  name = "buffer_index_9__N_65[4]"  />
+        <nitem  name = "buffer_index_9__N_65[3]"  />
+        <nitem  name = "buffer_index_9__N_65[2]"  />
+        <nitem  name = "buffer_index_9__N_65[1]"  />
+        <nitem  name = "buffer_index_9__N_65[0]"  />
         </nets>
     </instance>
 
@@ -1097,75 +1216,75 @@
         <nitem  name = "data_counter[2]"  />
         <nitem  name = "data_counter[1]"  />
         <nitem  name = "data_counter[0]"  />
-        <nitem  name = "data_counter_31__N_204[31]"  />
-        <nitem  name = "data_counter_31__N_204[30]"  />
-        <nitem  name = "data_counter_31__N_204[29]"  />
-        <nitem  name = "data_counter_31__N_204[28]"  />
-        <nitem  name = "data_counter_31__N_204[27]"  />
-        <nitem  name = "data_counter_31__N_204[26]"  />
-        <nitem  name = "data_counter_31__N_204[25]"  />
-        <nitem  name = "data_counter_31__N_204[24]"  />
-        <nitem  name = "data_counter_31__N_204[23]"  />
-        <nitem  name = "data_counter_31__N_204[22]"  />
-        <nitem  name = "data_counter_31__N_204[21]"  />
-        <nitem  name = "data_counter_31__N_204[20]"  />
-        <nitem  name = "data_counter_31__N_204[19]"  />
-        <nitem  name = "data_counter_31__N_204[18]"  />
-        <nitem  name = "data_counter_31__N_204[17]"  />
-        <nitem  name = "data_counter_31__N_204[16]"  />
-        <nitem  name = "data_counter_31__N_204[15]"  />
-        <nitem  name = "data_counter_31__N_204[14]"  />
-        <nitem  name = "data_counter_31__N_204[13]"  />
-        <nitem  name = "data_counter_31__N_204[12]"  />
-        <nitem  name = "data_counter_31__N_204[11]"  />
-        <nitem  name = "data_counter_31__N_204[10]"  />
-        <nitem  name = "data_counter_31__N_204[9]"  />
-        <nitem  name = "data_counter_31__N_204[8]"  />
-        <nitem  name = "data_counter_31__N_204[7]"  />
-        <nitem  name = "data_counter_31__N_204[6]"  />
-        <nitem  name = "data_counter_31__N_204[5]"  />
-        <nitem  name = "data_counter_31__N_204[4]"  />
-        <nitem  name = "data_counter_31__N_204[3]"  />
-        <nitem  name = "data_counter_31__N_204[2]"  />
-        <nitem  name = "data_counter_31__N_204[1]"  />
-        <nitem  name = "data_counter_31__N_204[0]"  />
-        <nitem  name = "buffer_index_9__N_203"  />
-        <nitem  name = "data_counter_31__N_75[31]"  />
-        <nitem  name = "data_counter_31__N_75[30]"  />
-        <nitem  name = "data_counter_31__N_75[29]"  />
-        <nitem  name = "data_counter_31__N_75[28]"  />
-        <nitem  name = "data_counter_31__N_75[27]"  />
-        <nitem  name = "data_counter_31__N_75[26]"  />
-        <nitem  name = "data_counter_31__N_75[25]"  />
-        <nitem  name = "data_counter_31__N_75[24]"  />
-        <nitem  name = "data_counter_31__N_75[23]"  />
-        <nitem  name = "data_counter_31__N_75[22]"  />
-        <nitem  name = "data_counter_31__N_75[21]"  />
-        <nitem  name = "data_counter_31__N_75[20]"  />
-        <nitem  name = "data_counter_31__N_75[19]"  />
-        <nitem  name = "data_counter_31__N_75[18]"  />
-        <nitem  name = "data_counter_31__N_75[17]"  />
-        <nitem  name = "data_counter_31__N_75[16]"  />
-        <nitem  name = "data_counter_31__N_75[15]"  />
-        <nitem  name = "data_counter_31__N_75[14]"  />
-        <nitem  name = "data_counter_31__N_75[13]"  />
-        <nitem  name = "data_counter_31__N_75[12]"  />
-        <nitem  name = "data_counter_31__N_75[11]"  />
-        <nitem  name = "data_counter_31__N_75[10]"  />
-        <nitem  name = "data_counter_31__N_75[9]"  />
-        <nitem  name = "data_counter_31__N_75[8]"  />
-        <nitem  name = "data_counter_31__N_75[7]"  />
-        <nitem  name = "data_counter_31__N_75[6]"  />
-        <nitem  name = "data_counter_31__N_75[5]"  />
-        <nitem  name = "data_counter_31__N_75[4]"  />
-        <nitem  name = "data_counter_31__N_75[3]"  />
-        <nitem  name = "data_counter_31__N_75[2]"  />
-        <nitem  name = "data_counter_31__N_75[1]"  />
-        <nitem  name = "data_counter_31__N_75[0]"  />
+        <nitem  name = "data_counter_31__N_207[31]"  />
+        <nitem  name = "data_counter_31__N_207[30]"  />
+        <nitem  name = "data_counter_31__N_207[29]"  />
+        <nitem  name = "data_counter_31__N_207[28]"  />
+        <nitem  name = "data_counter_31__N_207[27]"  />
+        <nitem  name = "data_counter_31__N_207[26]"  />
+        <nitem  name = "data_counter_31__N_207[25]"  />
+        <nitem  name = "data_counter_31__N_207[24]"  />
+        <nitem  name = "data_counter_31__N_207[23]"  />
+        <nitem  name = "data_counter_31__N_207[22]"  />
+        <nitem  name = "data_counter_31__N_207[21]"  />
+        <nitem  name = "data_counter_31__N_207[20]"  />
+        <nitem  name = "data_counter_31__N_207[19]"  />
+        <nitem  name = "data_counter_31__N_207[18]"  />
+        <nitem  name = "data_counter_31__N_207[17]"  />
+        <nitem  name = "data_counter_31__N_207[16]"  />
+        <nitem  name = "data_counter_31__N_207[15]"  />
+        <nitem  name = "data_counter_31__N_207[14]"  />
+        <nitem  name = "data_counter_31__N_207[13]"  />
+        <nitem  name = "data_counter_31__N_207[12]"  />
+        <nitem  name = "data_counter_31__N_207[11]"  />
+        <nitem  name = "data_counter_31__N_207[10]"  />
+        <nitem  name = "data_counter_31__N_207[9]"  />
+        <nitem  name = "data_counter_31__N_207[8]"  />
+        <nitem  name = "data_counter_31__N_207[7]"  />
+        <nitem  name = "data_counter_31__N_207[6]"  />
+        <nitem  name = "data_counter_31__N_207[5]"  />
+        <nitem  name = "data_counter_31__N_207[4]"  />
+        <nitem  name = "data_counter_31__N_207[3]"  />
+        <nitem  name = "data_counter_31__N_207[2]"  />
+        <nitem  name = "data_counter_31__N_207[1]"  />
+        <nitem  name = "data_counter_31__N_207[0]"  />
+        <nitem  name = "buffer_index_9__N_206"  />
+        <nitem  name = "data_counter_31__N_107[31]"  />
+        <nitem  name = "data_counter_31__N_107[30]"  />
+        <nitem  name = "data_counter_31__N_107[29]"  />
+        <nitem  name = "data_counter_31__N_107[28]"  />
+        <nitem  name = "data_counter_31__N_107[27]"  />
+        <nitem  name = "data_counter_31__N_107[26]"  />
+        <nitem  name = "data_counter_31__N_107[25]"  />
+        <nitem  name = "data_counter_31__N_107[24]"  />
+        <nitem  name = "data_counter_31__N_107[23]"  />
+        <nitem  name = "data_counter_31__N_107[22]"  />
+        <nitem  name = "data_counter_31__N_107[21]"  />
+        <nitem  name = "data_counter_31__N_107[20]"  />
+        <nitem  name = "data_counter_31__N_107[19]"  />
+        <nitem  name = "data_counter_31__N_107[18]"  />
+        <nitem  name = "data_counter_31__N_107[17]"  />
+        <nitem  name = "data_counter_31__N_107[16]"  />
+        <nitem  name = "data_counter_31__N_107[15]"  />
+        <nitem  name = "data_counter_31__N_107[14]"  />
+        <nitem  name = "data_counter_31__N_107[13]"  />
+        <nitem  name = "data_counter_31__N_107[12]"  />
+        <nitem  name = "data_counter_31__N_107[11]"  />
+        <nitem  name = "data_counter_31__N_107[10]"  />
+        <nitem  name = "data_counter_31__N_107[9]"  />
+        <nitem  name = "data_counter_31__N_107[8]"  />
+        <nitem  name = "data_counter_31__N_107[7]"  />
+        <nitem  name = "data_counter_31__N_107[6]"  />
+        <nitem  name = "data_counter_31__N_107[5]"  />
+        <nitem  name = "data_counter_31__N_107[4]"  />
+        <nitem  name = "data_counter_31__N_107[3]"  />
+        <nitem  name = "data_counter_31__N_107[2]"  />
+        <nitem  name = "data_counter_31__N_107[1]"  />
+        <nitem  name = "data_counter_31__N_107[0]"  />
         </nets>
     </instance>
 
-    <instance  name = "transmit_now_I_0_80"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "transmit_now_I_0_86"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "a0"  direction = "in"  />
         <pitem  name = "a1"  direction = "in"  />
@@ -1175,9 +1294,9 @@
 
         <nets>
         <nitem  name = "transmit_now"  />
-        <nitem  name = "transmit_now_N_356"  />
-        <nitem  name = "buffer_index_9__N_203"  />
-        <nitem  name = "transmit_now_N_355"  />
+        <nitem  name = "transmit_now_N_365"  />
+        <nitem  name = "buffer_index_9__N_206"  />
+        <nitem  name = "transmit_now_N_364"  />
         </nets>
     </instance>
 
@@ -1189,7 +1308,7 @@
 
         <nets>
         <nitem  name = "hract"  />
-        <nitem  name = "hract_N_348"  />
+        <nitem  name = "hract_N_357"  />
         </nets>
     </instance>
 
@@ -1201,7 +1320,7 @@
 
         <nets>
         <nitem  name = "htack"  />
-        <nitem  name = "htack_N_350"  />
+        <nitem  name = "htack_N_359"  />
         </nets>
     </instance>
 
@@ -1213,9 +1332,9 @@
         </pins>
 
         <nets>
-        <nitem  name = "hract_N_348"  />
-        <nitem  name = "htack_N_350"  />
-        <nitem  name = "hract_N_346"  />
+        <nitem  name = "hract_N_357"  />
+        <nitem  name = "htack_N_359"  />
+        <nitem  name = "hract_N_355"  />
         </nets>
     </instance>
 
@@ -1227,13 +1346,13 @@
         </pins>
 
         <nets>
-        <nitem  name = "hract_N_346"  />
+        <nitem  name = "hract_N_355"  />
         <nitem  name = "transmit_now"  />
-        <nitem  name = "hract_N_345"  />
+        <nitem  name = "hract_N_354"  />
         </nets>
     </instance>
 
-    <instance  name = "transmit_now_I_0_79"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "transmit_now_I_0_85"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "a0"  direction = "in"  />
         <pitem  name = "a1"  direction = "in"  />
@@ -1242,14 +1361,14 @@
         </pins>
 
         <nets>
-        <nitem  name = "transmit_now_N_355"  />
+        <nitem  name = "transmit_now_N_364"  />
         <nitem  name = "gnd"  />
-        <nitem  name = "hract_N_345"  />
-        <nitem  name = "transmit_now_N_354"  />
+        <nitem  name = "hract_N_354"  />
+        <nitem  name = "transmit_now_N_363"  />
         </nets>
     </instance>
 
-    <instance  name = "hract_I_0_77"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "hract_I_0_83"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "a0"  direction = "in"  />
         <pitem  name = "a1"  direction = "in"  />
@@ -1260,12 +1379,38 @@
         <nets>
         <nitem  name = "hract"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "hract_N_345"  />
-        <nitem  name = "hract_N_344"  />
+        <nitem  name = "hract_N_354"  />
+        <nitem  name = "hract_N_353"  />
         </nets>
     </instance>
 
-    <instance  name = "mux_22"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "mux_23"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "d0[2]"  direction = "in"  />
+        <pitem  name = "d0[1]"  direction = "in"  />
+        <pitem  name = "d0[0]"  direction = "in"  />
+        <pitem  name = "d1[2]"  direction = "in"  />
+        <pitem  name = "d1[1]"  direction = "in"  />
+        <pitem  name = "d1[0]"  direction = "in"  />
+        <pitem  name = "cond"  direction = "in"  />
+        <pitem  name = "o[2]"  direction = "out"  />
+        <pitem  name = "o[1]"  direction = "out"  />
+        <pitem  name = "o[0]"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "state[2]"  />
+        <nitem  name = "state[1]"  />
+        <nitem  name = "state[0]"  />
+        <nitem  name = "gnd"  />
+        <nitem  name = "hract_N_354"  />
+        <nitem  name = "state_2__N_308[2]"  />
+        <nitem  name = "state_2__N_308[1]"  />
+        <nitem  name = "state_2__N_308[0]"  />
+        </nets>
+    </instance>
+
+    <instance  name = "mux_24"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "d0[15]"  direction = "in"  />
         <pitem  name = "d0[14]"  direction = "in"  />
@@ -1319,44 +1464,44 @@
         </pins>
 
         <nets>
-        <nitem  name = "dword[15]"  />
-        <nitem  name = "dword[14]"  />
-        <nitem  name = "dword[13]"  />
-        <nitem  name = "dword[12]"  />
-        <nitem  name = "dword[11]"  />
-        <nitem  name = "dword[10]"  />
-        <nitem  name = "dword[9]"  />
-        <nitem  name = "dword[8]"  />
-        <nitem  name = "dword[7]"  />
-        <nitem  name = "dword[6]"  />
-        <nitem  name = "dword[5]"  />
-        <nitem  name = "dword[4]"  />
-        <nitem  name = "dword[3]"  />
-        <nitem  name = "dword[2]"  />
-        <nitem  name = "dword[1]"  />
-        <nitem  name = "dword[0]"  />
+        <nitem  name = "n87"  />
+        <nitem  name = "n88"  />
+        <nitem  name = "n89"  />
+        <nitem  name = "n90"  />
+        <nitem  name = "n91"  />
+        <nitem  name = "n92"  />
+        <nitem  name = "n93"  />
+        <nitem  name = "n94"  />
+        <nitem  name = "n95"  />
+        <nitem  name = "n96"  />
+        <nitem  name = "n97"  />
+        <nitem  name = "n98"  />
+        <nitem  name = "n99"  />
+        <nitem  name = "n100"  />
+        <nitem  name = "n101"  />
+        <nitem  name = "n102"  />
         <nitem  name = "gnd"  />
-        <nitem  name = "hract_N_345"  />
-        <nitem  name = "dword_15__N_305[15]"  />
-        <nitem  name = "dword_15__N_305[14]"  />
-        <nitem  name = "dword_15__N_305[13]"  />
-        <nitem  name = "dword_15__N_305[12]"  />
-        <nitem  name = "dword_15__N_305[11]"  />
-        <nitem  name = "dword_15__N_305[10]"  />
-        <nitem  name = "dword_15__N_305[9]"  />
-        <nitem  name = "dword_15__N_305[8]"  />
-        <nitem  name = "dword_15__N_305[7]"  />
-        <nitem  name = "dword_15__N_305[6]"  />
-        <nitem  name = "dword_15__N_305[5]"  />
-        <nitem  name = "dword_15__N_305[4]"  />
-        <nitem  name = "dword_15__N_305[3]"  />
-        <nitem  name = "dword_15__N_305[2]"  />
-        <nitem  name = "dword_15__N_305[1]"  />
-        <nitem  name = "dword_15__N_305[0]"  />
+        <nitem  name = "hract_N_354"  />
+        <nitem  name = "dword_15__N_314[15]"  />
+        <nitem  name = "dword_15__N_314[14]"  />
+        <nitem  name = "dword_15__N_314[13]"  />
+        <nitem  name = "dword_15__N_314[12]"  />
+        <nitem  name = "dword_15__N_314[11]"  />
+        <nitem  name = "dword_15__N_314[10]"  />
+        <nitem  name = "dword_15__N_314[9]"  />
+        <nitem  name = "dword_15__N_314[8]"  />
+        <nitem  name = "dword_15__N_314[7]"  />
+        <nitem  name = "dword_15__N_314[6]"  />
+        <nitem  name = "dword_15__N_314[5]"  />
+        <nitem  name = "dword_15__N_314[4]"  />
+        <nitem  name = "dword_15__N_314[3]"  />
+        <nitem  name = "dword_15__N_314[2]"  />
+        <nitem  name = "dword_15__N_314[1]"  />
+        <nitem  name = "dword_15__N_314[0]"  />
         </nets>
     </instance>
 
-    <instance  name = "hract_I_0_76"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "hract_I_0_82"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "a0"  direction = "in"  />
         <pitem  name = "a1"  direction = "in"  />
@@ -1366,11 +1511,11 @@
         <nets>
         <nitem  name = "hract"  />
         <nitem  name = "htack"  />
-        <nitem  name = "crc_31__N_268"  />
+        <nitem  name = "crc_31__N_271"  />
         </nets>
     </instance>
 
-    <instance  name = "dword_15__I_0_75"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "state_2__I_0_80"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "a[31]"  direction = "in"  />
         <pitem  name = "a[30]"  direction = "in"  />
@@ -1441,27 +1586,14 @@
 
         <nets>
         <nitem  name = "gnd"  />
-        <nitem  name = "dword[15]"  />
-        <nitem  name = "dword[14]"  />
-        <nitem  name = "dword[13]"  />
-        <nitem  name = "dword[12]"  />
-        <nitem  name = "dword[11]"  />
-        <nitem  name = "dword[10]"  />
-        <nitem  name = "dword[9]"  />
-        <nitem  name = "dword[8]"  />
-        <nitem  name = "dword[7]"  />
-        <nitem  name = "dword[6]"  />
-        <nitem  name = "dword[5]"  />
-        <nitem  name = "dword[4]"  />
-        <nitem  name = "dword[3]"  />
-        <nitem  name = "dword[2]"  />
-        <nitem  name = "dword[1]"  />
-        <nitem  name = "dword[0]"  />
-        <nitem  name = "hrvld_N_341"  />
+        <nitem  name = "state[2]"  />
+        <nitem  name = "state[1]"  />
+        <nitem  name = "state[0]"  />
+        <nitem  name = "hrvld_N_349"  />
         </nets>
     </instance>
 
-    <instance  name = "add_25"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "add_27"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "cin"  direction = "in"  />
         <pitem  name = "a[31]"  direction = "in"  />
@@ -1541,194 +1673,10 @@
         <nitem  name = "seq[1]"  />
         <nitem  name = "seq[0]"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "n275"  />
-        <nitem  name = "n276"  />
-        <nitem  name = "n277"  />
-        <nitem  name = "n278"  />
-        </nets>
-    </instance>
-
-    <instance  name = "dword_15__I_0_74"  library = "work"  arch = ""  type = "comb">
-        <pins>
-        <pitem  name = "cin"  direction = "in"  />
-        <pitem  name = "a[15]"  direction = "in"  />
-        <pitem  name = "a[14]"  direction = "in"  />
-        <pitem  name = "a[13]"  direction = "in"  />
-        <pitem  name = "a[12]"  direction = "in"  />
-        <pitem  name = "a[11]"  direction = "in"  />
-        <pitem  name = "a[10]"  direction = "in"  />
-        <pitem  name = "a[9]"  direction = "in"  />
-        <pitem  name = "a[8]"  direction = "in"  />
-        <pitem  name = "a[7]"  direction = "in"  />
-        <pitem  name = "a[6]"  direction = "in"  />
-        <pitem  name = "a[5]"  direction = "in"  />
-        <pitem  name = "a[4]"  direction = "in"  />
-        <pitem  name = "a[3]"  direction = "in"  />
-        <pitem  name = "a[2]"  direction = "in"  />
-        <pitem  name = "a[1]"  direction = "in"  />
-        <pitem  name = "a[0]"  direction = "in"  />
-        <pitem  name = "b[15]"  direction = "in"  />
-        <pitem  name = "b[14]"  direction = "in"  />
-        <pitem  name = "b[13]"  direction = "in"  />
-        <pitem  name = "b[12]"  direction = "in"  />
-        <pitem  name = "b[11]"  direction = "in"  />
-        <pitem  name = "b[10]"  direction = "in"  />
-        <pitem  name = "b[9]"  direction = "in"  />
-        <pitem  name = "b[8]"  direction = "in"  />
-        <pitem  name = "b[7]"  direction = "in"  />
-        <pitem  name = "b[6]"  direction = "in"  />
-        <pitem  name = "b[5]"  direction = "in"  />
-        <pitem  name = "b[4]"  direction = "in"  />
-        <pitem  name = "b[3]"  direction = "in"  />
-        <pitem  name = "b[2]"  direction = "in"  />
-        <pitem  name = "b[1]"  direction = "in"  />
-        <pitem  name = "b[0]"  direction = "in"  />
-        <pitem  name = "o"  direction = "out"  />
-        </pins>
-
-        <nets>
-        <nitem  name = "gnd"  />
-        <nitem  name = "dword[15]"  />
-        <nitem  name = "dword[14]"  />
-        <nitem  name = "dword[13]"  />
-        <nitem  name = "dword[12]"  />
-        <nitem  name = "dword[11]"  />
-        <nitem  name = "dword[10]"  />
-        <nitem  name = "dword[9]"  />
-        <nitem  name = "dword[8]"  />
-        <nitem  name = "dword[7]"  />
-        <nitem  name = "dword[6]"  />
-        <nitem  name = "dword[5]"  />
-        <nitem  name = "dword[4]"  />
-        <nitem  name = "dword[3]"  />
-        <nitem  name = "dword[2]"  />
-        <nitem  name = "dword[1]"  />
-        <nitem  name = "dword[0]"  />
-        <nitem  name = "pwr"  />
-        <nitem  name = "hrvld_N_340"  />
-        </nets>
-    </instance>
-
-    <instance  name = "add_27"  library = "work"  arch = ""  type = "comb">
-        <pins>
-        <pitem  name = "cin"  direction = "in"  />
-        <pitem  name = "a[31]"  direction = "in"  />
-        <pitem  name = "a[30]"  direction = "in"  />
-        <pitem  name = "a[29]"  direction = "in"  />
-        <pitem  name = "a[28]"  direction = "in"  />
-        <pitem  name = "a[27]"  direction = "in"  />
-        <pitem  name = "a[26]"  direction = "in"  />
-        <pitem  name = "a[25]"  direction = "in"  />
-        <pitem  name = "a[24]"  direction = "in"  />
-        <pitem  name = "a[23]"  direction = "in"  />
-        <pitem  name = "a[22]"  direction = "in"  />
-        <pitem  name = "a[21]"  direction = "in"  />
-        <pitem  name = "a[20]"  direction = "in"  />
-        <pitem  name = "a[19]"  direction = "in"  />
-        <pitem  name = "a[18]"  direction = "in"  />
-        <pitem  name = "a[17]"  direction = "in"  />
-        <pitem  name = "a[16]"  direction = "in"  />
-        <pitem  name = "a[15]"  direction = "in"  />
-        <pitem  name = "a[14]"  direction = "in"  />
-        <pitem  name = "a[13]"  direction = "in"  />
-        <pitem  name = "a[12]"  direction = "in"  />
-        <pitem  name = "a[11]"  direction = "in"  />
-        <pitem  name = "a[10]"  direction = "in"  />
-        <pitem  name = "a[9]"  direction = "in"  />
-        <pitem  name = "a[8]"  direction = "in"  />
-        <pitem  name = "a[7]"  direction = "in"  />
-        <pitem  name = "a[6]"  direction = "in"  />
-        <pitem  name = "a[5]"  direction = "in"  />
-        <pitem  name = "a[4]"  direction = "in"  />
-        <pitem  name = "a[3]"  direction = "in"  />
-        <pitem  name = "a[2]"  direction = "in"  />
-        <pitem  name = "a[1]"  direction = "in"  />
-        <pitem  name = "a[0]"  direction = "in"  />
-        <pitem  name = "b[31]"  direction = "in"  />
-        <pitem  name = "b[30]"  direction = "in"  />
-        <pitem  name = "b[29]"  direction = "in"  />
-        <pitem  name = "b[28]"  direction = "in"  />
-        <pitem  name = "b[27]"  direction = "in"  />
-        <pitem  name = "b[26]"  direction = "in"  />
-        <pitem  name = "b[25]"  direction = "in"  />
-        <pitem  name = "b[24]"  direction = "in"  />
-        <pitem  name = "b[23]"  direction = "in"  />
-        <pitem  name = "b[22]"  direction = "in"  />
-        <pitem  name = "b[21]"  direction = "in"  />
-        <pitem  name = "b[20]"  direction = "in"  />
-        <pitem  name = "b[19]"  direction = "in"  />
-        <pitem  name = "b[18]"  direction = "in"  />
-        <pitem  name = "b[17]"  direction = "in"  />
-        <pitem  name = "b[16]"  direction = "in"  />
-        <pitem  name = "b[15]"  direction = "in"  />
-        <pitem  name = "b[14]"  direction = "in"  />
-        <pitem  name = "b[13]"  direction = "in"  />
-        <pitem  name = "b[12]"  direction = "in"  />
-        <pitem  name = "b[11]"  direction = "in"  />
-        <pitem  name = "b[10]"  direction = "in"  />
-        <pitem  name = "b[9]"  direction = "in"  />
-        <pitem  name = "b[8]"  direction = "in"  />
-        <pitem  name = "b[7]"  direction = "in"  />
-        <pitem  name = "b[6]"  direction = "in"  />
-        <pitem  name = "b[5]"  direction = "in"  />
-        <pitem  name = "b[4]"  direction = "in"  />
-        <pitem  name = "b[3]"  direction = "in"  />
-        <pitem  name = "b[2]"  direction = "in"  />
-        <pitem  name = "b[1]"  direction = "in"  />
-        <pitem  name = "b[0]"  direction = "in"  />
-        <pitem  name = "o[15]"  direction = "out"  />
-        <pitem  name = "o[14]"  direction = "out"  />
-        <pitem  name = "o[13]"  direction = "out"  />
-        <pitem  name = "o[12]"  direction = "out"  />
-        <pitem  name = "o[11]"  direction = "out"  />
-        <pitem  name = "o[10]"  direction = "out"  />
-        <pitem  name = "o[9]"  direction = "out"  />
-        <pitem  name = "o[8]"  direction = "out"  />
-        <pitem  name = "o[7]"  direction = "out"  />
-        <pitem  name = "o[6]"  direction = "out"  />
-        <pitem  name = "o[5]"  direction = "out"  />
-        <pitem  name = "o[4]"  direction = "out"  />
-        <pitem  name = "o[3]"  direction = "out"  />
-        <pitem  name = "o[2]"  direction = "out"  />
-        <pitem  name = "o[1]"  direction = "out"  />
-        <pitem  name = "o[0]"  direction = "out"  />
-        </pins>
-
-        <nets>
-        <nitem  name = "gnd"  />
-        <nitem  name = "dword[15]"  />
-        <nitem  name = "dword[14]"  />
-        <nitem  name = "dword[13]"  />
-        <nitem  name = "dword[12]"  />
-        <nitem  name = "dword[11]"  />
-        <nitem  name = "dword[10]"  />
-        <nitem  name = "dword[9]"  />
-        <nitem  name = "dword[8]"  />
-        <nitem  name = "dword[7]"  />
-        <nitem  name = "dword[6]"  />
-        <nitem  name = "dword[5]"  />
-        <nitem  name = "dword[4]"  />
-        <nitem  name = "dword[3]"  />
-        <nitem  name = "dword[2]"  />
-        <nitem  name = "dword[1]"  />
-        <nitem  name = "dword[0]"  />
-        <nitem  name = "pwr"  />
-        <nitem  name = "n298"  />
-        <nitem  name = "n299"  />
-        <nitem  name = "n300"  />
-        <nitem  name = "n301"  />
-        <nitem  name = "n302"  />
-        <nitem  name = "n303"  />
-        <nitem  name = "n304"  />
-        <nitem  name = "n305"  />
-        <nitem  name = "n306"  />
-        <nitem  name = "n307"  />
-        <nitem  name = "n308"  />
-        <nitem  name = "n309"  />
-        <nitem  name = "n310"  />
-        <nitem  name = "n311"  />
-        <nitem  name = "n312"  />
         <nitem  name = "n313"  />
+        <nitem  name = "n314"  />
+        <nitem  name = "n315"  />
+        <nitem  name = "n316"  />
         </nets>
     </instance>
 
@@ -1866,42 +1814,8 @@
         <nitem  name = "crc[2]"  />
         <nitem  name = "crc[1]"  />
         <nitem  name = "crc[0]"  />
-        <nitem  name = "crcOut[31]"  />
-        <nitem  name = "crcOut[30]"  />
-        <nitem  name = "crcOut[29]"  />
-        <nitem  name = "crcOut[28]"  />
-        <nitem  name = "crcOut[27]"  />
-        <nitem  name = "crcOut[26]"  />
-        <nitem  name = "crcOut[25]"  />
-        <nitem  name = "crcOut[24]"  />
-        <nitem  name = "crcOut[23]"  />
-        <nitem  name = "crcOut[22]"  />
-        <nitem  name = "crcOut[21]"  />
-        <nitem  name = "crcOut[20]"  />
-        <nitem  name = "crcOut[19]"  />
-        <nitem  name = "crcOut[18]"  />
-        <nitem  name = "crcOut[17]"  />
-        <nitem  name = "crcOut[16]"  />
-        <nitem  name = "crcOut[15]"  />
-        <nitem  name = "crcOut[14]"  />
-        <nitem  name = "crcOut[13]"  />
-        <nitem  name = "crcOut[12]"  />
-        <nitem  name = "crcOut[11]"  />
-        <nitem  name = "crcOut[10]"  />
-        <nitem  name = "crcOut[9]"  />
-        <nitem  name = "crcOut[8]"  />
-        <nitem  name = "crcOut[7]"  />
-        <nitem  name = "crcOut[6]"  />
-        <nitem  name = "crcOut[5]"  />
-        <nitem  name = "crcOut[4]"  />
-        <nitem  name = "crcOut[3]"  />
-        <nitem  name = "crcOut[2]"  />
-        <nitem  name = "crcOut[1]"  />
-        <nitem  name = "crcOut[0]"  />
-        <nitem  name = "hrvld_N_340"  />
-        <nitem  name = "n315"  />
-        <nitem  name = "n316"  />
-        <nitem  name = "n317"  />
+        <nitem  name = "pwr"  />
+        <nitem  name = "hrvld_N_349"  />
         <nitem  name = "n318"  />
         <nitem  name = "n319"  />
         <nitem  name = "n320"  />
@@ -1931,6 +1845,9 @@
         <nitem  name = "n344"  />
         <nitem  name = "n345"  />
         <nitem  name = "n346"  />
+        <nitem  name = "n347"  />
+        <nitem  name = "n348"  />
+        <nitem  name = "n349"  />
         </nets>
     </instance>
 
@@ -2068,42 +1985,12 @@
         <nitem  name = "ch_data[2]"  />
         <nitem  name = "ch_data[1]"  />
         <nitem  name = "ch_data[0]"  />
-        <nitem  name = "tx[31]"  />
-        <nitem  name = "tx[30]"  />
-        <nitem  name = "tx[29]"  />
-        <nitem  name = "tx[28]"  />
-        <nitem  name = "tx[27]"  />
-        <nitem  name = "tx[26]"  />
-        <nitem  name = "tx[25]"  />
-        <nitem  name = "tx[24]"  />
-        <nitem  name = "tx[23]"  />
-        <nitem  name = "tx[22]"  />
-        <nitem  name = "tx[21]"  />
-        <nitem  name = "tx[20]"  />
-        <nitem  name = "tx[19]"  />
-        <nitem  name = "tx[18]"  />
-        <nitem  name = "tx[17]"  />
-        <nitem  name = "tx[16]"  />
-        <nitem  name = "tx[15]"  />
-        <nitem  name = "tx[14]"  />
-        <nitem  name = "tx[13]"  />
-        <nitem  name = "tx[12]"  />
-        <nitem  name = "tx[11]"  />
-        <nitem  name = "tx[10]"  />
-        <nitem  name = "tx[9]"  />
-        <nitem  name = "tx[8]"  />
-        <nitem  name = "tx[7]"  />
-        <nitem  name = "tx[6]"  />
-        <nitem  name = "tx[5]"  />
-        <nitem  name = "tx[4]"  />
-        <nitem  name = "tx[3]"  />
-        <nitem  name = "tx[2]"  />
-        <nitem  name = "tx[1]"  />
-        <nitem  name = "tx[0]"  />
-        <nitem  name = "hrvld_N_340"  />
-        <nitem  name = "n348"  />
-        <nitem  name = "n349"  />
-        <nitem  name = "n350"  />
+        <nitem  name = "gnd"  />
+        <nitem  name = "seq[3]"  />
+        <nitem  name = "seq[2]"  />
+        <nitem  name = "seq[1]"  />
+        <nitem  name = "seq[0]"  />
+        <nitem  name = "hrvld_N_349"  />
         <nitem  name = "n351"  />
         <nitem  name = "n352"  />
         <nitem  name = "n353"  />
@@ -2133,56 +2020,23 @@
         <nitem  name = "n377"  />
         <nitem  name = "n378"  />
         <nitem  name = "n379"  />
+        <nitem  name = "n380"  />
+        <nitem  name = "n381"  />
+        <nitem  name = "n382"  />
         </nets>
     </instance>
 
     <instance  name = "mux_30"  library = "work"  arch = ""  type = "comb">
         <pins>
-        <pitem  name = "d0[15]"  direction = "in"  />
-        <pitem  name = "d0[14]"  direction = "in"  />
-        <pitem  name = "d0[13]"  direction = "in"  />
-        <pitem  name = "d0[12]"  direction = "in"  />
-        <pitem  name = "d0[11]"  direction = "in"  />
-        <pitem  name = "d0[10]"  direction = "in"  />
-        <pitem  name = "d0[9]"  direction = "in"  />
-        <pitem  name = "d0[8]"  direction = "in"  />
-        <pitem  name = "d0[7]"  direction = "in"  />
-        <pitem  name = "d0[6]"  direction = "in"  />
-        <pitem  name = "d0[5]"  direction = "in"  />
-        <pitem  name = "d0[4]"  direction = "in"  />
         <pitem  name = "d0[3]"  direction = "in"  />
         <pitem  name = "d0[2]"  direction = "in"  />
         <pitem  name = "d0[1]"  direction = "in"  />
         <pitem  name = "d0[0]"  direction = "in"  />
-        <pitem  name = "d1[15]"  direction = "in"  />
-        <pitem  name = "d1[14]"  direction = "in"  />
-        <pitem  name = "d1[13]"  direction = "in"  />
-        <pitem  name = "d1[12]"  direction = "in"  />
-        <pitem  name = "d1[11]"  direction = "in"  />
-        <pitem  name = "d1[10]"  direction = "in"  />
-        <pitem  name = "d1[9]"  direction = "in"  />
-        <pitem  name = "d1[8]"  direction = "in"  />
-        <pitem  name = "d1[7]"  direction = "in"  />
-        <pitem  name = "d1[6]"  direction = "in"  />
-        <pitem  name = "d1[5]"  direction = "in"  />
-        <pitem  name = "d1[4]"  direction = "in"  />
         <pitem  name = "d1[3]"  direction = "in"  />
         <pitem  name = "d1[2]"  direction = "in"  />
         <pitem  name = "d1[1]"  direction = "in"  />
         <pitem  name = "d1[0]"  direction = "in"  />
         <pitem  name = "cond"  direction = "in"  />
-        <pitem  name = "o[15]"  direction = "out"  />
-        <pitem  name = "o[14]"  direction = "out"  />
-        <pitem  name = "o[13]"  direction = "out"  />
-        <pitem  name = "o[12]"  direction = "out"  />
-        <pitem  name = "o[11]"  direction = "out"  />
-        <pitem  name = "o[10]"  direction = "out"  />
-        <pitem  name = "o[9]"  direction = "out"  />
-        <pitem  name = "o[8]"  direction = "out"  />
-        <pitem  name = "o[7]"  direction = "out"  />
-        <pitem  name = "o[6]"  direction = "out"  />
-        <pitem  name = "o[5]"  direction = "out"  />
-        <pitem  name = "o[4]"  direction = "out"  />
         <pitem  name = "o[3]"  direction = "out"  />
         <pitem  name = "o[2]"  direction = "out"  />
         <pitem  name = "o[1]"  direction = "out"  />
@@ -2190,59 +2044,145 @@
         </pins>
 
         <nets>
-        <nitem  name = "dword_15__N_305[15]"  />
-        <nitem  name = "dword_15__N_305[14]"  />
-        <nitem  name = "dword_15__N_305[13]"  />
-        <nitem  name = "dword_15__N_305[12]"  />
-        <nitem  name = "dword_15__N_305[11]"  />
-        <nitem  name = "dword_15__N_305[10]"  />
-        <nitem  name = "dword_15__N_305[9]"  />
-        <nitem  name = "dword_15__N_305[8]"  />
-        <nitem  name = "dword_15__N_305[7]"  />
-        <nitem  name = "dword_15__N_305[6]"  />
-        <nitem  name = "dword_15__N_305[5]"  />
-        <nitem  name = "dword_15__N_305[4]"  />
-        <nitem  name = "dword_15__N_305[3]"  />
-        <nitem  name = "dword_15__N_305[2]"  />
-        <nitem  name = "dword_15__N_305[1]"  />
-        <nitem  name = "dword_15__N_305[0]"  />
-        <nitem  name = "n298"  />
-        <nitem  name = "n299"  />
-        <nitem  name = "n300"  />
-        <nitem  name = "n301"  />
-        <nitem  name = "n302"  />
-        <nitem  name = "n303"  />
-        <nitem  name = "n304"  />
-        <nitem  name = "n305"  />
-        <nitem  name = "n306"  />
-        <nitem  name = "n307"  />
-        <nitem  name = "n308"  />
-        <nitem  name = "n309"  />
-        <nitem  name = "n310"  />
-        <nitem  name = "n311"  />
-        <nitem  name = "n312"  />
+        <nitem  name = "seq[3]"  />
+        <nitem  name = "seq[2]"  />
+        <nitem  name = "seq[1]"  />
+        <nitem  name = "seq[0]"  />
         <nitem  name = "n313"  />
-        <nitem  name = "hrvld_N_340"  />
-        <nitem  name = "n381"  />
-        <nitem  name = "n382"  />
-        <nitem  name = "n383"  />
-        <nitem  name = "n384"  />
-        <nitem  name = "n385"  />
-        <nitem  name = "n386"  />
-        <nitem  name = "n387"  />
-        <nitem  name = "n388"  />
-        <nitem  name = "n389"  />
-        <nitem  name = "n390"  />
-        <nitem  name = "n391"  />
-        <nitem  name = "n392"  />
-        <nitem  name = "n393"  />
-        <nitem  name = "n394"  />
-        <nitem  name = "n395"  />
-        <nitem  name = "n396"  />
+        <nitem  name = "n314"  />
+        <nitem  name = "n315"  />
+        <nitem  name = "n316"  />
+        <nitem  name = "hrvld_N_349"  />
+        <nitem  name = "seq_3__N_304[3]"  />
+        <nitem  name = "seq_3__N_304[2]"  />
+        <nitem  name = "seq_3__N_304[1]"  />
+        <nitem  name = "seq_3__N_304[0]"  />
         </nets>
     </instance>
 
     <instance  name = "mux_31"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "d0[2]"  direction = "in"  />
+        <pitem  name = "d0[1]"  direction = "in"  />
+        <pitem  name = "d0[0]"  direction = "in"  />
+        <pitem  name = "d1[2]"  direction = "in"  />
+        <pitem  name = "d1[1]"  direction = "in"  />
+        <pitem  name = "d1[0]"  direction = "in"  />
+        <pitem  name = "cond"  direction = "in"  />
+        <pitem  name = "o[2]"  direction = "out"  />
+        <pitem  name = "o[1]"  direction = "out"  />
+        <pitem  name = "o[0]"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "state_2__N_308[2]"  />
+        <nitem  name = "state_2__N_308[1]"  />
+        <nitem  name = "state_2__N_308[0]"  />
+        <nitem  name = "gnd"  />
+        <nitem  name = "pwr"  />
+        <nitem  name = "hrvld_N_349"  />
+        <nitem  name = "n389"  />
+        <nitem  name = "n390"  />
+        <nitem  name = "n391"  />
+        </nets>
+    </instance>
+
+    <instance  name = "state_2__I_0_81"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "a[31]"  direction = "in"  />
+        <pitem  name = "a[30]"  direction = "in"  />
+        <pitem  name = "a[29]"  direction = "in"  />
+        <pitem  name = "a[28]"  direction = "in"  />
+        <pitem  name = "a[27]"  direction = "in"  />
+        <pitem  name = "a[26]"  direction = "in"  />
+        <pitem  name = "a[25]"  direction = "in"  />
+        <pitem  name = "a[24]"  direction = "in"  />
+        <pitem  name = "a[23]"  direction = "in"  />
+        <pitem  name = "a[22]"  direction = "in"  />
+        <pitem  name = "a[21]"  direction = "in"  />
+        <pitem  name = "a[20]"  direction = "in"  />
+        <pitem  name = "a[19]"  direction = "in"  />
+        <pitem  name = "a[18]"  direction = "in"  />
+        <pitem  name = "a[17]"  direction = "in"  />
+        <pitem  name = "a[16]"  direction = "in"  />
+        <pitem  name = "a[15]"  direction = "in"  />
+        <pitem  name = "a[14]"  direction = "in"  />
+        <pitem  name = "a[13]"  direction = "in"  />
+        <pitem  name = "a[12]"  direction = "in"  />
+        <pitem  name = "a[11]"  direction = "in"  />
+        <pitem  name = "a[10]"  direction = "in"  />
+        <pitem  name = "a[9]"  direction = "in"  />
+        <pitem  name = "a[8]"  direction = "in"  />
+        <pitem  name = "a[7]"  direction = "in"  />
+        <pitem  name = "a[6]"  direction = "in"  />
+        <pitem  name = "a[5]"  direction = "in"  />
+        <pitem  name = "a[4]"  direction = "in"  />
+        <pitem  name = "a[3]"  direction = "in"  />
+        <pitem  name = "a[2]"  direction = "in"  />
+        <pitem  name = "a[1]"  direction = "in"  />
+        <pitem  name = "a[0]"  direction = "in"  />
+        <pitem  name = "b[31]"  direction = "in"  />
+        <pitem  name = "b[30]"  direction = "in"  />
+        <pitem  name = "b[29]"  direction = "in"  />
+        <pitem  name = "b[28]"  direction = "in"  />
+        <pitem  name = "b[27]"  direction = "in"  />
+        <pitem  name = "b[26]"  direction = "in"  />
+        <pitem  name = "b[25]"  direction = "in"  />
+        <pitem  name = "b[24]"  direction = "in"  />
+        <pitem  name = "b[23]"  direction = "in"  />
+        <pitem  name = "b[22]"  direction = "in"  />
+        <pitem  name = "b[21]"  direction = "in"  />
+        <pitem  name = "b[20]"  direction = "in"  />
+        <pitem  name = "b[19]"  direction = "in"  />
+        <pitem  name = "b[18]"  direction = "in"  />
+        <pitem  name = "b[17]"  direction = "in"  />
+        <pitem  name = "b[16]"  direction = "in"  />
+        <pitem  name = "b[15]"  direction = "in"  />
+        <pitem  name = "b[14]"  direction = "in"  />
+        <pitem  name = "b[13]"  direction = "in"  />
+        <pitem  name = "b[12]"  direction = "in"  />
+        <pitem  name = "b[11]"  direction = "in"  />
+        <pitem  name = "b[10]"  direction = "in"  />
+        <pitem  name = "b[9]"  direction = "in"  />
+        <pitem  name = "b[8]"  direction = "in"  />
+        <pitem  name = "b[7]"  direction = "in"  />
+        <pitem  name = "b[6]"  direction = "in"  />
+        <pitem  name = "b[5]"  direction = "in"  />
+        <pitem  name = "b[4]"  direction = "in"  />
+        <pitem  name = "b[3]"  direction = "in"  />
+        <pitem  name = "b[2]"  direction = "in"  />
+        <pitem  name = "b[1]"  direction = "in"  />
+        <pitem  name = "b[0]"  direction = "in"  />
+        <pitem  name = "o"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "gnd"  />
+        <nitem  name = "state[2]"  />
+        <nitem  name = "state[1]"  />
+        <nitem  name = "state[0]"  />
+        <nitem  name = "pwr"  />
+        <nitem  name = "hrvld_N_350"  />
+        </nets>
+    </instance>
+
+    <instance  name = "hrvld_I_2"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "a0"  direction = "in"  />
+        <pitem  name = "a1"  direction = "in"  />
+        <pitem  name = "c"  direction = "in"  />
+        <pitem  name = "o"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "hrvld_N_349"  />
+        <nitem  name = "pwr"  />
+        <nitem  name = "hrvld_N_350"  />
+        <nitem  name = "hrvld_N_348"  />
+        </nets>
+    </instance>
+
+    <instance  name = "mux_34"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "d0[31]"  direction = "in"  />
         <pitem  name = "d0[30]"  direction = "in"  />
@@ -2344,9 +2284,6 @@
         </pins>
 
         <nets>
-        <nitem  name = "n315"  />
-        <nitem  name = "n316"  />
-        <nitem  name = "n317"  />
         <nitem  name = "n318"  />
         <nitem  name = "n319"  />
         <nitem  name = "n320"  />
@@ -2376,44 +2313,78 @@
         <nitem  name = "n344"  />
         <nitem  name = "n345"  />
         <nitem  name = "n346"  />
-        <nitem  name = "pwr"  />
-        <nitem  name = "hrvld_N_341"  />
-        <nitem  name = "crc_31__N_236[31]"  />
-        <nitem  name = "crc_31__N_236[30]"  />
-        <nitem  name = "crc_31__N_236[29]"  />
-        <nitem  name = "crc_31__N_236[28]"  />
-        <nitem  name = "crc_31__N_236[27]"  />
-        <nitem  name = "crc_31__N_236[26]"  />
-        <nitem  name = "crc_31__N_236[25]"  />
-        <nitem  name = "crc_31__N_236[24]"  />
-        <nitem  name = "crc_31__N_236[23]"  />
-        <nitem  name = "crc_31__N_236[22]"  />
-        <nitem  name = "crc_31__N_236[21]"  />
-        <nitem  name = "crc_31__N_236[20]"  />
-        <nitem  name = "crc_31__N_236[19]"  />
-        <nitem  name = "crc_31__N_236[18]"  />
-        <nitem  name = "crc_31__N_236[17]"  />
-        <nitem  name = "crc_31__N_236[16]"  />
-        <nitem  name = "crc_31__N_236[15]"  />
-        <nitem  name = "crc_31__N_236[14]"  />
-        <nitem  name = "crc_31__N_236[13]"  />
-        <nitem  name = "crc_31__N_236[12]"  />
-        <nitem  name = "crc_31__N_236[11]"  />
-        <nitem  name = "crc_31__N_236[10]"  />
-        <nitem  name = "crc_31__N_236[9]"  />
-        <nitem  name = "crc_31__N_236[8]"  />
-        <nitem  name = "crc_31__N_236[7]"  />
-        <nitem  name = "crc_31__N_236[6]"  />
-        <nitem  name = "crc_31__N_236[5]"  />
-        <nitem  name = "crc_31__N_236[4]"  />
-        <nitem  name = "crc_31__N_236[3]"  />
-        <nitem  name = "crc_31__N_236[2]"  />
-        <nitem  name = "crc_31__N_236[1]"  />
-        <nitem  name = "crc_31__N_236[0]"  />
+        <nitem  name = "n347"  />
+        <nitem  name = "n348"  />
+        <nitem  name = "n349"  />
+        <nitem  name = "crcOut[31]"  />
+        <nitem  name = "crcOut[30]"  />
+        <nitem  name = "crcOut[29]"  />
+        <nitem  name = "crcOut[28]"  />
+        <nitem  name = "crcOut[27]"  />
+        <nitem  name = "crcOut[26]"  />
+        <nitem  name = "crcOut[25]"  />
+        <nitem  name = "crcOut[24]"  />
+        <nitem  name = "crcOut[23]"  />
+        <nitem  name = "crcOut[22]"  />
+        <nitem  name = "crcOut[21]"  />
+        <nitem  name = "crcOut[20]"  />
+        <nitem  name = "crcOut[19]"  />
+        <nitem  name = "crcOut[18]"  />
+        <nitem  name = "crcOut[17]"  />
+        <nitem  name = "crcOut[16]"  />
+        <nitem  name = "crcOut[15]"  />
+        <nitem  name = "crcOut[14]"  />
+        <nitem  name = "crcOut[13]"  />
+        <nitem  name = "crcOut[12]"  />
+        <nitem  name = "crcOut[11]"  />
+        <nitem  name = "crcOut[10]"  />
+        <nitem  name = "crcOut[9]"  />
+        <nitem  name = "crcOut[8]"  />
+        <nitem  name = "crcOut[7]"  />
+        <nitem  name = "crcOut[6]"  />
+        <nitem  name = "crcOut[5]"  />
+        <nitem  name = "crcOut[4]"  />
+        <nitem  name = "crcOut[3]"  />
+        <nitem  name = "crcOut[2]"  />
+        <nitem  name = "crcOut[1]"  />
+        <nitem  name = "crcOut[0]"  />
+        <nitem  name = "hrvld_N_350"  />
+        <nitem  name = "crc_31__N_239[31]"  />
+        <nitem  name = "crc_31__N_239[30]"  />
+        <nitem  name = "crc_31__N_239[29]"  />
+        <nitem  name = "crc_31__N_239[28]"  />
+        <nitem  name = "crc_31__N_239[27]"  />
+        <nitem  name = "crc_31__N_239[26]"  />
+        <nitem  name = "crc_31__N_239[25]"  />
+        <nitem  name = "crc_31__N_239[24]"  />
+        <nitem  name = "crc_31__N_239[23]"  />
+        <nitem  name = "crc_31__N_239[22]"  />
+        <nitem  name = "crc_31__N_239[21]"  />
+        <nitem  name = "crc_31__N_239[20]"  />
+        <nitem  name = "crc_31__N_239[19]"  />
+        <nitem  name = "crc_31__N_239[18]"  />
+        <nitem  name = "crc_31__N_239[17]"  />
+        <nitem  name = "crc_31__N_239[16]"  />
+        <nitem  name = "crc_31__N_239[15]"  />
+        <nitem  name = "crc_31__N_239[14]"  />
+        <nitem  name = "crc_31__N_239[13]"  />
+        <nitem  name = "crc_31__N_239[12]"  />
+        <nitem  name = "crc_31__N_239[11]"  />
+        <nitem  name = "crc_31__N_239[10]"  />
+        <nitem  name = "crc_31__N_239[9]"  />
+        <nitem  name = "crc_31__N_239[8]"  />
+        <nitem  name = "crc_31__N_239[7]"  />
+        <nitem  name = "crc_31__N_239[6]"  />
+        <nitem  name = "crc_31__N_239[5]"  />
+        <nitem  name = "crc_31__N_239[4]"  />
+        <nitem  name = "crc_31__N_239[3]"  />
+        <nitem  name = "crc_31__N_239[2]"  />
+        <nitem  name = "crc_31__N_239[1]"  />
+        <nitem  name = "crc_31__N_239[0]"  />
         </nets>
     </instance>
 
-    <instance  name = "mux_32"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "mux_35"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "d0[31]"  direction = "in"  />
         <pitem  name = "d0[30]"  direction = "in"  />
@@ -2515,9 +2486,6 @@
         </pins>
 
         <nets>
-        <nitem  name = "n348"  />
-        <nitem  name = "n349"  />
-        <nitem  name = "n350"  />
         <nitem  name = "n351"  />
         <nitem  name = "n352"  />
         <nitem  name = "n353"  />
@@ -2547,12 +2515,45 @@
         <nitem  name = "n377"  />
         <nitem  name = "n378"  />
         <nitem  name = "n379"  />
-        <nitem  name = "gnd"  />
-        <nitem  name = "seq[3]"  />
-        <nitem  name = "seq[2]"  />
-        <nitem  name = "seq[1]"  />
-        <nitem  name = "seq[0]"  />
-        <nitem  name = "hrvld_N_341"  />
+        <nitem  name = "n380"  />
+        <nitem  name = "n381"  />
+        <nitem  name = "n382"  />
+        <nitem  name = "ch_data_d[31]"  />
+        <nitem  name = "ch_data_d[30]"  />
+        <nitem  name = "ch_data_d[29]"  />
+        <nitem  name = "ch_data_d[28]"  />
+        <nitem  name = "ch_data_d[27]"  />
+        <nitem  name = "ch_data_d[26]"  />
+        <nitem  name = "ch_data_d[25]"  />
+        <nitem  name = "ch_data_d[24]"  />
+        <nitem  name = "ch_data_d[23]"  />
+        <nitem  name = "ch_data_d[22]"  />
+        <nitem  name = "ch_data_d[21]"  />
+        <nitem  name = "ch_data_d[20]"  />
+        <nitem  name = "ch_data_d[19]"  />
+        <nitem  name = "ch_data_d[18]"  />
+        <nitem  name = "ch_data_d[17]"  />
+        <nitem  name = "ch_data_d[16]"  />
+        <nitem  name = "ch_data_d[15]"  />
+        <nitem  name = "ch_data_d[14]"  />
+        <nitem  name = "ch_data_d[13]"  />
+        <nitem  name = "ch_data_d[12]"  />
+        <nitem  name = "ch_data_d[11]"  />
+        <nitem  name = "ch_data_d[10]"  />
+        <nitem  name = "ch_data_d[9]"  />
+        <nitem  name = "ch_data_d[8]"  />
+        <nitem  name = "ch_data_d[7]"  />
+        <nitem  name = "ch_data_d[6]"  />
+        <nitem  name = "ch_data_d[5]"  />
+        <nitem  name = "ch_data_d[4]"  />
+        <nitem  name = "ch_data_d[3]"  />
+        <nitem  name = "ch_data_d[2]"  />
+        <nitem  name = "ch_data_d[1]"  />
+        <nitem  name = "ch_data_d[0]"  />
+        <nitem  name = "hrvld_N_350"  />
+        <nitem  name = "n428"  />
+        <nitem  name = "n429"  />
+        <nitem  name = "n430"  />
         <nitem  name = "n431"  />
         <nitem  name = "n432"  />
         <nitem  name = "n433"  />
@@ -2582,155 +2583,10 @@
         <nitem  name = "n457"  />
         <nitem  name = "n458"  />
         <nitem  name = "n459"  />
-        <nitem  name = "n460"  />
-        <nitem  name = "n461"  />
-        <nitem  name = "n462"  />
         </nets>
     </instance>
 
-    <instance  name = "mux_33"  library = "work"  arch = ""  type = "comb">
-        <pins>
-        <pitem  name = "d0[3]"  direction = "in"  />
-        <pitem  name = "d0[2]"  direction = "in"  />
-        <pitem  name = "d0[1]"  direction = "in"  />
-        <pitem  name = "d0[0]"  direction = "in"  />
-        <pitem  name = "d1[3]"  direction = "in"  />
-        <pitem  name = "d1[2]"  direction = "in"  />
-        <pitem  name = "d1[1]"  direction = "in"  />
-        <pitem  name = "d1[0]"  direction = "in"  />
-        <pitem  name = "cond"  direction = "in"  />
-        <pitem  name = "o[3]"  direction = "out"  />
-        <pitem  name = "o[2]"  direction = "out"  />
-        <pitem  name = "o[1]"  direction = "out"  />
-        <pitem  name = "o[0]"  direction = "out"  />
-        </pins>
-
-        <nets>
-        <nitem  name = "seq[3]"  />
-        <nitem  name = "seq[2]"  />
-        <nitem  name = "seq[1]"  />
-        <nitem  name = "seq[0]"  />
-        <nitem  name = "n275"  />
-        <nitem  name = "n276"  />
-        <nitem  name = "n277"  />
-        <nitem  name = "n278"  />
-        <nitem  name = "hrvld_N_341"  />
-        <nitem  name = "seq_3__N_301[3]"  />
-        <nitem  name = "seq_3__N_301[2]"  />
-        <nitem  name = "seq_3__N_301[1]"  />
-        <nitem  name = "seq_3__N_301[0]"  />
-        </nets>
-    </instance>
-
-    <instance  name = "hrvld_I_2"  library = "work"  arch = ""  type = "comb">
-        <pins>
-        <pitem  name = "a0"  direction = "in"  />
-        <pitem  name = "a1"  direction = "in"  />
-        <pitem  name = "c"  direction = "in"  />
-        <pitem  name = "o"  direction = "out"  />
-        </pins>
-
-        <nets>
-        <nitem  name = "hrvld_N_340"  />
-        <nitem  name = "pwr"  />
-        <nitem  name = "hrvld_N_341"  />
-        <nitem  name = "hrvld_N_339"  />
-        </nets>
-    </instance>
-
-    <instance  name = "mux_35"  library = "work"  arch = ""  type = "comb">
-        <pins>
-        <pitem  name = "d0[15]"  direction = "in"  />
-        <pitem  name = "d0[14]"  direction = "in"  />
-        <pitem  name = "d0[13]"  direction = "in"  />
-        <pitem  name = "d0[12]"  direction = "in"  />
-        <pitem  name = "d0[11]"  direction = "in"  />
-        <pitem  name = "d0[10]"  direction = "in"  />
-        <pitem  name = "d0[9]"  direction = "in"  />
-        <pitem  name = "d0[8]"  direction = "in"  />
-        <pitem  name = "d0[7]"  direction = "in"  />
-        <pitem  name = "d0[6]"  direction = "in"  />
-        <pitem  name = "d0[5]"  direction = "in"  />
-        <pitem  name = "d0[4]"  direction = "in"  />
-        <pitem  name = "d0[3]"  direction = "in"  />
-        <pitem  name = "d0[2]"  direction = "in"  />
-        <pitem  name = "d0[1]"  direction = "in"  />
-        <pitem  name = "d0[0]"  direction = "in"  />
-        <pitem  name = "d1[15]"  direction = "in"  />
-        <pitem  name = "d1[14]"  direction = "in"  />
-        <pitem  name = "d1[13]"  direction = "in"  />
-        <pitem  name = "d1[12]"  direction = "in"  />
-        <pitem  name = "d1[11]"  direction = "in"  />
-        <pitem  name = "d1[10]"  direction = "in"  />
-        <pitem  name = "d1[9]"  direction = "in"  />
-        <pitem  name = "d1[8]"  direction = "in"  />
-        <pitem  name = "d1[7]"  direction = "in"  />
-        <pitem  name = "d1[6]"  direction = "in"  />
-        <pitem  name = "d1[5]"  direction = "in"  />
-        <pitem  name = "d1[4]"  direction = "in"  />
-        <pitem  name = "d1[3]"  direction = "in"  />
-        <pitem  name = "d1[2]"  direction = "in"  />
-        <pitem  name = "d1[1]"  direction = "in"  />
-        <pitem  name = "d1[0]"  direction = "in"  />
-        <pitem  name = "cond"  direction = "in"  />
-        <pitem  name = "o[15]"  direction = "out"  />
-        <pitem  name = "o[14]"  direction = "out"  />
-        <pitem  name = "o[13]"  direction = "out"  />
-        <pitem  name = "o[12]"  direction = "out"  />
-        <pitem  name = "o[11]"  direction = "out"  />
-        <pitem  name = "o[10]"  direction = "out"  />
-        <pitem  name = "o[9]"  direction = "out"  />
-        <pitem  name = "o[8]"  direction = "out"  />
-        <pitem  name = "o[7]"  direction = "out"  />
-        <pitem  name = "o[6]"  direction = "out"  />
-        <pitem  name = "o[5]"  direction = "out"  />
-        <pitem  name = "o[4]"  direction = "out"  />
-        <pitem  name = "o[3]"  direction = "out"  />
-        <pitem  name = "o[2]"  direction = "out"  />
-        <pitem  name = "o[1]"  direction = "out"  />
-        <pitem  name = "o[0]"  direction = "out"  />
-        </pins>
-
-        <nets>
-        <nitem  name = "n381"  />
-        <nitem  name = "n382"  />
-        <nitem  name = "n383"  />
-        <nitem  name = "n384"  />
-        <nitem  name = "n385"  />
-        <nitem  name = "n386"  />
-        <nitem  name = "n387"  />
-        <nitem  name = "n388"  />
-        <nitem  name = "n389"  />
-        <nitem  name = "n390"  />
-        <nitem  name = "n391"  />
-        <nitem  name = "n392"  />
-        <nitem  name = "n393"  />
-        <nitem  name = "n394"  />
-        <nitem  name = "n395"  />
-        <nitem  name = "n396"  />
-        <nitem  name = "gnd"  />
-        <nitem  name = "pwr"  />
-        <nitem  name = "hrvld_N_341"  />
-        <nitem  name = "n470"  />
-        <nitem  name = "n471"  />
-        <nitem  name = "n472"  />
-        <nitem  name = "n473"  />
-        <nitem  name = "n474"  />
-        <nitem  name = "n475"  />
-        <nitem  name = "n476"  />
-        <nitem  name = "n477"  />
-        <nitem  name = "n478"  />
-        <nitem  name = "n479"  />
-        <nitem  name = "n480"  />
-        <nitem  name = "n481"  />
-        <nitem  name = "n482"  />
-        <nitem  name = "n483"  />
-        <nitem  name = "n484"  />
-        <nitem  name = "n485"  />
-        </nets>
-    </instance>
-
-    <instance  name = "dword_15__I_0_78"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "equal_36"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "a[31]"  direction = "in"  />
         <pitem  name = "a[30]"  direction = "in"  />
@@ -2818,11 +2674,117 @@
         <nitem  name = "dword[1]"  />
         <nitem  name = "dword[0]"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "hrvld_N_342"  />
+        <nitem  name = "n460"  />
         </nets>
     </instance>
 
-    <instance  name = "inv_37"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "mux_37"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "d0[2]"  direction = "in"  />
+        <pitem  name = "d0[1]"  direction = "in"  />
+        <pitem  name = "d0[0]"  direction = "in"  />
+        <pitem  name = "d1[2]"  direction = "in"  />
+        <pitem  name = "d1[1]"  direction = "in"  />
+        <pitem  name = "d1[0]"  direction = "in"  />
+        <pitem  name = "cond"  direction = "in"  />
+        <pitem  name = "o[2]"  direction = "out"  />
+        <pitem  name = "o[1]"  direction = "out"  />
+        <pitem  name = "o[0]"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "n389"  />
+        <nitem  name = "n390"  />
+        <nitem  name = "n391"  />
+        <nitem  name = "gnd"  />
+        <nitem  name = "pwr"  />
+        <nitem  name = "n460"  />
+        <nitem  name = "n462"  />
+        <nitem  name = "n463"  />
+        <nitem  name = "n464"  />
+        </nets>
+    </instance>
+
+    <instance  name = "state_2__I_0_84"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "a[31]"  direction = "in"  />
+        <pitem  name = "a[30]"  direction = "in"  />
+        <pitem  name = "a[29]"  direction = "in"  />
+        <pitem  name = "a[28]"  direction = "in"  />
+        <pitem  name = "a[27]"  direction = "in"  />
+        <pitem  name = "a[26]"  direction = "in"  />
+        <pitem  name = "a[25]"  direction = "in"  />
+        <pitem  name = "a[24]"  direction = "in"  />
+        <pitem  name = "a[23]"  direction = "in"  />
+        <pitem  name = "a[22]"  direction = "in"  />
+        <pitem  name = "a[21]"  direction = "in"  />
+        <pitem  name = "a[20]"  direction = "in"  />
+        <pitem  name = "a[19]"  direction = "in"  />
+        <pitem  name = "a[18]"  direction = "in"  />
+        <pitem  name = "a[17]"  direction = "in"  />
+        <pitem  name = "a[16]"  direction = "in"  />
+        <pitem  name = "a[15]"  direction = "in"  />
+        <pitem  name = "a[14]"  direction = "in"  />
+        <pitem  name = "a[13]"  direction = "in"  />
+        <pitem  name = "a[12]"  direction = "in"  />
+        <pitem  name = "a[11]"  direction = "in"  />
+        <pitem  name = "a[10]"  direction = "in"  />
+        <pitem  name = "a[9]"  direction = "in"  />
+        <pitem  name = "a[8]"  direction = "in"  />
+        <pitem  name = "a[7]"  direction = "in"  />
+        <pitem  name = "a[6]"  direction = "in"  />
+        <pitem  name = "a[5]"  direction = "in"  />
+        <pitem  name = "a[4]"  direction = "in"  />
+        <pitem  name = "a[3]"  direction = "in"  />
+        <pitem  name = "a[2]"  direction = "in"  />
+        <pitem  name = "a[1]"  direction = "in"  />
+        <pitem  name = "a[0]"  direction = "in"  />
+        <pitem  name = "b[31]"  direction = "in"  />
+        <pitem  name = "b[30]"  direction = "in"  />
+        <pitem  name = "b[29]"  direction = "in"  />
+        <pitem  name = "b[28]"  direction = "in"  />
+        <pitem  name = "b[27]"  direction = "in"  />
+        <pitem  name = "b[26]"  direction = "in"  />
+        <pitem  name = "b[25]"  direction = "in"  />
+        <pitem  name = "b[24]"  direction = "in"  />
+        <pitem  name = "b[23]"  direction = "in"  />
+        <pitem  name = "b[22]"  direction = "in"  />
+        <pitem  name = "b[21]"  direction = "in"  />
+        <pitem  name = "b[20]"  direction = "in"  />
+        <pitem  name = "b[19]"  direction = "in"  />
+        <pitem  name = "b[18]"  direction = "in"  />
+        <pitem  name = "b[17]"  direction = "in"  />
+        <pitem  name = "b[16]"  direction = "in"  />
+        <pitem  name = "b[15]"  direction = "in"  />
+        <pitem  name = "b[14]"  direction = "in"  />
+        <pitem  name = "b[13]"  direction = "in"  />
+        <pitem  name = "b[12]"  direction = "in"  />
+        <pitem  name = "b[11]"  direction = "in"  />
+        <pitem  name = "b[10]"  direction = "in"  />
+        <pitem  name = "b[9]"  direction = "in"  />
+        <pitem  name = "b[8]"  direction = "in"  />
+        <pitem  name = "b[7]"  direction = "in"  />
+        <pitem  name = "b[6]"  direction = "in"  />
+        <pitem  name = "b[5]"  direction = "in"  />
+        <pitem  name = "b[4]"  direction = "in"  />
+        <pitem  name = "b[3]"  direction = "in"  />
+        <pitem  name = "b[2]"  direction = "in"  />
+        <pitem  name = "b[1]"  direction = "in"  />
+        <pitem  name = "b[0]"  direction = "in"  />
+        <pitem  name = "o"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "gnd"  />
+        <nitem  name = "state[2]"  />
+        <nitem  name = "state[1]"  />
+        <nitem  name = "state[0]"  />
+        <nitem  name = "pwr"  />
+        <nitem  name = "hrvld_N_351"  />
+        </nets>
+    </instance>
+
+    <instance  name = "inv_39"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "i[31]"  direction = "in"  />
         <pitem  name = "i[30]"  direction = "in"  />
@@ -2923,6 +2885,27 @@
         <nitem  name = "crcOut[2]"  />
         <nitem  name = "crcOut[1]"  />
         <nitem  name = "crcOut[0]"  />
+        <nitem  name = "n467"  />
+        <nitem  name = "n468"  />
+        <nitem  name = "n469"  />
+        <nitem  name = "n470"  />
+        <nitem  name = "n471"  />
+        <nitem  name = "n472"  />
+        <nitem  name = "n473"  />
+        <nitem  name = "n474"  />
+        <nitem  name = "n475"  />
+        <nitem  name = "n476"  />
+        <nitem  name = "n477"  />
+        <nitem  name = "n478"  />
+        <nitem  name = "n479"  />
+        <nitem  name = "n480"  />
+        <nitem  name = "n481"  />
+        <nitem  name = "n482"  />
+        <nitem  name = "n483"  />
+        <nitem  name = "n484"  />
+        <nitem  name = "n485"  />
+        <nitem  name = "n486"  />
+        <nitem  name = "n487"  />
         <nitem  name = "n488"  />
         <nitem  name = "n489"  />
         <nitem  name = "n490"  />
@@ -2934,27 +2917,6 @@
         <nitem  name = "n496"  />
         <nitem  name = "n497"  />
         <nitem  name = "n498"  />
-        <nitem  name = "n499"  />
-        <nitem  name = "n500"  />
-        <nitem  name = "n501"  />
-        <nitem  name = "n502"  />
-        <nitem  name = "n503"  />
-        <nitem  name = "n504"  />
-        <nitem  name = "n505"  />
-        <nitem  name = "n506"  />
-        <nitem  name = "n507"  />
-        <nitem  name = "n508"  />
-        <nitem  name = "n509"  />
-        <nitem  name = "n510"  />
-        <nitem  name = "n511"  />
-        <nitem  name = "n512"  />
-        <nitem  name = "n513"  />
-        <nitem  name = "n514"  />
-        <nitem  name = "n515"  />
-        <nitem  name = "n516"  />
-        <nitem  name = "n517"  />
-        <nitem  name = "n518"  />
-        <nitem  name = "n519"  />
         </nets>
     </instance>
 
@@ -2967,14 +2929,14 @@
         </pins>
 
         <nets>
-        <nitem  name = "hrvld_N_339"  />
+        <nitem  name = "hrvld_N_348"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "hrvld_N_342"  />
-        <nitem  name = "hrvld_N_338"  />
+        <nitem  name = "hrvld_N_351"  />
+        <nitem  name = "hrvld_N_347"  />
         </nets>
     </instance>
 
-    <instance  name = "mux_39"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "mux_41"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "d0[31]"  direction = "in"  />
         <pitem  name = "d0[30]"  direction = "in"  />
@@ -3076,6 +3038,9 @@
         </pins>
 
         <nets>
+        <nitem  name = "n428"  />
+        <nitem  name = "n429"  />
+        <nitem  name = "n430"  />
         <nitem  name = "n431"  />
         <nitem  name = "n432"  />
         <nitem  name = "n433"  />
@@ -3105,131 +3070,9 @@
         <nitem  name = "n457"  />
         <nitem  name = "n458"  />
         <nitem  name = "n459"  />
-        <nitem  name = "n460"  />
-        <nitem  name = "n461"  />
-        <nitem  name = "n462"  />
-        <nitem  name = "n488"  />
-        <nitem  name = "n489"  />
-        <nitem  name = "n490"  />
-        <nitem  name = "n491"  />
-        <nitem  name = "n492"  />
-        <nitem  name = "n493"  />
-        <nitem  name = "n494"  />
-        <nitem  name = "n495"  />
-        <nitem  name = "n496"  />
-        <nitem  name = "n497"  />
-        <nitem  name = "n498"  />
-        <nitem  name = "n499"  />
-        <nitem  name = "n500"  />
-        <nitem  name = "n501"  />
-        <nitem  name = "n502"  />
-        <nitem  name = "n503"  />
-        <nitem  name = "n504"  />
-        <nitem  name = "n505"  />
-        <nitem  name = "n506"  />
-        <nitem  name = "n507"  />
-        <nitem  name = "n508"  />
-        <nitem  name = "n509"  />
-        <nitem  name = "n510"  />
-        <nitem  name = "n511"  />
-        <nitem  name = "n512"  />
-        <nitem  name = "n513"  />
-        <nitem  name = "n514"  />
-        <nitem  name = "n515"  />
-        <nitem  name = "n516"  />
-        <nitem  name = "n517"  />
-        <nitem  name = "n518"  />
-        <nitem  name = "n519"  />
-        <nitem  name = "hrvld_N_342"  />
-        <nitem  name = "ch_data_31__N_269[31]"  />
-        <nitem  name = "ch_data_31__N_269[30]"  />
-        <nitem  name = "ch_data_31__N_269[29]"  />
-        <nitem  name = "ch_data_31__N_269[28]"  />
-        <nitem  name = "ch_data_31__N_269[27]"  />
-        <nitem  name = "ch_data_31__N_269[26]"  />
-        <nitem  name = "ch_data_31__N_269[25]"  />
-        <nitem  name = "ch_data_31__N_269[24]"  />
-        <nitem  name = "ch_data_31__N_269[23]"  />
-        <nitem  name = "ch_data_31__N_269[22]"  />
-        <nitem  name = "ch_data_31__N_269[21]"  />
-        <nitem  name = "ch_data_31__N_269[20]"  />
-        <nitem  name = "ch_data_31__N_269[19]"  />
-        <nitem  name = "ch_data_31__N_269[18]"  />
-        <nitem  name = "ch_data_31__N_269[17]"  />
-        <nitem  name = "ch_data_31__N_269[16]"  />
-        <nitem  name = "ch_data_31__N_269[15]"  />
-        <nitem  name = "ch_data_31__N_269[14]"  />
-        <nitem  name = "ch_data_31__N_269[13]"  />
-        <nitem  name = "ch_data_31__N_269[12]"  />
-        <nitem  name = "ch_data_31__N_269[11]"  />
-        <nitem  name = "ch_data_31__N_269[10]"  />
-        <nitem  name = "ch_data_31__N_269[9]"  />
-        <nitem  name = "ch_data_31__N_269[8]"  />
-        <nitem  name = "ch_data_31__N_269[7]"  />
-        <nitem  name = "ch_data_31__N_269[6]"  />
-        <nitem  name = "ch_data_31__N_269[5]"  />
-        <nitem  name = "ch_data_31__N_269[4]"  />
-        <nitem  name = "ch_data_31__N_269[3]"  />
-        <nitem  name = "ch_data_31__N_269[2]"  />
-        <nitem  name = "ch_data_31__N_269[1]"  />
-        <nitem  name = "ch_data_31__N_269[0]"  />
-        </nets>
-    </instance>
-
-    <instance  name = "mux_40"  library = "work"  arch = ""  type = "comb">
-        <pins>
-        <pitem  name = "d0[15]"  direction = "in"  />
-        <pitem  name = "d0[14]"  direction = "in"  />
-        <pitem  name = "d0[13]"  direction = "in"  />
-        <pitem  name = "d0[12]"  direction = "in"  />
-        <pitem  name = "d0[11]"  direction = "in"  />
-        <pitem  name = "d0[10]"  direction = "in"  />
-        <pitem  name = "d0[9]"  direction = "in"  />
-        <pitem  name = "d0[8]"  direction = "in"  />
-        <pitem  name = "d0[7]"  direction = "in"  />
-        <pitem  name = "d0[6]"  direction = "in"  />
-        <pitem  name = "d0[5]"  direction = "in"  />
-        <pitem  name = "d0[4]"  direction = "in"  />
-        <pitem  name = "d0[3]"  direction = "in"  />
-        <pitem  name = "d0[2]"  direction = "in"  />
-        <pitem  name = "d0[1]"  direction = "in"  />
-        <pitem  name = "d0[0]"  direction = "in"  />
-        <pitem  name = "d1[15]"  direction = "in"  />
-        <pitem  name = "d1[14]"  direction = "in"  />
-        <pitem  name = "d1[13]"  direction = "in"  />
-        <pitem  name = "d1[12]"  direction = "in"  />
-        <pitem  name = "d1[11]"  direction = "in"  />
-        <pitem  name = "d1[10]"  direction = "in"  />
-        <pitem  name = "d1[9]"  direction = "in"  />
-        <pitem  name = "d1[8]"  direction = "in"  />
-        <pitem  name = "d1[7]"  direction = "in"  />
-        <pitem  name = "d1[6]"  direction = "in"  />
-        <pitem  name = "d1[5]"  direction = "in"  />
-        <pitem  name = "d1[4]"  direction = "in"  />
-        <pitem  name = "d1[3]"  direction = "in"  />
-        <pitem  name = "d1[2]"  direction = "in"  />
-        <pitem  name = "d1[1]"  direction = "in"  />
-        <pitem  name = "d1[0]"  direction = "in"  />
-        <pitem  name = "cond"  direction = "in"  />
-        <pitem  name = "o[15]"  direction = "out"  />
-        <pitem  name = "o[14]"  direction = "out"  />
-        <pitem  name = "o[13]"  direction = "out"  />
-        <pitem  name = "o[12]"  direction = "out"  />
-        <pitem  name = "o[11]"  direction = "out"  />
-        <pitem  name = "o[10]"  direction = "out"  />
-        <pitem  name = "o[9]"  direction = "out"  />
-        <pitem  name = "o[8]"  direction = "out"  />
-        <pitem  name = "o[7]"  direction = "out"  />
-        <pitem  name = "o[6]"  direction = "out"  />
-        <pitem  name = "o[5]"  direction = "out"  />
-        <pitem  name = "o[4]"  direction = "out"  />
-        <pitem  name = "o[3]"  direction = "out"  />
-        <pitem  name = "o[2]"  direction = "out"  />
-        <pitem  name = "o[1]"  direction = "out"  />
-        <pitem  name = "o[0]"  direction = "out"  />
-        </pins>
-
-        <nets>
+        <nitem  name = "n467"  />
+        <nitem  name = "n468"  />
+        <nitem  name = "n469"  />
         <nitem  name = "n470"  />
         <nitem  name = "n471"  />
         <nitem  name = "n472"  />
@@ -3246,29 +3089,83 @@
         <nitem  name = "n483"  />
         <nitem  name = "n484"  />
         <nitem  name = "n485"  />
-        <nitem  name = "gnd"  />
-        <nitem  name = "pwr"  />
-        <nitem  name = "hrvld_N_342"  />
-        <nitem  name = "dword_15__N_321[15]"  />
-        <nitem  name = "dword_15__N_321[14]"  />
-        <nitem  name = "dword_15__N_321[13]"  />
-        <nitem  name = "dword_15__N_321[12]"  />
-        <nitem  name = "dword_15__N_321[11]"  />
-        <nitem  name = "dword_15__N_321[10]"  />
-        <nitem  name = "dword_15__N_321[9]"  />
-        <nitem  name = "dword_15__N_321[8]"  />
-        <nitem  name = "dword_15__N_321[7]"  />
-        <nitem  name = "dword_15__N_321[6]"  />
-        <nitem  name = "dword_15__N_321[5]"  />
-        <nitem  name = "dword_15__N_321[4]"  />
-        <nitem  name = "dword_15__N_321[3]"  />
-        <nitem  name = "dword_15__N_321[2]"  />
-        <nitem  name = "dword_15__N_321[1]"  />
-        <nitem  name = "dword_15__N_321[0]"  />
+        <nitem  name = "n486"  />
+        <nitem  name = "n487"  />
+        <nitem  name = "n488"  />
+        <nitem  name = "n489"  />
+        <nitem  name = "n490"  />
+        <nitem  name = "n491"  />
+        <nitem  name = "n492"  />
+        <nitem  name = "n493"  />
+        <nitem  name = "n494"  />
+        <nitem  name = "n495"  />
+        <nitem  name = "n496"  />
+        <nitem  name = "n497"  />
+        <nitem  name = "n498"  />
+        <nitem  name = "hrvld_N_351"  />
+        <nitem  name = "ch_data_31__N_272[31]"  />
+        <nitem  name = "ch_data_31__N_272[30]"  />
+        <nitem  name = "ch_data_31__N_272[29]"  />
+        <nitem  name = "ch_data_31__N_272[28]"  />
+        <nitem  name = "ch_data_31__N_272[27]"  />
+        <nitem  name = "ch_data_31__N_272[26]"  />
+        <nitem  name = "ch_data_31__N_272[25]"  />
+        <nitem  name = "ch_data_31__N_272[24]"  />
+        <nitem  name = "ch_data_31__N_272[23]"  />
+        <nitem  name = "ch_data_31__N_272[22]"  />
+        <nitem  name = "ch_data_31__N_272[21]"  />
+        <nitem  name = "ch_data_31__N_272[20]"  />
+        <nitem  name = "ch_data_31__N_272[19]"  />
+        <nitem  name = "ch_data_31__N_272[18]"  />
+        <nitem  name = "ch_data_31__N_272[17]"  />
+        <nitem  name = "ch_data_31__N_272[16]"  />
+        <nitem  name = "ch_data_31__N_272[15]"  />
+        <nitem  name = "ch_data_31__N_272[14]"  />
+        <nitem  name = "ch_data_31__N_272[13]"  />
+        <nitem  name = "ch_data_31__N_272[12]"  />
+        <nitem  name = "ch_data_31__N_272[11]"  />
+        <nitem  name = "ch_data_31__N_272[10]"  />
+        <nitem  name = "ch_data_31__N_272[9]"  />
+        <nitem  name = "ch_data_31__N_272[8]"  />
+        <nitem  name = "ch_data_31__N_272[7]"  />
+        <nitem  name = "ch_data_31__N_272[6]"  />
+        <nitem  name = "ch_data_31__N_272[5]"  />
+        <nitem  name = "ch_data_31__N_272[4]"  />
+        <nitem  name = "ch_data_31__N_272[3]"  />
+        <nitem  name = "ch_data_31__N_272[2]"  />
+        <nitem  name = "ch_data_31__N_272[1]"  />
+        <nitem  name = "ch_data_31__N_272[0]"  />
         </nets>
     </instance>
 
-    <instance  name = "dword_15__I_0"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "mux_42"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "d0[2]"  direction = "in"  />
+        <pitem  name = "d0[1]"  direction = "in"  />
+        <pitem  name = "d0[0]"  direction = "in"  />
+        <pitem  name = "d1[2]"  direction = "in"  />
+        <pitem  name = "d1[1]"  direction = "in"  />
+        <pitem  name = "d1[0]"  direction = "in"  />
+        <pitem  name = "cond"  direction = "in"  />
+        <pitem  name = "o[2]"  direction = "out"  />
+        <pitem  name = "o[1]"  direction = "out"  />
+        <pitem  name = "o[0]"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "n462"  />
+        <nitem  name = "n463"  />
+        <nitem  name = "n464"  />
+        <nitem  name = "gnd"  />
+        <nitem  name = "pwr"  />
+        <nitem  name = "hrvld_N_351"  />
+        <nitem  name = "state_2__N_311[2]"  />
+        <nitem  name = "state_2__N_311[1]"  />
+        <nitem  name = "state_2__N_311[0]"  />
+        </nets>
+    </instance>
+
+    <instance  name = "state_2__I_0"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "a[31]"  direction = "in"  />
         <pitem  name = "a[30]"  direction = "in"  />
@@ -3339,28 +3236,15 @@
 
         <nets>
         <nitem  name = "gnd"  />
-        <nitem  name = "dword[15]"  />
-        <nitem  name = "dword[14]"  />
-        <nitem  name = "dword[13]"  />
-        <nitem  name = "dword[12]"  />
-        <nitem  name = "dword[11]"  />
-        <nitem  name = "dword[10]"  />
-        <nitem  name = "dword[9]"  />
-        <nitem  name = "dword[8]"  />
-        <nitem  name = "dword[7]"  />
-        <nitem  name = "dword[6]"  />
-        <nitem  name = "dword[5]"  />
-        <nitem  name = "dword[4]"  />
-        <nitem  name = "dword[3]"  />
-        <nitem  name = "dword[2]"  />
-        <nitem  name = "dword[1]"  />
-        <nitem  name = "dword[0]"  />
+        <nitem  name = "state[2]"  />
+        <nitem  name = "state[1]"  />
+        <nitem  name = "state[0]"  />
         <nitem  name = "pwr"  />
-        <nitem  name = "hract_N_352"  />
+        <nitem  name = "hract_N_361"  />
         </nets>
     </instance>
 
-    <instance  name = "hract_N_344_I_0"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "hract_N_353_I_0"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "a0"  direction = "in"  />
         <pitem  name = "a1"  direction = "in"  />
@@ -3369,10 +3253,101 @@
         </pins>
 
         <nets>
-        <nitem  name = "hract_N_344"  />
+        <nitem  name = "hract_N_353"  />
         <nitem  name = "gnd"  />
-        <nitem  name = "hract_N_352"  />
-        <nitem  name = "hract_N_351"  />
+        <nitem  name = "hract_N_361"  />
+        <nitem  name = "hract_N_360"  />
+        </nets>
+    </instance>
+
+    <instance  name = "mux_45"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "d0[15]"  direction = "in"  />
+        <pitem  name = "d0[14]"  direction = "in"  />
+        <pitem  name = "d0[13]"  direction = "in"  />
+        <pitem  name = "d0[12]"  direction = "in"  />
+        <pitem  name = "d0[11]"  direction = "in"  />
+        <pitem  name = "d0[10]"  direction = "in"  />
+        <pitem  name = "d0[9]"  direction = "in"  />
+        <pitem  name = "d0[8]"  direction = "in"  />
+        <pitem  name = "d0[7]"  direction = "in"  />
+        <pitem  name = "d0[6]"  direction = "in"  />
+        <pitem  name = "d0[5]"  direction = "in"  />
+        <pitem  name = "d0[4]"  direction = "in"  />
+        <pitem  name = "d0[3]"  direction = "in"  />
+        <pitem  name = "d0[2]"  direction = "in"  />
+        <pitem  name = "d0[1]"  direction = "in"  />
+        <pitem  name = "d0[0]"  direction = "in"  />
+        <pitem  name = "d1[15]"  direction = "in"  />
+        <pitem  name = "d1[14]"  direction = "in"  />
+        <pitem  name = "d1[13]"  direction = "in"  />
+        <pitem  name = "d1[12]"  direction = "in"  />
+        <pitem  name = "d1[11]"  direction = "in"  />
+        <pitem  name = "d1[10]"  direction = "in"  />
+        <pitem  name = "d1[9]"  direction = "in"  />
+        <pitem  name = "d1[8]"  direction = "in"  />
+        <pitem  name = "d1[7]"  direction = "in"  />
+        <pitem  name = "d1[6]"  direction = "in"  />
+        <pitem  name = "d1[5]"  direction = "in"  />
+        <pitem  name = "d1[4]"  direction = "in"  />
+        <pitem  name = "d1[3]"  direction = "in"  />
+        <pitem  name = "d1[2]"  direction = "in"  />
+        <pitem  name = "d1[1]"  direction = "in"  />
+        <pitem  name = "d1[0]"  direction = "in"  />
+        <pitem  name = "cond"  direction = "in"  />
+        <pitem  name = "o[15]"  direction = "out"  />
+        <pitem  name = "o[14]"  direction = "out"  />
+        <pitem  name = "o[13]"  direction = "out"  />
+        <pitem  name = "o[12]"  direction = "out"  />
+        <pitem  name = "o[11]"  direction = "out"  />
+        <pitem  name = "o[10]"  direction = "out"  />
+        <pitem  name = "o[9]"  direction = "out"  />
+        <pitem  name = "o[8]"  direction = "out"  />
+        <pitem  name = "o[7]"  direction = "out"  />
+        <pitem  name = "o[6]"  direction = "out"  />
+        <pitem  name = "o[5]"  direction = "out"  />
+        <pitem  name = "o[4]"  direction = "out"  />
+        <pitem  name = "o[3]"  direction = "out"  />
+        <pitem  name = "o[2]"  direction = "out"  />
+        <pitem  name = "o[1]"  direction = "out"  />
+        <pitem  name = "o[0]"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "dword_15__N_314[15]"  />
+        <nitem  name = "dword_15__N_314[14]"  />
+        <nitem  name = "dword_15__N_314[13]"  />
+        <nitem  name = "dword_15__N_314[12]"  />
+        <nitem  name = "dword_15__N_314[11]"  />
+        <nitem  name = "dword_15__N_314[10]"  />
+        <nitem  name = "dword_15__N_314[9]"  />
+        <nitem  name = "dword_15__N_314[8]"  />
+        <nitem  name = "dword_15__N_314[7]"  />
+        <nitem  name = "dword_15__N_314[6]"  />
+        <nitem  name = "dword_15__N_314[5]"  />
+        <nitem  name = "dword_15__N_314[4]"  />
+        <nitem  name = "dword_15__N_314[3]"  />
+        <nitem  name = "dword_15__N_314[2]"  />
+        <nitem  name = "dword_15__N_314[1]"  />
+        <nitem  name = "dword_15__N_314[0]"  />
+        <nitem  name = "gnd"  />
+        <nitem  name = "hract_N_361"  />
+        <nitem  name = "dword_15__N_330[15]"  />
+        <nitem  name = "dword_15__N_330[14]"  />
+        <nitem  name = "dword_15__N_330[13]"  />
+        <nitem  name = "dword_15__N_330[12]"  />
+        <nitem  name = "dword_15__N_330[11]"  />
+        <nitem  name = "dword_15__N_330[10]"  />
+        <nitem  name = "dword_15__N_330[9]"  />
+        <nitem  name = "dword_15__N_330[8]"  />
+        <nitem  name = "dword_15__N_330[7]"  />
+        <nitem  name = "dword_15__N_330[6]"  />
+        <nitem  name = "dword_15__N_330[5]"  />
+        <nitem  name = "dword_15__N_330[4]"  />
+        <nitem  name = "dword_15__N_330[3]"  />
+        <nitem  name = "dword_15__N_330[2]"  />
+        <nitem  name = "dword_15__N_330[1]"  />
+        <nitem  name = "dword_15__N_330[0]"  />
         </nets>
     </instance>
 
@@ -3510,71 +3485,71 @@
         <nitem  name = "crc[2]"  />
         <nitem  name = "crc[1]"  />
         <nitem  name = "crc[0]"  />
-        <nitem  name = "crc_31__N_236[31]"  />
-        <nitem  name = "crc_31__N_236[30]"  />
-        <nitem  name = "crc_31__N_236[29]"  />
-        <nitem  name = "crc_31__N_236[28]"  />
-        <nitem  name = "crc_31__N_236[27]"  />
-        <nitem  name = "crc_31__N_236[26]"  />
-        <nitem  name = "crc_31__N_236[25]"  />
-        <nitem  name = "crc_31__N_236[24]"  />
-        <nitem  name = "crc_31__N_236[23]"  />
-        <nitem  name = "crc_31__N_236[22]"  />
-        <nitem  name = "crc_31__N_236[21]"  />
-        <nitem  name = "crc_31__N_236[20]"  />
-        <nitem  name = "crc_31__N_236[19]"  />
-        <nitem  name = "crc_31__N_236[18]"  />
-        <nitem  name = "crc_31__N_236[17]"  />
-        <nitem  name = "crc_31__N_236[16]"  />
-        <nitem  name = "crc_31__N_236[15]"  />
-        <nitem  name = "crc_31__N_236[14]"  />
-        <nitem  name = "crc_31__N_236[13]"  />
-        <nitem  name = "crc_31__N_236[12]"  />
-        <nitem  name = "crc_31__N_236[11]"  />
-        <nitem  name = "crc_31__N_236[10]"  />
-        <nitem  name = "crc_31__N_236[9]"  />
-        <nitem  name = "crc_31__N_236[8]"  />
-        <nitem  name = "crc_31__N_236[7]"  />
-        <nitem  name = "crc_31__N_236[6]"  />
-        <nitem  name = "crc_31__N_236[5]"  />
-        <nitem  name = "crc_31__N_236[4]"  />
-        <nitem  name = "crc_31__N_236[3]"  />
-        <nitem  name = "crc_31__N_236[2]"  />
-        <nitem  name = "crc_31__N_236[1]"  />
-        <nitem  name = "crc_31__N_236[0]"  />
-        <nitem  name = "crc_31__N_268"  />
-        <nitem  name = "crc_31__N_107[31]"  />
-        <nitem  name = "crc_31__N_107[30]"  />
-        <nitem  name = "crc_31__N_107[29]"  />
-        <nitem  name = "crc_31__N_107[28]"  />
-        <nitem  name = "crc_31__N_107[27]"  />
-        <nitem  name = "crc_31__N_107[26]"  />
-        <nitem  name = "crc_31__N_107[25]"  />
-        <nitem  name = "crc_31__N_107[24]"  />
-        <nitem  name = "crc_31__N_107[23]"  />
-        <nitem  name = "crc_31__N_107[22]"  />
-        <nitem  name = "crc_31__N_107[21]"  />
-        <nitem  name = "crc_31__N_107[20]"  />
-        <nitem  name = "crc_31__N_107[19]"  />
-        <nitem  name = "crc_31__N_107[18]"  />
-        <nitem  name = "crc_31__N_107[17]"  />
-        <nitem  name = "crc_31__N_107[16]"  />
-        <nitem  name = "crc_31__N_107[15]"  />
-        <nitem  name = "crc_31__N_107[14]"  />
-        <nitem  name = "crc_31__N_107[13]"  />
-        <nitem  name = "crc_31__N_107[12]"  />
-        <nitem  name = "crc_31__N_107[11]"  />
-        <nitem  name = "crc_31__N_107[10]"  />
-        <nitem  name = "crc_31__N_107[9]"  />
-        <nitem  name = "crc_31__N_107[8]"  />
-        <nitem  name = "crc_31__N_107[7]"  />
-        <nitem  name = "crc_31__N_107[6]"  />
-        <nitem  name = "crc_31__N_107[5]"  />
-        <nitem  name = "crc_31__N_107[4]"  />
-        <nitem  name = "crc_31__N_107[3]"  />
-        <nitem  name = "crc_31__N_107[2]"  />
-        <nitem  name = "crc_31__N_107[1]"  />
-        <nitem  name = "crc_31__N_107[0]"  />
+        <nitem  name = "crc_31__N_239[31]"  />
+        <nitem  name = "crc_31__N_239[30]"  />
+        <nitem  name = "crc_31__N_239[29]"  />
+        <nitem  name = "crc_31__N_239[28]"  />
+        <nitem  name = "crc_31__N_239[27]"  />
+        <nitem  name = "crc_31__N_239[26]"  />
+        <nitem  name = "crc_31__N_239[25]"  />
+        <nitem  name = "crc_31__N_239[24]"  />
+        <nitem  name = "crc_31__N_239[23]"  />
+        <nitem  name = "crc_31__N_239[22]"  />
+        <nitem  name = "crc_31__N_239[21]"  />
+        <nitem  name = "crc_31__N_239[20]"  />
+        <nitem  name = "crc_31__N_239[19]"  />
+        <nitem  name = "crc_31__N_239[18]"  />
+        <nitem  name = "crc_31__N_239[17]"  />
+        <nitem  name = "crc_31__N_239[16]"  />
+        <nitem  name = "crc_31__N_239[15]"  />
+        <nitem  name = "crc_31__N_239[14]"  />
+        <nitem  name = "crc_31__N_239[13]"  />
+        <nitem  name = "crc_31__N_239[12]"  />
+        <nitem  name = "crc_31__N_239[11]"  />
+        <nitem  name = "crc_31__N_239[10]"  />
+        <nitem  name = "crc_31__N_239[9]"  />
+        <nitem  name = "crc_31__N_239[8]"  />
+        <nitem  name = "crc_31__N_239[7]"  />
+        <nitem  name = "crc_31__N_239[6]"  />
+        <nitem  name = "crc_31__N_239[5]"  />
+        <nitem  name = "crc_31__N_239[4]"  />
+        <nitem  name = "crc_31__N_239[3]"  />
+        <nitem  name = "crc_31__N_239[2]"  />
+        <nitem  name = "crc_31__N_239[1]"  />
+        <nitem  name = "crc_31__N_239[0]"  />
+        <nitem  name = "crc_31__N_271"  />
+        <nitem  name = "crc_31__N_139[31]"  />
+        <nitem  name = "crc_31__N_139[30]"  />
+        <nitem  name = "crc_31__N_139[29]"  />
+        <nitem  name = "crc_31__N_139[28]"  />
+        <nitem  name = "crc_31__N_139[27]"  />
+        <nitem  name = "crc_31__N_139[26]"  />
+        <nitem  name = "crc_31__N_139[25]"  />
+        <nitem  name = "crc_31__N_139[24]"  />
+        <nitem  name = "crc_31__N_139[23]"  />
+        <nitem  name = "crc_31__N_139[22]"  />
+        <nitem  name = "crc_31__N_139[21]"  />
+        <nitem  name = "crc_31__N_139[20]"  />
+        <nitem  name = "crc_31__N_139[19]"  />
+        <nitem  name = "crc_31__N_139[18]"  />
+        <nitem  name = "crc_31__N_139[17]"  />
+        <nitem  name = "crc_31__N_139[16]"  />
+        <nitem  name = "crc_31__N_139[15]"  />
+        <nitem  name = "crc_31__N_139[14]"  />
+        <nitem  name = "crc_31__N_139[13]"  />
+        <nitem  name = "crc_31__N_139[12]"  />
+        <nitem  name = "crc_31__N_139[11]"  />
+        <nitem  name = "crc_31__N_139[10]"  />
+        <nitem  name = "crc_31__N_139[9]"  />
+        <nitem  name = "crc_31__N_139[8]"  />
+        <nitem  name = "crc_31__N_139[7]"  />
+        <nitem  name = "crc_31__N_139[6]"  />
+        <nitem  name = "crc_31__N_139[5]"  />
+        <nitem  name = "crc_31__N_139[4]"  />
+        <nitem  name = "crc_31__N_139[3]"  />
+        <nitem  name = "crc_31__N_139[2]"  />
+        <nitem  name = "crc_31__N_139[1]"  />
+        <nitem  name = "crc_31__N_139[0]"  />
         </nets>
     </instance>
 
@@ -3712,39 +3687,39 @@
         <nitem  name = "ch_data[2]"  />
         <nitem  name = "ch_data[1]"  />
         <nitem  name = "ch_data[0]"  />
-        <nitem  name = "ch_data_31__N_269[31]"  />
-        <nitem  name = "ch_data_31__N_269[30]"  />
-        <nitem  name = "ch_data_31__N_269[29]"  />
-        <nitem  name = "ch_data_31__N_269[28]"  />
-        <nitem  name = "ch_data_31__N_269[27]"  />
-        <nitem  name = "ch_data_31__N_269[26]"  />
-        <nitem  name = "ch_data_31__N_269[25]"  />
-        <nitem  name = "ch_data_31__N_269[24]"  />
-        <nitem  name = "ch_data_31__N_269[23]"  />
-        <nitem  name = "ch_data_31__N_269[22]"  />
-        <nitem  name = "ch_data_31__N_269[21]"  />
-        <nitem  name = "ch_data_31__N_269[20]"  />
-        <nitem  name = "ch_data_31__N_269[19]"  />
-        <nitem  name = "ch_data_31__N_269[18]"  />
-        <nitem  name = "ch_data_31__N_269[17]"  />
-        <nitem  name = "ch_data_31__N_269[16]"  />
-        <nitem  name = "ch_data_31__N_269[15]"  />
-        <nitem  name = "ch_data_31__N_269[14]"  />
-        <nitem  name = "ch_data_31__N_269[13]"  />
-        <nitem  name = "ch_data_31__N_269[12]"  />
-        <nitem  name = "ch_data_31__N_269[11]"  />
-        <nitem  name = "ch_data_31__N_269[10]"  />
-        <nitem  name = "ch_data_31__N_269[9]"  />
-        <nitem  name = "ch_data_31__N_269[8]"  />
-        <nitem  name = "ch_data_31__N_269[7]"  />
-        <nitem  name = "ch_data_31__N_269[6]"  />
-        <nitem  name = "ch_data_31__N_269[5]"  />
-        <nitem  name = "ch_data_31__N_269[4]"  />
-        <nitem  name = "ch_data_31__N_269[3]"  />
-        <nitem  name = "ch_data_31__N_269[2]"  />
-        <nitem  name = "ch_data_31__N_269[1]"  />
-        <nitem  name = "ch_data_31__N_269[0]"  />
-        <nitem  name = "crc_31__N_268"  />
+        <nitem  name = "ch_data_31__N_272[31]"  />
+        <nitem  name = "ch_data_31__N_272[30]"  />
+        <nitem  name = "ch_data_31__N_272[29]"  />
+        <nitem  name = "ch_data_31__N_272[28]"  />
+        <nitem  name = "ch_data_31__N_272[27]"  />
+        <nitem  name = "ch_data_31__N_272[26]"  />
+        <nitem  name = "ch_data_31__N_272[25]"  />
+        <nitem  name = "ch_data_31__N_272[24]"  />
+        <nitem  name = "ch_data_31__N_272[23]"  />
+        <nitem  name = "ch_data_31__N_272[22]"  />
+        <nitem  name = "ch_data_31__N_272[21]"  />
+        <nitem  name = "ch_data_31__N_272[20]"  />
+        <nitem  name = "ch_data_31__N_272[19]"  />
+        <nitem  name = "ch_data_31__N_272[18]"  />
+        <nitem  name = "ch_data_31__N_272[17]"  />
+        <nitem  name = "ch_data_31__N_272[16]"  />
+        <nitem  name = "ch_data_31__N_272[15]"  />
+        <nitem  name = "ch_data_31__N_272[14]"  />
+        <nitem  name = "ch_data_31__N_272[13]"  />
+        <nitem  name = "ch_data_31__N_272[12]"  />
+        <nitem  name = "ch_data_31__N_272[11]"  />
+        <nitem  name = "ch_data_31__N_272[10]"  />
+        <nitem  name = "ch_data_31__N_272[9]"  />
+        <nitem  name = "ch_data_31__N_272[8]"  />
+        <nitem  name = "ch_data_31__N_272[7]"  />
+        <nitem  name = "ch_data_31__N_272[6]"  />
+        <nitem  name = "ch_data_31__N_272[5]"  />
+        <nitem  name = "ch_data_31__N_272[4]"  />
+        <nitem  name = "ch_data_31__N_272[3]"  />
+        <nitem  name = "ch_data_31__N_272[2]"  />
+        <nitem  name = "ch_data_31__N_272[1]"  />
+        <nitem  name = "ch_data_31__N_272[0]"  />
+        <nitem  name = "crc_31__N_271"  />
         <nitem  name = "ch_data_31__N_1[31]"  />
         <nitem  name = "ch_data_31__N_1[30]"  />
         <nitem  name = "ch_data_31__N_1[29]"  />
@@ -3802,15 +3777,15 @@
         <nitem  name = "seq[2]"  />
         <nitem  name = "seq[1]"  />
         <nitem  name = "seq[0]"  />
-        <nitem  name = "seq_3__N_301[3]"  />
-        <nitem  name = "seq_3__N_301[2]"  />
-        <nitem  name = "seq_3__N_301[1]"  />
-        <nitem  name = "seq_3__N_301[0]"  />
-        <nitem  name = "crc_31__N_268"  />
-        <nitem  name = "seq_3__N_139[3]"  />
-        <nitem  name = "seq_3__N_139[2]"  />
-        <nitem  name = "seq_3__N_139[1]"  />
-        <nitem  name = "seq_3__N_139[0]"  />
+        <nitem  name = "seq_3__N_304[3]"  />
+        <nitem  name = "seq_3__N_304[2]"  />
+        <nitem  name = "seq_3__N_304[1]"  />
+        <nitem  name = "seq_3__N_304[0]"  />
+        <nitem  name = "crc_31__N_271"  />
+        <nitem  name = "seq_3__N_171[3]"  />
+        <nitem  name = "seq_3__N_171[2]"  />
+        <nitem  name = "seq_3__N_171[1]"  />
+        <nitem  name = "seq_3__N_171[0]"  />
         </nets>
     </instance>
 
@@ -3824,13 +3799,57 @@
 
         <nets>
         <nitem  name = "gnd"  />
-        <nitem  name = "hrvld_N_338"  />
-        <nitem  name = "crc_31__N_268"  />
-        <nitem  name = "hrvld_N_337"  />
+        <nitem  name = "hrvld_N_347"  />
+        <nitem  name = "crc_31__N_271"  />
+        <nitem  name = "hrvld_N_346"  />
         </nets>
     </instance>
 
-    <instance  name = "dword_15__I_0_73"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "state_2__I_0_79"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "d0[2]"  direction = "in"  />
+        <pitem  name = "d0[1]"  direction = "in"  />
+        <pitem  name = "d0[0]"  direction = "in"  />
+        <pitem  name = "d1[2]"  direction = "in"  />
+        <pitem  name = "d1[1]"  direction = "in"  />
+        <pitem  name = "d1[0]"  direction = "in"  />
+        <pitem  name = "cond"  direction = "in"  />
+        <pitem  name = "o[2]"  direction = "out"  />
+        <pitem  name = "o[1]"  direction = "out"  />
+        <pitem  name = "o[0]"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "state_2__N_308[2]"  />
+        <nitem  name = "state_2__N_308[1]"  />
+        <nitem  name = "state_2__N_308[0]"  />
+        <nitem  name = "state_2__N_311[2]"  />
+        <nitem  name = "state_2__N_311[1]"  />
+        <nitem  name = "state_2__N_311[0]"  />
+        <nitem  name = "crc_31__N_271"  />
+        <nitem  name = "state_2__N_191[2]"  />
+        <nitem  name = "state_2__N_191[1]"  />
+        <nitem  name = "state_2__N_191[0]"  />
+        </nets>
+    </instance>
+
+    <instance  name = "hract_I_3"  library = "work"  arch = ""  type = "comb">
+        <pins>
+        <pitem  name = "a0"  direction = "in"  />
+        <pitem  name = "a1"  direction = "in"  />
+        <pitem  name = "c"  direction = "in"  />
+        <pitem  name = "o"  direction = "out"  />
+        </pins>
+
+        <nets>
+        <nitem  name = "hract_N_353"  />
+        <nitem  name = "hract_N_360"  />
+        <nitem  name = "crc_31__N_271"  />
+        <nitem  name = "hract_N_352"  />
+        </nets>
+    </instance>
+
+    <instance  name = "dword_15__I_0"  library = "work"  arch = ""  type = "comb">
         <pins>
         <pitem  name = "d0[15]"  direction = "in"  />
         <pitem  name = "d0[14]"  direction = "in"  />
@@ -3884,71 +3903,162 @@
         </pins>
 
         <nets>
-        <nitem  name = "dword_15__N_305[15]"  />
-        <nitem  name = "dword_15__N_305[14]"  />
-        <nitem  name = "dword_15__N_305[13]"  />
-        <nitem  name = "dword_15__N_305[12]"  />
-        <nitem  name = "dword_15__N_305[11]"  />
-        <nitem  name = "dword_15__N_305[10]"  />
-        <nitem  name = "dword_15__N_305[9]"  />
-        <nitem  name = "dword_15__N_305[8]"  />
-        <nitem  name = "dword_15__N_305[7]"  />
-        <nitem  name = "dword_15__N_305[6]"  />
-        <nitem  name = "dword_15__N_305[5]"  />
-        <nitem  name = "dword_15__N_305[4]"  />
-        <nitem  name = "dword_15__N_305[3]"  />
-        <nitem  name = "dword_15__N_305[2]"  />
-        <nitem  name = "dword_15__N_305[1]"  />
-        <nitem  name = "dword_15__N_305[0]"  />
-        <nitem  name = "dword_15__N_321[15]"  />
-        <nitem  name = "dword_15__N_321[14]"  />
-        <nitem  name = "dword_15__N_321[13]"  />
-        <nitem  name = "dword_15__N_321[12]"  />
-        <nitem  name = "dword_15__N_321[11]"  />
-        <nitem  name = "dword_15__N_321[10]"  />
-        <nitem  name = "dword_15__N_321[9]"  />
-        <nitem  name = "dword_15__N_321[8]"  />
-        <nitem  name = "dword_15__N_321[7]"  />
-        <nitem  name = "dword_15__N_321[6]"  />
-        <nitem  name = "dword_15__N_321[5]"  />
-        <nitem  name = "dword_15__N_321[4]"  />
-        <nitem  name = "dword_15__N_321[3]"  />
-        <nitem  name = "dword_15__N_321[2]"  />
-        <nitem  name = "dword_15__N_321[1]"  />
-        <nitem  name = "dword_15__N_321[0]"  />
-        <nitem  name = "crc_31__N_268"  />
-        <nitem  name = "dword_15__N_143[15]"  />
-        <nitem  name = "dword_15__N_143[14]"  />
-        <nitem  name = "dword_15__N_143[13]"  />
-        <nitem  name = "dword_15__N_143[12]"  />
-        <nitem  name = "dword_15__N_143[11]"  />
-        <nitem  name = "dword_15__N_143[10]"  />
-        <nitem  name = "dword_15__N_143[9]"  />
-        <nitem  name = "dword_15__N_143[8]"  />
-        <nitem  name = "dword_15__N_143[7]"  />
-        <nitem  name = "dword_15__N_143[6]"  />
-        <nitem  name = "dword_15__N_143[5]"  />
-        <nitem  name = "dword_15__N_143[4]"  />
-        <nitem  name = "dword_15__N_143[3]"  />
-        <nitem  name = "dword_15__N_143[2]"  />
-        <nitem  name = "dword_15__N_143[1]"  />
-        <nitem  name = "dword_15__N_143[0]"  />
+        <nitem  name = "dword_15__N_314[15]"  />
+        <nitem  name = "dword_15__N_314[14]"  />
+        <nitem  name = "dword_15__N_314[13]"  />
+        <nitem  name = "dword_15__N_314[12]"  />
+        <nitem  name = "dword_15__N_314[11]"  />
+        <nitem  name = "dword_15__N_314[10]"  />
+        <nitem  name = "dword_15__N_314[9]"  />
+        <nitem  name = "dword_15__N_314[8]"  />
+        <nitem  name = "dword_15__N_314[7]"  />
+        <nitem  name = "dword_15__N_314[6]"  />
+        <nitem  name = "dword_15__N_314[5]"  />
+        <nitem  name = "dword_15__N_314[4]"  />
+        <nitem  name = "dword_15__N_314[3]"  />
+        <nitem  name = "dword_15__N_314[2]"  />
+        <nitem  name = "dword_15__N_314[1]"  />
+        <nitem  name = "dword_15__N_314[0]"  />
+        <nitem  name = "dword_15__N_330[15]"  />
+        <nitem  name = "dword_15__N_330[14]"  />
+        <nitem  name = "dword_15__N_330[13]"  />
+        <nitem  name = "dword_15__N_330[12]"  />
+        <nitem  name = "dword_15__N_330[11]"  />
+        <nitem  name = "dword_15__N_330[10]"  />
+        <nitem  name = "dword_15__N_330[9]"  />
+        <nitem  name = "dword_15__N_330[8]"  />
+        <nitem  name = "dword_15__N_330[7]"  />
+        <nitem  name = "dword_15__N_330[6]"  />
+        <nitem  name = "dword_15__N_330[5]"  />
+        <nitem  name = "dword_15__N_330[4]"  />
+        <nitem  name = "dword_15__N_330[3]"  />
+        <nitem  name = "dword_15__N_330[2]"  />
+        <nitem  name = "dword_15__N_330[1]"  />
+        <nitem  name = "dword_15__N_330[0]"  />
+        <nitem  name = "crc_31__N_271"  />
+        <nitem  name = "dword_15__N_175[15]"  />
+        <nitem  name = "dword_15__N_175[14]"  />
+        <nitem  name = "dword_15__N_175[13]"  />
+        <nitem  name = "dword_15__N_175[12]"  />
+        <nitem  name = "dword_15__N_175[11]"  />
+        <nitem  name = "dword_15__N_175[10]"  />
+        <nitem  name = "dword_15__N_175[9]"  />
+        <nitem  name = "dword_15__N_175[8]"  />
+        <nitem  name = "dword_15__N_175[7]"  />
+        <nitem  name = "dword_15__N_175[6]"  />
+        <nitem  name = "dword_15__N_175[5]"  />
+        <nitem  name = "dword_15__N_175[4]"  />
+        <nitem  name = "dword_15__N_175[3]"  />
+        <nitem  name = "dword_15__N_175[2]"  />
+        <nitem  name = "dword_15__N_175[1]"  />
+        <nitem  name = "dword_15__N_175[0]"  />
         </nets>
     </instance>
 
-    <instance  name = "hract_I_3"  library = "work"  arch = ""  type = "comb">
+    <instance  name = "dword"  library = "work"  arch = ""  type = "reg">
         <pins>
-        <pitem  name = "a0"  direction = "in"  />
-        <pitem  name = "a1"  direction = "in"  />
-        <pitem  name = "c"  direction = "in"  />
-        <pitem  name = "o"  direction = "out"  />
+        <pitem  name = "d[15]"  direction = "in"  />
+        <pitem  name = "d[14]"  direction = "in"  />
+        <pitem  name = "d[13]"  direction = "in"  />
+        <pitem  name = "d[12]"  direction = "in"  />
+        <pitem  name = "d[11]"  direction = "in"  />
+        <pitem  name = "d[10]"  direction = "in"  />
+        <pitem  name = "d[9]"  direction = "in"  />
+        <pitem  name = "d[8]"  direction = "in"  />
+        <pitem  name = "d[7]"  direction = "in"  />
+        <pitem  name = "d[6]"  direction = "in"  />
+        <pitem  name = "d[5]"  direction = "in"  />
+        <pitem  name = "d[4]"  direction = "in"  />
+        <pitem  name = "d[3]"  direction = "in"  />
+        <pitem  name = "d[2]"  direction = "in"  />
+        <pitem  name = "d[1]"  direction = "in"  />
+        <pitem  name = "d[0]"  direction = "in"  />
+        <pitem  name = "set[15]"  direction = "in"  />
+        <pitem  name = "set[14]"  direction = "in"  />
+        <pitem  name = "set[13]"  direction = "in"  />
+        <pitem  name = "set[12]"  direction = "in"  />
+        <pitem  name = "set[11]"  direction = "in"  />
+        <pitem  name = "set[10]"  direction = "in"  />
+        <pitem  name = "set[9]"  direction = "in"  />
+        <pitem  name = "set[8]"  direction = "in"  />
+        <pitem  name = "set[7]"  direction = "in"  />
+        <pitem  name = "set[6]"  direction = "in"  />
+        <pitem  name = "set[5]"  direction = "in"  />
+        <pitem  name = "set[4]"  direction = "in"  />
+        <pitem  name = "set[3]"  direction = "in"  />
+        <pitem  name = "set[2]"  direction = "in"  />
+        <pitem  name = "set[1]"  direction = "in"  />
+        <pitem  name = "set[0]"  direction = "in"  />
+        <pitem  name = "reset[15]"  direction = "in"  />
+        <pitem  name = "reset[14]"  direction = "in"  />
+        <pitem  name = "reset[13]"  direction = "in"  />
+        <pitem  name = "reset[12]"  direction = "in"  />
+        <pitem  name = "reset[11]"  direction = "in"  />
+        <pitem  name = "reset[10]"  direction = "in"  />
+        <pitem  name = "reset[9]"  direction = "in"  />
+        <pitem  name = "reset[8]"  direction = "in"  />
+        <pitem  name = "reset[7]"  direction = "in"  />
+        <pitem  name = "reset[6]"  direction = "in"  />
+        <pitem  name = "reset[5]"  direction = "in"  />
+        <pitem  name = "reset[4]"  direction = "in"  />
+        <pitem  name = "reset[3]"  direction = "in"  />
+        <pitem  name = "reset[2]"  direction = "in"  />
+        <pitem  name = "reset[1]"  direction = "in"  />
+        <pitem  name = "reset[0]"  direction = "in"  />
+        <pitem  name = "clock"  direction = "in"  />
+        <pitem  name = "q[15]"  direction = "out"  />
+        <pitem  name = "q[14]"  direction = "out"  />
+        <pitem  name = "q[13]"  direction = "out"  />
+        <pitem  name = "q[12]"  direction = "out"  />
+        <pitem  name = "q[11]"  direction = "out"  />
+        <pitem  name = "q[10]"  direction = "out"  />
+        <pitem  name = "q[9]"  direction = "out"  />
+        <pitem  name = "q[8]"  direction = "out"  />
+        <pitem  name = "q[7]"  direction = "out"  />
+        <pitem  name = "q[6]"  direction = "out"  />
+        <pitem  name = "q[5]"  direction = "out"  />
+        <pitem  name = "q[4]"  direction = "out"  />
+        <pitem  name = "q[3]"  direction = "out"  />
+        <pitem  name = "q[2]"  direction = "out"  />
+        <pitem  name = "q[1]"  direction = "out"  />
+        <pitem  name = "q[0]"  direction = "out"  />
         </pins>
 
         <nets>
-        <nitem  name = "hract_N_344"  />
-        <nitem  name = "hract_N_351"  />
-        <nitem  name = "crc_31__N_268"  />
-        <nitem  name = "hract_N_343"  />
+        <nitem  name = "dword_15__N_175[15]"  />
+        <nitem  name = "dword_15__N_175[14]"  />
+        <nitem  name = "dword_15__N_175[13]"  />
+        <nitem  name = "dword_15__N_175[12]"  />
+        <nitem  name = "dword_15__N_175[11]"  />
+        <nitem  name = "dword_15__N_175[10]"  />
+        <nitem  name = "dword_15__N_175[9]"  />
+        <nitem  name = "dword_15__N_175[8]"  />
+        <nitem  name = "dword_15__N_175[7]"  />
+        <nitem  name = "dword_15__N_175[6]"  />
+        <nitem  name = "dword_15__N_175[5]"  />
+        <nitem  name = "dword_15__N_175[4]"  />
+        <nitem  name = "dword_15__N_175[3]"  />
+        <nitem  name = "dword_15__N_175[2]"  />
+        <nitem  name = "dword_15__N_175[1]"  />
+        <nitem  name = "dword_15__N_175[0]"  />
+        <nitem  name = "gnd"  />
+        <nitem  name = "htclk"  />
+        <nitem  name = "dword[15]"  />
+        <nitem  name = "dword[14]"  />
+        <nitem  name = "dword[13]"  />
+        <nitem  name = "dword[12]"  />
+        <nitem  name = "dword[11]"  />
+        <nitem  name = "dword[10]"  />
+        <nitem  name = "dword[9]"  />
+        <nitem  name = "dword[8]"  />
+        <nitem  name = "dword[7]"  />
+        <nitem  name = "dword[6]"  />
+        <nitem  name = "dword[5]"  />
+        <nitem  name = "dword[4]"  />
+        <nitem  name = "dword[3]"  />
+        <nitem  name = "dword[2]"  />
+        <nitem  name = "dword[1]"  />
+        <nitem  name = "dword[0]"  />
         </nets>
     </instance>
 
@@ -4086,38 +4196,38 @@
         </pins>
 
         <nets>
-        <nitem  name = "counter_31__N_43[31]"  />
-        <nitem  name = "counter_31__N_43[30]"  />
-        <nitem  name = "counter_31__N_43[29]"  />
-        <nitem  name = "counter_31__N_43[28]"  />
-        <nitem  name = "counter_31__N_43[27]"  />
-        <nitem  name = "counter_31__N_43[26]"  />
-        <nitem  name = "counter_31__N_43[25]"  />
-        <nitem  name = "counter_31__N_43[24]"  />
-        <nitem  name = "counter_31__N_43[23]"  />
-        <nitem  name = "counter_31__N_43[22]"  />
-        <nitem  name = "counter_31__N_43[21]"  />
-        <nitem  name = "counter_31__N_43[20]"  />
-        <nitem  name = "counter_31__N_43[19]"  />
-        <nitem  name = "counter_31__N_43[18]"  />
-        <nitem  name = "counter_31__N_43[17]"  />
-        <nitem  name = "counter_31__N_43[16]"  />
-        <nitem  name = "counter_31__N_43[15]"  />
-        <nitem  name = "counter_31__N_43[14]"  />
-        <nitem  name = "counter_31__N_43[13]"  />
-        <nitem  name = "counter_31__N_43[12]"  />
-        <nitem  name = "counter_31__N_43[11]"  />
-        <nitem  name = "counter_31__N_43[10]"  />
-        <nitem  name = "counter_31__N_43[9]"  />
-        <nitem  name = "counter_31__N_43[8]"  />
-        <nitem  name = "counter_31__N_43[7]"  />
-        <nitem  name = "counter_31__N_43[6]"  />
-        <nitem  name = "counter_31__N_43[5]"  />
-        <nitem  name = "counter_31__N_43[4]"  />
-        <nitem  name = "counter_31__N_43[3]"  />
-        <nitem  name = "counter_31__N_43[2]"  />
-        <nitem  name = "counter_31__N_43[1]"  />
-        <nitem  name = "counter_31__N_43[0]"  />
+        <nitem  name = "counter_31__N_75[31]"  />
+        <nitem  name = "counter_31__N_75[30]"  />
+        <nitem  name = "counter_31__N_75[29]"  />
+        <nitem  name = "counter_31__N_75[28]"  />
+        <nitem  name = "counter_31__N_75[27]"  />
+        <nitem  name = "counter_31__N_75[26]"  />
+        <nitem  name = "counter_31__N_75[25]"  />
+        <nitem  name = "counter_31__N_75[24]"  />
+        <nitem  name = "counter_31__N_75[23]"  />
+        <nitem  name = "counter_31__N_75[22]"  />
+        <nitem  name = "counter_31__N_75[21]"  />
+        <nitem  name = "counter_31__N_75[20]"  />
+        <nitem  name = "counter_31__N_75[19]"  />
+        <nitem  name = "counter_31__N_75[18]"  />
+        <nitem  name = "counter_31__N_75[17]"  />
+        <nitem  name = "counter_31__N_75[16]"  />
+        <nitem  name = "counter_31__N_75[15]"  />
+        <nitem  name = "counter_31__N_75[14]"  />
+        <nitem  name = "counter_31__N_75[13]"  />
+        <nitem  name = "counter_31__N_75[12]"  />
+        <nitem  name = "counter_31__N_75[11]"  />
+        <nitem  name = "counter_31__N_75[10]"  />
+        <nitem  name = "counter_31__N_75[9]"  />
+        <nitem  name = "counter_31__N_75[8]"  />
+        <nitem  name = "counter_31__N_75[7]"  />
+        <nitem  name = "counter_31__N_75[6]"  />
+        <nitem  name = "counter_31__N_75[5]"  />
+        <nitem  name = "counter_31__N_75[4]"  />
+        <nitem  name = "counter_31__N_75[3]"  />
+        <nitem  name = "counter_31__N_75[2]"  />
+        <nitem  name = "counter_31__N_75[1]"  />
+        <nitem  name = "counter_31__N_75[0]"  />
         <nitem  name = "gnd"  />
         <nitem  name = "htclk"  />
         <nitem  name = "counter[31]"  />
@@ -4201,16 +4311,16 @@
         </pins>
 
         <nets>
-        <nitem  name = "buffer_index_9__N_33[9]"  />
-        <nitem  name = "buffer_index_9__N_33[8]"  />
-        <nitem  name = "buffer_index_9__N_33[7]"  />
-        <nitem  name = "buffer_index_9__N_33[6]"  />
-        <nitem  name = "buffer_index_9__N_33[5]"  />
-        <nitem  name = "buffer_index_9__N_33[4]"  />
-        <nitem  name = "buffer_index_9__N_33[3]"  />
-        <nitem  name = "buffer_index_9__N_33[2]"  />
-        <nitem  name = "buffer_index_9__N_33[1]"  />
-        <nitem  name = "buffer_index_9__N_33[0]"  />
+        <nitem  name = "buffer_index_9__N_65[9]"  />
+        <nitem  name = "buffer_index_9__N_65[8]"  />
+        <nitem  name = "buffer_index_9__N_65[7]"  />
+        <nitem  name = "buffer_index_9__N_65[6]"  />
+        <nitem  name = "buffer_index_9__N_65[5]"  />
+        <nitem  name = "buffer_index_9__N_65[4]"  />
+        <nitem  name = "buffer_index_9__N_65[3]"  />
+        <nitem  name = "buffer_index_9__N_65[2]"  />
+        <nitem  name = "buffer_index_9__N_65[1]"  />
+        <nitem  name = "buffer_index_9__N_65[0]"  />
         <nitem  name = "gnd"  />
         <nitem  name = "htclk"  />
         <nitem  name = "buffer_index[9]"  />
@@ -4360,38 +4470,38 @@
         </pins>
 
         <nets>
-        <nitem  name = "data_counter_31__N_75[31]"  />
-        <nitem  name = "data_counter_31__N_75[30]"  />
-        <nitem  name = "data_counter_31__N_75[29]"  />
-        <nitem  name = "data_counter_31__N_75[28]"  />
-        <nitem  name = "data_counter_31__N_75[27]"  />
-        <nitem  name = "data_counter_31__N_75[26]"  />
-        <nitem  name = "data_counter_31__N_75[25]"  />
-        <nitem  name = "data_counter_31__N_75[24]"  />
-        <nitem  name = "data_counter_31__N_75[23]"  />
-        <nitem  name = "data_counter_31__N_75[22]"  />
-        <nitem  name = "data_counter_31__N_75[21]"  />
-        <nitem  name = "data_counter_31__N_75[20]"  />
-        <nitem  name = "data_counter_31__N_75[19]"  />
-        <nitem  name = "data_counter_31__N_75[18]"  />
-        <nitem  name = "data_counter_31__N_75[17]"  />
-        <nitem  name = "data_counter_31__N_75[16]"  />
-        <nitem  name = "data_counter_31__N_75[15]"  />
-        <nitem  name = "data_counter_31__N_75[14]"  />
-        <nitem  name = "data_counter_31__N_75[13]"  />
-        <nitem  name = "data_counter_31__N_75[12]"  />
-        <nitem  name = "data_counter_31__N_75[11]"  />
-        <nitem  name = "data_counter_31__N_75[10]"  />
-        <nitem  name = "data_counter_31__N_75[9]"  />
-        <nitem  name = "data_counter_31__N_75[8]"  />
-        <nitem  name = "data_counter_31__N_75[7]"  />
-        <nitem  name = "data_counter_31__N_75[6]"  />
-        <nitem  name = "data_counter_31__N_75[5]"  />
-        <nitem  name = "data_counter_31__N_75[4]"  />
-        <nitem  name = "data_counter_31__N_75[3]"  />
-        <nitem  name = "data_counter_31__N_75[2]"  />
-        <nitem  name = "data_counter_31__N_75[1]"  />
-        <nitem  name = "data_counter_31__N_75[0]"  />
+        <nitem  name = "data_counter_31__N_107[31]"  />
+        <nitem  name = "data_counter_31__N_107[30]"  />
+        <nitem  name = "data_counter_31__N_107[29]"  />
+        <nitem  name = "data_counter_31__N_107[28]"  />
+        <nitem  name = "data_counter_31__N_107[27]"  />
+        <nitem  name = "data_counter_31__N_107[26]"  />
+        <nitem  name = "data_counter_31__N_107[25]"  />
+        <nitem  name = "data_counter_31__N_107[24]"  />
+        <nitem  name = "data_counter_31__N_107[23]"  />
+        <nitem  name = "data_counter_31__N_107[22]"  />
+        <nitem  name = "data_counter_31__N_107[21]"  />
+        <nitem  name = "data_counter_31__N_107[20]"  />
+        <nitem  name = "data_counter_31__N_107[19]"  />
+        <nitem  name = "data_counter_31__N_107[18]"  />
+        <nitem  name = "data_counter_31__N_107[17]"  />
+        <nitem  name = "data_counter_31__N_107[16]"  />
+        <nitem  name = "data_counter_31__N_107[15]"  />
+        <nitem  name = "data_counter_31__N_107[14]"  />
+        <nitem  name = "data_counter_31__N_107[13]"  />
+        <nitem  name = "data_counter_31__N_107[12]"  />
+        <nitem  name = "data_counter_31__N_107[11]"  />
+        <nitem  name = "data_counter_31__N_107[10]"  />
+        <nitem  name = "data_counter_31__N_107[9]"  />
+        <nitem  name = "data_counter_31__N_107[8]"  />
+        <nitem  name = "data_counter_31__N_107[7]"  />
+        <nitem  name = "data_counter_31__N_107[6]"  />
+        <nitem  name = "data_counter_31__N_107[5]"  />
+        <nitem  name = "data_counter_31__N_107[4]"  />
+        <nitem  name = "data_counter_31__N_107[3]"  />
+        <nitem  name = "data_counter_31__N_107[2]"  />
+        <nitem  name = "data_counter_31__N_107[1]"  />
+        <nitem  name = "data_counter_31__N_107[0]"  />
         <nitem  name = "gnd"  />
         <nitem  name = "htclk"  />
         <nitem  name = "data_counter[31]"  />
@@ -4429,7 +4539,7 @@
         </nets>
     </instance>
 
-    <instance  name = "transmit_now_65"  library = "work"  arch = ""  type = "reg">
+    <instance  name = "transmit_now_71"  library = "work"  arch = ""  type = "reg">
         <pins>
         <pitem  name = "d"  direction = "in"  />
         <pitem  name = "clk"  direction = "in"  />
@@ -4439,14 +4549,14 @@
         </pins>
 
         <nets>
-        <nitem  name = "transmit_now_N_354"  />
+        <nitem  name = "transmit_now_N_363"  />
         <nitem  name = "htclk"  />
         <nitem  name = "gnd"  />
         <nitem  name = "transmit_now"  />
         </nets>
     </instance>
 
-    <instance  name = "hrvld_66"  library = "work"  arch = ""  type = "reg">
+    <instance  name = "hrvld_72"  library = "work"  arch = ""  type = "reg">
         <pins>
         <pitem  name = "d"  direction = "in"  />
         <pitem  name = "clk"  direction = "in"  />
@@ -4456,14 +4566,14 @@
         </pins>
 
         <nets>
-        <nitem  name = "hrvld_N_337"  />
+        <nitem  name = "hrvld_N_346"  />
         <nitem  name = "htclk"  />
         <nitem  name = "gnd"  />
         <nitem  name = "hrvld"  />
         </nets>
     </instance>
 
-    <instance  name = "hract_67"  library = "work"  arch = ""  type = "reg">
+    <instance  name = "hract_73"  library = "work"  arch = ""  type = "reg">
         <pins>
         <pitem  name = "d"  direction = "in"  />
         <pitem  name = "clk"  direction = "in"  />
@@ -4473,117 +4583,39 @@
         </pins>
 
         <nets>
-        <nitem  name = "hract_N_343"  />
+        <nitem  name = "hract_N_352"  />
         <nitem  name = "htclk"  />
         <nitem  name = "gnd"  />
         <nitem  name = "hract"  />
         </nets>
     </instance>
 
-    <instance  name = "dword"  library = "work"  arch = ""  type = "reg">
+    <instance  name = "state"  library = "work"  arch = ""  type = "reg">
         <pins>
-        <pitem  name = "d[15]"  direction = "in"  />
-        <pitem  name = "d[14]"  direction = "in"  />
-        <pitem  name = "d[13]"  direction = "in"  />
-        <pitem  name = "d[12]"  direction = "in"  />
-        <pitem  name = "d[11]"  direction = "in"  />
-        <pitem  name = "d[10]"  direction = "in"  />
-        <pitem  name = "d[9]"  direction = "in"  />
-        <pitem  name = "d[8]"  direction = "in"  />
-        <pitem  name = "d[7]"  direction = "in"  />
-        <pitem  name = "d[6]"  direction = "in"  />
-        <pitem  name = "d[5]"  direction = "in"  />
-        <pitem  name = "d[4]"  direction = "in"  />
-        <pitem  name = "d[3]"  direction = "in"  />
         <pitem  name = "d[2]"  direction = "in"  />
         <pitem  name = "d[1]"  direction = "in"  />
         <pitem  name = "d[0]"  direction = "in"  />
-        <pitem  name = "set[15]"  direction = "in"  />
-        <pitem  name = "set[14]"  direction = "in"  />
-        <pitem  name = "set[13]"  direction = "in"  />
-        <pitem  name = "set[12]"  direction = "in"  />
-        <pitem  name = "set[11]"  direction = "in"  />
-        <pitem  name = "set[10]"  direction = "in"  />
-        <pitem  name = "set[9]"  direction = "in"  />
-        <pitem  name = "set[8]"  direction = "in"  />
-        <pitem  name = "set[7]"  direction = "in"  />
-        <pitem  name = "set[6]"  direction = "in"  />
-        <pitem  name = "set[5]"  direction = "in"  />
-        <pitem  name = "set[4]"  direction = "in"  />
-        <pitem  name = "set[3]"  direction = "in"  />
         <pitem  name = "set[2]"  direction = "in"  />
         <pitem  name = "set[1]"  direction = "in"  />
         <pitem  name = "set[0]"  direction = "in"  />
-        <pitem  name = "reset[15]"  direction = "in"  />
-        <pitem  name = "reset[14]"  direction = "in"  />
-        <pitem  name = "reset[13]"  direction = "in"  />
-        <pitem  name = "reset[12]"  direction = "in"  />
-        <pitem  name = "reset[11]"  direction = "in"  />
-        <pitem  name = "reset[10]"  direction = "in"  />
-        <pitem  name = "reset[9]"  direction = "in"  />
-        <pitem  name = "reset[8]"  direction = "in"  />
-        <pitem  name = "reset[7]"  direction = "in"  />
-        <pitem  name = "reset[6]"  direction = "in"  />
-        <pitem  name = "reset[5]"  direction = "in"  />
-        <pitem  name = "reset[4]"  direction = "in"  />
-        <pitem  name = "reset[3]"  direction = "in"  />
         <pitem  name = "reset[2]"  direction = "in"  />
         <pitem  name = "reset[1]"  direction = "in"  />
         <pitem  name = "reset[0]"  direction = "in"  />
         <pitem  name = "clock"  direction = "in"  />
-        <pitem  name = "q[15]"  direction = "out"  />
-        <pitem  name = "q[14]"  direction = "out"  />
-        <pitem  name = "q[13]"  direction = "out"  />
-        <pitem  name = "q[12]"  direction = "out"  />
-        <pitem  name = "q[11]"  direction = "out"  />
-        <pitem  name = "q[10]"  direction = "out"  />
-        <pitem  name = "q[9]"  direction = "out"  />
-        <pitem  name = "q[8]"  direction = "out"  />
-        <pitem  name = "q[7]"  direction = "out"  />
-        <pitem  name = "q[6]"  direction = "out"  />
-        <pitem  name = "q[5]"  direction = "out"  />
-        <pitem  name = "q[4]"  direction = "out"  />
-        <pitem  name = "q[3]"  direction = "out"  />
         <pitem  name = "q[2]"  direction = "out"  />
         <pitem  name = "q[1]"  direction = "out"  />
         <pitem  name = "q[0]"  direction = "out"  />
         </pins>
 
         <nets>
-        <nitem  name = "dword_15__N_143[15]"  />
-        <nitem  name = "dword_15__N_143[14]"  />
-        <nitem  name = "dword_15__N_143[13]"  />
-        <nitem  name = "dword_15__N_143[12]"  />
-        <nitem  name = "dword_15__N_143[11]"  />
-        <nitem  name = "dword_15__N_143[10]"  />
-        <nitem  name = "dword_15__N_143[9]"  />
-        <nitem  name = "dword_15__N_143[8]"  />
-        <nitem  name = "dword_15__N_143[7]"  />
-        <nitem  name = "dword_15__N_143[6]"  />
-        <nitem  name = "dword_15__N_143[5]"  />
-        <nitem  name = "dword_15__N_143[4]"  />
-        <nitem  name = "dword_15__N_143[3]"  />
-        <nitem  name = "dword_15__N_143[2]"  />
-        <nitem  name = "dword_15__N_143[1]"  />
-        <nitem  name = "dword_15__N_143[0]"  />
+        <nitem  name = "state_2__N_191[2]"  />
+        <nitem  name = "state_2__N_191[1]"  />
+        <nitem  name = "state_2__N_191[0]"  />
         <nitem  name = "gnd"  />
         <nitem  name = "htclk"  />
-        <nitem  name = "dword[15]"  />
-        <nitem  name = "dword[14]"  />
-        <nitem  name = "dword[13]"  />
-        <nitem  name = "dword[12]"  />
-        <nitem  name = "dword[11]"  />
-        <nitem  name = "dword[10]"  />
-        <nitem  name = "dword[9]"  />
-        <nitem  name = "dword[8]"  />
-        <nitem  name = "dword[7]"  />
-        <nitem  name = "dword[6]"  />
-        <nitem  name = "dword[5]"  />
-        <nitem  name = "dword[4]"  />
-        <nitem  name = "dword[3]"  />
-        <nitem  name = "dword[2]"  />
-        <nitem  name = "dword[1]"  />
-        <nitem  name = "dword[0]"  />
+        <nitem  name = "state[2]"  />
+        <nitem  name = "state[1]"  />
+        <nitem  name = "state[0]"  />
         </nets>
     </instance>
 
@@ -4721,38 +4753,38 @@
         </pins>
 
         <nets>
-        <nitem  name = "crc_31__N_107[31]"  />
-        <nitem  name = "crc_31__N_107[30]"  />
-        <nitem  name = "crc_31__N_107[29]"  />
-        <nitem  name = "crc_31__N_107[28]"  />
-        <nitem  name = "crc_31__N_107[27]"  />
-        <nitem  name = "crc_31__N_107[26]"  />
-        <nitem  name = "crc_31__N_107[25]"  />
-        <nitem  name = "crc_31__N_107[24]"  />
-        <nitem  name = "crc_31__N_107[23]"  />
-        <nitem  name = "crc_31__N_107[22]"  />
-        <nitem  name = "crc_31__N_107[21]"  />
-        <nitem  name = "crc_31__N_107[20]"  />
-        <nitem  name = "crc_31__N_107[19]"  />
-        <nitem  name = "crc_31__N_107[18]"  />
-        <nitem  name = "crc_31__N_107[17]"  />
-        <nitem  name = "crc_31__N_107[16]"  />
-        <nitem  name = "crc_31__N_107[15]"  />
-        <nitem  name = "crc_31__N_107[14]"  />
-        <nitem  name = "crc_31__N_107[13]"  />
-        <nitem  name = "crc_31__N_107[12]"  />
-        <nitem  name = "crc_31__N_107[11]"  />
-        <nitem  name = "crc_31__N_107[10]"  />
-        <nitem  name = "crc_31__N_107[9]"  />
-        <nitem  name = "crc_31__N_107[8]"  />
-        <nitem  name = "crc_31__N_107[7]"  />
-        <nitem  name = "crc_31__N_107[6]"  />
-        <nitem  name = "crc_31__N_107[5]"  />
-        <nitem  name = "crc_31__N_107[4]"  />
-        <nitem  name = "crc_31__N_107[3]"  />
-        <nitem  name = "crc_31__N_107[2]"  />
-        <nitem  name = "crc_31__N_107[1]"  />
-        <nitem  name = "crc_31__N_107[0]"  />
+        <nitem  name = "crc_31__N_139[31]"  />
+        <nitem  name = "crc_31__N_139[30]"  />
+        <nitem  name = "crc_31__N_139[29]"  />
+        <nitem  name = "crc_31__N_139[28]"  />
+        <nitem  name = "crc_31__N_139[27]"  />
+        <nitem  name = "crc_31__N_139[26]"  />
+        <nitem  name = "crc_31__N_139[25]"  />
+        <nitem  name = "crc_31__N_139[24]"  />
+        <nitem  name = "crc_31__N_139[23]"  />
+        <nitem  name = "crc_31__N_139[22]"  />
+        <nitem  name = "crc_31__N_139[21]"  />
+        <nitem  name = "crc_31__N_139[20]"  />
+        <nitem  name = "crc_31__N_139[19]"  />
+        <nitem  name = "crc_31__N_139[18]"  />
+        <nitem  name = "crc_31__N_139[17]"  />
+        <nitem  name = "crc_31__N_139[16]"  />
+        <nitem  name = "crc_31__N_139[15]"  />
+        <nitem  name = "crc_31__N_139[14]"  />
+        <nitem  name = "crc_31__N_139[13]"  />
+        <nitem  name = "crc_31__N_139[12]"  />
+        <nitem  name = "crc_31__N_139[11]"  />
+        <nitem  name = "crc_31__N_139[10]"  />
+        <nitem  name = "crc_31__N_139[9]"  />
+        <nitem  name = "crc_31__N_139[8]"  />
+        <nitem  name = "crc_31__N_139[7]"  />
+        <nitem  name = "crc_31__N_139[6]"  />
+        <nitem  name = "crc_31__N_139[5]"  />
+        <nitem  name = "crc_31__N_139[4]"  />
+        <nitem  name = "crc_31__N_139[3]"  />
+        <nitem  name = "crc_31__N_139[2]"  />
+        <nitem  name = "crc_31__N_139[1]"  />
+        <nitem  name = "crc_31__N_139[0]"  />
         <nitem  name = "gnd"  />
         <nitem  name = "htclk"  />
         <nitem  name = "crc[31]"  />
@@ -5015,10 +5047,10 @@
         </pins>
 
         <nets>
-        <nitem  name = "seq_3__N_139[3]"  />
-        <nitem  name = "seq_3__N_139[2]"  />
-        <nitem  name = "seq_3__N_139[1]"  />
-        <nitem  name = "seq_3__N_139[0]"  />
+        <nitem  name = "seq_3__N_171[3]"  />
+        <nitem  name = "seq_3__N_171[2]"  />
+        <nitem  name = "seq_3__N_171[1]"  />
+        <nitem  name = "seq_3__N_171[0]"  />
         <nitem  name = "gnd"  />
         <nitem  name = "htclk"  />
         <nitem  name = "seq[3]"  />
@@ -5042,7 +5074,7 @@
         </nets>
     </instance>
 
-    <instance  name = "tx"  library = "work"  arch = ""  type = "reg">
+    <instance  name = "ch_data_d"  library = "work"  arch = ""  type = "reg">
         <pins>
         <pitem  name = "d[31]"  direction = "in"  />
         <pitem  name = "d[30]"  direction = "in"  />
@@ -5176,72 +5208,72 @@
         </pins>
 
         <nets>
-        <nitem  name = "tx_31__N_159[31]"  />
-        <nitem  name = "tx_31__N_159[30]"  />
-        <nitem  name = "tx_31__N_159[29]"  />
-        <nitem  name = "tx_31__N_159[28]"  />
-        <nitem  name = "tx_31__N_159[27]"  />
-        <nitem  name = "tx_31__N_159[26]"  />
-        <nitem  name = "tx_31__N_159[25]"  />
-        <nitem  name = "tx_31__N_159[24]"  />
-        <nitem  name = "tx_31__N_159[23]"  />
-        <nitem  name = "tx_31__N_159[22]"  />
-        <nitem  name = "tx_31__N_159[21]"  />
-        <nitem  name = "tx_31__N_159[20]"  />
-        <nitem  name = "tx_31__N_159[19]"  />
-        <nitem  name = "tx_31__N_159[18]"  />
-        <nitem  name = "tx_31__N_159[17]"  />
-        <nitem  name = "tx_31__N_159[16]"  />
-        <nitem  name = "tx_31__N_159[15]"  />
-        <nitem  name = "tx_31__N_159[14]"  />
-        <nitem  name = "tx_31__N_159[13]"  />
-        <nitem  name = "tx_31__N_159[12]"  />
-        <nitem  name = "tx_31__N_159[11]"  />
-        <nitem  name = "tx_31__N_159[10]"  />
-        <nitem  name = "tx_31__N_159[9]"  />
-        <nitem  name = "tx_31__N_159[8]"  />
-        <nitem  name = "tx_31__N_159[7]"  />
-        <nitem  name = "tx_31__N_159[6]"  />
-        <nitem  name = "tx_31__N_159[5]"  />
-        <nitem  name = "tx_31__N_159[4]"  />
-        <nitem  name = "tx_31__N_159[3]"  />
-        <nitem  name = "tx_31__N_159[2]"  />
-        <nitem  name = "tx_31__N_159[1]"  />
-        <nitem  name = "tx_31__N_159[0]"  />
+        <nitem  name = "ch_data_d_31__N_33[31]"  />
+        <nitem  name = "ch_data_d_31__N_33[30]"  />
+        <nitem  name = "ch_data_d_31__N_33[29]"  />
+        <nitem  name = "ch_data_d_31__N_33[28]"  />
+        <nitem  name = "ch_data_d_31__N_33[27]"  />
+        <nitem  name = "ch_data_d_31__N_33[26]"  />
+        <nitem  name = "ch_data_d_31__N_33[25]"  />
+        <nitem  name = "ch_data_d_31__N_33[24]"  />
+        <nitem  name = "ch_data_d_31__N_33[23]"  />
+        <nitem  name = "ch_data_d_31__N_33[22]"  />
+        <nitem  name = "ch_data_d_31__N_33[21]"  />
+        <nitem  name = "ch_data_d_31__N_33[20]"  />
+        <nitem  name = "ch_data_d_31__N_33[19]"  />
+        <nitem  name = "ch_data_d_31__N_33[18]"  />
+        <nitem  name = "ch_data_d_31__N_33[17]"  />
+        <nitem  name = "ch_data_d_31__N_33[16]"  />
+        <nitem  name = "ch_data_d_31__N_33[15]"  />
+        <nitem  name = "ch_data_d_31__N_33[14]"  />
+        <nitem  name = "ch_data_d_31__N_33[13]"  />
+        <nitem  name = "ch_data_d_31__N_33[12]"  />
+        <nitem  name = "ch_data_d_31__N_33[11]"  />
+        <nitem  name = "ch_data_d_31__N_33[10]"  />
+        <nitem  name = "ch_data_d_31__N_33[9]"  />
+        <nitem  name = "ch_data_d_31__N_33[8]"  />
+        <nitem  name = "ch_data_d_31__N_33[7]"  />
+        <nitem  name = "ch_data_d_31__N_33[6]"  />
+        <nitem  name = "ch_data_d_31__N_33[5]"  />
+        <nitem  name = "ch_data_d_31__N_33[4]"  />
+        <nitem  name = "ch_data_d_31__N_33[3]"  />
+        <nitem  name = "ch_data_d_31__N_33[2]"  />
+        <nitem  name = "ch_data_d_31__N_33[1]"  />
+        <nitem  name = "ch_data_d_31__N_33[0]"  />
         <nitem  name = "gnd"  />
         <nitem  name = "htclk"  />
-        <nitem  name = "tx[31]"  />
-        <nitem  name = "tx[30]"  />
-        <nitem  name = "tx[29]"  />
-        <nitem  name = "tx[28]"  />
-        <nitem  name = "tx[27]"  />
-        <nitem  name = "tx[26]"  />
-        <nitem  name = "tx[25]"  />
-        <nitem  name = "tx[24]"  />
-        <nitem  name = "tx[23]"  />
-        <nitem  name = "tx[22]"  />
-        <nitem  name = "tx[21]"  />
-        <nitem  name = "tx[20]"  />
-        <nitem  name = "tx[19]"  />
-        <nitem  name = "tx[18]"  />
-        <nitem  name = "tx[17]"  />
-        <nitem  name = "tx[16]"  />
-        <nitem  name = "tx[15]"  />
-        <nitem  name = "tx[14]"  />
-        <nitem  name = "tx[13]"  />
-        <nitem  name = "tx[12]"  />
-        <nitem  name = "tx[11]"  />
-        <nitem  name = "tx[10]"  />
-        <nitem  name = "tx[9]"  />
-        <nitem  name = "tx[8]"  />
-        <nitem  name = "tx[7]"  />
-        <nitem  name = "tx[6]"  />
-        <nitem  name = "tx[5]"  />
-        <nitem  name = "tx[4]"  />
-        <nitem  name = "tx[3]"  />
-        <nitem  name = "tx[2]"  />
-        <nitem  name = "tx[1]"  />
-        <nitem  name = "tx[0]"  />
+        <nitem  name = "ch_data_d[31]"  />
+        <nitem  name = "ch_data_d[30]"  />
+        <nitem  name = "ch_data_d[29]"  />
+        <nitem  name = "ch_data_d[28]"  />
+        <nitem  name = "ch_data_d[27]"  />
+        <nitem  name = "ch_data_d[26]"  />
+        <nitem  name = "ch_data_d[25]"  />
+        <nitem  name = "ch_data_d[24]"  />
+        <nitem  name = "ch_data_d[23]"  />
+        <nitem  name = "ch_data_d[22]"  />
+        <nitem  name = "ch_data_d[21]"  />
+        <nitem  name = "ch_data_d[20]"  />
+        <nitem  name = "ch_data_d[19]"  />
+        <nitem  name = "ch_data_d[18]"  />
+        <nitem  name = "ch_data_d[17]"  />
+        <nitem  name = "ch_data_d[16]"  />
+        <nitem  name = "ch_data_d[15]"  />
+        <nitem  name = "ch_data_d[14]"  />
+        <nitem  name = "ch_data_d[13]"  />
+        <nitem  name = "ch_data_d[12]"  />
+        <nitem  name = "ch_data_d[11]"  />
+        <nitem  name = "ch_data_d[10]"  />
+        <nitem  name = "ch_data_d[9]"  />
+        <nitem  name = "ch_data_d[8]"  />
+        <nitem  name = "ch_data_d[7]"  />
+        <nitem  name = "ch_data_d[6]"  />
+        <nitem  name = "ch_data_d[5]"  />
+        <nitem  name = "ch_data_d[4]"  />
+        <nitem  name = "ch_data_d[3]"  />
+        <nitem  name = "ch_data_d[2]"  />
+        <nitem  name = "ch_data_d[1]"  />
+        <nitem  name = "ch_data_d[0]"  />
         </nets>
     </instance>
 
@@ -10529,69 +10561,69 @@
         <nitem  name = "ch_data[21]"  />
         <nitem  name = "ch_data[20]"  />
         <nitem  name = "crc32/n23"  />
-        <nitem  name = "crc32/crcOut_31__N_390[0]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[0]"  />
         <nitem  name = "crc32/n48"  />
-        <nitem  name = "crc32/crcOut_31__N_390[1]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[1]"  />
         <nitem  name = "crc32/n75"  />
-        <nitem  name = "crc32/crcOut_31__N_390[2]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[2]"  />
         <nitem  name = "crc32/n102"  />
-        <nitem  name = "crc32/crcOut_31__N_390[3]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[3]"  />
         <nitem  name = "crc32/n129"  />
-        <nitem  name = "crc32/crcOut_31__N_390[4]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[4]"  />
         <nitem  name = "crc32/n158"  />
-        <nitem  name = "crc32/crcOut_31__N_390[5]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[5]"  />
         <nitem  name = "crc32/n183"  />
-        <nitem  name = "crc32/crcOut_31__N_390[6]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[6]"  />
         <nitem  name = "crc32/n208"  />
-        <nitem  name = "crc32/crcOut_31__N_390[7]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[7]"  />
         <nitem  name = "crc32/n235"  />
-        <nitem  name = "crc32/crcOut_31__N_390[8]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[8]"  />
         <nitem  name = "crc32/n262"  />
-        <nitem  name = "crc32/crcOut_31__N_390[9]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[9]"  />
         <nitem  name = "crc32/n285"  />
-        <nitem  name = "crc32/crcOut_31__N_390[10]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[10]"  />
         <nitem  name = "crc32/n308"  />
-        <nitem  name = "crc32/crcOut_31__N_390[11]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[11]"  />
         <nitem  name = "crc32/n331"  />
-        <nitem  name = "crc32/crcOut_31__N_390[12]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[12]"  />
         <nitem  name = "crc32/n356"  />
-        <nitem  name = "crc32/crcOut_31__N_390[13]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[13]"  />
         <nitem  name = "crc32/n383"  />
-        <nitem  name = "crc32/crcOut_31__N_390[14]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[14]"  />
         <nitem  name = "crc32/n410"  />
-        <nitem  name = "crc32/crcOut_31__N_390[15]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[15]"  />
         <nitem  name = "crc32/n439"  />
-        <nitem  name = "crc32/crcOut_31__N_390[16]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[16]"  />
         <nitem  name = "crc32/n468"  />
-        <nitem  name = "crc32/crcOut_31__N_390[17]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[17]"  />
         <nitem  name = "crc32/n499"  />
-        <nitem  name = "crc32/crcOut_31__N_390[18]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[18]"  />
         <nitem  name = "crc32/n532"  />
-        <nitem  name = "crc32/crcOut_31__N_390[19]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[19]"  />
         <nitem  name = "crc32/n565"  />
-        <nitem  name = "crc32/crcOut_31__N_390[20]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[20]"  />
         <nitem  name = "crc32/n590"  />
-        <nitem  name = "crc32/crcOut_31__N_390[21]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[21]"  />
         <nitem  name = "crc32/n613"  />
-        <nitem  name = "crc32/crcOut_31__N_390[22]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[22]"  />
         <nitem  name = "crc32/n638"  />
-        <nitem  name = "crc32/crcOut_31__N_390[23]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[23]"  />
         <nitem  name = "crc32/n669"  />
-        <nitem  name = "crc32/crcOut_31__N_390[24]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[24]"  />
         <nitem  name = "crc32/n698"  />
-        <nitem  name = "crc32/crcOut_31__N_390[25]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[25]"  />
         <nitem  name = "crc32/n727"  />
-        <nitem  name = "crc32/crcOut_31__N_390[26]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[26]"  />
         <nitem  name = "crc32/n760"  />
-        <nitem  name = "crc32/crcOut_31__N_390[27]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[27]"  />
         <nitem  name = "crc32/n789"  />
-        <nitem  name = "crc32/crcOut_31__N_390[28]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[28]"  />
         <nitem  name = "crc32/n820"  />
-        <nitem  name = "crc32/crcOut_31__N_390[29]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[29]"  />
         <nitem  name = "crc32/n845"  />
-        <nitem  name = "crc32/crcOut_31__N_390[30]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[30]"  />
         <nitem  name = "crc32/n870"  />
-        <nitem  name = "crc32/crcOut_31__N_390[31]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[31]"  />
         </nets>
     </instance>
 
@@ -10705,70 +10737,70 @@
         <nitem  name = "ch_data[24]"  />
         <nitem  name = "ch_data[23]"  />
         <nitem  name = "ch_data[22]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[0]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[0]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[1]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[1]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[2]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[2]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[3]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[3]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[4]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[4]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[5]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[5]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[6]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[6]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[7]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[7]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[8]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[8]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[9]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[9]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[10]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[10]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[11]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[11]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[12]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[12]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[13]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[13]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[14]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[14]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[15]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[15]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[16]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[16]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[17]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[17]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[18]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[18]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[19]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[19]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[20]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[20]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[21]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[21]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[22]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[22]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[23]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[23]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[24]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[24]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[25]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[25]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[26]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[26]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[27]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[27]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[28]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[28]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[29]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[29]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[30]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[30]"  />
-        <nitem  name = "crc32/crcOut_31__N_390[31]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[31]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[0]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[0]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[1]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[1]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[2]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[2]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[3]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[3]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[4]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[4]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[5]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[5]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[6]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[6]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[7]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[7]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[8]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[8]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[9]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[9]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[10]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[10]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[11]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[11]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[12]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[12]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[13]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[13]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[14]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[14]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[15]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[15]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[16]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[16]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[17]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[17]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[18]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[18]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[19]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[19]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[20]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[20]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[21]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[21]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[22]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[22]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[23]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[23]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[24]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[24]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[25]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[25]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[26]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[26]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[27]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[27]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[28]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[28]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[29]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[29]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[30]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[30]"  />
+        <nitem  name = "crc32/crcOut_31__N_399[31]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[31]"  />
         </nets>
     </instance>
 
@@ -10911,58 +10943,59 @@
         <nitem  name = "crcOut[2]"  />
         <nitem  name = "crcOut[1]"  />
         <nitem  name = "crcOut[0]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[0]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[1]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[2]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[3]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[4]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[5]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[6]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[7]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[8]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[9]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[10]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[11]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[12]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[13]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[14]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[15]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[16]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[17]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[18]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[19]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[20]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[21]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[22]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[23]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[24]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[25]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[26]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[27]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[28]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[29]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[30]"  />
-        <nitem  name = "crc32/crcOut_31__N_358[31]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[0]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[1]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[2]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[3]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[4]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[5]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[6]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[7]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[8]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[9]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[10]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[11]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[12]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[13]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[14]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[15]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[16]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[17]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[18]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[19]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[20]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[21]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[22]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[23]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[24]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[25]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[26]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[27]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[28]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[29]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[30]"  />
+        <nitem  name = "crc32/crcOut_31__N_367[31]"  />
         </nets>
     </instance>
 
     <instance  name = "crc32"  />
     <!--
-        REG instances in netlist: 11
+        REG instances in netlist: 12
     -->
 
     <regs>
+        <reg  name = "dword"  />
         <reg  name = "counter"  />
         <reg  name = "buffer_index"  />
         <reg  name = "data_counter"  />
-        <reg  name = "transmit_now_65"  />
-        <reg  name = "hrvld_66"  />
-        <reg  name = "hract_67"  />
-        <reg  name = "dword"  />
+        <reg  name = "transmit_now_71"  />
+        <reg  name = "hrvld_72"  />
+        <reg  name = "hract_73"  />
+        <reg  name = "state"  />
         <reg  name = "crc"  />
         <reg  name = "ch_data"  />
         <reg  name = "seq"  />
-        <reg  name = "tx"  />
+        <reg  name = "ch_data_d"  />
     </regs>
 
     <!--

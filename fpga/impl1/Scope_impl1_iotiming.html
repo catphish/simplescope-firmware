@@ -13,6 +13,24 @@ NCD version: 3.3
 Vendor:      LATTICE
 Device:      LCMXO2-1200HC
 Package:     TQFP100
+Performance: 5
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Loading design for application iotiming from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 6
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Loading design for application iotiming from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
 Performance: M
 Package Status:                     Final          Version 1.44.
 Performance Hardware Data Status:   Final          Version 36.4.
@@ -20,60 +38,59 @@ Performance Hardware Data Status:   Final          Version 36.4.
 // Package: TQFP100
 // ncd File: Scope_impl1.ncd
 // Version: Diamond (64-bit) 3.14.0.75.2
-// Written on Sun Mar 22 21:59:10 2026
+// Written on Tue Mar 24 01:03:14 2026
 // M: Minimum Performance Grade
-// iotiming Scope_impl1.ncd Scope_impl1.prf -gui -msgset /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/promote.xml
+// iotiming Scope_impl1.ncd Scope_impl1.prf -gui -msgset /home/charlie/scope/fpga/promote.xml
 
 I/O Timing Report (All units are in ns)
 
-Worst Case Results across Performance Grades (M, 6):
+Worst Case Results across Performance Grades (M, 6, 5, 4):
 
 // Input Setup and Hold Times
 
 Port  Clock Edge  Setup Performance_Grade  Hold Performance_Grade
 ----------------------------------------------------------------------
-htack htclk R     4.860      6       0.246     6
+htack htclk R     4.936      4      -0.152     M
 
 
 // Clock to Output Delay
 
 Port        Clock Edge  Max_Delay Performance_Grade  Min_Delay Performance_Grade
 ------------------------------------------------------------------------
-ch_data[0]  htclk R     8.263         6        2.653          M
-ch_data[10] htclk R     8.522         6        2.673          M
-ch_data[11] htclk R     8.460         6        2.677          M
-ch_data[12] htclk R     8.460         6        2.676          M
-ch_data[13] htclk R     8.188         6        2.604          M
-ch_data[14] htclk R     7.760         6        2.468          M
-ch_data[15] htclk R     7.543         6        2.394          M
-ch_data[16] htclk R     8.828         6        2.782          M
-ch_data[17] htclk R     8.001         6        2.553          M
-ch_data[18] htclk R     7.545         6        2.394          M
-ch_data[19] htclk R     8.423         6        2.719          M
-ch_data[1]  htclk R     8.328         6        2.681          M
-ch_data[20] htclk R     8.142         6        2.586          M
-ch_data[21] htclk R     8.793         6        2.769          M
-ch_data[22] htclk R     7.776         6        2.496          M
-ch_data[23] htclk R     8.097         6        2.603          M
-ch_data[24] htclk R     8.117         6        2.596          M
-ch_data[25] htclk R     8.526         6        2.740          M
-ch_data[26] htclk R     8.394         6        2.672          M
-ch_data[27] htclk R     8.762         6        2.777          M
-ch_data[28] htclk R     7.858         6        2.539          M
-ch_data[29] htclk R     8.452         6        2.722          M
-ch_data[2]  htclk R     7.626         6        2.439          M
-ch_data[30] htclk R     7.955         6        2.552          M
-ch_data[31] htclk R     7.633         6        2.441          M
-ch_data[3]  htclk R     7.903         6        2.523          M
-ch_data[4]  htclk R     9.420         6        2.971          M
-ch_data[5]  htclk R     8.942         6        2.840          M
-ch_data[6]  htclk R     8.579         6        2.773          M
-ch_data[7]  htclk R     9.584         6        3.062          M
-ch_data[8]  htclk R     7.921         6        2.529          M
-ch_data[9]  htclk R     8.255         6        2.629          M
-hract       htclk R     7.897         6        2.526          M
-hrvld       htclk R     7.433         6        2.389          M
-WARNING: you must also run trce with hold speed: 6
+ch_data[0]  htclk R    10.297         4        2.920          M
+ch_data[10] htclk R     8.621         4        2.472          M
+ch_data[11] htclk R     8.826         4        2.533          M
+ch_data[12] htclk R     9.135         4        2.615          M
+ch_data[13] htclk R     8.316         4        2.393          M
+ch_data[14] htclk R     8.832         4        2.536          M
+ch_data[15] htclk R     8.306         4        2.390          M
+ch_data[16] htclk R     8.723         4        2.502          M
+ch_data[17] htclk R     8.433         4        2.430          M
+ch_data[18] htclk R     8.627         4        2.473          M
+ch_data[19] htclk R     9.151         4        2.634          M
+ch_data[1]  htclk R     9.264         4        2.645          M
+ch_data[20] htclk R     9.551         4        2.704          M
+ch_data[21] htclk R     9.758         4        2.746          M
+ch_data[22] htclk R     9.065         4        2.593          M
+ch_data[23] htclk R     9.450         4        2.668          M
+ch_data[24] htclk R    10.524         4        2.969          M
+ch_data[25] htclk R     9.128         4        2.599          M
+ch_data[26] htclk R     9.200         4        2.626          M
+ch_data[27] htclk R     9.617         4        2.740          M
+ch_data[28] htclk R     8.939         4        2.584          M
+ch_data[29] htclk R     9.554         4        2.754          M
+ch_data[2]  htclk R     9.354         4        2.683          M
+ch_data[30] htclk R     9.942         4        2.825          M
+ch_data[31] htclk R     8.671         4        2.500          M
+ch_data[3]  htclk R    10.207         4        2.914          M
+ch_data[4]  htclk R     8.411         4        2.442          M
+ch_data[5]  htclk R     8.738         4        2.526          M
+ch_data[6]  htclk R     8.722         4        2.522          M
+ch_data[7]  htclk R     9.183         4        2.602          M
+ch_data[8]  htclk R     8.627         4        2.473          M
+ch_data[9]  htclk R    10.100         4        2.854          M
+hract       htclk R     9.228         4        2.662          M
+hrvld       htclk R     8.636         4        2.492          M
 
 
 

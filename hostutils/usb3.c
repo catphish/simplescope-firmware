@@ -9,8 +9,8 @@
 #define ENDPOINT 0x82
 #define INTERFACE 0
 
-#define BUF_SIZE 4096
-#define NUM_TRANSFERS 1
+#define BUF_SIZE 1024*256
+#define NUM_TRANSFERS 8
 #define TIMEOUT 0
 
 static volatile int running = 1;
@@ -107,11 +107,11 @@ int main()
         if (t - last_time >= 1.0) {
 
             size_t diff = bytes_received - last_bytes;
-            double mbps = diff / (1024.0 * 1024.0);
+            double mbps = diff / (1000.0 * 1000.0);
 
             printf("Rate: %.2f MB/s  Total: %.2f MB\n",
                    mbps,
-                   bytes_received / (1024.0 * 1024.0));
+                   bytes_received / (1000.0 * 1000.0));
 
             last_bytes = bytes_received;
             last_time = t;
