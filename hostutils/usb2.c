@@ -6,7 +6,7 @@
 #define ENDPOINT 0x82
 #define INTERFACE 0
 
-#define BUF_SIZE 1024*4096
+#define BUF_SIZE 1024*1024
 #define TIMEOUT 1000
 
 double now_seconds()
@@ -78,8 +78,8 @@ int main(void)
                     total_bytes = 0;
                     last_time = current_time;
                 }
-                //printf("Received %d bytes:\n", transferred);
-                //Loop over the received data as 4 byte intergers and confirm that each
+                printf("Received %d bytes:\n", transferred);
+                // Loop over the received data as 4 byte integers and confirm that each
                 // integer increments by one. Check the increment each time and print
                 // the index and value of any integer that does not increment by one.
                 for (int i = 0; i < transferred; i += 4)
@@ -87,12 +87,19 @@ int main(void)
                     static uint32_t prev_value;
                     uint32_t value = buffer[i] | (buffer[i + 1] << 8) | (buffer[i + 2] << 16) | (buffer[i + 3] << 24);
                     if (value != prev_value + 1) {
-                        //printf("Value at index %d: %u (expected %u), difference: %d\n", i / 4, value, prev_value + 1, value - (prev_value + 1));
+                        printf("Value at index %d: %u (hex: 0x%08x) (expected %u), difference: %d\n", i / 4, value, value, prev_value + 1, value - (prev_value + 1));
                     } else {
                         //printf("Value at index %d: %u\n", i / 4, value);
                     }
                     prev_value = value;
                 }   
+                // Print the first 32 bytes of the received data as hex
+                // printf("First 32 bytes: ");
+                // for (int i = 0; i < 32 && i < transferred; i++)
+                // {
+                //     printf("%02x ", buffer[i]);
+                // }
+                // printf("\n");
             } else {
                 // Print as unterminated string
                 printf("Received %d bytes: %.*s\n", transferred, transferred, buffer);

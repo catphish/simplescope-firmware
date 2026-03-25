@@ -94,10 +94,6 @@ void HSPI_DoubleDMA_Init(HSPI_ModeTypeDef mode_type, uint8_t mode_data,
 		R8_HSPI_INT_EN |= RB_HSPI_IE_R_DONE;  // Single packet reception completed
 		R8_HSPI_INT_EN |= RB_HSPI_IE_FIFO_OV;
 	}
-	// Config TX customized Header
-	R32_HSPI_UDF0 = 0x3ABCDEF; // UDF0
-	R32_HSPI_UDF1 = 0x3456789; // UDF1
-
 	// addr0 DMA TX RX addr
 	R32_HSPI_TX_ADDR0 = DMA0_addr;
 	R32_HSPI_RX_ADDR0 = DMA0_addr;

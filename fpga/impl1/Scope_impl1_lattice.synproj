@@ -3,7 +3,7 @@
 -t TQFP100
 -s 4
 -frequency 200
--optimization_goal Balanced
+-optimization_goal Timing
 -bram_utilization 100
 -ramstyle Auto
 -romstyle auto

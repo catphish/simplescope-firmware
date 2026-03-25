@@ -9,7 +9,7 @@
 #define ENDPOINT 0x82
 #define INTERFACE 0
 
-#define BUF_SIZE 1024*256
+#define BUF_SIZE 1024*1024
 #define NUM_TRANSFERS 8
 #define TIMEOUT 0
 
@@ -28,10 +28,21 @@ double now_seconds()
     return tv.tv_sec + tv.tv_usec / 1000000.0;
 }
 
+uint32_t prev_value;
 void transfer_callback(struct libusb_transfer *transfer)
 {
     if (transfer->status == LIBUSB_TRANSFER_COMPLETED) {
         bytes_received += transfer->actual_length;
+    }
+    
+    // Check the received data as 4 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
+    for (int i = 0; i < transfer->actual_length; i += 4)
+    {
+        uint32_t value = transfer->buffer[i] | (transfer->buffer[i + 1] << 8) | (transfer->buffer[i + 2] << 16) | (transfer->buffer[i + 3] << 24);
+        if (value != prev_value + 1) {
+            printf("Value at index %d: %u (hex: 0x%08x) (expected %u), difference: %d\n", i / 4, value, value, prev_value + 1, value - (prev_value + 1));
+        }
+        prev_value = value;
     }
 
     if (running && transfer->status != LIBUSB_TRANSFER_CANCELLED) {

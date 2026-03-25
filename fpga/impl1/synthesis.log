@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Mar 24 01:03:06 2026
+Wed Mar 25 00:53:58 2026
 
 
 Command Line:  synthesis -f Scope_impl1_lattice.synproj -gui -msgset /home/charlie/scope/fpga/promote.xml 
@@ -34,7 +34,7 @@ Using performance grade 4.
                                                           
 
 INFO - synthesis: User-Selected Strategy Settings
-Optimization goal = Balanced
+Optimization goal = Timing
 Top-level module name = adc_ft601.
 Target frequency = 200.000000 MHz.
 Maximum fanout = 1000.
@@ -85,9 +85,8 @@ Analyzing Verilog file /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYN
 Top module name (Verilog): adc_ft601
 INFO - synthesis: /home/charlie/scope/fpga/scope.v(1): compiling module adc_ft601. VERI-1018
 INFO - synthesis: /home/charlie/scope/fpga/crc32.v(1): compiling module crc32. VERI-1018
-WARNING - synthesis: /home/charlie/scope/fpga/scope.v(40): expression size 32 truncated to fit in target size 16. VERI-1209
-WARNING - synthesis: /home/charlie/scope/fpga/scope.v(46): expression size 32 truncated to fit in target size 10. VERI-1209
-WARNING - synthesis: /home/charlie/scope/fpga/scope.v(71): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(50): expression size 32 truncated to fit in target size 16. VERI-1209
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(56): expression size 32 truncated to fit in target size 4. VERI-1209
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00a/data/xo2alib.ngl'...
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data/xo2clib.ngl'...
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/mg5g00/data/mg5glib.ngl'...
@@ -98,10 +97,6 @@ Top-level module name = adc_ft601.
 
 
 
-######## Found 1 RTL RAMs in the design.
-######## Mapping RTL RAM ram to 4 EBR blocks in PSEUDO_DUAL_PORT Mode
-
-WARNING - synthesis: /home/charlie/scope/fpga/scope.v(94): Register state_i2 is stuck at Zero. VDB-5013
 GSR will not be inferred because no asynchronous signal was found in the netlist.
 Applying 200.000000 MHz constraint to all clocks
 
@@ -115,17 +110,17 @@ All blocks are expanded and NGD expansion is successful.
 Writing NGD file Scope_impl1.ngd.
 
 ################### Begin Area Report (adc_ft601)######################
-Number of register bits => 133 of 1520 (8 % )
-CCU2D => 33
-FD1P3AX => 110
-FD1P3IX => 4
-FD1S3AX => 2
+Number of register bits => 165 of 1520 (10 % )
+CCU2D => 32
+FD1P3AX => 133
+FD1P3IX => 3
+FD1P3JX => 1
+FD1S3AX => 11
 FD1S3IX => 17
 GSR => 1
 IB => 2
-LUT4 => 314
+LUT4 => 381
 OB => 35
-PDPW8KC => 4
 PFUMX => 4
 ################### End Area Report ##################
 
@@ -136,31 +131,29 @@ TSALL => 1
 ################### Begin Clock Report ######################
 Clock Nets
 Number of Clocks: 1
-  Net : htclk_c, loads : 142
+  Net : htclk_c, loads : 166
 Clock Enable Nets
-Number of Clock Enables: 9
-Top 9 highest fanout Clock Enables:
-  Net : htclk_c_enable_118, loads : 42
-  Net : htclk_c_enable_77, loads : 32
-  Net : htclk_c_enable_106, loads : 32
-  Net : htclk_c_enable_4, loads : 6
-  Net : htclk_c_enable_109, loads : 5
-  Net : htclk_c_enable_7, loads : 2
-  Net : htclk_c_enable_48, loads : 2
-  Net : htclk_c_enable_10, loads : 2
-  Net : htclk_c_enable_47, loads : 1
+Number of Clock Enables: 7
+Top 7 highest fanout Clock Enables:
+  Net : htclk_c_enable_88, loads : 50
+  Net : htclk_c_enable_136, loads : 43
+  Net : htclk_c_enable_39, loads : 32
+  Net : htclk_c_enable_102, loads : 14
+  Net : hract_N_347, loads : 4
+  Net : htclk_c_enable_36, loads : 3
+  Net : htclk_c_enable_35, loads : 1
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : state_1, loads : 78
-  Net : state_0, loads : 74
-  Net : htclk_c_enable_118, loads : 42
-  Net : n1280, loads : 32
-  Net : htclk_c_enable_77, loads : 32
-  Net : htclk_c_enable_106, loads : 32
-  Net : n1153, loads : 16
-  Net : ch_data_c_2, loads : 13
-  Net : ch_data_c_3, loads : 12
-  Net : ch_data_c_0, loads : 12
+  Net : state_1, loads : 109
+  Net : htclk_c_enable_88, loads : 50
+  Net : state_2, loads : 49
+  Net : state_0, loads : 49
+  Net : htclk_c_enable_136, loads : 43
+  Net : n4246, loads : 34
+  Net : n4257, loads : 33
+  Net : hrvld_N_342, loads : 32
+  Net : htclk_c_enable_39, loads : 32
+  Net : crcIn_2, loads : 17
 ################### End Clock Report ##################
 
 Timing Report Summary
@@ -170,7 +163,7 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets htclk_c]                 |  200.000 MHz|   83.507 MHz|     8 *
+clk0 [get_nets htclk_c]                 |  200.000 MHz|   87.827 MHz|     7 *
                                         |             |             |
 --------------------------------------------------------------------------------
 
@@ -178,8 +171,8 @@ clk0 [get_nets htclk_c]                 |  200.000 MHz|   83.507 MHz|     8 *
 1 constraints not met.
 
 
-Peak Memory Usage: 178.367  MB
+Peak Memory Usage: 183.312  MB
 
 --------------------------------------------------------------
-Elapsed CPU time for LSE flow : 0.415  secs
+Elapsed CPU time for LSE flow : 0.539  secs
 --------------------------------------------------------------

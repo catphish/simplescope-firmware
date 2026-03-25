@@ -5,6 +5,14 @@
 #include "drv/CH56x_usb30_devbulk_LIB.h"
 #include "drv/CH56x_usb_devbulk_desc_cmd.h"
 
+#define RISCV_FENCE(p, s) \
+	__asm__ __volatile__("fence " #p "," #s : : : "memory")
+
+/* These barriers need to enforce ordering on both devices or memory. */
+#define mb() RISCV_FENCE(iorw, iorw)
+#define rmb() RISCV_FENCE(ir, ir)
+#define wmb() RISCV_FENCE(ow, ow)
+
 // Default USB Vendor ID
 // Default VID 0x16C0 "Van Ooijen Technische Informatica"
 #define USB_VID_BYTE_MSB (0x16)
@@ -19,8 +27,7 @@
 #define HSPI_RX_DMA_LENGTH   4096
 __attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr0[HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
 __attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr1[HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
-__attribute__((aligned(16))) volatile uint8_t error_str[6]  __attribute__((section(".DMADATA")));
-__attribute__((aligned(16))) volatile uint8_t hello_str[12]  __attribute__((section(".DMADATA")));
+//__attribute__((aligned(16))) volatile uint8_t error_str[6]  __attribute__((section(".DMADATA")));
 
 /* FLASH_ROMA Read Unique ID (8bytes/64bits) */
 #define FLASH_ROMA_UID_ADDR (0x77fe4)
@@ -62,11 +69,11 @@ int main() {
   // Configure HTACK pin PA10 as push-pull output
   GPIOA_ModeCfg(GPIO_Pin_10, GPIO_Highspeed_PP_8mA);
   // Configure HRCLK pin PA19 as pull-down input
-  GPIOA_ModeCfg(GPIO_Pin_19, GPIO_ModeIN_PD_NSMT);
+  //GPIOA_ModeCfg(GPIO_Pin_19, GPIO_ModeIN_PD_NSMT);
   // Configure HRACT pin PA18 as pull-down input
-  GPIOA_ModeCfg(GPIO_Pin_18, GPIO_ModeIN_PD_NSMT);
+  //GPIOA_ModeCfg(GPIO_Pin_18, GPIO_ModeIN_PD_NSMT);
   // Configure HRVLD pin PA6 as pull-down input
-  GPIOA_ModeCfg(GPIO_Pin_6, GPIO_ModeIN_PD_NSMT);
+  //GPIOA_ModeCfg(GPIO_Pin_6, GPIO_ModeIN_PD_NSMT);
 
   // Temporary LEDs on PB22, PB23, PB24 for debugging
   // GPIOB_ModeCfg(GPIO_Pin_22, GPIO_Highspeed_PP_8mA);
@@ -143,6 +150,7 @@ int main() {
     }
   }
 }
+volatile uint8_t usb_rdy = 1;
 
 void EP1_OUT_Callback(void)
 {
@@ -158,7 +166,6 @@ void EP1_IN_Callback(void)
   USB30_IN_clearIT(ENDP_1);
 }
 
-volatile uint8_t usb_rdy = 1; // Flag to indicate if USB is ready to send data
 volatile uint32_t data_waiting = 0; // Flag to indicate that USB data is waiting to be sent on EP2
 void EP2_IN_Callback(void)
 {
@@ -175,18 +182,21 @@ void EP2_IN_Callback(void)
       // Point the EP2 IN buffer to the data received from SPI0
       USBSS->UEP2_TX_DMA = data_waiting;
       // Set endpoint 2 to ACK and notify the host to take the data
-      USB30_IN_set(ENDP_2, ENABLE, ACK, 2, 1024);
-      USB30_send_ERDY(ENDP_2 | IN, 2);
+      USB30_IN_set(ENDP_2, ENABLE, ACK, 4, 1024);
+      USB30_send_ERDY(ENDP_2 | IN, 4);
     } else {
       usb_rdy = 1; // Set the flag to indicate that USB is ready to send data on EP2
     }
-	}
-	else
-	{
-		if(nump > DEF_ENDP2_IN_BURST_LEVEL) nump = DEF_ENDP2_IN_BURST_LEVEL;
-		USB30_IN_set(ENDP_2, ENABLE, ACK, nump, 1024); // Able to send nump packet
-		USB30_send_ERDY(ENDP_2 | IN, nump);
-	}
+  } else if(nump == 1) {
+    USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 1024);
+    USB30_send_ERDY(ENDP_2 | IN, 1);
+  } else if(nump == 2) {
+    USB30_IN_set(ENDP_2, ENABLE, ACK, 2, 1024);
+    USB30_send_ERDY(ENDP_2 | IN, 2);
+  } else if(nump == 3) {
+    USB30_IN_set(ENDP_2, ENABLE, ACK, 3, 1024);
+    USB30_send_ERDY(ENDP_2 | IN, 3);
+  }    
   bsp_enable_interrupt();
 }
 
@@ -201,43 +211,45 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
 
   if (R8_HSPI_INT_FLAG & RB_HSPI_IF_R_DONE) // Single packet reception completed
   {
-    error_str[0] = ' '; // Clear error string
-    error_str[1] = ' ';
-    error_str[2] = ' ';
-    error_str[3] = ' ';
-    error_str[4] = ' ';
-    error_str[5] = ' ';
+    // error_str[0] = ' '; // Clear error string
+    // error_str[1] = ' ';
+    // error_str[2] = ' ';
+    // error_str[3] = ' ';
+    // error_str[4] = ' ';
+    // error_str[5] = ' ';
     if (R8_HSPI_RTX_STATUS & RB_HSPI_CRC_ERR) {
-      error_str[0] = 'C';
-      error_str[1] = 'R';
-      error_str[2] = 'C';
+      // error_str[0] = 'C';
+      // error_str[1] = 'R';
+      // error_str[2] = 'C';
       error = 1;
     }
     if (R8_HSPI_RTX_STATUS & RB_HSPI_NUM_MIS) {
-      error_str[3] = 'N';
-      error_str[4] = 'U';
-      error_str[5] = 'M';
+      // error_str[3] = 'N';
+      // error_str[4] = 'U';
+      // error_str[5] = 'M';
       error = 1;
     }
     if(error) {
-      if(usb_rdy) {
-        usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2
-        // Point the EP2 IN buffer to the data received from SPI0
-        USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)error_str;
-        // Set endpoint 2 to ACK and notify the host to take the data
-        USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 6);
-        USB30_send_ERDY(ENDP_2 | IN, 1);
-      } // If USB is not ready, drop the error
+      // if(usb_rdy) { // If USB is ready to send data on EP2
+      //   usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2 until the current data is sent
+      //   // Point the EP2 IN buffer to the data received from SPI0
+      //   USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)error_str;
+      //   // Set endpoint 2 to ACK and notify the host to take the data
+      //   USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 6);
+      //   USB30_send_ERDY(ENDP_2 | IN, 1);
+      // } // If USB is not ready, drop the error
     } else {
       // Determine which buffer was filled by checking the toggle bit
+      // force several NOPs to ensure that the read of the toggle bit is not reordered with the subsequent read of the buffer address
       uint32_t addr = (R8_HSPI_RX_SC & RB_HSPI_RX_TOG) ? (uint32_t)HSPI_RX_Addr0 : (uint32_t)HSPI_RX_Addr1;
-      if(usb_rdy) {
-        usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2
+      if(usb_rdy) { // If USB is ready to send data on EP2
+        usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2 until the current data is sent
+        USB30_IN_clearIT(ENDP_2);
         // Point the EP2 IN buffer to the data received from SPI0
         USBSS->UEP2_TX_DMA = addr;
         // Set endpoint 2 to ACK and notify the host to take the data
-        USB30_IN_set(ENDP_2, ENABLE, ACK, 2, 1024);
-        USB30_send_ERDY(ENDP_2 | IN, 2);
+        USB30_IN_set(ENDP_2, ENABLE, ACK, 4, 1024);
+        USB30_send_ERDY(ENDP_2 | IN, 4);
       } else {
         data_waiting = addr; // Set the flag to indicate that there is data waiting to be sent on EP2
       }

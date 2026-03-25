@@ -1,36 +1,31 @@
 [ START MERGED ]
-htclk_c_enable_118 counter_0
 [ END MERGED ]
 [ START CLIPPED ]
 GND_net
 VCC_net
-data_counter_197_add_4_33/S1
-data_counter_197_add_4_33/CO
-counter_195_233_add_4_1/S0
-counter_195_233_add_4_1/CO
-counter_195_233_add_4_1/CI
-buffer_index_194_add_4_1/S0
-buffer_index_194_add_4_1/CI
-buffer_index_194_add_4_11/S1
-buffer_index_194_add_4_11/CO
-dword_198_add_4_17/S1
-dword_198_add_4_17/CO
-dword_198_add_4_1/S0
-dword_198_add_4_1/CI
-data_counter_197_add_4_1/S0
-data_counter_197_add_4_1/CI
+data_counter_186_add_4_33/S1
+data_counter_186_add_4_33/CO
+counter_184_191_add_4_1/S0
+counter_184_191_add_4_1/CI
+counter_184_191_add_4_11/CO
+frame_idx_187_add_4_1/S0
+frame_idx_187_add_4_1/CI
+frame_idx_187_add_4_17/S1
+frame_idx_187_add_4_17/CO
+data_counter_186_add_4_1/S0
+data_counter_186_add_4_1/CI
 [ END CLIPPED ]
 [ START DESIGN PREFS ]
 SCHEMATIC START ;
-# map:  version Diamond (64-bit) 3.14.0.75.2 -- WARNING: Map write only section -- Tue Mar 24 01:03:07 2026
+# map:  version Diamond (64-bit) 3.14.0.75.2 -- WARNING: Map write only section -- Wed Mar 25 00:53:59 2026
 
 SYSCONFIG SDM_PORT=PROGRAMN SLAVE_SPI_PORT=ENABLE I2C_PORT=DISABLE MASTER_SPI_PORT=DISABLE COMPRESS_CONFIG=OFF CONFIGURATION=CFG MY_ASSP=OFF ONE_TIME_PROGRAM=OFF CONFIG_SECURE=OFF MCCLK_FREQ=2.08 JTAG_PORT=ENABLE ENABLE_TRANSFR=DISABLE SHAREDEBRINIT=DISABLE MUX_CONFIGURATION_PORTS=DISABLE BACKGROUND_RECONFIG=OFF INBUF=ON ;
-LOCATE COMP "ch_data[26]" SITE "52" ;
 LOCATE COMP "ch_data[27]" SITE "51" ;
 LOCATE COMP "ch_data[28]" SITE "43" ;
 LOCATE COMP "ch_data[29]" SITE "42" ;
 LOCATE COMP "ch_data[30]" SITE "41" ;
 LOCATE COMP "ch_data[31]" SITE "40" ;
+LOCATE COMP "ch_data[26]" SITE "52" ;
 LOCATE COMP "ch_data[25]" SITE "53" ;
 LOCATE COMP "ch_data[24]" SITE "54" ;
 LOCATE COMP "ch_data[23]" SITE "57" ;

@@ -1,0 +1,86 @@
+#Start recording tcl command: 3/24/2026 17:03:32
+#Project Location: /home/charlie/scope/fpga; Project name: Scope
+prj_project open "/home/charlie/scope/fpga/Scope.ldf"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_strgy set_value -strategy Strategy1 lse_max_fanout_limit=2
+prj_run Export -impl impl1
+prj_strgy set_value -strategy Strategy1 lse_max_fanout_limit=3 lse_frequency=120
+prj_run Synthesis -impl impl1
+prj_strgy set_value -strategy Strategy1 lse_max_fanout_limit=10
+prj_run Synthesis -impl impl1
+prj_strgy set_value -strategy Strategy1 lse_max_fanout_limit=1000 lse_remove_dup_regs=False lse_opt_goal=Timing
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_strgy set "Timing"
+prj_run Export -impl impl1
+prj_strgy set "Strategy1"
+prj_strgy copy -from "Timing" -name "Custom Timing" -file "/home/charlie/scope/fpga/Custom Timing.sty"
+prj_strgy set "Custom Timing"
+prj_strgy set_value -strategy Custom Timing lse_remove_dup_regs=False lse_frequency=120
+prj_strgy set_value -strategy Custom Timing iotiming_all_speed=True
+prj_run PAR -impl impl1 -task IOTiming
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_strgy set_value -strategy Strategy1 lse_remove_dup_regs=True lse_opt_goal=Balanced lse_frequency=200
+prj_strgy set "Strategy1"
+prj_strgy delete "Custom Timing"
+pgr_project open "/home/charlie/scope/fpga/impl1/prog1.xcf"
+pgr_project close
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_strgy set "Timing"
+prj_run Export -impl impl1
+prj_strgy copy -from "Timing" -name "Custom Timing" -file "/home/charlie/scope/fpga/Custom Timing.sty"
+prj_strgy set_value -strategy Custom Timing lse_frequency=120
+prj_strgy set "Custom Timing"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -forceAll
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+#Stop recording: 3/25/2026 00:38:47

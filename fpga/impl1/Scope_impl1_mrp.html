@@ -16,30 +16,30 @@
 Command line:   map -a MachXO2 -p LCMXO2-1200HC -t TQFP100 -s 4 -oc Industrial
      Scope_impl1.ngd -o Scope_impl1_map.ncd -pr Scope_impl1.prf -mp
      Scope_impl1.mrp -lpf /home/charlie/scope/fpga/impl1/Scope_impl1.lpf -lpf
-     /home/charlie/scope/fpga/Scope.lpf -c 0 -gui -msgset
+     /home/charlie/scope/fpga/Scope.lpf -gui -msgset
      /home/charlie/scope/fpga/promote.xml 
 Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200HCTQFP100
 Target Performance:   4
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.14.0.75.2
-Mapped on:  03/24/26  01:03:07
+Mapped on:  03/25/26  00:53:59
 
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
-   Number of registers:    133 out of  1520 (9%)
-      PFU registers:          133 out of  1280 (10%)
+   Number of registers:    165 out of  1520 (11%)
+      PFU registers:          165 out of  1280 (13%)
       PIO registers:            0 out of   240 (0%)
-   Number of SLICEs:       190 out of   640 (30%)
-      SLICEs as Logic/ROM:    190 out of   640 (30%)
+   Number of SLICEs:       246 out of   640 (38%)
+      SLICEs as Logic/ROM:    246 out of   640 (38%)
       SLICEs as RAM:            0 out of   480 (0%)
-      SLICEs as Carry:         33 out of   640 (5%)
-   Number of LUT4s:        380 out of  1280 (30%)
-      Number used as logic LUTs:        314
+      SLICEs as Carry:         32 out of   640 (5%)
+   Number of LUT4s:        446 out of  1280 (35%)
+      Number used as logic LUTs:        382
       Number used as distributed RAM:     0
-      Number used as ripple logic:       66
+      Number used as ripple logic:       64
       Number used as shift registers:     0
    Number of PIO sites used: 37 + 4(JTAG) out of 80 (51%)
-   Number of block RAMs:  4 out of 7 (57%)
+   Number of block RAMs:  0 out of 7 (0%)
    Number of GSRs:        0 out of 1 (0%)
    EFB used :        No
    JTAG used :       No
@@ -64,35 +64,33 @@ Mapped on:  03/24/26  01:03:07
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
    Number of clocks:  1
-     Net htclk_c: 82 loads, 82 rising, 0 falling (Driver: PIO htclk )
-   Number of Clock Enables:  9
-     Net htclk_c_enable_106: 16 loads, 16 LSLICEs
+     Net htclk_c: 89 loads, 89 rising, 0 falling (Driver: PIO htclk )
+   Number of Clock Enables:  7
+     Net htclk_c_enable_88: 27 loads, 27 LSLICEs
 
-     Net htclk_c_enable_7: 2 loads, 0 LSLICEs
-     Net htclk_c_enable_4: 1 loads, 1 LSLICEs
-     Net htclk_c_enable_10: 2 loads, 0 LSLICEs
-     Net htclk_c_enable_77: 18 loads, 18 LSLICEs
-     Net htclk_c_enable_109: 2 loads, 2 LSLICEs
-     Net counter_0: 23 loads, 23 LSLICEs
-     Net htclk_c_enable_48: 1 loads, 1 LSLICEs
-     Net htclk_c_enable_47: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_39: 16 loads, 16 LSLICEs
+     Net htclk_c_enable_136: 19 loads, 19 LSLICEs
+     Net htclk_c_enable_102: 7 loads, 7 LSLICEs
+     Net hract_N_347: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_35: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_36: 2 loads, 2 LSLICEs
    Number of LSRs:  4
-     Net htclk_c_enable_4: 2 loads, 2 LSLICEs
-     Net n2877: 1 loads, 1 LSLICEs
-     Net n2306: 1 loads, 1 LSLICEs
-     Net n1153: 9 loads, 9 LSLICEs
+     Net n4220: 10 loads, 10 LSLICEs
+     Net hract_N_347: 1 loads, 1 LSLICEs
+     Net n1889: 1 loads, 1 LSLICEs
+     Net n2943: 1 loads, 1 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net state_1: 78 loads
-     Net state_0: 74 loads
-     Net n1280: 32 loads
-     Net counter_0: 27 loads
-     Net htclk_c_enable_77: 18 loads
-     Net htclk_c_enable_106: 16 loads
-     Net ch_data_c_2: 13 loads
-     Net ch_data_c_0: 12 loads
-     Net ch_data_c_3: 12 loads
-     Net crc_2: 12 loads
+     Net state_1: 109 loads
+     Net state_0: 49 loads
+     Net state_2: 49 loads
+     Net n4246: 34 loads
+     Net n4257: 33 loads
+     Net hrvld_N_342: 32 loads
+     Net htclk_c_enable_88: 27 loads
+     Net htclk_c_enable_136: 26 loads
+     Net crcIn_2: 17 loads
+     Net crcData_0: 16 loads
 
 
 
@@ -116,8 +114,6 @@ Mapped on:  03/24/26  01:03:07
 | IO Name             | Direction | Levelmode | IO         |
 |                     |           |  IO_TYPE  | Register   |
 +---------------------+-----------+-----------+------------+
-| ch_data[26]         | OUTPUT    | LVCMOS33  |            |
-+---------------------+-----------+-----------+------------+
 | ch_data[27]         | OUTPUT    | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 | ch_data[28]         | OUTPUT    | LVCMOS33  |            |
@@ -127,9 +123,11 @@ Mapped on:  03/24/26  01:03:07
 | ch_data[30]         | OUTPUT    | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 | ch_data[31]         | OUTPUT    | LVCMOS33  |            |
-
++---------------------+-----------+-----------+------------+
+| ch_data[26]         | OUTPUT    | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 | ch_data[25]         | OUTPUT    | LVCMOS33  |            |
+
 +---------------------+-----------+-----------+------------+
 | ch_data[24]         | OUTPUT    | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
@@ -184,9 +182,9 @@ Mapped on:  03/24/26  01:03:07
 | hrvld               | OUTPUT    | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 | hract               | OUTPUT    | LVCMOS33  |            |
-
 +---------------------+-----------+-----------+------------+
 | hrclk               | OUTPUT    | LVCMOS33  |            |
+
 +---------------------+-----------+-----------+------------+
 | htack               | INPUT     | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
@@ -197,78 +195,31 @@ Mapped on:  03/24/26  01:03:07
 
 <A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
 
+Block i2 undriven or does not drive anything - clipped.
 Block GSR_INST undriven or does not drive anything - clipped.
-Signal htclk_c_enable_118 was merged into signal counter_0
 Signal GND_net undriven or does not drive anything - clipped.
 Signal VCC_net undriven or does not drive anything - clipped.
-Signal data_counter_197_add_4_33/S1 undriven or does not drive anything -
+Signal data_counter_186_add_4_33/S1 undriven or does not drive anything -
      clipped.
-Signal data_counter_197_add_4_33/CO undriven or does not drive anything -
+Signal data_counter_186_add_4_33/CO undriven or does not drive anything -
      clipped.
-Signal counter_195_233_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal counter_184_191_add_4_1/S0 undriven or does not drive anything - clipped.
      
-Signal counter_195_233_add_4_1/CO undriven or does not drive anything - clipped.
+Signal counter_184_191_add_4_1/CI undriven or does not drive anything - clipped.
      
-Signal counter_195_233_add_4_1/CI undriven or does not drive anything - clipped.
-     
-Signal buffer_index_194_add_4_1/S0 undriven or does not drive anything -
+Signal counter_184_191_add_4_11/CO undriven or does not drive anything -
      clipped.
-Signal buffer_index_194_add_4_1/CI undriven or does not drive anything -
+Signal frame_idx_187_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal frame_idx_187_add_4_1/CI undriven or does not drive anything - clipped.
+Signal frame_idx_187_add_4_17/S1 undriven or does not drive anything - clipped.
+Signal frame_idx_187_add_4_17/CO undriven or does not drive anything - clipped.
+Signal data_counter_186_add_4_1/S0 undriven or does not drive anything -
      clipped.
-Signal buffer_index_194_add_4_11/S1 undriven or does not drive anything -
+Signal data_counter_186_add_4_1/CI undriven or does not drive anything -
      clipped.
-Signal buffer_index_194_add_4_11/CO undriven or does not drive anything -
-     clipped.
-Signal dword_198_add_4_17/S1 undriven or does not drive anything - clipped.
-Signal dword_198_add_4_17/CO undriven or does not drive anything - clipped.
-Signal dword_198_add_4_1/S0 undriven or does not drive anything - clipped.
-Signal dword_198_add_4_1/CI undriven or does not drive anything - clipped.
-Signal data_counter_197_add_4_1/S0 undriven or does not drive anything -
-     clipped.
-Signal data_counter_197_add_4_1/CI undriven or does not drive anything -
-     clipped.
-Block i178_1_lut_rep_111 was optimized away.
 Block i1 was optimized away.
-Block i2 was optimized away.
-
-
-
-<A name="mrp_mem"></A><B><U><big>Memory Usage</big></U></B>
-
-/:
-    EBRs: 4
-    RAM SLICEs: 0
-    Logic SLICEs: 98
-    PFU Registers: 133
-    -Contains EBR ram1:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  Depth_W=
-         512,  REGMODE= NOREG,  RESETMODE= SYNC,  ASYNC_RESET_RELEASE= SYNC,
-         GSR= DISABLED
-
-    -Contains EBR ram0:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  Depth_W=
-         512,  REGMODE= NOREG,  RESETMODE= SYNC,  ASYNC_RESET_RELEASE= SYNC,
-         GSR= DISABLED
-    -Contains EBR ram2:  TYPE= PDPW8KC,  Width= 14,  Depth_R= 512,  Depth_W=
-         512,  REGMODE= NOREG,  RESETMODE= SYNC,  ASYNC_RESET_RELEASE= SYNC,
-         GSR= DISABLED
-    -Contains EBR ram3:  TYPE= PDPW8KC,  Width= 14,  Depth_R= 512,  Depth_W=
-         512,  REGMODE= NOREG,  RESETMODE= SYNC,  ASYNC_RESET_RELEASE= SYNC,
-         GSR= DISABLED
 
      
-
-
-
-<A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
----------------
-
-Instance Name: ram1
-         Type: PDPW8KC
-Instance Name: ram0
-         Type: PDPW8KC
-Instance Name: ram2
-         Type: PDPW8KC
-Instance Name: ram3
-         Type: PDPW8KC
 
 
 
@@ -277,19 +228,8 @@ Instance Name: ram3
 
    Total CPU Time: 0 secs  
    Total REAL Time: 0 secs  
-   Peak Memory Usage: 160 MB
+   Peak Memory Usage: 161 MB
         
-
-
-
-
-
-
-
-
-
-
-
 
 
 
