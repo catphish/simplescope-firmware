@@ -211,33 +211,14 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
 
   if (R8_HSPI_INT_FLAG & RB_HSPI_IF_R_DONE) // Single packet reception completed
   {
-    // error_str[0] = ' '; // Clear error string
-    // error_str[1] = ' ';
-    // error_str[2] = ' ';
-    // error_str[3] = ' ';
-    // error_str[4] = ' ';
-    // error_str[5] = ' ';
     if (R8_HSPI_RTX_STATUS & RB_HSPI_CRC_ERR) {
-      // error_str[0] = 'C';
-      // error_str[1] = 'R';
-      // error_str[2] = 'C';
       error = 1;
     }
     if (R8_HSPI_RTX_STATUS & RB_HSPI_NUM_MIS) {
-      // error_str[3] = 'N';
-      // error_str[4] = 'U';
-      // error_str[5] = 'M';
       error = 1;
     }
     if(error) {
-      // if(usb_rdy) { // If USB is ready to send data on EP2
-      //   usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2 until the current data is sent
-      //   // Point the EP2 IN buffer to the data received from SPI0
-      //   USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)error_str;
-      //   // Set endpoint 2 to ACK and notify the host to take the data
-      //   USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 6);
-      //   USB30_send_ERDY(ENDP_2 | IN, 1);
-      // } // If USB is not ready, drop the error
+      // We could handle errors here but for now it's fine to just discard the data and wait for the next packet
     } else {
       // Determine which buffer was filled by checking the toggle bit
       // force several NOPs to ensure that the read of the toggle bit is not reordered with the subsequent read of the buffer address
