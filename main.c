@@ -24,10 +24,16 @@
 #define USB_PID_BYTE_LSB (0xDC)
 #define USB_PID ((USB_PID_BYTE_MSB << 8) | USB_PID_BYTE_LSB)
 
-#define HSPI_RX_DMA_LENGTH   4096
-__attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr0[HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
-__attribute__((aligned(16))) volatile uint8_t HSPI_RX_Addr1[HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
-//__attribute__((aligned(16))) volatile uint8_t error_str[6]  __attribute__((section(".DMADATA")));
+// Create HSPI buffers for high speed data reception from HSPI and transmission to USB
+#define HSPI_RX_DMA_LENGTH 4096
+__attribute__((aligned(1024))) volatile uint8_t HSPI_RAM_A[4][HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
+__attribute__((aligned(1024))) volatile uint8_t HSPI_RAM_B[4][HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
+
+// Create a ring buffer of pointers to HSPI buffers
+#define HSPI_BUFFER_QUEUE_SIZE 8
+volatile uint8_t* hspi_buffer_queue[HSPI_BUFFER_QUEUE_SIZE];
+volatile uint8_t hspi_buffer_queue_head = 0;
+volatile uint8_t hspi_buffer_queue_tail = 0;
 
 /* FLASH_ROMA Read Unique ID (8bytes/64bits) */
 #define FLASH_ROMA_UID_ADDR (0x77fe4)
@@ -104,9 +110,10 @@ int main() {
   /* USB3.0 initialization, make sure that the two USB3.0 interrupts are enabled before initialization */
   USB30D_init(ENABLE);
 
+  // Allocate buffers 0 and 1 for HSPI reception immediately. Set the head and tail index to 0
   HSPI_DoubleDMA_Init(HSPI_DEVICE, RB_HSPI_DAT32_MOD,
-    (unsigned long int)HSPI_RX_Addr0,
-    (unsigned long int)HSPI_RX_Addr1, 0);
+    (uint32_t)HSPI_RAM_A[0],
+    (uint32_t)HSPI_RAM_B[0], 0);
 
   while(1)
   {
@@ -150,7 +157,7 @@ int main() {
     }
   }
 }
-volatile uint8_t usb_rdy = 1;
+volatile uint8_t usb_idle = 1;
 
 void EP1_OUT_Callback(void)
 {
@@ -166,7 +173,6 @@ void EP1_IN_Callback(void)
   USB30_IN_clearIT(ENDP_1);
 }
 
-volatile uint32_t data_waiting = 0; // Flag to indicate that USB data is waiting to be sent on EP2
 void EP2_IN_Callback(void)
 {
   bsp_disable_interrupt();
@@ -177,15 +183,19 @@ void EP2_IN_Callback(void)
 
 	if(nump == 0)
 	{
-    if(data_waiting) {
-      data_waiting = 0; // Clear the flag to indicate that the waiting data has been sent
+    // If there are packets in the queue, send one now
+    if (hspi_buffer_queue_head != hspi_buffer_queue_tail) {
       // Point the EP2 IN buffer to the data received from SPI0
-      USBSS->UEP2_TX_DMA = data_waiting;
+      USBSS->UEP2_TX_DMA = (uint32_t)hspi_buffer_queue[hspi_buffer_queue_tail];
+      // Advance the tail index to remove the buffer from the queue
+      hspi_buffer_queue_tail = (hspi_buffer_queue_tail + 1) % HSPI_BUFFER_QUEUE_SIZE;
+      usb_idle = 0;
       // Set endpoint 2 to ACK and notify the host to take the data
       USB30_IN_set(ENDP_2, ENABLE, ACK, 4, 1024);
       USB30_send_ERDY(ENDP_2 | IN, 4);
     } else {
-      usb_rdy = 1; // Set the flag to indicate that USB is ready to send data on EP2
+      // If there are no packets in the queue, set USB idle flag
+      usb_idle = 1;
     }
   } else if(nump == 1) {
     USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 1024);
@@ -199,6 +209,18 @@ void EP2_IN_Callback(void)
   }    
   bsp_enable_interrupt();
 }
+
+// Pointer to the two register pairs, indexed by the TOG bit
+volatile uint32_t * const HSPI_RX_ADDR[2] = {
+    &R32_HSPI_RX_ADDR0,
+    &R32_HSPI_RX_ADDR1
+};
+
+// The two buffer arrays, indexed the same way
+volatile uint8_t (* const HSPI_RAM[2])[HSPI_RX_DMA_LENGTH] = {
+    HSPI_RAM_A,
+    HSPI_RAM_B
+};
 
 __attribute__((interrupt())) void HSPI_IRQHandler(void)
 {
@@ -220,19 +242,32 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
     if(error) {
       // We could handle errors here but for now it's fine to just discard the data and wait for the next packet
     } else {
-      // Determine which buffer was filled by checking the toggle bit
-      // force several NOPs to ensure that the read of the toggle bit is not reordered with the subsequent read of the buffer address
-      uint32_t addr = (R8_HSPI_RX_SC & RB_HSPI_RX_TOG) ? (uint32_t)HSPI_RX_Addr0 : (uint32_t)HSPI_RX_Addr1;
-      if(usb_rdy) { // If USB is ready to send data on EP2
-        usb_rdy = 0; // Clear the flag to indicate that USB is not ready to send data on EP2 until the current data is sent
+      uint8_t tog = (R8_HSPI_RX_SC & RB_HSPI_RX_TOG) != 0;
+      uint32_t addr = *HSPI_RX_ADDR[tog];
+
+      // Derive the current buffer index from the address offset into the array
+      uint32_t idx = ((uint32_t)addr - (uint32_t)HSPI_RAM[tog]) / HSPI_RX_DMA_LENGTH;
+
+      // Advance to the next buffer, wrapping at 4
+      *HSPI_RX_ADDR[tog] = (uint32_t)HSPI_RAM[tog][(idx + 1) & 3];
+
+      // Add the buffer to the head of the queue
+      hspi_buffer_queue[hspi_buffer_queue_head] = (uint8_t*)addr;
+      // If the queue is not full, advance the head index
+      if (((hspi_buffer_queue_head + 1) % HSPI_BUFFER_QUEUE_SIZE) != hspi_buffer_queue_tail)
+        hspi_buffer_queue_head = (hspi_buffer_queue_head + 1) % HSPI_BUFFER_QUEUE_SIZE;
+
+      // If the USB is idle, trigger the transmision of the first buffer in the queue
+      if (usb_idle) {
         USB30_IN_clearIT(ENDP_2);
         // Point the EP2 IN buffer to the data received from SPI0
-        USBSS->UEP2_TX_DMA = addr;
+        USBSS->UEP2_TX_DMA = (uint32_t)hspi_buffer_queue[hspi_buffer_queue_tail];
+        // Advance the tail index to remove the buffer from the queue
+        hspi_buffer_queue_tail = (hspi_buffer_queue_tail + 1) % HSPI_BUFFER_QUEUE_SIZE;
+        usb_idle = 0;
         // Set endpoint 2 to ACK and notify the host to take the data
         USB30_IN_set(ENDP_2, ENABLE, ACK, 4, 1024);
         USB30_send_ERDY(ENDP_2 | IN, 4);
-      } else {
-        data_waiting = addr; // Set the flag to indicate that there is data waiting to be sent on EP2
       }
     }
     R8_HSPI_INT_FLAG = RB_HSPI_IF_R_DONE; // Clear Interrupt

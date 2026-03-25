@@ -12,7 +12,7 @@
 #define INTERFACE 0
 
 #define BUF_SIZE 1024*256
-#define NUM_TRANSFERS 16
+#define NUM_TRANSFERS 8
 #define TIMEOUT 0
 
 static volatile int running = 1;

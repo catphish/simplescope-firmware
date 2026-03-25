@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE :  version Diamond (64-bit) 3.14.0.75.2
-// Netlist written on Wed Mar 25 00:53:59 2026
+// Netlist written on Wed Mar 25 18:17:29 2026
 //
 // Verilog Description of module adc_ft601
 //

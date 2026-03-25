@@ -6,7 +6,7 @@
 #define ENDPOINT 0x82
 #define INTERFACE 0
 
-#define BUF_SIZE 1024*1024
+#define BUF_SIZE 4096
 #define TIMEOUT 1000
 
 double now_seconds()
@@ -78,21 +78,25 @@ int main(void)
                     total_bytes = 0;
                     last_time = current_time;
                 }
-                printf("Received %d bytes:\n", transferred);
+                printf("Received %d bytes: ", transferred);
                 // Loop over the received data as 4 byte integers and confirm that each
                 // integer increments by one. Check the increment each time and print
                 // the index and value of any integer that does not increment by one.
+                int w = 0;
                 for (int i = 0; i < transferred; i += 4)
                 {
                     static uint32_t prev_value;
                     uint32_t value = buffer[i] | (buffer[i + 1] << 8) | (buffer[i + 2] << 16) | (buffer[i + 3] << 24);
-                    if (value != prev_value + 1) {
-                        printf("Value at index %d: %u (hex: 0x%08x) (expected %u), difference: %d\n", i / 4, value, value, prev_value + 1, value - (prev_value + 1));
+                    if (value != prev_value + 1 && i > 0) {
+                        if(!w)
+                            printf("Value at index %d: %u (hex: 0x%08x) (expected %u), difference: %d", i / 4, value, value, prev_value + 1, value - (prev_value + 1));
+                        w = 1;
                     } else {
                         //printf("Value at index %d: %u\n", i / 4, value);
                     }
                     prev_value = value;
-                }   
+                }
+                printf("\n");
                 // Print the first 32 bytes of the received data as hex
                 // printf("First 32 bytes: ");
                 // for (int i = 0; i < 32 && i < transferred; i++)
