@@ -26,8 +26,8 @@
 
 // Create HSPI buffers for high speed data reception from HSPI and transmission to USB
 #define HSPI_RX_DMA_LENGTH 4096
-__attribute__((aligned(1024))) volatile uint8_t HSPI_RAM_A[4][HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
-__attribute__((aligned(1024))) volatile uint8_t HSPI_RAM_B[4][HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
+__attribute__((aligned(1024))) volatile uint8_t HSPI_RAM_A[8][HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
+__attribute__((aligned(1024))) volatile uint8_t HSPI_RAM_B[8][HSPI_RX_DMA_LENGTH]  __attribute__((section(".DMADATA")));
 
 // Create a ring buffer of pointers to HSPI buffers
 #define HSPI_BUFFER_QUEUE_SIZE 8
@@ -248,8 +248,8 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
       // Derive the current buffer index from the address offset into the array
       uint32_t idx = ((uint32_t)addr - (uint32_t)HSPI_RAM[tog]) / HSPI_RX_DMA_LENGTH;
 
-      // Advance to the next buffer, wrapping at 4
-      *HSPI_RX_ADDR[tog] = (uint32_t)HSPI_RAM[tog][(idx + 1) & 3];
+      // Advance to the next buffer, wrapping at 8
+      *HSPI_RX_ADDR[tog] = (uint32_t)HSPI_RAM[tog][(idx + 1) & 7];
 
       // Add the buffer to the head of the queue
       hspi_buffer_queue[hspi_buffer_queue_head] = (uint8_t*)addr;
