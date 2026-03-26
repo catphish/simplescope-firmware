@@ -14,22 +14,22 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200HCTQFP100
 Target Performance:   4
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.14.0.75.2
-Mapped on:  03/25/26  18:17:29
+Mapped on:  03/26/26  17:23:58
 
 Design Summary
 --------------
 
-   Number of registers:    165 out of  1520 (11%)
-      PFU registers:          165 out of  1280 (13%)
-      PIO registers:            0 out of   240 (0%)
-   Number of SLICEs:       246 out of   640 (38%)
-      SLICEs as Logic/ROM:    246 out of   640 (38%)
+   Number of registers:    195 out of  1520 (13%)
+      PFU registers:          161 out of  1280 (13%)
+      PIO registers:           34 out of   240 (14%)
+   Number of SLICEs:       217 out of   640 (34%)
+      SLICEs as Logic/ROM:    217 out of   640 (34%)
       SLICEs as RAM:            0 out of   480 (0%)
-      SLICEs as Carry:         32 out of   640 (5%)
-   Number of LUT4s:        446 out of  1280 (35%)
-      Number used as logic LUTs:        382
+      SLICEs as Carry:         28 out of   640 (4%)
+   Number of LUT4s:        382 out of  1280 (30%)
+      Number used as logic LUTs:        326
       Number used as distributed RAM:     0
-      Number used as ripple logic:       64
+      Number used as ripple logic:       56
       Number used as shift registers:     0
    Number of PIO sites used: 37 + 4(JTAG) out of 80 (51%)
    Number of block RAMs:  0 out of 7 (0%)
@@ -57,42 +57,42 @@ Design Summary
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
    Number of clocks:  1
-     Net htclk_c: 89 loads, 89 rising, 0 falling (Driver: PIO htclk )
-   Number of Clock Enables:  7
-     Net htclk_c_enable_88: 27 loads, 27 LSLICEs
+     Net htclk_c: 119 loads, 119 rising, 0 falling (Driver: PIO htclk )
+   Number of Clock Enables:  6
+     Net transmit_now_N_348: 2 loads, 2 LSLICEs
 
                                     Page 1
 
 
 
 
-Design:  adc_ft601                                     Date:  03/25/26  18:17:29
+Design:  adc_ft601                                     Date:  03/26/26  17:23:58
 
 Design Summary (cont)
 ---------------------
-     Net htclk_c_enable_39: 16 loads, 16 LSLICEs
-     Net htclk_c_enable_136: 19 loads, 19 LSLICEs
-     Net htclk_c_enable_102: 7 loads, 7 LSLICEs
-     Net hract_N_347: 1 loads, 1 LSLICEs
-     Net htclk_c_enable_35: 1 loads, 1 LSLICEs
-     Net htclk_c_enable_36: 2 loads, 2 LSLICEs
-   Number of LSRs:  4
-     Net n4220: 10 loads, 10 LSLICEs
-     Net hract_N_347: 1 loads, 1 LSLICEs
-     Net n1889: 1 loads, 1 LSLICEs
-     Net n2943: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_36: 16 loads, 16 LSLICEs
+     Net htclk_c_enable_70: 16 loads, 16 LSLICEs
+     Net htclk_c_enable_104: 19 loads, 19 LSLICEs
+     Net htclk_c_enable_39: 2 loads, 2 LSLICEs
+     Net htclk_c_enable_40: 1 loads, 1 LSLICEs
+   Number of LSRs:  5
+     Net transmit_now_N_348: 1 loads, 1 LSLICEs
+     Net n3995: 1 loads, 1 LSLICEs
+     Net n1314: 1 loads, 1 LSLICEs
+     Net n1184: 7 loads, 7 LSLICEs
+     Net n1177: 16 loads, 16 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net state_1: 109 loads
-     Net state_0: 49 loads
-     Net state_2: 49 loads
-     Net n4246: 34 loads
-     Net n4257: 33 loads
-     Net hrvld_N_342: 32 loads
-     Net htclk_c_enable_88: 27 loads
-     Net htclk_c_enable_136: 26 loads
-     Net crcIn_2: 17 loads
-     Net crcData_0: 16 loads
+     Net state_1: 65 loads
+     Net state_4_N_308_3: 39 loads
+     Net htclk_c_enable_104: 23 loads
+     Net htclk_c_enable_36: 16 loads
+     Net htclk_c_enable_70: 16 loads
+     Net n1177: 16 loads
+     Net state_0: 15 loads
+     Net crc32/n4061: 14 loads
+     Net crcIn_2: 14 loads
+     Net crcIn_7: 14 loads
 
 
 
@@ -113,83 +113,83 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode | IO         |
 |                     |           |  IO_TYPE  | Register   |
 +---------------------+-----------+-----------+------------+
-| ch_data[27]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[28]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[28]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[29]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[29]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[30]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[30]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[31]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[31]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[27]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[26]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[26]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[25]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[25]         | OUTPUT    | LVCMOS33  | OUT        |
 
                                     Page 2
 
 
 
 
-Design:  adc_ft601                                     Date:  03/25/26  18:17:29
+Design:  adc_ft601                                     Date:  03/26/26  17:23:58
 
 IO (PIO) Attributes (cont)
 --------------------------
 +---------------------+-----------+-----------+------------+
-| ch_data[24]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[24]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[23]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[23]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[22]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[22]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[21]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[21]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[20]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[20]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[19]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[19]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[18]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[18]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[17]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[17]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[16]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[16]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[15]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[15]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[14]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[14]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[13]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[13]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[12]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[12]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[11]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[11]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[10]         | OUTPUT    | LVCMOS33  |            |
+| ch_data[10]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[9]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[9]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[8]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[8]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[7]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[7]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[6]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[6]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[5]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[5]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[4]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[4]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[3]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[3]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[2]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[2]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[1]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[1]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| ch_data[0]          | OUTPUT    | LVCMOS33  |            |
+| ch_data[0]          | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| hrvld               | OUTPUT    | LVCMOS33  |            |
+| hrvld               | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-| hract               | OUTPUT    | LVCMOS33  |            |
+| hract               | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
 | hrclk               | OUTPUT    | LVCMOS33  |            |
 
@@ -198,7 +198,7 @@ IO (PIO) Attributes (cont)
 
 
 
-Design:  adc_ft601                                     Date:  03/25/26  18:17:29
+Design:  adc_ft601                                     Date:  03/26/26  17:23:58
 
 IO (PIO) Attributes (cont)
 --------------------------
@@ -215,23 +215,23 @@ Block i2 undriven or does not drive anything - clipped.
 Block GSR_INST undriven or does not drive anything - clipped.
 Signal GND_net undriven or does not drive anything - clipped.
 Signal VCC_net undriven or does not drive anything - clipped.
-Signal data_counter_186_add_4_33/S1 undriven or does not drive anything -
+Signal frame_idx_203_208_add_4_11/CO undriven or does not drive anything -
      clipped.
-Signal data_counter_186_add_4_33/CO undriven or does not drive anything -
+Signal frame_idx_203_208_add_4_1/S0 undriven or does not drive anything -
      clipped.
-Signal counter_184_191_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal frame_idx_203_208_add_4_1/CI undriven or does not drive anything -
+     clipped.
+Signal data_counter_202_add_4_32/CO undriven or does not drive anything -
+     clipped.
+Signal counter_200_209_add_4_1/S0 undriven or does not drive anything - clipped.
      
-Signal counter_184_191_add_4_1/CI undriven or does not drive anything - clipped.
+Signal counter_200_209_add_4_1/CI undriven or does not drive anything - clipped.
      
-Signal counter_184_191_add_4_11/CO undriven or does not drive anything -
+Signal counter_200_209_add_4_11/CO undriven or does not drive anything -
      clipped.
-Signal frame_idx_187_add_4_1/S0 undriven or does not drive anything - clipped.
-Signal frame_idx_187_add_4_1/CI undriven or does not drive anything - clipped.
-Signal frame_idx_187_add_4_17/S1 undriven or does not drive anything - clipped.
-Signal frame_idx_187_add_4_17/CO undriven or does not drive anything - clipped.
-Signal data_counter_186_add_4_1/S0 undriven or does not drive anything -
+Signal data_counter_202_add_4_2/S0 undriven or does not drive anything -
      clipped.
-Signal data_counter_186_add_4_1/CI undriven or does not drive anything -
+Signal data_counter_202_add_4_2/CI undriven or does not drive anything -
      clipped.
 Block i1 was optimized away.
 
@@ -242,7 +242,7 @@ Run Time and Memory Usage
 
    Total CPU Time: 0 secs  
    Total REAL Time: 0 secs  
-   Peak Memory Usage: 161 MB
+   Peak Memory Usage: 160 MB
         
 
 

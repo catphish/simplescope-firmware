@@ -1,27 +1,27 @@
 ----------------------------------------------------------------------
 Report for cell adc_ft601.TECH
-Register bits:  165 of 1520 (10.855%)
+Register bits:  195 of 1520 (12.829%)
 I/O cells:      37
                                   Cell usage:
                                cell     count   Res Usage(%)
-                              CCU2D        32          100.0
-                            FD1P3AX       133          100.0
+                              CCU2D        28          100.0
+                            FD1P3AX       103          100.0
                             FD1P3IX         3          100.0
-                            FD1P3JX         1          100.0
                             FD1S3AX        11          100.0
-                            FD1S3IX        17          100.0
+                            FD1S3IX        12          100.0
+                            FD1S3JX        32          100.0
                                 GSR         1          100.0
                                  IB         2          100.0
-                               LUT4       381          100.0
+                               LUT4       324          100.0
                                  OB        35          100.0
-                              PFUMX         4          100.0
+                           OFS1P3DX        34          100.0
 SUB MODULES
                               crc32         1
-                              TOTAL       621
+                              TOTAL       586
 ----------------------------------------------------------------------
 Report for cell crc32.v1
 Instance Path : crc32
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4       243           63.8
-                              TOTAL       243
+                               LUT4       234           72.2
+                              TOTAL       234

@@ -2,7 +2,7 @@
 <BaliProject version="3.2" title="Scope" device="LCMXO2-1200HC-4TG100I" default_implementation="impl1">
     <Options/>
     <Implementation title="impl1" dir="impl1" description="impl1" synthesis="lse" default_strategy="Custom Timing">
-        <Options def_top="pll" top="adc_ft601"/>
+        <Options def_top="adc_ft601" top="adc_ft601"/>
         <Source name="scope.v" type="Verilog" type_short="Verilog">
             <Options top_module="adc_ft601"/>
         </Source>

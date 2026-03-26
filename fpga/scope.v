@@ -1,15 +1,24 @@
 module adc_ft601 (
 	// CH569 interface. Names refer to the CH569 receiver pins, not the local transmitter.
-	output reg [31:0] ch_data,
-	output reg hrvld = 0,
-	output reg hract = 0,
-	output hrclk,
+	(* syn_useioff = "true" *) output reg [31:0] ch_data,
+	(* syn_useioff = "true" *) output reg hrvld,
+	(* syn_useioff = "true" *) output reg hract,
+	(* syn_useioff = "true" *) output hrclk,
 	input htack,
 	input htclk );
 
-	//pll pll (.CLKI(htclk), .CLKOP(clk100));
-	assign hrclk = ~htclk;
+//	pll pll(.CLKI(htclk), .CLKOP(clk));
+	
+//	ODDRXE oddr_inst (
+//		.D0(1'b1),    // value on rising edge
+//		.D1(1'b0),    // value on falling edge
+//		.SCLK(htclk), // your internal clock
+//		.RST(1'b0),
+//		.Q(hrclk)
+//	);
 
+	assign hrclk = htclk;
+	
 	// Trigger a transmit
 	reg transmit_now = 0;
 
@@ -18,7 +27,7 @@ module adc_ft601 (
 	// Position within the frame
 	reg [15:0] frame_idx;
 	// Frame transmitter state
-	reg [2:0] state;
+	reg [4:0] state;
 
 	// 32 bit general purpose cycle counter
 	reg [31:0] counter = 0;
@@ -31,50 +40,61 @@ module adc_ft601 (
 	wire [31:0] crcOut;
 	crc32 crc32 (.crcIn(crcIn), .crcOut(crcOut), .data(crcData));
 
+	reg [31:0] ch_data_internal;
+	reg hrvld_internal = 0;
+	reg hract_internal = 0;
+		always @ (posedge htclk) begin
+		ch_data <= ch_data_internal;
+		hrvld <= hrvld_internal;
+		hract <= hract_internal;
+	end
+
 	always @ (posedge htclk) begin
 		counter <= counter + 1;
 		if(counter[10:0] == 0) transmit_now <= 1;
 
 		// Handle HSPI transmission
 		// By default hrvld is low unless we are sending data
-		hrvld <= 0;
+		hrvld_internal <= 0;
 		frame_idx <= 0;
+		crcIn <= crcOut;
 		// If no frame is in progress, start one
-		if(~hract && ~htack && transmit_now) begin
+		if(~hract_internal && ~htack && transmit_now) begin
 			transmit_now <= 0;
-			hract <= 1;
-			state <= 1;
+			hract_internal <= 1;
+			state <= 5'b00001;
 		end
 		// Ready to send
-		if(hract && htack) begin			
+		if(hract_internal && htack) begin			
 			frame_idx <= frame_idx + 1;
-			if(state == 1) begin
+			if(state[0]) begin
 				// First, send a header
 				crcIn <= 32'hffffffff;
-				ch_data <= {2'b00, seq, 26'b00000000000000000000000000};
-				crcData <= {2'b00, seq, 26'b00000000000000000000000000};
+				hrvld_internal <= 1;
+				ch_data_internal <= {2'b00, seq, 26'b00000000000000000000000000};
+				crcData          <= {2'b00, seq, 26'b00000000000000000000000000};
 				seq <= seq + 1;
-				hrvld <= 1;
-				state <= 2;
+				state <= 5'b00010;
 			end
-			if(state == 2) begin
+			if(state[1]) begin
 				// Send the data
-				hrvld <= 1;
-				crcIn <= crcOut;
+				hrvld_internal <= 1;
 				data_counter <= data_counter + 1;
-				ch_data <= data_counter;
-				crcData <= data_counter;
+				ch_data_internal <= data_counter;
+				crcData          <= data_counter;
 			end
-			if (frame_idx == 1024) state <= 3;
-			if(state == 3) begin
-				// Finally send the CRC
-				hrvld <= 1;
-				ch_data <= ~crcOut;
-				state <= 4;
+			if (frame_idx[10]) begin
+				state <= 5'b00100;
 			end
-			if(state == 4) begin
+			if(state[2]) begin
+				// Calculate the CRC
+				hrvld_internal <= 1;
+				ch_data_internal <= ~crcOut;
+				state <= 5'b01000;
+			end
+			if(state[3]) begin
 				// Close the frame
-				hract <= 0;
+				hract_internal <= 0;
 			end
 		end
 	end

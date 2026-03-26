@@ -46,20 +46,20 @@
         <Message>
             <ID>35901209</ID>
             <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(50): </Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(69): </Dynamic>
             <Dynamic>32</Dynamic>
             <Dynamic>16</Dynamic>
             <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>50</Navigation>
+            <Navigation>69</Navigation>
         </Message>
         <Message>
             <ID>35901209</ID>
             <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(56): </Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(76): </Dynamic>
             <Dynamic>32</Dynamic>
             <Dynamic>4</Dynamic>
             <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>56</Navigation>
+            <Navigation>76</Navigation>
         </Message>
         <Message>
             <ID>35001611</ID>
