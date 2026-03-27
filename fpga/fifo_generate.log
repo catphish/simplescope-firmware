@@ -3,7 +3,7 @@ Starting process: module
 Starting process: 
 
 SCUBA, Version Diamond (64-bit) 3.14.0.75.2
-Thu Mar 19 16:29:13 2026
+Thu Mar 26 23:41:47 2026
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -13,7 +13,7 @@ Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
 
 BEGIN SCUBA Module Synthesis
 
-    Issued command   : /home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n fifo -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ebfifo -depth 512 -width 32 -rwidth 32 -no_enable -pe 10 -pf 500 
+    Issued command   : /home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n fifo -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ebfifo -depth 1024 -width 32 -rwidth 32 -regout -resetmode SYNC -no_enable -pe 10 -pf 520 -sync_reset 
     Circuit name     : fifo
     Module type      : ebfifo
     Module Version   : 5.8
@@ -29,7 +29,7 @@ BEGIN SCUBA Module Synthesis
     Bus notation     : big endian
     Report output    : fifo.srp
     Estimated Resource Usage:
-            EBR : 2
+            EBR : 4
 
 END   SCUBA Module Synthesis
 

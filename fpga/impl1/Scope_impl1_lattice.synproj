@@ -34,7 +34,7 @@
 -p "/home/charlie/scope/fpga"
 -ver "/home/charlie/scope/fpga/scope.v"
 "/home/charlie/scope/fpga/crc32.v"
-"/home/charlie/scope/fpga/pll.v"
+"/home/charlie/scope/fpga/ram.v"
 -top adc_ft601
 
 

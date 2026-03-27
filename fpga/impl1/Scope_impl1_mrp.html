@@ -22,24 +22,24 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200HCTQFP100
 Target Performance:   4
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.14.0.75.2
-Mapped on:  03/26/26  17:23:58
+Mapped on:  03/27/26  02:28:48
 
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
-   Number of registers:    195 out of  1520 (13%)
-      PFU registers:          161 out of  1280 (13%)
+   Number of registers:    305 out of  1520 (20%)
+      PFU registers:          271 out of  1280 (21%)
       PIO registers:           34 out of   240 (14%)
-   Number of SLICEs:       217 out of   640 (34%)
-      SLICEs as Logic/ROM:    217 out of   640 (34%)
+   Number of SLICEs:       269 out of   640 (42%)
+      SLICEs as Logic/ROM:    269 out of   640 (42%)
       SLICEs as RAM:            0 out of   480 (0%)
-      SLICEs as Carry:         28 out of   640 (4%)
-   Number of LUT4s:        382 out of  1280 (30%)
-      Number used as logic LUTs:        326
+      SLICEs as Carry:         19 out of   640 (3%)
+   Number of LUT4s:        360 out of  1280 (28%)
+      Number used as logic LUTs:        322
       Number used as distributed RAM:     0
-      Number used as ripple logic:       56
+      Number used as ripple logic:       38
       Number used as shift registers:     0
-   Number of PIO sites used: 37 + 4(JTAG) out of 80 (51%)
-   Number of block RAMs:  0 out of 7 (0%)
+   Number of PIO sites used: 69 + 4(JTAG) out of 80 (91%)
+   Number of block RAMs:  4 out of 7 (57%)
    Number of GSRs:        0 out of 1 (0%)
    EFB used :        No
    JTAG used :       No
@@ -64,33 +64,33 @@ Mapped on:  03/26/26  17:23:58
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
    Number of clocks:  1
-     Net htclk_c: 119 loads, 119 rising, 0 falling (Driver: PIO htclk )
+     Net htclk_c: 186 loads, 186 rising, 0 falling (Driver: PIO htclk )
    Number of Clock Enables:  6
-     Net transmit_now_N_348: 2 loads, 2 LSLICEs
-
      Net htclk_c_enable_36: 16 loads, 16 LSLICEs
-     Net htclk_c_enable_70: 16 loads, 16 LSLICEs
-     Net htclk_c_enable_104: 19 loads, 19 LSLICEs
-     Net htclk_c_enable_39: 2 loads, 2 LSLICEs
-     Net htclk_c_enable_40: 1 loads, 1 LSLICEs
+
+     Net htclk_c_enable_39: 3 loads, 3 LSLICEs
+     Net htclk_c_enable_40: 2 loads, 2 LSLICEs
+     Net htclk_c_enable_71: 16 loads, 16 LSLICEs
+     Net htclk_c_enable_74: 2 loads, 2 LSLICEs
+     Net counter_0: 22 loads, 22 LSLICEs
    Number of LSRs:  5
-     Net transmit_now_N_348: 1 loads, 1 LSLICEs
-     Net n3995: 1 loads, 1 LSLICEs
-     Net n1314: 1 loads, 1 LSLICEs
-     Net n1184: 7 loads, 7 LSLICEs
-     Net n1177: 16 loads, 16 LSLICEs
+     Net n4328: 13 loads, 13 LSLICEs
+     Net n1490: 16 loads, 16 LSLICEs
+     Net n1650: 1 loads, 1 LSLICEs
+     Net n2281: 1 loads, 1 LSLICEs
+     Net counter_0: 1 loads, 1 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net state_1: 65 loads
-     Net state_4_N_308_3: 39 loads
-     Net htclk_c_enable_104: 23 loads
+     Net state_1: 63 loads
+     Net state_4_N_238_3: 39 loads
+     Net counter_0: 25 loads
      Net htclk_c_enable_36: 16 loads
-     Net htclk_c_enable_70: 16 loads
-     Net n1177: 16 loads
+     Net htclk_c_enable_71: 16 loads
+     Net n1490: 16 loads
      Net state_0: 15 loads
-     Net crc32/n4061: 14 loads
+     Net crcIn_0: 14 loads
      Net crcIn_2: 14 loads
-     Net crcIn_7: 14 loads
+     Net n4328: 13 loads
 
 
 
@@ -114,6 +114,8 @@ Mapped on:  03/26/26  17:23:58
 | IO Name             | Direction | Levelmode | IO         |
 |                     |           |  IO_TYPE  | Register   |
 +---------------------+-----------+-----------+------------+
+| ch_data[27]         | OUTPUT    | LVCMOS33  | OUT        |
++---------------------+-----------+-----------+------------+
 | ch_data[28]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
 | ch_data[29]         | OUTPUT    | LVCMOS33  | OUT        |
@@ -121,8 +123,6 @@ Mapped on:  03/26/26  17:23:58
 | ch_data[30]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
 | ch_data[31]         | OUTPUT    | LVCMOS33  | OUT        |
-+---------------------+-----------+-----------+------------+
-| ch_data[27]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
 | ch_data[26]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
@@ -186,6 +186,71 @@ Mapped on:  03/26/26  17:23:58
 | hrclk               | OUTPUT    | LVCMOS33  |            |
 
 +---------------------+-----------+-----------+------------+
+| data_in[31]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[30]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[29]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[28]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[27]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[26]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[25]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[24]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[23]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[22]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[21]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[20]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[19]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[18]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[17]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[16]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[15]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[14]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[13]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[12]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[11]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[10]         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[9]          | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[8]          | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[7]          | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[6]          | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[5]          | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[4]          | INPUT     | LVCMOS33  |            |
+
++---------------------+-----------+-----------+------------+
+| data_in[3]          | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[2]          | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[1]          | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| data_in[0]          | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
 | htack               | INPUT     | LVCMOS33  |            |
 +---------------------+-----------+-----------+------------+
 | htclk               | INPUT     | LVCMOS33  |            |
@@ -195,31 +260,76 @@ Mapped on:  03/26/26  17:23:58
 
 <A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
 
-Block i2 undriven or does not drive anything - clipped.
 Block GSR_INST undriven or does not drive anything - clipped.
+Signal n2251 was merged into signal counter_0
 Signal GND_net undriven or does not drive anything - clipped.
 Signal VCC_net undriven or does not drive anything - clipped.
-Signal frame_idx_203_208_add_4_11/CO undriven or does not drive anything -
-     clipped.
-Signal frame_idx_203_208_add_4_1/S0 undriven or does not drive anything -
-     clipped.
-Signal frame_idx_203_208_add_4_1/CI undriven or does not drive anything -
-     clipped.
-Signal data_counter_202_add_4_32/CO undriven or does not drive anything -
-     clipped.
-Signal counter_200_209_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal read_addr_239_add_4_11/S1 undriven or does not drive anything - clipped.
+Signal read_addr_239_add_4_11/CO undriven or does not drive anything - clipped.
+Signal write_addr_237_add_4_11/S1 undriven or does not drive anything - clipped.
      
-Signal counter_200_209_add_4_1/CI undriven or does not drive anything - clipped.
+Signal write_addr_237_add_4_11/CO undriven or does not drive anything - clipped.
      
-Signal counter_200_209_add_4_11/CO undriven or does not drive anything -
-     clipped.
-Signal data_counter_202_add_4_2/S0 undriven or does not drive anything -
-     clipped.
-Signal data_counter_202_add_4_2/CI undriven or does not drive anything -
-     clipped.
+Signal counter_236_248_add_4_1/S0 undriven or does not drive anything - clipped.
+     
+Signal counter_236_248_add_4_1/CO undriven or does not drive anything - clipped.
+     
+Signal counter_236_248_add_4_1/CI undriven or does not drive anything - clipped.
+     
+Signal frame_idx_238_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal frame_idx_238_add_4_1/CI undriven or does not drive anything - clipped.
+Signal read_addr_239_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal read_addr_239_add_4_1/CI undriven or does not drive anything - clipped.
+Signal frame_idx_238_add_4_11/S1 undriven or does not drive anything - clipped.
+Signal frame_idx_238_add_4_11/CO undriven or does not drive anything - clipped.
+Signal write_addr_237_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal write_addr_237_add_4_1/CI undriven or does not drive anything - clipped.
+Block i860_1_lut was optimized away.
 Block i1 was optimized away.
+Block i2 was optimized away.
+
+
+
+<A name="mrp_mem"></A><B><U><big>Memory Usage</big></U></B>
+
+/ram:
+    EBRs: 4
+    RAM SLICEs: 0
+    Logic SLICEs: 0
+    PFU Registers: 0
+    -Contains EBR ram_0_3_0:  TYPE= DP8KC,  Width_B= 5,  Depth_A= 1024,
+         Depth_B= 1024,  REGMODE_A= NOREG,  REGMODE_B= NOREG,  RESETMODE= ASYNC,
+         ASYNC_RESET_RELEASE= SYNC,  WRITEMODE_A= NORMAL,  WRITEMODE_B= NORMAL,
+
+         GSR= DISABLED,  MEM_INIT_FILE= INIT_ALL_0s,  MEM_LPC_FILE= ram.lpc
+    -Contains EBR ram_0_1_2:  TYPE= DP8KC,  Width_B= 9,  Depth_A= 1024,
+         Depth_B= 1024,  REGMODE_A= NOREG,  REGMODE_B= NOREG,  RESETMODE= ASYNC,
+         ASYNC_RESET_RELEASE= SYNC,  WRITEMODE_A= NORMAL,  WRITEMODE_B= NORMAL,
+         GSR= DISABLED,  MEM_INIT_FILE= INIT_ALL_0s,  MEM_LPC_FILE= ram.lpc
+    -Contains EBR ram_0_0_3:  TYPE= DP8KC,  Width_B= 9,  Depth_A= 1024,
+         Depth_B= 1024,  REGMODE_A= NOREG,  REGMODE_B= NOREG,  RESETMODE= ASYNC,
+         ASYNC_RESET_RELEASE= SYNC,  WRITEMODE_A= NORMAL,  WRITEMODE_B= NORMAL,
+         GSR= DISABLED,  MEM_INIT_FILE= INIT_ALL_0s,  MEM_LPC_FILE= ram.lpc
+    -Contains EBR ram_0_2_1:  TYPE= DP8KC,  Width_B= 9,  Depth_A= 1024,
+         Depth_B= 1024,  REGMODE_A= NOREG,  REGMODE_B= NOREG,  RESETMODE= ASYNC,
+         ASYNC_RESET_RELEASE= SYNC,  WRITEMODE_A= NORMAL,  WRITEMODE_B= NORMAL,
+         GSR= DISABLED,  MEM_INIT_FILE= INIT_ALL_0s,  MEM_LPC_FILE= ram.lpc
 
      
+
+
+
+<A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
+---------------
+
+Instance Name: ram/ram_0_3_0
+         Type: DP8KC
+Instance Name: ram/ram_0_1_2
+         Type: DP8KC
+Instance Name: ram/ram_0_0_3
+         Type: DP8KC
+Instance Name: ram/ram_0_2_1
+         Type: DP8KC
 
 
 
@@ -228,8 +338,15 @@ Block i1 was optimized away.
 
    Total CPU Time: 0 secs  
    Total REAL Time: 0 secs  
-   Peak Memory Usage: 160 MB
+   Peak Memory Usage: 161 MB
         
+
+
+
+
+
+
+
 
 
 

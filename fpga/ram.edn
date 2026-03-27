@@ -4,9 +4,9 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timestamp 2026 3 22 18 20 46)
+      (timestamp 2026 3 27 1 52 22)
       (program "SCUBA" (version "Diamond (64-bit) 3.14.0.75.2"))))
-      (comment "/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type bram -wp 10 -rp 1000 -addr_width 11 -data_width 32 -num_rows 2048 -cascade -1 -mem_init0 -writemode NORMAL ")
+      (comment "/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type bram -wp 10 -rp 0011 -rdata_width 32 -data_width 32 -num_rows 1024 -cascade -1 -mem_init0 ")
   (library ORCLIB
     (edifLevel 0)
     (technology
@@ -191,23 +191,29 @@
       (view view1
         (viewType NETLIST)
         (interface
-          (port Clock
+          (port (array (rename WrAddress "WrAddress(9:0)") 10)
             (direction INPUT))
-          (port ClockEn
+          (port (array (rename RdAddress "RdAddress(9:0)") 10)
             (direction INPUT))
-          (port Reset
+          (port (array (rename Data "Data(31:0)") 32)
             (direction INPUT))
           (port WE
             (direction INPUT))
-          (port (array (rename Address "Address(10:0)") 11)
+          (port RdClock
             (direction INPUT))
-          (port (array (rename Data "Data(31:0)") 32)
+          (port RdClockEn
+            (direction INPUT))
+          (port Reset
+            (direction INPUT))
+          (port WrClock
+            (direction INPUT))
+          (port WrClockEn
             (direction INPUT))
           (port (array (rename Q "Q(31:0)") 32)
             (direction OUTPUT)))
         (property NGD_DRC_MASK (integer 1))
         (contents
-          (instance ram_0_0_7
+          (instance ram_0_0_3
             (viewRef view1 
               (cellRef DP8KC))
             (property INIT_DATA
@@ -283,7 +289,7 @@
             (property INITVAL_00
               (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
             (property CSDECODE_B
-              (string "0b111"))
+              (string "0b000"))
             (property CSDECODE_A
               (string "0b000"))
             (property WRITEMODE_B
@@ -299,10 +305,10 @@
             (property REGMODE_A
               (string "NOREG"))
             (property DATA_WIDTH_B
-              (string "4"))
+              (string "9"))
             (property DATA_WIDTH_A
-              (string "4")))
-          (instance ram_0_1_6
+              (string "9")))
+          (instance ram_0_1_2
             (viewRef view1 
               (cellRef DP8KC))
             (property INIT_DATA
@@ -378,7 +384,7 @@
             (property INITVAL_00
               (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
             (property CSDECODE_B
-              (string "0b111"))
+              (string "0b000"))
             (property CSDECODE_A
               (string "0b000"))
             (property WRITEMODE_B
@@ -394,10 +400,10 @@
             (property REGMODE_A
               (string "NOREG"))
             (property DATA_WIDTH_B
-              (string "4"))
+              (string "9"))
             (property DATA_WIDTH_A
-              (string "4")))
-          (instance ram_0_2_5
+              (string "9")))
+          (instance ram_0_2_1
             (viewRef view1 
               (cellRef DP8KC))
             (property INIT_DATA
@@ -473,7 +479,7 @@
             (property INITVAL_00
               (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
             (property CSDECODE_B
-              (string "0b111"))
+              (string "0b000"))
             (property CSDECODE_A
               (string "0b000"))
             (property WRITEMODE_B
@@ -489,396 +495,16 @@
             (property REGMODE_A
               (string "NOREG"))
             (property DATA_WIDTH_B
-              (string "4"))
+              (string "9"))
             (property DATA_WIDTH_A
-              (string "4")))
-          (instance ram_0_3_4
-            (viewRef view1 
-              (cellRef DP8KC))
-            (property INIT_DATA
-              (string "STATIC"))
-            (property ASYNC_RESET_RELEASE
-              (string "SYNC"))
-            (property MEM_LPC_FILE
-              (string "ram.lpc"))
-            (property MEM_INIT_FILE
-              (string "INIT_ALL_0s"))
-            (property INITVAL_1F
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1E
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1D
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1C
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1B
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1A
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_19
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_18
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_17
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_16
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_15
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_14
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_13
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_12
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_11
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_10
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0F
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0E
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0D
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0C
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0B
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0A
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_09
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_08
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_07
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_06
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_05
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_04
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_03
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_02
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_01
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_00
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property CSDECODE_B
-              (string "0b111"))
-            (property CSDECODE_A
-              (string "0b000"))
-            (property WRITEMODE_B
-              (string "NORMAL"))
-            (property WRITEMODE_A
-              (string "NORMAL"))
-            (property GSR
-              (string "ENABLED"))
-            (property RESETMODE
-              (string "ASYNC"))
-            (property REGMODE_B
-              (string "NOREG"))
-            (property REGMODE_A
-              (string "NOREG"))
-            (property DATA_WIDTH_B
-              (string "4"))
-            (property DATA_WIDTH_A
-              (string "4")))
-          (instance ram_0_4_3
-            (viewRef view1 
-              (cellRef DP8KC))
-            (property INIT_DATA
-              (string "STATIC"))
-            (property ASYNC_RESET_RELEASE
-              (string "SYNC"))
-            (property MEM_LPC_FILE
-              (string "ram.lpc"))
-            (property MEM_INIT_FILE
-              (string "INIT_ALL_0s"))
-            (property INITVAL_1F
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1E
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1D
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1C
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1B
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1A
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_19
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_18
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_17
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_16
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_15
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_14
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_13
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_12
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_11
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_10
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0F
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0E
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0D
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0C
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0B
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0A
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_09
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_08
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_07
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_06
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_05
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_04
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_03
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_02
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_01
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_00
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property CSDECODE_B
-              (string "0b111"))
-            (property CSDECODE_A
-              (string "0b000"))
-            (property WRITEMODE_B
-              (string "NORMAL"))
-            (property WRITEMODE_A
-              (string "NORMAL"))
-            (property GSR
-              (string "ENABLED"))
-            (property RESETMODE
-              (string "ASYNC"))
-            (property REGMODE_B
-              (string "NOREG"))
-            (property REGMODE_A
-              (string "NOREG"))
-            (property DATA_WIDTH_B
-              (string "4"))
-            (property DATA_WIDTH_A
-              (string "4")))
-          (instance ram_0_5_2
-            (viewRef view1 
-              (cellRef DP8KC))
-            (property INIT_DATA
-              (string "STATIC"))
-            (property ASYNC_RESET_RELEASE
-              (string "SYNC"))
-            (property MEM_LPC_FILE
-              (string "ram.lpc"))
-            (property MEM_INIT_FILE
-              (string "INIT_ALL_0s"))
-            (property INITVAL_1F
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1E
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1D
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1C
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1B
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1A
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_19
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_18
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_17
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_16
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_15
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_14
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_13
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_12
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_11
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_10
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0F
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0E
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0D
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0C
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0B
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0A
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_09
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_08
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_07
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_06
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_05
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_04
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_03
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_02
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_01
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_00
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property CSDECODE_B
-              (string "0b111"))
-            (property CSDECODE_A
-              (string "0b000"))
-            (property WRITEMODE_B
-              (string "NORMAL"))
-            (property WRITEMODE_A
-              (string "NORMAL"))
-            (property GSR
-              (string "ENABLED"))
-            (property RESETMODE
-              (string "ASYNC"))
-            (property REGMODE_B
-              (string "NOREG"))
-            (property REGMODE_A
-              (string "NOREG"))
-            (property DATA_WIDTH_B
-              (string "4"))
-            (property DATA_WIDTH_A
-              (string "4")))
-          (instance ram_0_6_1
-            (viewRef view1 
-              (cellRef DP8KC))
-            (property INIT_DATA
-              (string "STATIC"))
-            (property ASYNC_RESET_RELEASE
-              (string "SYNC"))
-            (property MEM_LPC_FILE
-              (string "ram.lpc"))
-            (property MEM_INIT_FILE
-              (string "INIT_ALL_0s"))
-            (property INITVAL_1F
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1E
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1D
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1C
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1B
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_1A
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_19
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_18
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_17
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_16
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_15
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_14
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_13
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_12
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_11
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_10
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0F
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0E
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0D
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0C
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0B
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_0A
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_09
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_08
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_07
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_06
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_05
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_04
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_03
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_02
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_01
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property INITVAL_00
-              (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
-            (property CSDECODE_B
-              (string "0b111"))
-            (property CSDECODE_A
-              (string "0b000"))
-            (property WRITEMODE_B
-              (string "NORMAL"))
-            (property WRITEMODE_A
-              (string "NORMAL"))
-            (property GSR
-              (string "ENABLED"))
-            (property RESETMODE
-              (string "ASYNC"))
-            (property REGMODE_B
-              (string "NOREG"))
-            (property REGMODE_A
-              (string "NOREG"))
-            (property DATA_WIDTH_B
-              (string "4"))
-            (property DATA_WIDTH_A
-              (string "4")))
+              (string "9")))
           (instance scuba_vhi_inst
             (viewRef view1 
               (cellRef VHI)))
           (instance scuba_vlo_inst
             (viewRef view1 
               (cellRef VLO)))
-          (instance ram_0_7_0
+          (instance ram_0_3_0
             (viewRef view1 
               (cellRef DP8KC))
             (property INIT_DATA
@@ -954,7 +580,7 @@
             (property INITVAL_00
               (string "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000"))
             (property CSDECODE_B
-              (string "0b111"))
+              (string "0b000"))
             (property CSDECODE_A
               (string "0b000"))
             (property WRITEMODE_B
@@ -970,764 +596,557 @@
             (property REGMODE_A
               (string "NOREG"))
             (property DATA_WIDTH_B
-              (string "4"))
+              (string "9"))
             (property DATA_WIDTH_A
-              (string "4")))
+              (string "9")))
           (net scuba_vhi
             (joined
               (portRef Z (instanceRef scuba_vhi_inst))
-              (portRef OCEB (instanceRef ram_0_0_7))
-              (portRef CEB (instanceRef ram_0_0_7))
-              (portRef OCEB (instanceRef ram_0_1_6))
-              (portRef CEB (instanceRef ram_0_1_6))
-              (portRef OCEB (instanceRef ram_0_2_5))
-              (portRef CEB (instanceRef ram_0_2_5))
-              (portRef OCEB (instanceRef ram_0_3_4))
-              (portRef CEB (instanceRef ram_0_3_4))
-              (portRef OCEB (instanceRef ram_0_4_3))
-              (portRef CEB (instanceRef ram_0_4_3))
-              (portRef OCEB (instanceRef ram_0_5_2))
-              (portRef CEB (instanceRef ram_0_5_2))
-              (portRef OCEB (instanceRef ram_0_6_1))
-              (portRef CEB (instanceRef ram_0_6_1))
-              (portRef OCEB (instanceRef ram_0_7_0))
-              (portRef CEB (instanceRef ram_0_7_0))))
+              (portRef ADA0 (instanceRef ram_0_0_3))
+              (portRef ADA0 (instanceRef ram_0_1_2))
+              (portRef ADA0 (instanceRef ram_0_2_1))
+              (portRef ADA0 (instanceRef ram_0_3_0))))
           (net scuba_vlo
             (joined
               (portRef Z (instanceRef scuba_vlo_inst))
-              (portRef CSB2 (instanceRef ram_0_0_7))
-              (portRef CSA2 (instanceRef ram_0_0_7))
-              (portRef CSB1 (instanceRef ram_0_0_7))
-              (portRef CSA1 (instanceRef ram_0_0_7))
-              (portRef CSB0 (instanceRef ram_0_0_7))
-              (portRef CSA0 (instanceRef ram_0_0_7))
-              (portRef RSTB (instanceRef ram_0_0_7))
-              (portRef WEB (instanceRef ram_0_0_7))
-              (portRef CLKB (instanceRef ram_0_0_7))
-              (portRef ADB12 (instanceRef ram_0_0_7))
-              (portRef ADB11 (instanceRef ram_0_0_7))
-              (portRef ADB10 (instanceRef ram_0_0_7))
-              (portRef ADB9 (instanceRef ram_0_0_7))
-              (portRef ADB8 (instanceRef ram_0_0_7))
-              (portRef ADB7 (instanceRef ram_0_0_7))
-              (portRef ADB6 (instanceRef ram_0_0_7))
-              (portRef ADB5 (instanceRef ram_0_0_7))
-              (portRef ADB4 (instanceRef ram_0_0_7))
-              (portRef ADB3 (instanceRef ram_0_0_7))
-              (portRef ADB2 (instanceRef ram_0_0_7))
-              (portRef ADB1 (instanceRef ram_0_0_7))
-              (portRef ADA1 (instanceRef ram_0_0_7))
-              (portRef ADB0 (instanceRef ram_0_0_7))
-              (portRef ADA0 (instanceRef ram_0_0_7))
-              (portRef DIB8 (instanceRef ram_0_0_7))
-              (portRef DIA8 (instanceRef ram_0_0_7))
-              (portRef DIB7 (instanceRef ram_0_0_7))
-              (portRef DIA7 (instanceRef ram_0_0_7))
-              (portRef DIB6 (instanceRef ram_0_0_7))
-              (portRef DIA6 (instanceRef ram_0_0_7))
-              (portRef DIB5 (instanceRef ram_0_0_7))
-              (portRef DIA5 (instanceRef ram_0_0_7))
-              (portRef DIB4 (instanceRef ram_0_0_7))
-              (portRef DIA4 (instanceRef ram_0_0_7))
-              (portRef DIB3 (instanceRef ram_0_0_7))
-              (portRef DIB2 (instanceRef ram_0_0_7))
-              (portRef DIB1 (instanceRef ram_0_0_7))
-              (portRef DIB0 (instanceRef ram_0_0_7))
-              (portRef CSB2 (instanceRef ram_0_1_6))
-              (portRef CSA2 (instanceRef ram_0_1_6))
-              (portRef CSB1 (instanceRef ram_0_1_6))
-              (portRef CSA1 (instanceRef ram_0_1_6))
-              (portRef CSB0 (instanceRef ram_0_1_6))
-              (portRef CSA0 (instanceRef ram_0_1_6))
-              (portRef RSTB (instanceRef ram_0_1_6))
-              (portRef WEB (instanceRef ram_0_1_6))
-              (portRef CLKB (instanceRef ram_0_1_6))
-              (portRef ADB12 (instanceRef ram_0_1_6))
-              (portRef ADB11 (instanceRef ram_0_1_6))
-              (portRef ADB10 (instanceRef ram_0_1_6))
-              (portRef ADB9 (instanceRef ram_0_1_6))
-              (portRef ADB8 (instanceRef ram_0_1_6))
-              (portRef ADB7 (instanceRef ram_0_1_6))
-              (portRef ADB6 (instanceRef ram_0_1_6))
-              (portRef ADB5 (instanceRef ram_0_1_6))
-              (portRef ADB4 (instanceRef ram_0_1_6))
-              (portRef ADB3 (instanceRef ram_0_1_6))
-              (portRef ADB2 (instanceRef ram_0_1_6))
-              (portRef ADB1 (instanceRef ram_0_1_6))
-              (portRef ADA1 (instanceRef ram_0_1_6))
-              (portRef ADB0 (instanceRef ram_0_1_6))
-              (portRef ADA0 (instanceRef ram_0_1_6))
-              (portRef DIB8 (instanceRef ram_0_1_6))
-              (portRef DIA8 (instanceRef ram_0_1_6))
-              (portRef DIB7 (instanceRef ram_0_1_6))
-              (portRef DIA7 (instanceRef ram_0_1_6))
-              (portRef DIB6 (instanceRef ram_0_1_6))
-              (portRef DIA6 (instanceRef ram_0_1_6))
-              (portRef DIB5 (instanceRef ram_0_1_6))
-              (portRef DIA5 (instanceRef ram_0_1_6))
-              (portRef DIB4 (instanceRef ram_0_1_6))
-              (portRef DIA4 (instanceRef ram_0_1_6))
-              (portRef DIB3 (instanceRef ram_0_1_6))
-              (portRef DIB2 (instanceRef ram_0_1_6))
-              (portRef DIB1 (instanceRef ram_0_1_6))
-              (portRef DIB0 (instanceRef ram_0_1_6))
-              (portRef CSB2 (instanceRef ram_0_2_5))
-              (portRef CSA2 (instanceRef ram_0_2_5))
-              (portRef CSB1 (instanceRef ram_0_2_5))
-              (portRef CSA1 (instanceRef ram_0_2_5))
-              (portRef CSB0 (instanceRef ram_0_2_5))
-              (portRef CSA0 (instanceRef ram_0_2_5))
-              (portRef RSTB (instanceRef ram_0_2_5))
-              (portRef WEB (instanceRef ram_0_2_5))
-              (portRef CLKB (instanceRef ram_0_2_5))
-              (portRef ADB12 (instanceRef ram_0_2_5))
-              (portRef ADB11 (instanceRef ram_0_2_5))
-              (portRef ADB10 (instanceRef ram_0_2_5))
-              (portRef ADB9 (instanceRef ram_0_2_5))
-              (portRef ADB8 (instanceRef ram_0_2_5))
-              (portRef ADB7 (instanceRef ram_0_2_5))
-              (portRef ADB6 (instanceRef ram_0_2_5))
-              (portRef ADB5 (instanceRef ram_0_2_5))
-              (portRef ADB4 (instanceRef ram_0_2_5))
-              (portRef ADB3 (instanceRef ram_0_2_5))
-              (portRef ADB2 (instanceRef ram_0_2_5))
-              (portRef ADB1 (instanceRef ram_0_2_5))
-              (portRef ADA1 (instanceRef ram_0_2_5))
-              (portRef ADB0 (instanceRef ram_0_2_5))
-              (portRef ADA0 (instanceRef ram_0_2_5))
-              (portRef DIB8 (instanceRef ram_0_2_5))
-              (portRef DIA8 (instanceRef ram_0_2_5))
-              (portRef DIB7 (instanceRef ram_0_2_5))
-              (portRef DIA7 (instanceRef ram_0_2_5))
-              (portRef DIB6 (instanceRef ram_0_2_5))
-              (portRef DIA6 (instanceRef ram_0_2_5))
-              (portRef DIB5 (instanceRef ram_0_2_5))
-              (portRef DIA5 (instanceRef ram_0_2_5))
-              (portRef DIB4 (instanceRef ram_0_2_5))
-              (portRef DIA4 (instanceRef ram_0_2_5))
-              (portRef DIB3 (instanceRef ram_0_2_5))
-              (portRef DIB2 (instanceRef ram_0_2_5))
-              (portRef DIB1 (instanceRef ram_0_2_5))
-              (portRef DIB0 (instanceRef ram_0_2_5))
-              (portRef CSB2 (instanceRef ram_0_3_4))
-              (portRef CSA2 (instanceRef ram_0_3_4))
-              (portRef CSB1 (instanceRef ram_0_3_4))
-              (portRef CSA1 (instanceRef ram_0_3_4))
-              (portRef CSB0 (instanceRef ram_0_3_4))
-              (portRef CSA0 (instanceRef ram_0_3_4))
-              (portRef RSTB (instanceRef ram_0_3_4))
-              (portRef WEB (instanceRef ram_0_3_4))
-              (portRef CLKB (instanceRef ram_0_3_4))
-              (portRef ADB12 (instanceRef ram_0_3_4))
-              (portRef ADB11 (instanceRef ram_0_3_4))
-              (portRef ADB10 (instanceRef ram_0_3_4))
-              (portRef ADB9 (instanceRef ram_0_3_4))
-              (portRef ADB8 (instanceRef ram_0_3_4))
-              (portRef ADB7 (instanceRef ram_0_3_4))
-              (portRef ADB6 (instanceRef ram_0_3_4))
-              (portRef ADB5 (instanceRef ram_0_3_4))
-              (portRef ADB4 (instanceRef ram_0_3_4))
-              (portRef ADB3 (instanceRef ram_0_3_4))
-              (portRef ADB2 (instanceRef ram_0_3_4))
-              (portRef ADB1 (instanceRef ram_0_3_4))
-              (portRef ADA1 (instanceRef ram_0_3_4))
-              (portRef ADB0 (instanceRef ram_0_3_4))
-              (portRef ADA0 (instanceRef ram_0_3_4))
-              (portRef DIB8 (instanceRef ram_0_3_4))
-              (portRef DIA8 (instanceRef ram_0_3_4))
-              (portRef DIB7 (instanceRef ram_0_3_4))
-              (portRef DIA7 (instanceRef ram_0_3_4))
-              (portRef DIB6 (instanceRef ram_0_3_4))
-              (portRef DIA6 (instanceRef ram_0_3_4))
-              (portRef DIB5 (instanceRef ram_0_3_4))
-              (portRef DIA5 (instanceRef ram_0_3_4))
-              (portRef DIB4 (instanceRef ram_0_3_4))
-              (portRef DIA4 (instanceRef ram_0_3_4))
-              (portRef DIB3 (instanceRef ram_0_3_4))
-              (portRef DIB2 (instanceRef ram_0_3_4))
-              (portRef DIB1 (instanceRef ram_0_3_4))
-              (portRef DIB0 (instanceRef ram_0_3_4))
-              (portRef CSB2 (instanceRef ram_0_4_3))
-              (portRef CSA2 (instanceRef ram_0_4_3))
-              (portRef CSB1 (instanceRef ram_0_4_3))
-              (portRef CSA1 (instanceRef ram_0_4_3))
-              (portRef CSB0 (instanceRef ram_0_4_3))
-              (portRef CSA0 (instanceRef ram_0_4_3))
-              (portRef RSTB (instanceRef ram_0_4_3))
-              (portRef WEB (instanceRef ram_0_4_3))
-              (portRef CLKB (instanceRef ram_0_4_3))
-              (portRef ADB12 (instanceRef ram_0_4_3))
-              (portRef ADB11 (instanceRef ram_0_4_3))
-              (portRef ADB10 (instanceRef ram_0_4_3))
-              (portRef ADB9 (instanceRef ram_0_4_3))
-              (portRef ADB8 (instanceRef ram_0_4_3))
-              (portRef ADB7 (instanceRef ram_0_4_3))
-              (portRef ADB6 (instanceRef ram_0_4_3))
-              (portRef ADB5 (instanceRef ram_0_4_3))
-              (portRef ADB4 (instanceRef ram_0_4_3))
-              (portRef ADB3 (instanceRef ram_0_4_3))
-              (portRef ADB2 (instanceRef ram_0_4_3))
-              (portRef ADB1 (instanceRef ram_0_4_3))
-              (portRef ADA1 (instanceRef ram_0_4_3))
-              (portRef ADB0 (instanceRef ram_0_4_3))
-              (portRef ADA0 (instanceRef ram_0_4_3))
-              (portRef DIB8 (instanceRef ram_0_4_3))
-              (portRef DIA8 (instanceRef ram_0_4_3))
-              (portRef DIB7 (instanceRef ram_0_4_3))
-              (portRef DIA7 (instanceRef ram_0_4_3))
-              (portRef DIB6 (instanceRef ram_0_4_3))
-              (portRef DIA6 (instanceRef ram_0_4_3))
-              (portRef DIB5 (instanceRef ram_0_4_3))
-              (portRef DIA5 (instanceRef ram_0_4_3))
-              (portRef DIB4 (instanceRef ram_0_4_3))
-              (portRef DIA4 (instanceRef ram_0_4_3))
-              (portRef DIB3 (instanceRef ram_0_4_3))
-              (portRef DIB2 (instanceRef ram_0_4_3))
-              (portRef DIB1 (instanceRef ram_0_4_3))
-              (portRef DIB0 (instanceRef ram_0_4_3))
-              (portRef CSB2 (instanceRef ram_0_5_2))
-              (portRef CSA2 (instanceRef ram_0_5_2))
-              (portRef CSB1 (instanceRef ram_0_5_2))
-              (portRef CSA1 (instanceRef ram_0_5_2))
-              (portRef CSB0 (instanceRef ram_0_5_2))
-              (portRef CSA0 (instanceRef ram_0_5_2))
-              (portRef RSTB (instanceRef ram_0_5_2))
-              (portRef WEB (instanceRef ram_0_5_2))
-              (portRef CLKB (instanceRef ram_0_5_2))
-              (portRef ADB12 (instanceRef ram_0_5_2))
-              (portRef ADB11 (instanceRef ram_0_5_2))
-              (portRef ADB10 (instanceRef ram_0_5_2))
-              (portRef ADB9 (instanceRef ram_0_5_2))
-              (portRef ADB8 (instanceRef ram_0_5_2))
-              (portRef ADB7 (instanceRef ram_0_5_2))
-              (portRef ADB6 (instanceRef ram_0_5_2))
-              (portRef ADB5 (instanceRef ram_0_5_2))
-              (portRef ADB4 (instanceRef ram_0_5_2))
-              (portRef ADB3 (instanceRef ram_0_5_2))
-              (portRef ADB2 (instanceRef ram_0_5_2))
-              (portRef ADB1 (instanceRef ram_0_5_2))
-              (portRef ADA1 (instanceRef ram_0_5_2))
-              (portRef ADB0 (instanceRef ram_0_5_2))
-              (portRef ADA0 (instanceRef ram_0_5_2))
-              (portRef DIB8 (instanceRef ram_0_5_2))
-              (portRef DIA8 (instanceRef ram_0_5_2))
-              (portRef DIB7 (instanceRef ram_0_5_2))
-              (portRef DIA7 (instanceRef ram_0_5_2))
-              (portRef DIB6 (instanceRef ram_0_5_2))
-              (portRef DIA6 (instanceRef ram_0_5_2))
-              (portRef DIB5 (instanceRef ram_0_5_2))
-              (portRef DIA5 (instanceRef ram_0_5_2))
-              (portRef DIB4 (instanceRef ram_0_5_2))
-              (portRef DIA4 (instanceRef ram_0_5_2))
-              (portRef DIB3 (instanceRef ram_0_5_2))
-              (portRef DIB2 (instanceRef ram_0_5_2))
-              (portRef DIB1 (instanceRef ram_0_5_2))
-              (portRef DIB0 (instanceRef ram_0_5_2))
-              (portRef CSB2 (instanceRef ram_0_6_1))
-              (portRef CSA2 (instanceRef ram_0_6_1))
-              (portRef CSB1 (instanceRef ram_0_6_1))
-              (portRef CSA1 (instanceRef ram_0_6_1))
-              (portRef CSB0 (instanceRef ram_0_6_1))
-              (portRef CSA0 (instanceRef ram_0_6_1))
-              (portRef RSTB (instanceRef ram_0_6_1))
-              (portRef WEB (instanceRef ram_0_6_1))
-              (portRef CLKB (instanceRef ram_0_6_1))
-              (portRef ADB12 (instanceRef ram_0_6_1))
-              (portRef ADB11 (instanceRef ram_0_6_1))
-              (portRef ADB10 (instanceRef ram_0_6_1))
-              (portRef ADB9 (instanceRef ram_0_6_1))
-              (portRef ADB8 (instanceRef ram_0_6_1))
-              (portRef ADB7 (instanceRef ram_0_6_1))
-              (portRef ADB6 (instanceRef ram_0_6_1))
-              (portRef ADB5 (instanceRef ram_0_6_1))
-              (portRef ADB4 (instanceRef ram_0_6_1))
-              (portRef ADB3 (instanceRef ram_0_6_1))
-              (portRef ADB2 (instanceRef ram_0_6_1))
-              (portRef ADB1 (instanceRef ram_0_6_1))
-              (portRef ADA1 (instanceRef ram_0_6_1))
-              (portRef ADB0 (instanceRef ram_0_6_1))
-              (portRef ADA0 (instanceRef ram_0_6_1))
-              (portRef DIB8 (instanceRef ram_0_6_1))
-              (portRef DIA8 (instanceRef ram_0_6_1))
-              (portRef DIB7 (instanceRef ram_0_6_1))
-              (portRef DIA7 (instanceRef ram_0_6_1))
-              (portRef DIB6 (instanceRef ram_0_6_1))
-              (portRef DIA6 (instanceRef ram_0_6_1))
-              (portRef DIB5 (instanceRef ram_0_6_1))
-              (portRef DIA5 (instanceRef ram_0_6_1))
-              (portRef DIB4 (instanceRef ram_0_6_1))
-              (portRef DIA4 (instanceRef ram_0_6_1))
-              (portRef DIB3 (instanceRef ram_0_6_1))
-              (portRef DIB2 (instanceRef ram_0_6_1))
-              (portRef DIB1 (instanceRef ram_0_6_1))
-              (portRef DIB0 (instanceRef ram_0_6_1))
-              (portRef CSB2 (instanceRef ram_0_7_0))
-              (portRef CSA2 (instanceRef ram_0_7_0))
-              (portRef CSB1 (instanceRef ram_0_7_0))
-              (portRef CSA1 (instanceRef ram_0_7_0))
-              (portRef CSB0 (instanceRef ram_0_7_0))
-              (portRef CSA0 (instanceRef ram_0_7_0))
-              (portRef RSTB (instanceRef ram_0_7_0))
-              (portRef WEB (instanceRef ram_0_7_0))
-              (portRef CLKB (instanceRef ram_0_7_0))
-              (portRef ADB12 (instanceRef ram_0_7_0))
-              (portRef ADB11 (instanceRef ram_0_7_0))
-              (portRef ADB10 (instanceRef ram_0_7_0))
-              (portRef ADB9 (instanceRef ram_0_7_0))
-              (portRef ADB8 (instanceRef ram_0_7_0))
-              (portRef ADB7 (instanceRef ram_0_7_0))
-              (portRef ADB6 (instanceRef ram_0_7_0))
-              (portRef ADB5 (instanceRef ram_0_7_0))
-              (portRef ADB4 (instanceRef ram_0_7_0))
-              (portRef ADB3 (instanceRef ram_0_7_0))
-              (portRef ADB2 (instanceRef ram_0_7_0))
-              (portRef ADB1 (instanceRef ram_0_7_0))
-              (portRef ADA1 (instanceRef ram_0_7_0))
-              (portRef ADB0 (instanceRef ram_0_7_0))
-              (portRef ADA0 (instanceRef ram_0_7_0))
-              (portRef DIB8 (instanceRef ram_0_7_0))
-              (portRef DIA8 (instanceRef ram_0_7_0))
-              (portRef DIB7 (instanceRef ram_0_7_0))
-              (portRef DIA7 (instanceRef ram_0_7_0))
-              (portRef DIB6 (instanceRef ram_0_7_0))
-              (portRef DIA6 (instanceRef ram_0_7_0))
-              (portRef DIB5 (instanceRef ram_0_7_0))
-              (portRef DIA5 (instanceRef ram_0_7_0))
-              (portRef DIB4 (instanceRef ram_0_7_0))
-              (portRef DIA4 (instanceRef ram_0_7_0))
-              (portRef DIB3 (instanceRef ram_0_7_0))
-              (portRef DIB2 (instanceRef ram_0_7_0))
-              (portRef DIB1 (instanceRef ram_0_7_0))
-              (portRef DIB0 (instanceRef ram_0_7_0))))
+              (portRef CSB2 (instanceRef ram_0_0_3))
+              (portRef CSA2 (instanceRef ram_0_0_3))
+              (portRef CSB1 (instanceRef ram_0_0_3))
+              (portRef CSA1 (instanceRef ram_0_0_3))
+              (portRef CSB0 (instanceRef ram_0_0_3))
+              (portRef CSA0 (instanceRef ram_0_0_3))
+              (portRef WEB (instanceRef ram_0_0_3))
+              (portRef ADB2 (instanceRef ram_0_0_3))
+              (portRef ADA2 (instanceRef ram_0_0_3))
+              (portRef ADB1 (instanceRef ram_0_0_3))
+              (portRef ADA1 (instanceRef ram_0_0_3))
+              (portRef ADB0 (instanceRef ram_0_0_3))
+              (portRef DIB8 (instanceRef ram_0_0_3))
+              (portRef DIB7 (instanceRef ram_0_0_3))
+              (portRef DIB6 (instanceRef ram_0_0_3))
+              (portRef DIB5 (instanceRef ram_0_0_3))
+              (portRef DIB4 (instanceRef ram_0_0_3))
+              (portRef DIB3 (instanceRef ram_0_0_3))
+              (portRef DIB2 (instanceRef ram_0_0_3))
+              (portRef DIB1 (instanceRef ram_0_0_3))
+              (portRef DIB0 (instanceRef ram_0_0_3))
+              (portRef CSB2 (instanceRef ram_0_1_2))
+              (portRef CSA2 (instanceRef ram_0_1_2))
+              (portRef CSB1 (instanceRef ram_0_1_2))
+              (portRef CSA1 (instanceRef ram_0_1_2))
+              (portRef CSB0 (instanceRef ram_0_1_2))
+              (portRef CSA0 (instanceRef ram_0_1_2))
+              (portRef WEB (instanceRef ram_0_1_2))
+              (portRef ADB2 (instanceRef ram_0_1_2))
+              (portRef ADA2 (instanceRef ram_0_1_2))
+              (portRef ADB1 (instanceRef ram_0_1_2))
+              (portRef ADA1 (instanceRef ram_0_1_2))
+              (portRef ADB0 (instanceRef ram_0_1_2))
+              (portRef DIB8 (instanceRef ram_0_1_2))
+              (portRef DIB7 (instanceRef ram_0_1_2))
+              (portRef DIB6 (instanceRef ram_0_1_2))
+              (portRef DIB5 (instanceRef ram_0_1_2))
+              (portRef DIB4 (instanceRef ram_0_1_2))
+              (portRef DIB3 (instanceRef ram_0_1_2))
+              (portRef DIB2 (instanceRef ram_0_1_2))
+              (portRef DIB1 (instanceRef ram_0_1_2))
+              (portRef DIB0 (instanceRef ram_0_1_2))
+              (portRef CSB2 (instanceRef ram_0_2_1))
+              (portRef CSA2 (instanceRef ram_0_2_1))
+              (portRef CSB1 (instanceRef ram_0_2_1))
+              (portRef CSA1 (instanceRef ram_0_2_1))
+              (portRef CSB0 (instanceRef ram_0_2_1))
+              (portRef CSA0 (instanceRef ram_0_2_1))
+              (portRef WEB (instanceRef ram_0_2_1))
+              (portRef ADB2 (instanceRef ram_0_2_1))
+              (portRef ADA2 (instanceRef ram_0_2_1))
+              (portRef ADB1 (instanceRef ram_0_2_1))
+              (portRef ADA1 (instanceRef ram_0_2_1))
+              (portRef ADB0 (instanceRef ram_0_2_1))
+              (portRef DIB8 (instanceRef ram_0_2_1))
+              (portRef DIB7 (instanceRef ram_0_2_1))
+              (portRef DIB6 (instanceRef ram_0_2_1))
+              (portRef DIB5 (instanceRef ram_0_2_1))
+              (portRef DIB4 (instanceRef ram_0_2_1))
+              (portRef DIB3 (instanceRef ram_0_2_1))
+              (portRef DIB2 (instanceRef ram_0_2_1))
+              (portRef DIB1 (instanceRef ram_0_2_1))
+              (portRef DIB0 (instanceRef ram_0_2_1))
+              (portRef CSB2 (instanceRef ram_0_3_0))
+              (portRef CSA2 (instanceRef ram_0_3_0))
+              (portRef CSB1 (instanceRef ram_0_3_0))
+              (portRef CSA1 (instanceRef ram_0_3_0))
+              (portRef CSB0 (instanceRef ram_0_3_0))
+              (portRef CSA0 (instanceRef ram_0_3_0))
+              (portRef WEB (instanceRef ram_0_3_0))
+              (portRef ADB2 (instanceRef ram_0_3_0))
+              (portRef ADA2 (instanceRef ram_0_3_0))
+              (portRef ADB1 (instanceRef ram_0_3_0))
+              (portRef ADA1 (instanceRef ram_0_3_0))
+              (portRef ADB0 (instanceRef ram_0_3_0))
+              (portRef DIB8 (instanceRef ram_0_3_0))
+              (portRef DIA8 (instanceRef ram_0_3_0))
+              (portRef DIB7 (instanceRef ram_0_3_0))
+              (portRef DIA7 (instanceRef ram_0_3_0))
+              (portRef DIB6 (instanceRef ram_0_3_0))
+              (portRef DIA6 (instanceRef ram_0_3_0))
+              (portRef DIB5 (instanceRef ram_0_3_0))
+              (portRef DIA5 (instanceRef ram_0_3_0))
+              (portRef DIB4 (instanceRef ram_0_3_0))
+              (portRef DIB3 (instanceRef ram_0_3_0))
+              (portRef DIB2 (instanceRef ram_0_3_0))
+              (portRef DIB1 (instanceRef ram_0_3_0))
+              (portRef DIB0 (instanceRef ram_0_3_0))))
           (net dataout31
             (joined
               (portRef (member Q 0))
-              (portRef DOA3 (instanceRef ram_0_7_0))))
+              (portRef DOB4 (instanceRef ram_0_3_0))))
           (net dataout30
             (joined
               (portRef (member Q 1))
-              (portRef DOA2 (instanceRef ram_0_7_0))))
+              (portRef DOB3 (instanceRef ram_0_3_0))))
           (net dataout29
             (joined
               (portRef (member Q 2))
-              (portRef DOA1 (instanceRef ram_0_7_0))))
+              (portRef DOB2 (instanceRef ram_0_3_0))))
           (net dataout28
             (joined
               (portRef (member Q 3))
-              (portRef DOA0 (instanceRef ram_0_7_0))))
+              (portRef DOB1 (instanceRef ram_0_3_0))))
           (net dataout27
             (joined
               (portRef (member Q 4))
-              (portRef DOA3 (instanceRef ram_0_6_1))))
+              (portRef DOB0 (instanceRef ram_0_3_0))))
           (net dataout26
             (joined
               (portRef (member Q 5))
-              (portRef DOA2 (instanceRef ram_0_6_1))))
+              (portRef DOB8 (instanceRef ram_0_2_1))))
           (net dataout25
             (joined
               (portRef (member Q 6))
-              (portRef DOA1 (instanceRef ram_0_6_1))))
+              (portRef DOB7 (instanceRef ram_0_2_1))))
           (net dataout24
             (joined
               (portRef (member Q 7))
-              (portRef DOA0 (instanceRef ram_0_6_1))))
+              (portRef DOB6 (instanceRef ram_0_2_1))))
           (net dataout23
             (joined
               (portRef (member Q 8))
-              (portRef DOA3 (instanceRef ram_0_5_2))))
+              (portRef DOB5 (instanceRef ram_0_2_1))))
           (net dataout22
             (joined
               (portRef (member Q 9))
-              (portRef DOA2 (instanceRef ram_0_5_2))))
+              (portRef DOB4 (instanceRef ram_0_2_1))))
           (net dataout21
             (joined
               (portRef (member Q 10))
-              (portRef DOA1 (instanceRef ram_0_5_2))))
+              (portRef DOB3 (instanceRef ram_0_2_1))))
           (net dataout20
             (joined
               (portRef (member Q 11))
-              (portRef DOA0 (instanceRef ram_0_5_2))))
+              (portRef DOB2 (instanceRef ram_0_2_1))))
           (net dataout19
             (joined
               (portRef (member Q 12))
-              (portRef DOA3 (instanceRef ram_0_4_3))))
+              (portRef DOB1 (instanceRef ram_0_2_1))))
           (net dataout18
             (joined
               (portRef (member Q 13))
-              (portRef DOA2 (instanceRef ram_0_4_3))))
+              (portRef DOB0 (instanceRef ram_0_2_1))))
           (net dataout17
             (joined
               (portRef (member Q 14))
-              (portRef DOA1 (instanceRef ram_0_4_3))))
+              (portRef DOB8 (instanceRef ram_0_1_2))))
           (net dataout16
             (joined
               (portRef (member Q 15))
-              (portRef DOA0 (instanceRef ram_0_4_3))))
+              (portRef DOB7 (instanceRef ram_0_1_2))))
           (net dataout15
             (joined
               (portRef (member Q 16))
-              (portRef DOA3 (instanceRef ram_0_3_4))))
+              (portRef DOB6 (instanceRef ram_0_1_2))))
           (net dataout14
             (joined
               (portRef (member Q 17))
-              (portRef DOA2 (instanceRef ram_0_3_4))))
+              (portRef DOB5 (instanceRef ram_0_1_2))))
           (net dataout13
             (joined
               (portRef (member Q 18))
-              (portRef DOA1 (instanceRef ram_0_3_4))))
+              (portRef DOB4 (instanceRef ram_0_1_2))))
           (net dataout12
             (joined
               (portRef (member Q 19))
-              (portRef DOA0 (instanceRef ram_0_3_4))))
+              (portRef DOB3 (instanceRef ram_0_1_2))))
           (net dataout11
             (joined
               (portRef (member Q 20))
-              (portRef DOA3 (instanceRef ram_0_2_5))))
+              (portRef DOB2 (instanceRef ram_0_1_2))))
           (net dataout10
             (joined
               (portRef (member Q 21))
-              (portRef DOA2 (instanceRef ram_0_2_5))))
+              (portRef DOB1 (instanceRef ram_0_1_2))))
           (net dataout9
             (joined
               (portRef (member Q 22))
-              (portRef DOA1 (instanceRef ram_0_2_5))))
+              (portRef DOB0 (instanceRef ram_0_1_2))))
           (net dataout8
             (joined
               (portRef (member Q 23))
-              (portRef DOA0 (instanceRef ram_0_2_5))))
+              (portRef DOB8 (instanceRef ram_0_0_3))))
           (net dataout7
             (joined
               (portRef (member Q 24))
-              (portRef DOA3 (instanceRef ram_0_1_6))))
+              (portRef DOB7 (instanceRef ram_0_0_3))))
           (net dataout6
             (joined
               (portRef (member Q 25))
-              (portRef DOA2 (instanceRef ram_0_1_6))))
+              (portRef DOB6 (instanceRef ram_0_0_3))))
           (net dataout5
             (joined
               (portRef (member Q 26))
-              (portRef DOA1 (instanceRef ram_0_1_6))))
+              (portRef DOB5 (instanceRef ram_0_0_3))))
           (net dataout4
             (joined
               (portRef (member Q 27))
-              (portRef DOA0 (instanceRef ram_0_1_6))))
+              (portRef DOB4 (instanceRef ram_0_0_3))))
           (net dataout3
             (joined
               (portRef (member Q 28))
-              (portRef DOA3 (instanceRef ram_0_0_7))))
+              (portRef DOB3 (instanceRef ram_0_0_3))))
           (net dataout2
             (joined
               (portRef (member Q 29))
-              (portRef DOA2 (instanceRef ram_0_0_7))))
+              (portRef DOB2 (instanceRef ram_0_0_3))))
           (net dataout1
             (joined
               (portRef (member Q 30))
-              (portRef DOA1 (instanceRef ram_0_0_7))))
+              (portRef DOB1 (instanceRef ram_0_0_3))))
           (net dataout0
             (joined
               (portRef (member Q 31))
-              (portRef DOA0 (instanceRef ram_0_0_7))))
-          (net datain31
+              (portRef DOB0 (instanceRef ram_0_0_3))))
+          (net WrClockEn
             (joined
-              (portRef (member Data 0))
-              (portRef DIA3 (instanceRef ram_0_7_0))))
-          (net datain30
+              (portRef WrClockEn)
+              (portRef OCEA (instanceRef ram_0_0_3))
+              (portRef CEA (instanceRef ram_0_0_3))
+              (portRef OCEA (instanceRef ram_0_1_2))
+              (portRef CEA (instanceRef ram_0_1_2))
+              (portRef OCEA (instanceRef ram_0_2_1))
+              (portRef CEA (instanceRef ram_0_2_1))
+              (portRef OCEA (instanceRef ram_0_3_0))
+              (portRef CEA (instanceRef ram_0_3_0))))
+          (net clk
             (joined
-              (portRef (member Data 1))
-              (portRef DIA2 (instanceRef ram_0_7_0))))
-          (net datain29
-            (joined
-              (portRef (member Data 2))
-              (portRef DIA1 (instanceRef ram_0_7_0))))
-          (net datain28
-            (joined
-              (portRef (member Data 3))
-              (portRef DIA0 (instanceRef ram_0_7_0))))
-          (net datain27
-            (joined
-              (portRef (member Data 4))
-              (portRef DIA3 (instanceRef ram_0_6_1))))
-          (net datain26
-            (joined
-              (portRef (member Data 5))
-              (portRef DIA2 (instanceRef ram_0_6_1))))
-          (net datain25
-            (joined
-              (portRef (member Data 6))
-              (portRef DIA1 (instanceRef ram_0_6_1))))
-          (net datain24
-            (joined
-              (portRef (member Data 7))
-              (portRef DIA0 (instanceRef ram_0_6_1))))
-          (net datain23
-            (joined
-              (portRef (member Data 8))
-              (portRef DIA3 (instanceRef ram_0_5_2))))
-          (net datain22
-            (joined
-              (portRef (member Data 9))
-              (portRef DIA2 (instanceRef ram_0_5_2))))
-          (net datain21
-            (joined
-              (portRef (member Data 10))
-              (portRef DIA1 (instanceRef ram_0_5_2))))
-          (net datain20
-            (joined
-              (portRef (member Data 11))
-              (portRef DIA0 (instanceRef ram_0_5_2))))
-          (net datain19
-            (joined
-              (portRef (member Data 12))
-              (portRef DIA3 (instanceRef ram_0_4_3))))
-          (net datain18
-            (joined
-              (portRef (member Data 13))
-              (portRef DIA2 (instanceRef ram_0_4_3))))
-          (net datain17
-            (joined
-              (portRef (member Data 14))
-              (portRef DIA1 (instanceRef ram_0_4_3))))
-          (net datain16
-            (joined
-              (portRef (member Data 15))
-              (portRef DIA0 (instanceRef ram_0_4_3))))
-          (net datain15
-            (joined
-              (portRef (member Data 16))
-              (portRef DIA3 (instanceRef ram_0_3_4))))
-          (net datain14
-            (joined
-              (portRef (member Data 17))
-              (portRef DIA2 (instanceRef ram_0_3_4))))
-          (net datain13
-            (joined
-              (portRef (member Data 18))
-              (portRef DIA1 (instanceRef ram_0_3_4))))
-          (net datain12
-            (joined
-              (portRef (member Data 19))
-              (portRef DIA0 (instanceRef ram_0_3_4))))
-          (net datain11
-            (joined
-              (portRef (member Data 20))
-              (portRef DIA3 (instanceRef ram_0_2_5))))
-          (net datain10
-            (joined
-              (portRef (member Data 21))
-              (portRef DIA2 (instanceRef ram_0_2_5))))
-          (net datain9
-            (joined
-              (portRef (member Data 22))
-              (portRef DIA1 (instanceRef ram_0_2_5))))
-          (net datain8
-            (joined
-              (portRef (member Data 23))
-              (portRef DIA0 (instanceRef ram_0_2_5))))
-          (net datain7
-            (joined
-              (portRef (member Data 24))
-              (portRef DIA3 (instanceRef ram_0_1_6))))
-          (net datain6
-            (joined
-              (portRef (member Data 25))
-              (portRef DIA2 (instanceRef ram_0_1_6))))
-          (net datain5
-            (joined
-              (portRef (member Data 26))
-              (portRef DIA1 (instanceRef ram_0_1_6))))
-          (net datain4
-            (joined
-              (portRef (member Data 27))
-              (portRef DIA0 (instanceRef ram_0_1_6))))
-          (net datain3
-            (joined
-              (portRef (member Data 28))
-              (portRef DIA3 (instanceRef ram_0_0_7))))
-          (net datain2
-            (joined
-              (portRef (member Data 29))
-              (portRef DIA2 (instanceRef ram_0_0_7))))
-          (net datain1
-            (joined
-              (portRef (member Data 30))
-              (portRef DIA1 (instanceRef ram_0_0_7))))
-          (net datain0
-            (joined
-              (portRef (member Data 31))
-              (portRef DIA0 (instanceRef ram_0_0_7))))
-          (net addr10
-            (joined
-              (portRef (member Address 0))
-              (portRef ADA12 (instanceRef ram_0_0_7))
-              (portRef ADA12 (instanceRef ram_0_1_6))
-              (portRef ADA12 (instanceRef ram_0_2_5))
-              (portRef ADA12 (instanceRef ram_0_3_4))
-              (portRef ADA12 (instanceRef ram_0_4_3))
-              (portRef ADA12 (instanceRef ram_0_5_2))
-              (portRef ADA12 (instanceRef ram_0_6_1))
-              (portRef ADA12 (instanceRef ram_0_7_0))))
-          (net addr9
-            (joined
-              (portRef (member Address 1))
-              (portRef ADA11 (instanceRef ram_0_0_7))
-              (portRef ADA11 (instanceRef ram_0_1_6))
-              (portRef ADA11 (instanceRef ram_0_2_5))
-              (portRef ADA11 (instanceRef ram_0_3_4))
-              (portRef ADA11 (instanceRef ram_0_4_3))
-              (portRef ADA11 (instanceRef ram_0_5_2))
-              (portRef ADA11 (instanceRef ram_0_6_1))
-              (portRef ADA11 (instanceRef ram_0_7_0))))
-          (net addr8
-            (joined
-              (portRef (member Address 2))
-              (portRef ADA10 (instanceRef ram_0_0_7))
-              (portRef ADA10 (instanceRef ram_0_1_6))
-              (portRef ADA10 (instanceRef ram_0_2_5))
-              (portRef ADA10 (instanceRef ram_0_3_4))
-              (portRef ADA10 (instanceRef ram_0_4_3))
-              (portRef ADA10 (instanceRef ram_0_5_2))
-              (portRef ADA10 (instanceRef ram_0_6_1))
-              (portRef ADA10 (instanceRef ram_0_7_0))))
-          (net addr7
-            (joined
-              (portRef (member Address 3))
-              (portRef ADA9 (instanceRef ram_0_0_7))
-              (portRef ADA9 (instanceRef ram_0_1_6))
-              (portRef ADA9 (instanceRef ram_0_2_5))
-              (portRef ADA9 (instanceRef ram_0_3_4))
-              (portRef ADA9 (instanceRef ram_0_4_3))
-              (portRef ADA9 (instanceRef ram_0_5_2))
-              (portRef ADA9 (instanceRef ram_0_6_1))
-              (portRef ADA9 (instanceRef ram_0_7_0))))
-          (net addr6
-            (joined
-              (portRef (member Address 4))
-              (portRef ADA8 (instanceRef ram_0_0_7))
-              (portRef ADA8 (instanceRef ram_0_1_6))
-              (portRef ADA8 (instanceRef ram_0_2_5))
-              (portRef ADA8 (instanceRef ram_0_3_4))
-              (portRef ADA8 (instanceRef ram_0_4_3))
-              (portRef ADA8 (instanceRef ram_0_5_2))
-              (portRef ADA8 (instanceRef ram_0_6_1))
-              (portRef ADA8 (instanceRef ram_0_7_0))))
-          (net addr5
-            (joined
-              (portRef (member Address 5))
-              (portRef ADA7 (instanceRef ram_0_0_7))
-              (portRef ADA7 (instanceRef ram_0_1_6))
-              (portRef ADA7 (instanceRef ram_0_2_5))
-              (portRef ADA7 (instanceRef ram_0_3_4))
-              (portRef ADA7 (instanceRef ram_0_4_3))
-              (portRef ADA7 (instanceRef ram_0_5_2))
-              (portRef ADA7 (instanceRef ram_0_6_1))
-              (portRef ADA7 (instanceRef ram_0_7_0))))
-          (net addr4
-            (joined
-              (portRef (member Address 6))
-              (portRef ADA6 (instanceRef ram_0_0_7))
-              (portRef ADA6 (instanceRef ram_0_1_6))
-              (portRef ADA6 (instanceRef ram_0_2_5))
-              (portRef ADA6 (instanceRef ram_0_3_4))
-              (portRef ADA6 (instanceRef ram_0_4_3))
-              (portRef ADA6 (instanceRef ram_0_5_2))
-              (portRef ADA6 (instanceRef ram_0_6_1))
-              (portRef ADA6 (instanceRef ram_0_7_0))))
-          (net addr3
-            (joined
-              (portRef (member Address 7))
-              (portRef ADA5 (instanceRef ram_0_0_7))
-              (portRef ADA5 (instanceRef ram_0_1_6))
-              (portRef ADA5 (instanceRef ram_0_2_5))
-              (portRef ADA5 (instanceRef ram_0_3_4))
-              (portRef ADA5 (instanceRef ram_0_4_3))
-              (portRef ADA5 (instanceRef ram_0_5_2))
-              (portRef ADA5 (instanceRef ram_0_6_1))
-              (portRef ADA5 (instanceRef ram_0_7_0))))
-          (net addr2
-            (joined
-              (portRef (member Address 8))
-              (portRef ADA4 (instanceRef ram_0_0_7))
-              (portRef ADA4 (instanceRef ram_0_1_6))
-              (portRef ADA4 (instanceRef ram_0_2_5))
-              (portRef ADA4 (instanceRef ram_0_3_4))
-              (portRef ADA4 (instanceRef ram_0_4_3))
-              (portRef ADA4 (instanceRef ram_0_5_2))
-              (portRef ADA4 (instanceRef ram_0_6_1))
-              (portRef ADA4 (instanceRef ram_0_7_0))))
-          (net addr1
-            (joined
-              (portRef (member Address 9))
-              (portRef ADA3 (instanceRef ram_0_0_7))
-              (portRef ADA3 (instanceRef ram_0_1_6))
-              (portRef ADA3 (instanceRef ram_0_2_5))
-              (portRef ADA3 (instanceRef ram_0_3_4))
-              (portRef ADA3 (instanceRef ram_0_4_3))
-              (portRef ADA3 (instanceRef ram_0_5_2))
-              (portRef ADA3 (instanceRef ram_0_6_1))
-              (portRef ADA3 (instanceRef ram_0_7_0))))
-          (net addr0
-            (joined
-              (portRef (member Address 10))
-              (portRef ADA2 (instanceRef ram_0_0_7))
-              (portRef ADA2 (instanceRef ram_0_1_6))
-              (portRef ADA2 (instanceRef ram_0_2_5))
-              (portRef ADA2 (instanceRef ram_0_3_4))
-              (portRef ADA2 (instanceRef ram_0_4_3))
-              (portRef ADA2 (instanceRef ram_0_5_2))
-              (portRef ADA2 (instanceRef ram_0_6_1))
-              (portRef ADA2 (instanceRef ram_0_7_0))))
-          (net wren
-            (joined
-              (portRef WE)
-              (portRef WEA (instanceRef ram_0_0_7))
-              (portRef WEA (instanceRef ram_0_1_6))
-              (portRef WEA (instanceRef ram_0_2_5))
-              (portRef WEA (instanceRef ram_0_3_4))
-              (portRef WEA (instanceRef ram_0_4_3))
-              (portRef WEA (instanceRef ram_0_5_2))
-              (portRef WEA (instanceRef ram_0_6_1))
-              (portRef WEA (instanceRef ram_0_7_0))))
+              (portRef WrClock)
+              (portRef CLKA (instanceRef ram_0_0_3))
+              (portRef CLKA (instanceRef ram_0_1_2))
+              (portRef CLKA (instanceRef ram_0_2_1))
+              (portRef CLKA (instanceRef ram_0_3_0))))
           (net Reset
             (joined
               (portRef Reset)
-              (portRef RSTA (instanceRef ram_0_0_7))
-              (portRef RSTA (instanceRef ram_0_1_6))
-              (portRef RSTA (instanceRef ram_0_2_5))
-              (portRef RSTA (instanceRef ram_0_3_4))
-              (portRef RSTA (instanceRef ram_0_4_3))
-              (portRef RSTA (instanceRef ram_0_5_2))
-              (portRef RSTA (instanceRef ram_0_6_1))
-              (portRef RSTA (instanceRef ram_0_7_0))))
-          (net ClockEn
+              (portRef RSTB (instanceRef ram_0_0_3))
+              (portRef RSTA (instanceRef ram_0_0_3))
+              (portRef RSTB (instanceRef ram_0_1_2))
+              (portRef RSTA (instanceRef ram_0_1_2))
+              (portRef RSTB (instanceRef ram_0_2_1))
+              (portRef RSTA (instanceRef ram_0_2_1))
+              (portRef RSTB (instanceRef ram_0_3_0))
+              (portRef RSTA (instanceRef ram_0_3_0))))
+          (net RdClockEn
             (joined
-              (portRef ClockEn)
-              (portRef OCEA (instanceRef ram_0_0_7))
-              (portRef CEA (instanceRef ram_0_0_7))
-              (portRef OCEA (instanceRef ram_0_1_6))
-              (portRef CEA (instanceRef ram_0_1_6))
-              (portRef OCEA (instanceRef ram_0_2_5))
-              (portRef CEA (instanceRef ram_0_2_5))
-              (portRef OCEA (instanceRef ram_0_3_4))
-              (portRef CEA (instanceRef ram_0_3_4))
-              (portRef OCEA (instanceRef ram_0_4_3))
-              (portRef CEA (instanceRef ram_0_4_3))
-              (portRef OCEA (instanceRef ram_0_5_2))
-              (portRef CEA (instanceRef ram_0_5_2))
-              (portRef OCEA (instanceRef ram_0_6_1))
-              (portRef CEA (instanceRef ram_0_6_1))
-              (portRef OCEA (instanceRef ram_0_7_0))
-              (portRef CEA (instanceRef ram_0_7_0))))
-          (net clk
+              (portRef RdClockEn)
+              (portRef OCEB (instanceRef ram_0_0_3))
+              (portRef CEB (instanceRef ram_0_0_3))
+              (portRef OCEB (instanceRef ram_0_1_2))
+              (portRef CEB (instanceRef ram_0_1_2))
+              (portRef OCEB (instanceRef ram_0_2_1))
+              (portRef CEB (instanceRef ram_0_2_1))
+              (portRef OCEB (instanceRef ram_0_3_0))
+              (portRef CEB (instanceRef ram_0_3_0))))
+          (net rdclk
             (joined
-              (portRef Clock)
-              (portRef CLKA (instanceRef ram_0_0_7))
-              (portRef CLKA (instanceRef ram_0_1_6))
-              (portRef CLKA (instanceRef ram_0_2_5))
-              (portRef CLKA (instanceRef ram_0_3_4))
-              (portRef CLKA (instanceRef ram_0_4_3))
-              (portRef CLKA (instanceRef ram_0_5_2))
-              (portRef CLKA (instanceRef ram_0_6_1))
-              (portRef CLKA (instanceRef ram_0_7_0))))))))
+              (portRef RdClock)
+              (portRef CLKB (instanceRef ram_0_0_3))
+              (portRef CLKB (instanceRef ram_0_1_2))
+              (portRef CLKB (instanceRef ram_0_2_1))
+              (portRef CLKB (instanceRef ram_0_3_0))))
+          (net wren
+            (joined
+              (portRef WE)
+              (portRef WEA (instanceRef ram_0_0_3))
+              (portRef WEA (instanceRef ram_0_1_2))
+              (portRef WEA (instanceRef ram_0_2_1))
+              (portRef WEA (instanceRef ram_0_3_0))))
+          (net datain31
+            (joined
+              (portRef (member Data 0))
+              (portRef DIA4 (instanceRef ram_0_3_0))))
+          (net datain30
+            (joined
+              (portRef (member Data 1))
+              (portRef DIA3 (instanceRef ram_0_3_0))))
+          (net datain29
+            (joined
+              (portRef (member Data 2))
+              (portRef DIA2 (instanceRef ram_0_3_0))))
+          (net datain28
+            (joined
+              (portRef (member Data 3))
+              (portRef DIA1 (instanceRef ram_0_3_0))))
+          (net datain27
+            (joined
+              (portRef (member Data 4))
+              (portRef DIA0 (instanceRef ram_0_3_0))))
+          (net datain26
+            (joined
+              (portRef (member Data 5))
+              (portRef DIA8 (instanceRef ram_0_2_1))))
+          (net datain25
+            (joined
+              (portRef (member Data 6))
+              (portRef DIA7 (instanceRef ram_0_2_1))))
+          (net datain24
+            (joined
+              (portRef (member Data 7))
+              (portRef DIA6 (instanceRef ram_0_2_1))))
+          (net datain23
+            (joined
+              (portRef (member Data 8))
+              (portRef DIA5 (instanceRef ram_0_2_1))))
+          (net datain22
+            (joined
+              (portRef (member Data 9))
+              (portRef DIA4 (instanceRef ram_0_2_1))))
+          (net datain21
+            (joined
+              (portRef (member Data 10))
+              (portRef DIA3 (instanceRef ram_0_2_1))))
+          (net datain20
+            (joined
+              (portRef (member Data 11))
+              (portRef DIA2 (instanceRef ram_0_2_1))))
+          (net datain19
+            (joined
+              (portRef (member Data 12))
+              (portRef DIA1 (instanceRef ram_0_2_1))))
+          (net datain18
+            (joined
+              (portRef (member Data 13))
+              (portRef DIA0 (instanceRef ram_0_2_1))))
+          (net datain17
+            (joined
+              (portRef (member Data 14))
+              (portRef DIA8 (instanceRef ram_0_1_2))))
+          (net datain16
+            (joined
+              (portRef (member Data 15))
+              (portRef DIA7 (instanceRef ram_0_1_2))))
+          (net datain15
+            (joined
+              (portRef (member Data 16))
+              (portRef DIA6 (instanceRef ram_0_1_2))))
+          (net datain14
+            (joined
+              (portRef (member Data 17))
+              (portRef DIA5 (instanceRef ram_0_1_2))))
+          (net datain13
+            (joined
+              (portRef (member Data 18))
+              (portRef DIA4 (instanceRef ram_0_1_2))))
+          (net datain12
+            (joined
+              (portRef (member Data 19))
+              (portRef DIA3 (instanceRef ram_0_1_2))))
+          (net datain11
+            (joined
+              (portRef (member Data 20))
+              (portRef DIA2 (instanceRef ram_0_1_2))))
+          (net datain10
+            (joined
+              (portRef (member Data 21))
+              (portRef DIA1 (instanceRef ram_0_1_2))))
+          (net datain9
+            (joined
+              (portRef (member Data 22))
+              (portRef DIA0 (instanceRef ram_0_1_2))))
+          (net datain8
+            (joined
+              (portRef (member Data 23))
+              (portRef DIA8 (instanceRef ram_0_0_3))))
+          (net datain7
+            (joined
+              (portRef (member Data 24))
+              (portRef DIA7 (instanceRef ram_0_0_3))))
+          (net datain6
+            (joined
+              (portRef (member Data 25))
+              (portRef DIA6 (instanceRef ram_0_0_3))))
+          (net datain5
+            (joined
+              (portRef (member Data 26))
+              (portRef DIA5 (instanceRef ram_0_0_3))))
+          (net datain4
+            (joined
+              (portRef (member Data 27))
+              (portRef DIA4 (instanceRef ram_0_0_3))))
+          (net datain3
+            (joined
+              (portRef (member Data 28))
+              (portRef DIA3 (instanceRef ram_0_0_3))))
+          (net datain2
+            (joined
+              (portRef (member Data 29))
+              (portRef DIA2 (instanceRef ram_0_0_3))))
+          (net datain1
+            (joined
+              (portRef (member Data 30))
+              (portRef DIA1 (instanceRef ram_0_0_3))))
+          (net datain0
+            (joined
+              (portRef (member Data 31))
+              (portRef DIA0 (instanceRef ram_0_0_3))))
+          (net raddr9
+            (joined
+              (portRef (member RdAddress 0))
+              (portRef ADB12 (instanceRef ram_0_0_3))
+              (portRef ADB12 (instanceRef ram_0_1_2))
+              (portRef ADB12 (instanceRef ram_0_2_1))
+              (portRef ADB12 (instanceRef ram_0_3_0))))
+          (net raddr8
+            (joined
+              (portRef (member RdAddress 1))
+              (portRef ADB11 (instanceRef ram_0_0_3))
+              (portRef ADB11 (instanceRef ram_0_1_2))
+              (portRef ADB11 (instanceRef ram_0_2_1))
+              (portRef ADB11 (instanceRef ram_0_3_0))))
+          (net raddr7
+            (joined
+              (portRef (member RdAddress 2))
+              (portRef ADB10 (instanceRef ram_0_0_3))
+              (portRef ADB10 (instanceRef ram_0_1_2))
+              (portRef ADB10 (instanceRef ram_0_2_1))
+              (portRef ADB10 (instanceRef ram_0_3_0))))
+          (net raddr6
+            (joined
+              (portRef (member RdAddress 3))
+              (portRef ADB9 (instanceRef ram_0_0_3))
+              (portRef ADB9 (instanceRef ram_0_1_2))
+              (portRef ADB9 (instanceRef ram_0_2_1))
+              (portRef ADB9 (instanceRef ram_0_3_0))))
+          (net raddr5
+            (joined
+              (portRef (member RdAddress 4))
+              (portRef ADB8 (instanceRef ram_0_0_3))
+              (portRef ADB8 (instanceRef ram_0_1_2))
+              (portRef ADB8 (instanceRef ram_0_2_1))
+              (portRef ADB8 (instanceRef ram_0_3_0))))
+          (net raddr4
+            (joined
+              (portRef (member RdAddress 5))
+              (portRef ADB7 (instanceRef ram_0_0_3))
+              (portRef ADB7 (instanceRef ram_0_1_2))
+              (portRef ADB7 (instanceRef ram_0_2_1))
+              (portRef ADB7 (instanceRef ram_0_3_0))))
+          (net raddr3
+            (joined
+              (portRef (member RdAddress 6))
+              (portRef ADB6 (instanceRef ram_0_0_3))
+              (portRef ADB6 (instanceRef ram_0_1_2))
+              (portRef ADB6 (instanceRef ram_0_2_1))
+              (portRef ADB6 (instanceRef ram_0_3_0))))
+          (net raddr2
+            (joined
+              (portRef (member RdAddress 7))
+              (portRef ADB5 (instanceRef ram_0_0_3))
+              (portRef ADB5 (instanceRef ram_0_1_2))
+              (portRef ADB5 (instanceRef ram_0_2_1))
+              (portRef ADB5 (instanceRef ram_0_3_0))))
+          (net raddr1
+            (joined
+              (portRef (member RdAddress 8))
+              (portRef ADB4 (instanceRef ram_0_0_3))
+              (portRef ADB4 (instanceRef ram_0_1_2))
+              (portRef ADB4 (instanceRef ram_0_2_1))
+              (portRef ADB4 (instanceRef ram_0_3_0))))
+          (net raddr0
+            (joined
+              (portRef (member RdAddress 9))
+              (portRef ADB3 (instanceRef ram_0_0_3))
+              (portRef ADB3 (instanceRef ram_0_1_2))
+              (portRef ADB3 (instanceRef ram_0_2_1))
+              (portRef ADB3 (instanceRef ram_0_3_0))))
+          (net waddr9
+            (joined
+              (portRef (member WrAddress 0))
+              (portRef ADA12 (instanceRef ram_0_0_3))
+              (portRef ADA12 (instanceRef ram_0_1_2))
+              (portRef ADA12 (instanceRef ram_0_2_1))
+              (portRef ADA12 (instanceRef ram_0_3_0))))
+          (net waddr8
+            (joined
+              (portRef (member WrAddress 1))
+              (portRef ADA11 (instanceRef ram_0_0_3))
+              (portRef ADA11 (instanceRef ram_0_1_2))
+              (portRef ADA11 (instanceRef ram_0_2_1))
+              (portRef ADA11 (instanceRef ram_0_3_0))))
+          (net waddr7
+            (joined
+              (portRef (member WrAddress 2))
+              (portRef ADA10 (instanceRef ram_0_0_3))
+              (portRef ADA10 (instanceRef ram_0_1_2))
+              (portRef ADA10 (instanceRef ram_0_2_1))
+              (portRef ADA10 (instanceRef ram_0_3_0))))
+          (net waddr6
+            (joined
+              (portRef (member WrAddress 3))
+              (portRef ADA9 (instanceRef ram_0_0_3))
+              (portRef ADA9 (instanceRef ram_0_1_2))
+              (portRef ADA9 (instanceRef ram_0_2_1))
+              (portRef ADA9 (instanceRef ram_0_3_0))))
+          (net waddr5
+            (joined
+              (portRef (member WrAddress 4))
+              (portRef ADA8 (instanceRef ram_0_0_3))
+              (portRef ADA8 (instanceRef ram_0_1_2))
+              (portRef ADA8 (instanceRef ram_0_2_1))
+              (portRef ADA8 (instanceRef ram_0_3_0))))
+          (net waddr4
+            (joined
+              (portRef (member WrAddress 5))
+              (portRef ADA7 (instanceRef ram_0_0_3))
+              (portRef ADA7 (instanceRef ram_0_1_2))
+              (portRef ADA7 (instanceRef ram_0_2_1))
+              (portRef ADA7 (instanceRef ram_0_3_0))))
+          (net waddr3
+            (joined
+              (portRef (member WrAddress 6))
+              (portRef ADA6 (instanceRef ram_0_0_3))
+              (portRef ADA6 (instanceRef ram_0_1_2))
+              (portRef ADA6 (instanceRef ram_0_2_1))
+              (portRef ADA6 (instanceRef ram_0_3_0))))
+          (net waddr2
+            (joined
+              (portRef (member WrAddress 7))
+              (portRef ADA5 (instanceRef ram_0_0_3))
+              (portRef ADA5 (instanceRef ram_0_1_2))
+              (portRef ADA5 (instanceRef ram_0_2_1))
+              (portRef ADA5 (instanceRef ram_0_3_0))))
+          (net waddr1
+            (joined
+              (portRef (member WrAddress 8))
+              (portRef ADA4 (instanceRef ram_0_0_3))
+              (portRef ADA4 (instanceRef ram_0_1_2))
+              (portRef ADA4 (instanceRef ram_0_2_1))
+              (portRef ADA4 (instanceRef ram_0_3_0))))
+          (net waddr0
+            (joined
+              (portRef (member WrAddress 9))
+              (portRef ADA3 (instanceRef ram_0_0_3))
+              (portRef ADA3 (instanceRef ram_0_1_2))
+              (portRef ADA3 (instanceRef ram_0_2_1))
+              (portRef ADA3 (instanceRef ram_0_3_0))))))))
   (design ram
     (cellRef ram
       (libraryRef ORCLIB)))

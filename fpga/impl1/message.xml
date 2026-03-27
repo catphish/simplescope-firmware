@@ -38,28 +38,42 @@
         <Message>
             <ID>35901018</ID>
             <Severity>Info</Severity>
+            <Dynamic>/home/charlie/scope/fpga/ram.v(8): </Dynamic>
+            <Dynamic>ram</Dynamic>
+            <Navigation>/home/charlie/scope/fpga/ram.v</Navigation>
+            <Navigation>8</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1291): </Dynamic>
+            <Dynamic>DP8KC(RESETMODE=&quot;ASYNC&quot;)</Dynamic>
+            <Navigation>/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v</Navigation>
+            <Navigation>1291</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1120): </Dynamic>
+            <Dynamic>VHI</Dynamic>
+            <Navigation>/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v</Navigation>
+            <Navigation>1120</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1124): </Dynamic>
+            <Dynamic>VLO</Dynamic>
+            <Navigation>/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v</Navigation>
+            <Navigation>1124</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
             <Dynamic>/home/charlie/scope/fpga/crc32.v(1): </Dynamic>
             <Dynamic>crc32</Dynamic>
             <Navigation>/home/charlie/scope/fpga/crc32.v</Navigation>
             <Navigation>1</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(69): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>16</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>69</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(76): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>4</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>76</Navigation>
         </Message>
         <Message>
             <ID>35001611</ID>

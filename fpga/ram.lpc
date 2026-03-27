@@ -1,8 +1,8 @@
 [Device]
 Family=machxo2
 PartType=LCMXO2-1200HC
-PartName=LCMXO2-1200HC-6TG100I
-SpeedGrade=6
+PartName=LCMXO2-1200HC-4TG100I
+SpeedGrade=4
 Package=TQFP100
 OperatingCondition=IND
 Status=S
@@ -11,13 +11,13 @@ Status=S
 VendorName=Lattice Semiconductor Corporation
 CoreType=LPM
 CoreStatus=Demo
-CoreName=RAM_DQ
-CoreRevision=7.5
+CoreName=RAM_DP
+CoreRevision=6.5
 ModuleName=ram
 SourceFormat=Verilog HDL
 ParameterFileVersion=1.0
-Date=03/22/2026
-Time=18:20:46
+Date=03/27/2026
+Time=01:52:22
 
 [Parameters]
 Verilog=1
@@ -27,8 +27,10 @@ Destination=Synplicity
 Expression=BusA(0 to 7)
 Order=[MSB:LSB]
 IO=0
-Address=2048
-Data=32
+RAddress=1024
+RData=32
+WAddress=1024
+WData=32
 enByte=0
 ByteSize=9
 OutputEn=0
@@ -41,7 +43,6 @@ MemFile=
 MemFormat=bin
 EnECC=0
 Pipeline=0
-Write=Normal
 init_data=0
 no_init=0
 
@@ -49,4 +50,4 @@ no_init=0
 =mem
 
 [Command]
-cmd_line= -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ramdq -device LCMXO2-1200HC -addr_width 11 -data_width 32 -num_words 2048 -cascade -1 -mem_init0 -writemode NORMAL
+cmd_line= -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ramdps -device LCMXO2-1200HC -raddr_width 10 -rwidth 32 -waddr_width 10 -wwidth 32 -rnum_words 1024 -wnum_words 1024 -cascade -1 -mem_init0

@@ -4,9 +4,9 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timestamp 2026 3 19 16 29 13)
+      (timestamp 2026 3 26 23 41 47)
       (program "SCUBA" (version "Diamond (64-bit) 3.14.0.75.2"))))
-      (comment "/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n fifo -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ebfifo -depth 512 -width 32 -rwidth 32 -no_enable -pe 10 -pf 500 ")
+      (comment "/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n fifo -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ebfifo -depth 1024 -width 32 -rwidth 32 -regout -resetmode SYNC -no_enable -pe 10 -pf 520 -sync_reset ")
   (library ORCLIB
     (edifLevel 0)
     (technology
@@ -167,400 +167,524 @@
             (direction OUTPUT)))
         (property NGD_DRC_MASK (integer 1))
         (contents
-          (instance fifo_0_1
+          (instance fifo_0_3
             (viewRef view1 
               (cellRef FIFO8KB))
             (property FULLPOINTER1
-              (string "0b01111111110000"))
+              (string "0b01111111111000"))
             (property FULLPOINTER
               (string "0b10000000000000"))
             (property AFPOINTER1
-              (string "0b01111100110000"))
+              (string "0b01000000111000"))
             (property AFPOINTER
-              (string "0b01111101000000"))
+              (string "0b01000001000000"))
             (property AEPOINTER1
-              (string "0b00000010110000"))
+              (string "0b00000001011000"))
             (property AEPOINTER
-              (string "0b00000010100000"))
+              (string "0b00000001010000"))
             (property ASYNC_RESET_RELEASE
               (string "SYNC"))
             (property GSR
               (string "DISABLED"))
             (property RESETMODE
-              (string "ASYNC"))
+              (string "SYNC"))
             (property REGMODE
-              (string "NOREG"))
+              (string "OUTREG"))
             (property CSDECODE_R
               (string "0b11"))
             (property CSDECODE_W
               (string "0b11"))
             (property DATA_WIDTH_R
-              (string "18"))
+              (string "9"))
             (property DATA_WIDTH_W
-              (string "18")))
+              (string "9")))
+          (instance fifo_1_2
+            (viewRef view1 
+              (cellRef FIFO8KB))
+            (property FULLPOINTER1
+              (string "0b00000000000000"))
+            (property FULLPOINTER
+              (string "0b11111111111000"))
+            (property AFPOINTER1
+              (string "0b00000000000000"))
+            (property AFPOINTER
+              (string "0b11111111111000"))
+            (property AEPOINTER1
+              (string "0b00000000000000"))
+            (property AEPOINTER
+              (string "0b11111111111000"))
+            (property ASYNC_RESET_RELEASE
+              (string "SYNC"))
+            (property GSR
+              (string "DISABLED"))
+            (property RESETMODE
+              (string "SYNC"))
+            (property REGMODE
+              (string "OUTREG"))
+            (property CSDECODE_R
+              (string "0b11"))
+            (property CSDECODE_W
+              (string "0b11"))
+            (property DATA_WIDTH_R
+              (string "9"))
+            (property DATA_WIDTH_W
+              (string "9")))
+          (instance fifo_2_1
+            (viewRef view1 
+              (cellRef FIFO8KB))
+            (property FULLPOINTER1
+              (string "0b00000000000000"))
+            (property FULLPOINTER
+              (string "0b11111111111000"))
+            (property AFPOINTER1
+              (string "0b00000000000000"))
+            (property AFPOINTER
+              (string "0b11111111111000"))
+            (property AEPOINTER1
+              (string "0b00000000000000"))
+            (property AEPOINTER
+              (string "0b11111111111000"))
+            (property ASYNC_RESET_RELEASE
+              (string "SYNC"))
+            (property GSR
+              (string "DISABLED"))
+            (property RESETMODE
+              (string "SYNC"))
+            (property REGMODE
+              (string "OUTREG"))
+            (property CSDECODE_R
+              (string "0b11"))
+            (property CSDECODE_W
+              (string "0b11"))
+            (property DATA_WIDTH_R
+              (string "9"))
+            (property DATA_WIDTH_W
+              (string "9")))
           (instance scuba_vhi_inst
             (viewRef view1 
               (cellRef VHI)))
           (instance scuba_vlo_inst
             (viewRef view1 
               (cellRef VLO)))
-          (instance fifo_1_0
+          (instance fifo_3_0
             (viewRef view1 
               (cellRef FIFO8KB))
             (property FULLPOINTER1
               (string "0b00000000000000"))
             (property FULLPOINTER
-              (string "0b11111111110000"))
+              (string "0b11111111111000"))
             (property AFPOINTER1
               (string "0b00000000000000"))
             (property AFPOINTER
-              (string "0b11111111110000"))
+              (string "0b11111111111000"))
             (property AEPOINTER1
               (string "0b00000000000000"))
             (property AEPOINTER
-              (string "0b11111111110000"))
+              (string "0b11111111111000"))
             (property ASYNC_RESET_RELEASE
               (string "SYNC"))
             (property GSR
               (string "DISABLED"))
             (property RESETMODE
-              (string "ASYNC"))
+              (string "SYNC"))
             (property REGMODE
-              (string "NOREG"))
+              (string "OUTREG"))
             (property CSDECODE_R
               (string "0b11"))
             (property CSDECODE_W
               (string "0b11"))
             (property DATA_WIDTH_R
-              (string "18"))
+              (string "9"))
             (property DATA_WIDTH_W
-              (string "18")))
+              (string "9")))
           (net scuba_vhi
             (joined
               (portRef Z (instanceRef scuba_vhi_inst))
-              (portRef CSR1 (instanceRef fifo_0_1))
-              (portRef CSW1 (instanceRef fifo_0_1))
-              (portRef CSR0 (instanceRef fifo_0_1))
-              (portRef CSW0 (instanceRef fifo_0_1))
-              (portRef CSR1 (instanceRef fifo_1_0))
-              (portRef CSW1 (instanceRef fifo_1_0))
-              (portRef CSR0 (instanceRef fifo_1_0))
-              (portRef CSW0 (instanceRef fifo_1_0))))
+              (portRef CSR1 (instanceRef fifo_0_3))
+              (portRef CSW1 (instanceRef fifo_0_3))
+              (portRef CSW0 (instanceRef fifo_0_3))
+              (portRef ORE (instanceRef fifo_0_3))
+              (portRef RE (instanceRef fifo_0_3))
+              (portRef CSR1 (instanceRef fifo_1_2))
+              (portRef CSW1 (instanceRef fifo_1_2))
+              (portRef CSW0 (instanceRef fifo_1_2))
+              (portRef ORE (instanceRef fifo_1_2))
+              (portRef RE (instanceRef fifo_1_2))
+              (portRef CSR1 (instanceRef fifo_2_1))
+              (portRef CSW1 (instanceRef fifo_2_1))
+              (portRef CSW0 (instanceRef fifo_2_1))
+              (portRef ORE (instanceRef fifo_2_1))
+              (portRef RE (instanceRef fifo_2_1))
+              (portRef CSR1 (instanceRef fifo_3_0))
+              (portRef CSW1 (instanceRef fifo_3_0))
+              (portRef CSW0 (instanceRef fifo_3_0))
+              (portRef ORE (instanceRef fifo_3_0))
+              (portRef RE (instanceRef fifo_3_0))))
           (net scuba_vlo
             (joined
               (portRef Z (instanceRef scuba_vlo_inst))
-              (portRef DI17 (instanceRef fifo_1_0))
-              (portRef DI16 (instanceRef fifo_1_0))
-              (portRef DI15 (instanceRef fifo_1_0))
-              (portRef DI14 (instanceRef fifo_1_0))))
+              (portRef DI17 (instanceRef fifo_0_3))
+              (portRef DI16 (instanceRef fifo_0_3))
+              (portRef DI15 (instanceRef fifo_0_3))
+              (portRef DI14 (instanceRef fifo_0_3))
+              (portRef DI13 (instanceRef fifo_0_3))
+              (portRef DI12 (instanceRef fifo_0_3))
+              (portRef DI11 (instanceRef fifo_0_3))
+              (portRef DI10 (instanceRef fifo_0_3))
+              (portRef DI9 (instanceRef fifo_0_3))
+              (portRef DI17 (instanceRef fifo_1_2))
+              (portRef DI16 (instanceRef fifo_1_2))
+              (portRef DI15 (instanceRef fifo_1_2))
+              (portRef DI14 (instanceRef fifo_1_2))
+              (portRef DI13 (instanceRef fifo_1_2))
+              (portRef DI12 (instanceRef fifo_1_2))
+              (portRef DI11 (instanceRef fifo_1_2))
+              (portRef DI10 (instanceRef fifo_1_2))
+              (portRef DI9 (instanceRef fifo_1_2))
+              (portRef DI17 (instanceRef fifo_2_1))
+              (portRef DI16 (instanceRef fifo_2_1))
+              (portRef DI15 (instanceRef fifo_2_1))
+              (portRef DI14 (instanceRef fifo_2_1))
+              (portRef DI13 (instanceRef fifo_2_1))
+              (portRef DI12 (instanceRef fifo_2_1))
+              (portRef DI11 (instanceRef fifo_2_1))
+              (portRef DI10 (instanceRef fifo_2_1))
+              (portRef DI9 (instanceRef fifo_2_1))
+              (portRef DI17 (instanceRef fifo_3_0))
+              (portRef DI16 (instanceRef fifo_3_0))
+              (portRef DI15 (instanceRef fifo_3_0))
+              (portRef DI14 (instanceRef fifo_3_0))
+              (portRef DI13 (instanceRef fifo_3_0))
+              (portRef DI12 (instanceRef fifo_3_0))
+              (portRef DI11 (instanceRef fifo_3_0))
+              (portRef DI10 (instanceRef fifo_3_0))
+              (portRef DI9 (instanceRef fifo_3_0))
+              (portRef DI8 (instanceRef fifo_3_0))
+              (portRef DI7 (instanceRef fifo_3_0))
+              (portRef DI6 (instanceRef fifo_3_0))
+              (portRef DI5 (instanceRef fifo_3_0))))
           (net partial_full
             (joined
               (portRef AlmostFull)
-              (portRef AFF (instanceRef fifo_0_1))))
+              (portRef AFF (instanceRef fifo_0_3))))
           (net partial_empty
             (joined
               (portRef AlmostEmpty)
-              (portRef AEF (instanceRef fifo_0_1))))
+              (portRef AEF (instanceRef fifo_0_3))))
           (net Full
             (joined
               (portRef Full)
-              (portRef FULLI (instanceRef fifo_1_0))
-              (portRef FF (instanceRef fifo_0_1))
-              (portRef FULLI (instanceRef fifo_0_1))))
+              (portRef FULLI (instanceRef fifo_3_0))
+              (portRef FF (instanceRef fifo_0_3))
+              (portRef FULLI (instanceRef fifo_0_3))
+              (portRef FULLI (instanceRef fifo_1_2))
+              (portRef FULLI (instanceRef fifo_2_1))))
           (net Empty
             (joined
               (portRef Empty)
-              (portRef EMPTYI (instanceRef fifo_1_0))
-              (portRef EF (instanceRef fifo_0_1))
-              (portRef EMPTYI (instanceRef fifo_0_1))))
+              (portRef EMPTYI (instanceRef fifo_3_0))
+              (portRef EF (instanceRef fifo_0_3))
+              (portRef EMPTYI (instanceRef fifo_0_3))
+              (portRef EMPTYI (instanceRef fifo_1_2))
+              (portRef EMPTYI (instanceRef fifo_2_1))))
           (net dataout31
             (joined
               (portRef (member Q 0))
-              (portRef DO4 (instanceRef fifo_1_0))))
+              (portRef DO4 (instanceRef fifo_3_0))))
           (net dataout30
             (joined
               (portRef (member Q 1))
-              (portRef DO3 (instanceRef fifo_1_0))))
+              (portRef DO3 (instanceRef fifo_3_0))))
           (net dataout29
             (joined
               (portRef (member Q 2))
-              (portRef DO2 (instanceRef fifo_1_0))))
+              (portRef DO2 (instanceRef fifo_3_0))))
           (net dataout28
             (joined
               (portRef (member Q 3))
-              (portRef DO1 (instanceRef fifo_1_0))))
+              (portRef DO1 (instanceRef fifo_3_0))))
           (net dataout27
             (joined
               (portRef (member Q 4))
-              (portRef DO0 (instanceRef fifo_1_0))))
+              (portRef DO0 (instanceRef fifo_3_0))))
           (net dataout26
             (joined
               (portRef (member Q 5))
-              (portRef DO17 (instanceRef fifo_1_0))))
+              (portRef DO8 (instanceRef fifo_2_1))))
           (net dataout25
             (joined
               (portRef (member Q 6))
-              (portRef DO16 (instanceRef fifo_1_0))))
+              (portRef DO7 (instanceRef fifo_2_1))))
           (net dataout24
             (joined
               (portRef (member Q 7))
-              (portRef DO15 (instanceRef fifo_1_0))))
+              (portRef DO6 (instanceRef fifo_2_1))))
           (net dataout23
             (joined
               (portRef (member Q 8))
-              (portRef DO14 (instanceRef fifo_1_0))))
+              (portRef DO5 (instanceRef fifo_2_1))))
           (net dataout22
             (joined
               (portRef (member Q 9))
-              (portRef DO13 (instanceRef fifo_1_0))))
+              (portRef DO4 (instanceRef fifo_2_1))))
           (net dataout21
             (joined
               (portRef (member Q 10))
-              (portRef DO12 (instanceRef fifo_1_0))))
+              (portRef DO3 (instanceRef fifo_2_1))))
           (net dataout20
             (joined
               (portRef (member Q 11))
-              (portRef DO11 (instanceRef fifo_1_0))))
+              (portRef DO2 (instanceRef fifo_2_1))))
           (net dataout19
             (joined
               (portRef (member Q 12))
-              (portRef DO10 (instanceRef fifo_1_0))))
+              (portRef DO1 (instanceRef fifo_2_1))))
           (net dataout18
             (joined
               (portRef (member Q 13))
-              (portRef DO9 (instanceRef fifo_1_0))))
+              (portRef DO0 (instanceRef fifo_2_1))))
           (net dataout17
             (joined
               (portRef (member Q 14))
-              (portRef DO8 (instanceRef fifo_0_1))))
+              (portRef DO8 (instanceRef fifo_1_2))))
           (net dataout16
             (joined
               (portRef (member Q 15))
-              (portRef DO7 (instanceRef fifo_0_1))))
+              (portRef DO7 (instanceRef fifo_1_2))))
           (net dataout15
             (joined
               (portRef (member Q 16))
-              (portRef DO6 (instanceRef fifo_0_1))))
+              (portRef DO6 (instanceRef fifo_1_2))))
           (net dataout14
             (joined
               (portRef (member Q 17))
-              (portRef DO5 (instanceRef fifo_0_1))))
+              (portRef DO5 (instanceRef fifo_1_2))))
           (net dataout13
             (joined
               (portRef (member Q 18))
-              (portRef DO4 (instanceRef fifo_0_1))))
+              (portRef DO4 (instanceRef fifo_1_2))))
           (net dataout12
             (joined
               (portRef (member Q 19))
-              (portRef DO3 (instanceRef fifo_0_1))))
+              (portRef DO3 (instanceRef fifo_1_2))))
           (net dataout11
             (joined
               (portRef (member Q 20))
-              (portRef DO2 (instanceRef fifo_0_1))))
+              (portRef DO2 (instanceRef fifo_1_2))))
           (net dataout10
             (joined
               (portRef (member Q 21))
-              (portRef DO1 (instanceRef fifo_0_1))))
+              (portRef DO1 (instanceRef fifo_1_2))))
           (net dataout9
             (joined
               (portRef (member Q 22))
-              (portRef DO0 (instanceRef fifo_0_1))))
+              (portRef DO0 (instanceRef fifo_1_2))))
           (net dataout8
             (joined
               (portRef (member Q 23))
-              (portRef DO17 (instanceRef fifo_0_1))))
+              (portRef DO8 (instanceRef fifo_0_3))))
           (net dataout7
             (joined
               (portRef (member Q 24))
-              (portRef DO16 (instanceRef fifo_0_1))))
+              (portRef DO7 (instanceRef fifo_0_3))))
           (net dataout6
             (joined
               (portRef (member Q 25))
-              (portRef DO15 (instanceRef fifo_0_1))))
+              (portRef DO6 (instanceRef fifo_0_3))))
           (net dataout5
             (joined
               (portRef (member Q 26))
-              (portRef DO14 (instanceRef fifo_0_1))))
+              (portRef DO5 (instanceRef fifo_0_3))))
           (net dataout4
             (joined
               (portRef (member Q 27))
-              (portRef DO13 (instanceRef fifo_0_1))))
+              (portRef DO4 (instanceRef fifo_0_3))))
           (net dataout3
             (joined
               (portRef (member Q 28))
-              (portRef DO12 (instanceRef fifo_0_1))))
+              (portRef DO3 (instanceRef fifo_0_3))))
           (net dataout2
             (joined
               (portRef (member Q 29))
-              (portRef DO11 (instanceRef fifo_0_1))))
+              (portRef DO2 (instanceRef fifo_0_3))))
           (net dataout1
             (joined
               (portRef (member Q 30))
-              (portRef DO10 (instanceRef fifo_0_1))))
+              (portRef DO1 (instanceRef fifo_0_3))))
           (net dataout0
             (joined
               (portRef (member Q 31))
-              (portRef DO9 (instanceRef fifo_0_1))))
+              (portRef DO0 (instanceRef fifo_0_3))))
           (net RPRst
             (joined
               (portRef RPReset)
-              (portRef RPRST (instanceRef fifo_0_1))
-              (portRef RPRST (instanceRef fifo_1_0))))
+              (portRef RPRST (instanceRef fifo_0_3))
+              (portRef RPRST (instanceRef fifo_1_2))
+              (portRef RPRST (instanceRef fifo_2_1))
+              (portRef RPRST (instanceRef fifo_3_0))))
           (net reset
             (joined
               (portRef Reset)
-              (portRef RST (instanceRef fifo_0_1))
-              (portRef RST (instanceRef fifo_1_0))))
+              (portRef RST (instanceRef fifo_0_3))
+              (portRef RST (instanceRef fifo_1_2))
+              (portRef RST (instanceRef fifo_2_1))
+              (portRef RST (instanceRef fifo_3_0))))
           (net rden
             (joined
               (portRef RdEn)
-              (portRef ORE (instanceRef fifo_0_1))
-              (portRef RE (instanceRef fifo_0_1))
-              (portRef ORE (instanceRef fifo_1_0))
-              (portRef RE (instanceRef fifo_1_0))))
+              (portRef CSR0 (instanceRef fifo_0_3))
+              (portRef CSR0 (instanceRef fifo_1_2))
+              (portRef CSR0 (instanceRef fifo_2_1))
+              (portRef CSR0 (instanceRef fifo_3_0))))
           (net wren
             (joined
               (portRef WrEn)
-              (portRef WE (instanceRef fifo_0_1))
-              (portRef WE (instanceRef fifo_1_0))))
+              (portRef WE (instanceRef fifo_0_3))
+              (portRef WE (instanceRef fifo_1_2))
+              (portRef WE (instanceRef fifo_2_1))
+              (portRef WE (instanceRef fifo_3_0))))
           (net rclk
             (joined
               (portRef RdClock)
-              (portRef CLKR (instanceRef fifo_0_1))
-              (portRef CLKR (instanceRef fifo_1_0))))
+              (portRef CLKR (instanceRef fifo_0_3))
+              (portRef CLKR (instanceRef fifo_1_2))
+              (portRef CLKR (instanceRef fifo_2_1))
+              (portRef CLKR (instanceRef fifo_3_0))))
           (net wclk
             (joined
               (portRef WrClock)
-              (portRef CLKW (instanceRef fifo_0_1))
-              (portRef CLKW (instanceRef fifo_1_0))))
+              (portRef CLKW (instanceRef fifo_0_3))
+              (portRef CLKW (instanceRef fifo_1_2))
+              (portRef CLKW (instanceRef fifo_2_1))
+              (portRef CLKW (instanceRef fifo_3_0))))
           (net datain31
             (joined
               (portRef (member Data 0))
-              (portRef DI13 (instanceRef fifo_1_0))))
+              (portRef DI4 (instanceRef fifo_3_0))))
           (net datain30
             (joined
               (portRef (member Data 1))
-              (portRef DI12 (instanceRef fifo_1_0))))
+              (portRef DI3 (instanceRef fifo_3_0))))
           (net datain29
             (joined
               (portRef (member Data 2))
-              (portRef DI11 (instanceRef fifo_1_0))))
+              (portRef DI2 (instanceRef fifo_3_0))))
           (net datain28
             (joined
               (portRef (member Data 3))
-              (portRef DI10 (instanceRef fifo_1_0))))
+              (portRef DI1 (instanceRef fifo_3_0))))
           (net datain27
             (joined
               (portRef (member Data 4))
-              (portRef DI9 (instanceRef fifo_1_0))))
+              (portRef DI0 (instanceRef fifo_3_0))))
           (net datain26
             (joined
               (portRef (member Data 5))
-              (portRef DI8 (instanceRef fifo_1_0))))
+              (portRef DI8 (instanceRef fifo_2_1))))
           (net datain25
             (joined
               (portRef (member Data 6))
-              (portRef DI7 (instanceRef fifo_1_0))))
+              (portRef DI7 (instanceRef fifo_2_1))))
           (net datain24
             (joined
               (portRef (member Data 7))
-              (portRef DI6 (instanceRef fifo_1_0))))
+              (portRef DI6 (instanceRef fifo_2_1))))
           (net datain23
             (joined
               (portRef (member Data 8))
-              (portRef DI5 (instanceRef fifo_1_0))))
+              (portRef DI5 (instanceRef fifo_2_1))))
           (net datain22
             (joined
               (portRef (member Data 9))
-              (portRef DI4 (instanceRef fifo_1_0))))
+              (portRef DI4 (instanceRef fifo_2_1))))
           (net datain21
             (joined
               (portRef (member Data 10))
-              (portRef DI3 (instanceRef fifo_1_0))))
+              (portRef DI3 (instanceRef fifo_2_1))))
           (net datain20
             (joined
               (portRef (member Data 11))
-              (portRef DI2 (instanceRef fifo_1_0))))
+              (portRef DI2 (instanceRef fifo_2_1))))
           (net datain19
             (joined
               (portRef (member Data 12))
-              (portRef DI1 (instanceRef fifo_1_0))))
+              (portRef DI1 (instanceRef fifo_2_1))))
           (net datain18
             (joined
               (portRef (member Data 13))
-              (portRef DI0 (instanceRef fifo_1_0))))
+              (portRef DI0 (instanceRef fifo_2_1))))
           (net datain17
             (joined
               (portRef (member Data 14))
-              (portRef DI17 (instanceRef fifo_0_1))))
+              (portRef DI8 (instanceRef fifo_1_2))))
           (net datain16
             (joined
               (portRef (member Data 15))
-              (portRef DI16 (instanceRef fifo_0_1))))
+              (portRef DI7 (instanceRef fifo_1_2))))
           (net datain15
             (joined
               (portRef (member Data 16))
-              (portRef DI15 (instanceRef fifo_0_1))))
+              (portRef DI6 (instanceRef fifo_1_2))))
           (net datain14
             (joined
               (portRef (member Data 17))
-              (portRef DI14 (instanceRef fifo_0_1))))
+              (portRef DI5 (instanceRef fifo_1_2))))
           (net datain13
             (joined
               (portRef (member Data 18))
-              (portRef DI13 (instanceRef fifo_0_1))))
+              (portRef DI4 (instanceRef fifo_1_2))))
           (net datain12
             (joined
               (portRef (member Data 19))
-              (portRef DI12 (instanceRef fifo_0_1))))
+              (portRef DI3 (instanceRef fifo_1_2))))
           (net datain11
             (joined
               (portRef (member Data 20))
-              (portRef DI11 (instanceRef fifo_0_1))))
+              (portRef DI2 (instanceRef fifo_1_2))))
           (net datain10
             (joined
               (portRef (member Data 21))
-              (portRef DI10 (instanceRef fifo_0_1))))
+              (portRef DI1 (instanceRef fifo_1_2))))
           (net datain9
             (joined
               (portRef (member Data 22))
-              (portRef DI9 (instanceRef fifo_0_1))))
+              (portRef DI0 (instanceRef fifo_1_2))))
           (net datain8
             (joined
               (portRef (member Data 23))
-              (portRef DI8 (instanceRef fifo_0_1))))
+              (portRef DI8 (instanceRef fifo_0_3))))
           (net datain7
             (joined
               (portRef (member Data 24))
-              (portRef DI7 (instanceRef fifo_0_1))))
+              (portRef DI7 (instanceRef fifo_0_3))))
           (net datain6
             (joined
               (portRef (member Data 25))
-              (portRef DI6 (instanceRef fifo_0_1))))
+              (portRef DI6 (instanceRef fifo_0_3))))
           (net datain5
             (joined
               (portRef (member Data 26))
-              (portRef DI5 (instanceRef fifo_0_1))))
+              (portRef DI5 (instanceRef fifo_0_3))))
           (net datain4
             (joined
               (portRef (member Data 27))
-              (portRef DI4 (instanceRef fifo_0_1))))
+              (portRef DI4 (instanceRef fifo_0_3))))
           (net datain3
             (joined
               (portRef (member Data 28))
-              (portRef DI3 (instanceRef fifo_0_1))))
+              (portRef DI3 (instanceRef fifo_0_3))))
           (net datain2
             (joined
               (portRef (member Data 29))
-              (portRef DI2 (instanceRef fifo_0_1))))
+              (portRef DI2 (instanceRef fifo_0_3))))
           (net datain1
             (joined
               (portRef (member Data 30))
-              (portRef DI1 (instanceRef fifo_0_1))))
+              (portRef DI1 (instanceRef fifo_0_3))))
           (net datain0
             (joined
               (portRef (member Data 31))
-              (portRef DI0 (instanceRef fifo_0_1))))))))
+              (portRef DI0 (instanceRef fifo_0_3))))))))
   (design fifo
     (cellRef fifo
       (libraryRef ORCLIB)))

@@ -191,8 +191,8 @@ void EP2_IN_Callback(void)
       hspi_buffer_queue_tail = (hspi_buffer_queue_tail + 1) % HSPI_BUFFER_QUEUE_SIZE;
       usb_idle = 0;
       // Set endpoint 2 to ACK and notify the host to take the data
-      USB30_IN_set(ENDP_2, ENABLE, ACK, 4, 1024);
-      USB30_send_ERDY(ENDP_2 | IN, 4);
+      USB30_IN_set(ENDP_2, ENABLE, ACK, 2, 1024);
+      USB30_send_ERDY(ENDP_2 | IN, 2);
     } else {
       // If there are no packets in the queue, set USB idle flag
       usb_idle = 1;
@@ -266,8 +266,8 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
         hspi_buffer_queue_tail = (hspi_buffer_queue_tail + 1) % HSPI_BUFFER_QUEUE_SIZE;
         usb_idle = 0;
         // Set endpoint 2 to ACK and notify the host to take the data
-        USB30_IN_set(ENDP_2, ENABLE, ACK, 4, 1024);
-        USB30_send_ERDY(ENDP_2 | IN, 4);
+        USB30_IN_set(ENDP_2, ENABLE, ACK, 2, 1024);
+        USB30_send_ERDY(ENDP_2 | IN, 2);
       }
     }
     R8_HSPI_INT_FLAG = RB_HSPI_IF_R_DONE; // Clear Interrupt
