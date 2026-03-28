@@ -15,25 +15,6 @@ prj_run Export -impl impl1 -task Bitgen
 
 
 
-<A name="pn260317182544"></A><B><U><big>pn260317182544</big></U></B>
-#Start recording tcl command: 3/17/2026 16:37:53
-#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
-/home/charlie/Hardware/usb-scope/scope-digital/lattice
-Scope
-#Start recording tcl command: 3/17/2026 18:25:44
-#Project Location: /home/charlie/Hardware/usb-scope/scope-digital/lattice; Project name: Scope
-prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
-pgr_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/impl1/prog1.xcf"
-prj_src add -exclude "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/impl1/prog1.xcf"
-prj_src enable "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/impl1/prog1.xcf"
-pgr_project close
-prj_project save
-prj_project close
-prj_project open "/home/charlie/Hardware/usb-scope/scope-digital/lattice/Scope.ldf"
-#Stop recording: 3/17/2026 18:25:44
-
-
-
 <A name="pn260317205123"></A><B><U><big>pn260317205123</big></U></B>
 #Start recording tcl command: 3/17/2026 18:26:15
 #Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
@@ -192,129 +173,116 @@ prj_project close
 
 
 
-<A name="pn260326233738"></A><B><U><big>pn260326233738</big></U></B>
-#Start recording tcl command: 3/26/2026 18:18:31
+<A name="pn260327171529"></A><B><U><big>pn260327171529</big></U></B>
+#Start recording tcl command: 3/27/2026 16:26:59
 #Project Location: /home/charlie/scope/fpga; Project name: Scope
 prj_project open "/home/charlie/scope/fpga/Scope.ldf"
-prj_run PAR -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
 prj_run PAR -impl impl1 -task PARTrace
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run PAR -impl impl1
 prj_run Export -impl impl1
-prj_dev set -part LCMXO2-1200HC-5TG100I
-prj_run PAR -impl impl1
-prj_dev set -part LCMXO2-1200HC-4TG100I
+prj_run Export -impl impl1
 prj_run PAR -impl impl1
 prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -forceOne
+prj_run Export -impl impl1
 prj_run PAR -impl impl1
 prj_run PAR -impl impl1
-prj_run Synthesis -impl impl1
-prj_run Synthesis -impl impl1
-prj_run Synthesis -impl impl1
 prj_run PAR -impl impl1
-prj_run Synthesis -impl impl1
-prj_run Map -impl impl1
-prj_run PAR -impl impl1
+prj_src add "/home/charlie/scope/fpga/pll.v"
 prj_run PAR -impl impl1
 prj_run PAR -impl impl1
 prj_run PAR -impl impl1
 prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_project save
+prj_project close
+#Stop recording: 3/27/2026 17:15:29
+
+
+
+<A name="pn260327171924"></A><B><U><big>pn260327171924</big></U></B>
+#Start recording tcl command: 3/27/2026 17:15:39
+#Project Location: /home/charlie/scope/fpga; Project name: Scope
+prj_project open "/home/charlie/scope/fpga/Scope.ldf"
+prj_run Export -impl impl1
+prj_project save
+prj_project close
+#Stop recording: 3/27/2026 17:19:24
+
+
+
+<A name="pn260328011001"></A><B><U><big>pn260328011001</big></U></B>
+#Start recording tcl command: 3/27/2026 22:34:04
+#Project Location: /home/charlie/scope/fpga; Project name: Scope
+prj_project open "/home/charlie/scope/fpga/Scope.ldf"
+prj_src add "/home/charlie/scope/fpga/pll.ipx"
 prj_run PAR -impl impl1
 prj_run PAR -impl impl1
-prj_run Synthesis -impl impl1
-prj_run Synthesis -impl impl1
-prj_run Synthesis -impl impl1
-prj_run Synthesis -impl impl1
-prj_run Synthesis -impl impl1
-prj_run Synthesis -impl impl1
 prj_run PAR -impl impl1
 prj_run PAR -impl impl1
 prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_project save
+prj_project close
+#Stop recording: 3/28/2026 01:10:01
+
+
+
+<A name="pn260328022710"></A><B><U><big>pn260328022710</big></U></B>
+#Start recording tcl command: 3/28/2026 01:10:14
+#Project Location: /home/charlie/scope/fpga; Project name: Scope
+prj_project open "/home/charlie/scope/fpga/Scope.ldf"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_src remove "/home/charlie/scope/fpga/ram.v"
+prj_src add "/home/charlie/scope/fpga/ram.ipx"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_src add "/home/charlie/scope/fpga/pll.ipx"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -forceOne
 prj_run PAR -impl impl1
 prj_run Export -impl impl1
 prj_run Export -impl impl1
 prj_project save
 prj_project close
-#Stop recording: 3/26/2026 23:37:38
-
-
-
-<A name="pn260327021920"></A><B><U><big>pn260327021920</big></U></B>
-#Start recording tcl command: 3/26/2026 23:37:46
-#Project Location: /home/charlie/scope/fpga; Project name: Scope
-prj_project open "/home/charlie/scope/fpga/Scope.ldf"
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run Export -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_strgy set "Timing"
-prj_run PAR -impl impl1
-prj_strgy set "Custom Timing"
-prj_strgy set_value -strategy Custom Timing par_route_delay_reduction_pass=20 par_routing_res_opt=5 par_routeing_pass=20
-prj_strgy set_value -strategy Custom Timing par_route_delay_reduction_pass=20 par_routing_res_opt=5 par_routeing_pass=20
-prj_run PAR -impl impl1
-prj_strgy set_value -strategy Custom Timing lse_frequency=120
-prj_strgy set_value -strategy Custom Timing par_route_delay_reduction_pass=20 par_routing_res_opt=5
-prj_strgy set_value -strategy Custom Timing lse_frequency=120
-prj_strgy set_value -strategy Custom Timing par_route_delay_reduction_pass=20 par_routing_res_opt=5
-prj_strgy set_value -strategy Custom Timing par_route_delay_reduction_pass=1 par_routing_res_opt=1 par_routeing_pass=20
-prj_strgy set_value -strategy Custom Timing par_route_delay_reduction_pass=1 par_routing_res_opt=1 par_routeing_pass=20
-prj_run PAR -impl impl1 -task PARTrace
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run Synthesis -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run Synthesis -impl impl1
-prj_run PAR -impl impl1
-prj_run PAR -impl impl1
-prj_run Synthesis -impl impl1
-prj_src remove "/home/charlie/scope/fpga/pll.ipx"
-prj_src add "/home/charlie/scope/fpga/ram.v"
-prj_run Synthesis -impl impl1
-prj_run Synthesis -impl impl1
-prj_run PAR -impl impl1
-prj_run Export -impl impl1
-prj_run Synthesis -impl impl1
-prj_run PAR -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run PAR -impl impl1 -task PARTrace
-prj_run Export -impl impl1
-prj_project save
-prj_project close
-#Stop recording: 3/27/2026 02:19:20
+#Stop recording: 3/28/2026 02:27:10
 
 
 

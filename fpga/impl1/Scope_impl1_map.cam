@@ -1,36 +1,39 @@
 [ START MERGED ]
-n2251 counter_0
 [ END MERGED ]
 [ START CLIPPED ]
 GND_net
 VCC_net
-read_addr_239_add_4_11/S1
-read_addr_239_add_4_11/CO
-write_addr_237_add_4_11/S1
-write_addr_237_add_4_11/CO
-counter_236_248_add_4_1/S0
-counter_236_248_add_4_1/CO
-counter_236_248_add_4_1/CI
-frame_idx_238_add_4_1/S0
-frame_idx_238_add_4_1/CI
-read_addr_239_add_4_1/S0
-read_addr_239_add_4_1/CI
-frame_idx_238_add_4_11/S1
-frame_idx_238_add_4_11/CO
-write_addr_237_add_4_1/S0
-write_addr_237_add_4_1/CI
+read_addr_243_add_4_11/S1
+read_addr_243_add_4_11/CO
+frame_idx_242_add_4_1/S0
+frame_idx_242_add_4_1/CI
+data_counter_241_add_4_33/S1
+data_counter_241_add_4_33/CO
+write_addr_240_add_4_1/S0
+write_addr_240_add_4_1/CI
+write_addr_240_add_4_11/S1
+write_addr_240_add_4_11/CO
+counter_239_251_add_4_1/S0
+counter_239_251_add_4_1/CO
+counter_239_251_add_4_1/CI
+read_addr_243_add_4_1/S0
+read_addr_243_add_4_1/CI
+frame_idx_242_add_4_11/S1
+frame_idx_242_add_4_11/CO
+data_counter_241_add_4_1/S0
+data_counter_241_add_4_1/CI
 [ END CLIPPED ]
 [ START DESIGN PREFS ]
 SCHEMATIC START ;
-# map:  version Diamond (64-bit) 3.14.0.75.2 -- WARNING: Map write only section -- Fri Mar 27 02:28:48 2026
+# map:  version Diamond (64-bit) 3.14.0.75.2 -- WARNING: Map write only section -- Sat Mar 28 03:25:07 2026
 
 SYSCONFIG SDM_PORT=PROGRAMN SLAVE_SPI_PORT=ENABLE I2C_PORT=DISABLE MASTER_SPI_PORT=DISABLE COMPRESS_CONFIG=OFF CONFIGURATION=CFG MY_ASSP=OFF ONE_TIME_PROGRAM=OFF CONFIG_SECURE=OFF MCCLK_FREQ=2.08 JTAG_PORT=ENABLE ENABLE_TRANSFR=DISABLE SHAREDEBRINIT=DISABLE MUX_CONFIGURATION_PORTS=DISABLE BACKGROUND_RECONFIG=OFF INBUF=ON ;
+LOCATE COMP "ch_data[26]" SITE "52" ;
 LOCATE COMP "ch_data[27]" SITE "51" ;
 LOCATE COMP "ch_data[28]" SITE "43" ;
 LOCATE COMP "ch_data[29]" SITE "42" ;
 LOCATE COMP "ch_data[30]" SITE "41" ;
 LOCATE COMP "ch_data[31]" SITE "40" ;
-LOCATE COMP "ch_data[26]" SITE "52" ;
 LOCATE COMP "ch_data[25]" SITE "53" ;
 LOCATE COMP "ch_data[24]" SITE "54" ;
 LOCATE COMP "ch_data[23]" SITE "57" ;

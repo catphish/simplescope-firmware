@@ -4,9 +4,9 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timestamp 2026 3 27 1 52 22)
+      (timestamp 2026 3 28 2 29 16)
       (program "SCUBA" (version "Diamond (64-bit) 3.14.0.75.2"))))
-      (comment "/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type bram -wp 10 -rp 0011 -rdata_width 32 -data_width 32 -num_rows 1024 -cascade -1 -mem_init0 ")
+      (comment "/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type bram -wp 10 -rp 0011 -rdata_width 32 -data_width 32 -num_rows 1024 -outdata REGISTERED -cascade -1 -resetmode SYNC -sync_reset -mem_init0 ")
   (library ORCLIB
     (edifLevel 0)
     (technology
@@ -299,11 +299,11 @@
             (property GSR
               (string "ENABLED"))
             (property RESETMODE
-              (string "ASYNC"))
+              (string "SYNC"))
             (property REGMODE_B
-              (string "NOREG"))
+              (string "OUTREG"))
             (property REGMODE_A
-              (string "NOREG"))
+              (string "OUTREG"))
             (property DATA_WIDTH_B
               (string "9"))
             (property DATA_WIDTH_A
@@ -394,11 +394,11 @@
             (property GSR
               (string "ENABLED"))
             (property RESETMODE
-              (string "ASYNC"))
+              (string "SYNC"))
             (property REGMODE_B
-              (string "NOREG"))
+              (string "OUTREG"))
             (property REGMODE_A
-              (string "NOREG"))
+              (string "OUTREG"))
             (property DATA_WIDTH_B
               (string "9"))
             (property DATA_WIDTH_A
@@ -489,11 +489,11 @@
             (property GSR
               (string "ENABLED"))
             (property RESETMODE
-              (string "ASYNC"))
+              (string "SYNC"))
             (property REGMODE_B
-              (string "NOREG"))
+              (string "OUTREG"))
             (property REGMODE_A
-              (string "NOREG"))
+              (string "OUTREG"))
             (property DATA_WIDTH_B
               (string "9"))
             (property DATA_WIDTH_A
@@ -590,11 +590,11 @@
             (property GSR
               (string "ENABLED"))
             (property RESETMODE
-              (string "ASYNC"))
+              (string "SYNC"))
             (property REGMODE_B
-              (string "NOREG"))
+              (string "OUTREG"))
             (property REGMODE_A
-              (string "NOREG"))
+              (string "OUTREG"))
             (property DATA_WIDTH_B
               (string "9"))
             (property DATA_WIDTH_A

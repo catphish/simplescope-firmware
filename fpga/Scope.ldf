@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BaliProject version="3.2" title="Scope" device="LCMXO2-1200HC-4TG100I" default_implementation="impl1">
     <Options/>
-    <Implementation title="impl1" dir="impl1" description="impl1" synthesis="lse" default_strategy="Custom Timing">
-        <Options def_top="adc_ft601" top="adc_ft601"/>
+    <Implementation title="impl1" dir="impl1" description="impl1" synthesis="lse" default_strategy="Custom">
+        <Options def_top="pll" top="adc_ft601"/>
         <Source name="scope.v" type="Verilog" type_short="Verilog">
             <Options top_module="adc_ft601"/>
         </Source>
         <Source name="crc32.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
-        <Source name="ram.v" type="Verilog" type_short="Verilog">
+        <Source name="pll.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ram.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="Scope.lpf" type="Logic Preference" type_short="LPF">
@@ -18,10 +21,7 @@
         <Source name="impl1/prog1.xcf" type="Programming Project File" type_short="Programming">
             <Options/>
         </Source>
-        <Source name="timing.tpf" type="Timing Analysis" type_short="TPF">
-            <Options/>
-        </Source>
     </Implementation>
+    <Strategy name="Custom" file="Custom.sty"/>
     <Strategy name="Custom Timing" file="Custom Timing.sty"/>
-    <Strategy name="Strategy1" file="Scope1.sty"/>
 </BaliProject>

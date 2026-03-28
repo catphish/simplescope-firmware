@@ -1,0 +1,32 @@
+#Start recording tcl command: 3/28/2026 01:10:14
+#Project Location: /home/charlie/scope/fpga; Project name: Scope
+prj_project open "/home/charlie/scope/fpga/Scope.ldf"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_src remove "/home/charlie/scope/fpga/ram.v"
+prj_src add "/home/charlie/scope/fpga/ram.ipx"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_src add "/home/charlie/scope/fpga/pll.ipx"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -forceOne
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_project save
+prj_project close
+#Stop recording: 3/28/2026 02:27:10

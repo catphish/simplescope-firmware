@@ -1,5 +1,0 @@
-#Start recording tcl command: 3/17/2026 01:43:04
-#Project Location: /home/charlie/Hardware/usb-scope/scope-digital-ch/lattice; Project name: Scope
-prj_project open "/home/charlie/Hardware/usb-scope/scope-digital-ch/lattice/Scope.ldf"
-prj_run Export -impl impl1 -task Bitgen
-#Stop recording: 3/17/2026 01:49:52

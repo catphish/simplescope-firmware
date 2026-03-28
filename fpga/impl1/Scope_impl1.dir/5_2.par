@@ -1,0 +1,175 @@
+
+Lattice Place and Route Report for Design "Scope_impl1_map.ncd"
+Sat Mar 28 03:25:12 2026
+
+PAR: Place And Route Diamond (64-bit) 3.14.0.75.2.
+Command Line: par -w -l 5 -i 10 -t 2 -c 2 -e 2 -gui -msgset /home/charlie/scope/fpga/promote.xml -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=OFF:parASE=1:aseRouteInitSetupSlackThreshold=0.214 Scope_impl1_map.ncd Scope_impl1.dir/5_2.ncd Scope_impl1.prf
+Preference file: Scope_impl1.prf.
+Placement level-cost: 5-2.
+Routing Iterations: 10
+
+Loading design for application par from file /tmp/neo_nLlR0l.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 4
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Device utilization summary:
+
+   PIO (prelim)   37+4(JTAG)/108     38% used
+                  37+4(JTAG)/80      51% bonded
+   IOLOGIC           34/108          31% used
+
+   SLICE            262/640          40% used
+
+   EBR                4/7            57% used
+
+
+Number of Signals: 729
+Number of Connections: 1902
+WARNING - par: The SN pin is not available for use as a general purpose I/O pin when the SLAVE_SPI_PORT attribute is enabled.  The SN pin should be tied high with an external pull-up if you are not using the Slave SPI port for configuration.
+
+Pin Constraint Summary:
+   37 out of 37 pins locked (100% locked).
+
+The following 1 signal is selected to use the primary clock routing resources:
+    htclk_c (driver: htclk, clk load #: 175)
+
+
+The following 6 signals are selected to use the secondary clock routing resources:
+    htclk_c_enable_121 (driver: SLICE_124, clk load #: 0, sr load #: 0, ce load #: 26)
+    htclk_c_enable_42 (driver: SLICE_208, clk load #: 0, sr load #: 0, ce load #: 16)
+    n1429 (driver: SLICE_208, clk load #: 0, sr load #: 16, ce load #: 0)
+    htclk_c_enable_103 (driver: SLICE_104, clk load #: 0, sr load #: 0, ce load #: 16)
+    counter_0 (driver: SLICE_15, clk load #: 0, sr load #: 0, ce load #: 14)
+    n1438 (driver: SLICE_263, clk load #: 0, sr load #: 13, ce load #: 0)
+
+No signal is selected as Global Set/Reset.
+Starting Placer Phase 0.
+.........
+Finished Placer Phase 0.  REAL time: 0 secs 
+
+Starting Placer Phase 1.
+......................
+Placer score = 127156.
+Finished Placer Phase 1.  REAL time: 2 secs 
+
+Starting Placer Phase 2.
+.
+Placer score =  125838
+Finished Placer Phase 2.  REAL time: 3 secs 
+
+
+------------------ Clock Report ------------------
+
+Global Clock Resources:
+  CLK_PIN    : 1 out of 8 (12%)
+  PLL        : 0 out of 1 (0%)
+  DCM        : 0 out of 2 (0%)
+  DCC        : 0 out of 8 (0%)
+
+Global Clocks:
+  PRIMARY "htclk_c" from comp "htclk" on CLK_PIN site "86 (PT12C)", clk load = 175
+  SECONDARY "htclk_c_enable_121" from Q1 on comp "SLICE_124" on site "R7C14C", clk load = 0, ce load = 26, sr load = 0
+  SECONDARY "htclk_c_enable_42" from F0 on comp "SLICE_208" on site "R7C12B", clk load = 0, ce load = 16, sr load = 0
+  SECONDARY "n1429" from F1 on comp "SLICE_208" on site "R7C12B", clk load = 0, ce load = 0, sr load = 16
+  SECONDARY "htclk_c_enable_103" from F1 on comp "SLICE_104" on site "R7C12C", clk load = 0, ce load = 16, sr load = 0
+  SECONDARY "counter_0" from Q1 on comp "SLICE_15" on site "R10C20C", clk load = 0, ce load = 14, sr load = 0
+  SECONDARY "n1438" from F0 on comp "SLICE_263" on site "R7C12D", clk load = 0, ce load = 0, sr load = 13
+
+  PRIMARY  : 1 out of 8 (12%)
+  SECONDARY: 6 out of 8 (75%)
+
+Edge Clocks:
+  No edge clock selected.
+
+--------------- End of Clock Report ---------------
+
+
+I/O Usage Summary (final):
+   37 + 4(JTAG) out of 108 (38.0%) PIO sites used.
+   37 + 4(JTAG) out of 80 (51.2%) bonded PIO sites used.
+   Number of PIO comps: 37; differential: 0.
+   Number of Vref pins used: 0.
+
+I/O Bank Usage Summary:
++----------+----------------+------------+-----------+
+| I/O Bank | Usage          | Bank Vccio | Bank Vref |
++----------+----------------+------------+-----------+
+| 0        | 10 / 19 ( 52%) | 3.3V       | -         |
+| 1        | 21 / 21 (100%) | 3.3V       | -         |
+| 2        | 6 / 20 ( 30%)  | 3.3V       | -         |
+| 3        | 0 / 20 (  0%)  | -          | -         |
++----------+----------------+------------+-----------+
+
+Total placer CPU time: 2 secs 
+
+Dumping design to file Scope_impl1.dir/5_2.ncd.
+
+0 connections routed; 1902 unrouted.
+Starting router resource preassignment
+
+Completed router resource preassignment. Real time: 3 secs 
+
+Start NBR router at Sat Mar 28 03:25:15 GMT 2026
+
+*****************************************************************
+Info: NBR allows conflicts(one node used by more than one signal)
+      in the earlier iterations. In each iteration, it tries to  
+      solve the conflicts while keeping the critical connections 
+      routed as short as possible. The routing process is said to
+      be completed when no conflicts exist and all connections   
+      are routed.                                                
+Note: NBR uses a different method to calculate timing slacks. The
+      worst slack and total negative slack may not be the same as
+      that in TRCE report. You should always run TRCE to verify  
+      your design.                                               
+*****************************************************************
+
+Start NBR special constraint process at Sat Mar 28 03:25:15 GMT 2026
+
+Start NBR section for initial routing at Sat Mar 28 03:25:15 GMT 2026
+Level 1, iteration 1
+38(0.04%) conflicts; 1298(68.24%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.112ns/0.000ns; real time: 3 secs 
+Level 2, iteration 1
+88(0.10%) conflicts; 1022(53.73%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.192ns/0.000ns; real time: 3 secs 
+Level 3, iteration 1
+132(0.15%) conflicts; 348(18.30%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.150ns/0.000ns; real time: 3 secs 
+Level 4, iteration 1
+75(0.09%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.150ns/0.000ns; real time: 3 secs 
+
+Info: Initial congestion level at 75% usage is 0
+Info: Initial congestion area  at 75% usage is 0 (0.00%)
+
+*****************************************************************************
+WARNING: The worst setup slack (0.150ns) after initial routing exceeds the 
+specified threshold 0.214 ns. This par run will be terminated.
+*****************************************************************************
+
+
+
+PAR_SUMMARY::Run status = Skipped
+PAR_SUMMARY::Number of unrouted conns = <n/a>
+PAR_SUMMARY::Worst  slack<setup/<ns>> = <n/a>
+PAR_SUMMARY::Timing score<setup/<ns>> = <n/a>
+PAR_SUMMARY::Worst  slack<hold /<ns>> = <n/a>
+PAR_SUMMARY::Timing score<hold /<ns>> = <n/a>
+PAR_SUMMARY::Number of errors = 0
+
+Total CPU  time to completion: 3 secs 
+Total REAL time to completion: 3 secs 
+
+par failed!
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.

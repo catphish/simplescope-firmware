@@ -3,7 +3,7 @@ Starting process: Module
 Starting process: 
 
 SCUBA, Version Diamond (64-bit) 3.14.0.75.2
-Fri Mar 27 01:52:22 2026
+Sat Mar 28 02:29:16 2026
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -13,7 +13,7 @@ Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
 
 BEGIN SCUBA Module Synthesis
 
-    Issued command   : /home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ramdps -device LCMXO2-1200HC -raddr_width 10 -rwidth 32 -waddr_width 10 -wwidth 32 -rnum_words 1024 -wnum_words 1024 -cascade -1 -mem_init0 
+    Issued command   : /home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ramdps -device LCMXO2-1200HC -raddr_width 10 -rwidth 32 -waddr_width 10 -wwidth 32 -rnum_words 1024 -wnum_words 1024 -outdata REGISTERED -cascade -1 -resetmode SYNC -sync_reset -mem_init0 
     Circuit name     : ram
     Module type      : RAM_DP
     Module Version   : 6.5

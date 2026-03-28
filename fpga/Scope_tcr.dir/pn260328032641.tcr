@@ -1,0 +1,62 @@
+#Start recording tcl command: 3/28/2026 02:27:19
+#Project Location: /home/charlie/scope/fpga; Project name: Scope
+prj_project open "/home/charlie/scope/fpga/Scope.ldf"
+prj_src add "/home/charlie/scope/fpga/pll.ipx"
+prj_src remove "/home/charlie/scope/fpga/ram.v"
+prj_src add "/home/charlie/scope/fpga/ram.ipx"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_strgy set_value -strategy Custom Timing lse_remove_dup_regs=False
+prj_strgy set_value -strategy Custom Timing lse_remove_dup_regs=False
+prj_run PAR -impl impl1
+prj_strgy set_value -strategy Custom Timing lse_remove_dup_regs=False
+prj_strgy set_value -strategy Custom Timing lse_remove_dup_regs=False
+prj_strgy set_value -strategy Custom Timing lse_remove_dup_regs=False
+prj_src remove "/home/charlie/scope/fpga/timing.tpf"
+prj_run PAR -impl impl1
+prj_strgy set_value -strategy Strategy1 lse_remove_dup_regs=False
+prj_strgy set "Strategy1"
+prj_run PAR -impl impl1
+prj_strgy set_value -strategy Strategy1 lse_opt_goal=Timing
+prj_run PAR -impl impl1
+prj_strgy set "Timing"
+prj_strgy delete "Strategy1"
+prj_strgy delete "Custom Timing"
+prj_strgy delete "Custom Timing"
+prj_run PAR -impl impl1
+prj_strgy copy -from "Timing" -name "Custom" -file "/home/charlie/scope/fpga/Custom.sty"
+prj_strgy set "Custom"
+prj_strgy set_value -strategy Custom lse_remove_dup_regs=False
+prj_run PAR -impl impl1
+prj_strgy set_value -strategy Custom par_route_delay_reduction_pass=1
+prj_run PAR -impl impl1
+prj_strgy set_value -strategy Custom par_route_delay_reduction_pass=2 par_routing_res_opt=2 par_routeing_pass=10
+prj_run PAR -impl impl1
+prj_strgy set_value -strategy Custom par_place_iterator=10
+prj_run PAR -impl impl1
+prj_run Export -impl impl1 -task IBIS
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_strgy set_value -strategy Custom par_place_iterator=2
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_project save
+prj_project close
+#Stop recording: 3/28/2026 03:26:41

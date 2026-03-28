@@ -9,7 +9,7 @@
 #define ENDPOINT 0x82
 #define INTERFACE 0
 
-#define BUF_SIZE 1024*16
+#define BUF_SIZE 1024*128
 #define NUM_TRANSFERS 16
 #define TIMEOUT 0
 
