@@ -9,8 +9,8 @@
 #define ENDPOINT 0x82
 #define INTERFACE 0
 
-#define BUF_SIZE 1024*128
-#define NUM_TRANSFERS 16
+#define BUF_SIZE 4096*64
+#define NUM_TRANSFERS 8
 #define TIMEOUT 0
 
 static volatile int running = 1;
@@ -34,7 +34,7 @@ void transfer_callback(struct libusb_transfer *transfer)
     if (transfer->status == LIBUSB_TRANSFER_COMPLETED) {
         bytes_received += transfer->actual_length;
     }
-    
+
     // Check the received data as 4 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
     for (int i = 0; i < transfer->actual_length; i += 4)
     {

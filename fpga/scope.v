@@ -4,10 +4,14 @@ module adc_ft601 (
 	(* syn_useioff = "true" *) output reg hrvld,
 	(* syn_useioff = "true" *) output reg hract,
 	(* syn_useioff = "true" *) output hrclk,
-	//input [31:0] data_in,
+	input [31:0] data_in,
 	input htack,
 	input htclk );
 
+	// Loop the 120MHz clock from the CH569 htclk back to its hrclk
+	assign hrclk = htclk;
+
+	// Set up a 4KiB pseudo dual port RAM for 2 x 2KiB buffers
 	reg ram_wren;
 	reg [9:0] ram_write_addr = 0;
 	reg [9:0] ram_read_addr = 0;
@@ -15,41 +19,36 @@ module adc_ft601 (
 	wire [31:0] ram_data_out;
 	ram ram (ram_write_addr, ram_read_addr, ram_data_in, ram_wren, htclk, 1'b1, 1'b0, htclk, 1'b1, ram_data_out);
 
-	//reg[31:0] registered_input;
-	
-	assign hrclk = htclk;
-
-	// Sequence number for HSPI frames
-	reg [3:0] seq = 0;
-	// Position within the frame
-	reg [8:0] frame_idx = 0;
-	// Frame transmitter state
-	reg [2:0] state = 0;
-	reg transmit_now;
-	
-	// 32 bit general purpose cycle counter
-	reg [31:0] counter = 0;
-	// 32 bit general purpose data increment
-	reg [31:0] data_counter = 0;
-
 	// CRC calculator
 	reg  [31:0] crcIn;
 	reg  [31:0] crcData;
 	wire [31:0] crcOut;
 	crc32 crc32 (.crcIn(crcIn), .crcOut(crcOut), .data(crcData));
 
-	reg read_msb;
-	
+	// Register the probe inputs
+	reg[31:0] registered_input;
 	always @ (posedge htclk) begin
-		//registered_input <= data_in;
+		registered_input <= data_in;
+	end
+
+	// 33 bit general purpose cycle counter
+	reg [32:0] counter = 0;
+	// Flag to indicate it's time to start sending an HSPI frame
+	reg transmit_now;
+	// Indicate which memory bank we should read from
+	reg read_msb;
+
+	// Read input data from probes and write to memory
+	always @ (posedge htclk) begin
 		ram_wren <= 0;
 		counter <= counter + 1;
 		transmit_now <= 0;
 		if(counter[0]) begin
 			ram_wren <= 1;
-			ram_write_addr <= ram_write_addr + 1;
-			ram_data_in <= data_counter;
-			data_counter <= data_counter + 1;
+			ram_write_addr <= ram_write_addr + 10'd1;
+			// For now we use dummy data
+			// ram_data_in <= counter[32:1];
+			ram_data_in <= registered_input;
 			if(ram_write_addr[8:0] == 9'b111111111) begin
 				transmit_now <= 1;
 				read_msb <= ram_write_addr[9];
@@ -57,28 +56,29 @@ module adc_ft601 (
 		end
 	end
 
+	// Pipeline all outputs by one cycle to improve timing
 	reg [31:0] ch_data_internal;
 	reg hrvld_internal;
 	reg hract_internal;
 
-	reg [31:0] ch_data_internal_b;
-	reg hrvld_internal_b;
-	reg hract_internal_b;
-
 	always @ (posedge htclk) begin
-		ch_data <= ch_data_internal_b;
-		hrvld <= hrvld_internal_b;
-		hract <= hract_internal_b;
+		ch_data <= ch_data_internal;
+		hrvld <= hrvld_internal;
+		hract <= hract_internal;
 	end
 
-	always @ (posedge htclk) begin
-		ch_data_internal_b <= ch_data_internal;
-		hrvld_internal_b <= hrvld_internal;
-		hract_internal_b <= hract_internal;
 
-		// Handle HSPI transmission
-		ram_read_addr <= ram_read_addr + 1;
-		frame_idx <= 0;
+	// Sequence number for HSPI frames
+	reg [3:0] seq = 0;
+	// Frame transmitter state
+	reg [2:0] state = 0;
+	// Position within the frame
+	reg [8:0] frame_idx = 0;
+
+	// Transmit data to CH569 HSPI interface
+	always @ (posedge htclk) begin
+		ram_read_addr <= ram_read_addr + 10'd1;
+
 		// No frame is in progress, start one if we have data waiting
 		if(state == 0 && transmit_now && ~htack) begin
 			// Request to send
@@ -87,34 +87,34 @@ module adc_ft601 (
 		end
 		// We've requested to send and the microcontoller has responded
 		if(state == 1 && htack) begin
-			// Start reading the FIFO
-			state <= 2;
+			// Set the initial RAM read address
 			ram_read_addr <= {read_msb, 9'b000000000};
+			state <= 2;
 		end
-		// NOP stage to give the FIFO time to start readind
+		// NOP stage while the read address is registered in RAM
 		if(state == 2) begin
 			state <= 3;
 		end
 		// Start sending data. The first dword is the header
+		// During this stage the RAM output data is registered
 		if(state == 3) begin
 			hrvld_internal   <= 1;
 			ch_data_internal <= {2'b00, seq, 26'b00000000000000000000000000};
 			crcData          <= {2'b00, seq, 26'b00000000000000000000000000};
 			crcIn            <= 32'hffffffff;
-			seq <= seq + 1;
+			seq <= seq + 4'd1;
 			state <= 4;
 		end
 		// Send the bulk of the data
 		if(state == 4) begin
-			frame_idx <= frame_idx + 1;
+			frame_idx <= frame_idx + 9'd1;
 			ch_data_internal <= ram_data_out;
 			crcData          <= ram_data_out;
-			//tx_data <= tx_data + 1;
 			crcIn            <= crcOut;
 			// If this is the 512th frame, move on
 			if(frame_idx == 511) state <= 5;
 		end
-		// End the frame with a CRC
+		// End the frame by transmitting the CRC
 		if(state == 5) begin
 			ch_data_internal <= ~crcOut;
 			state <= 6;

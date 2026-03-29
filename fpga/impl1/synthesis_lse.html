@@ -14,7 +14,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Sun Mar 29 13:31:02 2026
+Sun Mar 29 15:11:08 2026
 
 
 Command Line:  synthesis -f Scope_impl1_lattice.synproj -gui -msgset /home/charlie/scope/fpga/promote.xml 
@@ -100,10 +100,6 @@ INFO - synthesis: /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESI
 INFO - synthesis: /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1120): compiling module VHI. VERI-1018
 INFO - synthesis: /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1124): compiling module VLO. VERI-1018
 INFO - synthesis: /home/charlie/scope/fpga/crc32.v(1): compiling module crc32. VERI-1018
-WARNING - synthesis: /home/charlie/scope/fpga/scope.v(50): expression size 32 truncated to fit in target size 10. VERI-1209
-WARNING - synthesis: /home/charlie/scope/fpga/scope.v(80): expression size 32 truncated to fit in target size 10. VERI-1209
-WARNING - synthesis: /home/charlie/scope/fpga/scope.v(104): expression size 32 truncated to fit in target size 4. VERI-1209
-WARNING - synthesis: /home/charlie/scope/fpga/scope.v(109): expression size 32 truncated to fit in target size 9. VERI-1209
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00a/data/xo2alib.ngl'...
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data/xo2clib.ngl'...
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/mg5g00/data/mg5glib.ngl'...
@@ -127,20 +123,20 @@ All blocks are expanded and NGD expansion is successful.
 Writing NGD file Scope_impl1.ngd.
 
 ################### Begin Area Report (adc_ft601)######################
-Number of register bits => 272 of 1520 (17 % )
-CCU2D => 35
+Number of register bits => 236 of 1520 (15 % )
+CCU2D => 18
 DP8KC => 4
-FD1P3AX => 146
+FD1P3AX => 123
 FD1P3IX => 2
 FD1P3JX => 32
-FD1S3AX => 39
-FD1S3IX => 19
+FD1S3AX => 35
+FD1S3IX => 10
 GSR => 1
-IB => 2
-LUT4 => 331
+IB => 34
+LUT4 => 353
 OB => 35
 OFS1P3DX => 34
-PFUMX => 6
+PFUMX => 4
 ################### End Area Report ##################
 
 ################### Begin BlackBox Report ######################
@@ -150,31 +146,31 @@ TSALL => 1
 ################### Begin Clock Report ######################
 Clock Nets
 Number of Clocks: 1
-  Net : htclk_c, loads : 281
+  Net : htclk_c, loads : 245
 Clock Enable Nets
 Number of Clock Enables: 9
 Top 9 highest fanout Clock Enables:
-  Net : htclk_c_enable_154, loads : 64
-  Net : htclk_c_enable_153, loads : 50
-  Net : htclk_c_enable_148, loads : 37
-  Net : htclk_c_enable_105, loads : 32
-  Net : counter_0, loads : 26
-  Net : htclk_c_enable_42, loads : 1
-  Net : htclk_c_enable_43, loads : 1
+  Net : htclk_c_enable_103, loads : 64
+  Net : counter_0, loads : 46
+  Net : htclk_c_enable_114, loads : 38
+  Net : htclk_c_enable_72, loads : 32
+  Net : htclk_c_enable_111, loads : 17
   Net : htclk_c_enable_3, loads : 1
+  Net : htclk_c_enable_16, loads : 1
   Net : htclk_c_enable_2, loads : 1
+  Net : htclk_c_enable_18, loads : 1
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : state_2, loads : 80
-  Net : htclk_c_enable_154, loads : 64
-  Net : state_0, loads : 52
-  Net : state_1, loads : 50
-  Net : htclk_c_enable_153, loads : 50
-  Net : htclk_c_enable_148, loads : 37
-  Net : htclk_c_enable_105, loads : 32
-  Net : n4935, loads : 31
-  Net : counter_0, loads : 26
-  Net : n4974, loads : 14
+  Net : state_2, loads : 71
+  Net : htclk_c_enable_103, loads : 64
+  Net : state_0, loads : 49
+  Net : state_1, loads : 48
+  Net : counter_0, loads : 46
+  Net : htclk_c_enable_114, loads : 38
+  Net : htclk_c_enable_72, loads : 32
+  Net : n4719, loads : 24
+  Net : htclk_c_enable_111, loads : 17
+  Net : crcIn_3, loads : 14
 ################### End Clock Report ##################
 
 <A name="lse_trs"></A><B><U><big>Timing Report Summary</big></U></B>
@@ -184,7 +180,7 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets htclk_c]                 |  200.000 MHz|   96.460 MHz|     7 *
+clk0 [get_nets htclk_c]                 |  200.000 MHz|   96.572 MHz|     6 *
                                         |             |             |
 --------------------------------------------------------------------------------
 
@@ -192,10 +188,10 @@ clk0 [get_nets htclk_c]                 |  200.000 MHz|   96.460 MHz|     7 *
 1 constraints not met.
 
 
-Peak Memory Usage: 184.848  MB
+Peak Memory Usage: 184.969  MB
 
 --------------------------------------------------------------
-Elapsed CPU time for LSE flow : 0.629  secs
+Elapsed CPU time for LSE flow : 0.702  secs
 --------------------------------------------------------------
 
 

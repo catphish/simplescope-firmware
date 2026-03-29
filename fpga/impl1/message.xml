@@ -76,42 +76,6 @@
             <Navigation>1</Navigation>
         </Message>
         <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(50): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>50</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(80): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>80</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(104): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>4</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>104</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(109): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>9</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>109</Navigation>
-        </Message>
-        <Message>
             <ID>35001611</ID>
             <Severity>Warning</Severity>
         </Message>
@@ -124,6 +88,25 @@
         <Message>
             <ID>61061045</ID>
             <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>61061045</ID>
+            <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>61061045</ID>
+            <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>61061045</ID>
+            <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>60001138</ID>
+            <Severity>Info</Severity>
+            <Dynamic>Iterations 5_2, 5_4, and 5_5</Dynamic>
+            <Dynamic>were</Dynamic>
+            <Dynamic>they</Dynamic>
         </Message>
     </Task>
     <Task name="Jedecgen">

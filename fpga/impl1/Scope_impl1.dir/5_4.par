@@ -1,11 +1,11 @@
 
 Lattice Place and Route Report for Design "Scope_impl1_map.ncd"
-Sun Mar 29 15:17:16 2026
+Sun Mar 29 15:17:29 2026
 
 PAR: Place And Route Diamond (64-bit) 3.14.0.75.2.
-Command Line: par -w -l 5 -i 10 -t 2 -c 2 -e 5 -gui -msgset /home/charlie/scope/fpga/promote.xml -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=ON:parASE=1:aseRouteInitSetupSlackThreshold=-0.196 Scope_impl1_map.ncd Scope_impl1.dir/5_2.ncd Scope_impl1.prf
+Command Line: par -w -l 5 -i 10 -t 4 -c 2 -e 5 -gui -msgset /home/charlie/scope/fpga/promote.xml -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=ON:parASE=1:aseRouteInitSetupSlackThreshold=0.175 Scope_impl1_map.ncd Scope_impl1.dir/5_4.ncd Scope_impl1.prf
 Preference file: Scope_impl1.prf.
-Placement level-cost: 5-2.
+Placement level-cost: 5-4.
 Routing Iterations: 10
 
 Loading design for application par from file /tmp/neo_lhR2Zu.
@@ -47,18 +47,18 @@ The following 4 signals are selected to use the secondary clock routing resource
 
 No signal is selected as Global Set/Reset.
 Starting Placer Phase 0.
-.........
+...........
 Finished Placer Phase 0.  REAL time: 0 secs 
 
 Starting Placer Phase 1.
 ....................
-Placer score = 5269181.
-Finished Placer Phase 1.  REAL time: 4 secs 
+Placer score = 4994560.
+Finished Placer Phase 1.  REAL time: 5 secs 
 
 Starting Placer Phase 2.
 .
-Placer score =  5808075
-Finished Placer Phase 2.  REAL time: 5 secs 
+Placer score =  5073848
+Finished Placer Phase 2.  REAL time: 6 secs 
 
 
 ------------------ Clock Report ------------------
@@ -71,10 +71,10 @@ Global Clock Resources:
 
 Global Clocks:
   PRIMARY "htclk_c" from comp "htclk" on CLK_PIN site "86 (PT12C)", clk load = 150
-  SECONDARY "htclk_c_enable_103" from F1 on comp "SLICE_193" on site "R2C11B", clk load = 0, ce load = 32, sr load = 0
-  SECONDARY "counter_0" from Q1 on comp "SLICE_13" on site "R10C18A", clk load = 0, ce load = 23, sr load = 1
-  SECONDARY "htclk_c_enable_114" from F0 on comp "SLICE_193" on site "R2C11B", clk load = 0, ce load = 3, sr load = 16
-  SECONDARY "htclk_c_enable_72" from F1 on comp "SLICE_191" on site "R2C11C", clk load = 0, ce load = 16, sr load = 0
+  SECONDARY "htclk_c_enable_103" from F1 on comp "SLICE_193" on site "R7C11D", clk load = 0, ce load = 32, sr load = 0
+  SECONDARY "counter_0" from Q1 on comp "SLICE_13" on site "R10C6B", clk load = 0, ce load = 23, sr load = 1
+  SECONDARY "htclk_c_enable_114" from F0 on comp "SLICE_193" on site "R7C11D", clk load = 0, ce load = 3, sr load = 16
+  SECONDARY "htclk_c_enable_72" from F1 on comp "SLICE_191" on site "R10C8D", clk load = 0, ce load = 16, sr load = 0
 
   PRIMARY  : 1 out of 8 (12%)
   SECONDARY: 4 out of 8 (50%)
@@ -101,16 +101,16 @@ I/O Bank Usage Summary:
 | 3        | 20 / 20 (100%) | 3.3V       | -         |
 +----------+----------------+------------+-----------+
 
-Total placer CPU time: 4 secs 
+Total placer CPU time: 5 secs 
 
-Dumping design to file Scope_impl1.dir/5_2.ncd.
+Dumping design to file Scope_impl1.dir/5_4.ncd.
 
 0 connections routed; 1924 unrouted.
 Starting router resource preassignment
 
-Completed router resource preassignment. Real time: 5 secs 
+Completed router resource preassignment. Real time: 6 secs 
 
-Start NBR router at Sun Mar 29 15:17:21 BST 2026
+Start NBR router at Sun Mar 29 15:17:35 BST 2026
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -125,28 +125,28 @@ Note: NBR uses a different method to calculate timing slacks. The
       your design.                                               
 *****************************************************************
 
-Start NBR special constraint process at Sun Mar 29 15:17:21 BST 2026
+Start NBR special constraint process at Sun Mar 29 15:17:35 BST 2026
 
-Start NBR section for initial routing at Sun Mar 29 15:17:21 BST 2026
+Start NBR section for initial routing at Sun Mar 29 15:17:35 BST 2026
 Level 1, iteration 1
-9(0.01%) conflicts; 1432(74.43%) untouched conns; 2710 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.298ns/-2.710ns; real time: 5 secs 
+11(0.01%) conflicts; 1426(74.12%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.027ns/0.000ns; real time: 6 secs 
 Level 2, iteration 1
-60(0.07%) conflicts; 1154(59.98%) untouched conns; 3028 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.311ns/-3.029ns; real time: 5 secs 
+51(0.06%) conflicts; 1157(60.14%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.003ns/0.000ns; real time: 6 secs 
 Level 3, iteration 1
-149(0.17%) conflicts; 284(14.76%) untouched conns; 3863 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.372ns/-3.864ns; real time: 6 secs 
+165(0.19%) conflicts; 291(15.12%) untouched conns; 285 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.057ns/-0.285ns; real time: 7 secs 
 Level 4, iteration 1
-76(0.09%) conflicts; 0(0.00%) untouched conn; 4020 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: -0.375ns/-4.021ns; real time: 6 secs 
+87(0.10%) conflicts; 0(0.00%) untouched conn; 439 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.088ns/-0.440ns; real time: 7 secs 
 
 Info: Initial congestion level at 75% usage is 0
 Info: Initial congestion area  at 75% usage is 0 (0.00%)
 
 *****************************************************************************
-WARNING: The worst setup slack (-0.375ns) after initial routing exceeds the 
-specified threshold -0.196 ns. This par run will be terminated.
+WARNING: The worst setup slack (-0.088ns) after initial routing exceeds the 
+specified threshold 0.175 ns. This par run will be terminated.
 *****************************************************************************
 
 
@@ -160,7 +160,7 @@ PAR_SUMMARY::Timing score<hold /<ns>> = <n/a>
 PAR_SUMMARY::Number of errors = 0
 
 Total CPU  time to completion: 6 secs 
-Total REAL time to completion: 6 secs 
+Total REAL time to completion: 7 secs 
 
 par failed!
 

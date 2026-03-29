@@ -38,7 +38,7 @@ Performance Hardware Data Status:   Final          Version 36.4.
 // Package: TQFP100
 // ncd File: Scope_impl1.ncd
 // Version: Diamond (64-bit) 3.14.0.75.2
-// Written on Sun Mar 29 13:31:22 2026
+// Written on Sun Mar 29 15:17:46 2026
 // M: Minimum Performance Grade
 // iotiming Scope_impl1.ncd Scope_impl1.prf -gui -msgset /home/charlie/scope/fpga/promote.xml
 
@@ -48,9 +48,41 @@ Worst Case Results across Performance Grades (M, 6, 5, 4):
 
 // Input Setup and Hold Times
 
-Port  Clock Edge  Setup Performance_Grade  Hold Performance_Grade
+Port        Clock Edge  Setup Performance_Grade  Hold Performance_Grade
 ----------------------------------------------------------------------
-htack htclk R     4.784      4       0.690     4
+data_in[0]  htclk R     1.534      4      -0.062     M
+data_in[10] htclk R     0.296      4       0.778     4
+data_in[11] htclk R     0.296      4       0.778     4
+data_in[12] htclk R    -0.019      4       1.038     4
+data_in[13] htclk R    -0.019      4       1.038     4
+data_in[14] htclk R    -0.019      4       1.038     4
+data_in[15] htclk R    -0.019      4       1.038     4
+data_in[16] htclk R    -0.128      M       1.179     4
+data_in[17] htclk R     0.274      4       0.804     4
+data_in[18] htclk R    -0.075      M       1.111     4
+data_in[19] htclk R    -0.075      M       1.111     4
+data_in[1]  htclk R     1.062      4       0.085     6
+data_in[20] htclk R     0.010      4       1.003     4
+data_in[21] htclk R     0.209      4       0.850     4
+data_in[22] htclk R     0.912      4       0.257     6
+data_in[23] htclk R     1.251      4       0.066     6
+data_in[24] htclk R    -0.071      M       1.092     4
+data_in[25] htclk R    -0.071      M       1.092     4
+data_in[26] htclk R    -0.071      M       1.092     4
+data_in[27] htclk R    -0.071      M       1.092     4
+data_in[28] htclk R    -0.124      M       1.160     4
+data_in[29] htclk R     0.220      4       0.831     4
+data_in[2]  htclk R     0.433      4       0.620     4
+data_in[30] htclk R    -0.071      M       1.092     4
+data_in[31] htclk R    -0.071      M       1.092     4
+data_in[3]  htclk R     0.088      4       0.918     4
+data_in[4]  htclk R     0.496      4       0.602     4
+data_in[5]  htclk R     0.840      4       0.306     4
+data_in[6]  htclk R     0.097      4       0.931     4
+data_in[7]  htclk R     0.097      4       0.931     4
+data_in[8]  htclk R     0.011      4       1.001     4
+data_in[9]  htclk R     0.496      4       0.602     4
+htack       htclk R     4.865      4       0.046     6
 
 
 // Clock to Output Delay
@@ -92,6 +124,8 @@ ch_data[9]  htclk R     7.283         4        2.173          M
 hract       htclk R     7.378         4        2.222          M
 hrvld       htclk R     7.196         4        2.175          M
 WARNING: you must also run trce with hold speed: 4
+WARNING: you must also run trce with hold speed: 6
+WARNING: you must also run trce with setup speed: M
 
 
 

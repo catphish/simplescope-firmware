@@ -1,15 +1,15 @@
 NOTE Copyright (C), 1992-2010, Lattice Semiconductor Corporation *
 NOTE All Rights Reserved *
-NOTE DATE CREATED: Sun Mar 29 13:31:23 2026 *
+NOTE DATE CREATED: Sun Mar 29 15:17:47 2026 *
 NOTE DESIGN NAME: adc_ft601 *
 NOTE DEVICE NAME: LCMXO2-1200HC-4TQFP100 *
 NOTE PIN ASSIGNMENTS *
-NOTE PINS ch_data[26] : 52 : out *
 NOTE PINS ch_data[27] : 51 : out *
 NOTE PINS ch_data[28] : 43 : out *
 NOTE PINS ch_data[29] : 42 : out *
 NOTE PINS ch_data[30] : 41 : out *
 NOTE PINS ch_data[31] : 40 : out *
+NOTE PINS ch_data[26] : 52 : out *
 NOTE PINS ch_data[25] : 53 : out *
 NOTE PINS ch_data[24] : 54 : out *
 NOTE PINS ch_data[23] : 57 : out *
@@ -39,6 +39,38 @@ NOTE PINS ch_data[0] : 85 : out *
 NOTE PINS hrvld : 39 : out *
 NOTE PINS hract : 87 : out *
 NOTE PINS hrclk : 88 : out *
+NOTE PINS data_in[31] : 37 : in *
+NOTE PINS data_in[30] : 36 : in *
+NOTE PINS data_in[29] : 35 : in *
+NOTE PINS data_in[28] : 34 : in *
+NOTE PINS data_in[27] : 30 : in *
+NOTE PINS data_in[26] : 29 : in *
+NOTE PINS data_in[25] : 28 : in *
+NOTE PINS data_in[24] : 27 : in *
+NOTE PINS data_in[23] : 25 : in *
+NOTE PINS data_in[22] : 24 : in *
+NOTE PINS data_in[21] : 21 : in *
+NOTE PINS data_in[20] : 20 : in *
+NOTE PINS data_in[19] : 19 : in *
+NOTE PINS data_in[18] : 18 : in *
+NOTE PINS data_in[17] : 17 : in *
+NOTE PINS data_in[16] : 16 : in *
+NOTE PINS data_in[15] : 15 : in *
+NOTE PINS data_in[14] : 14 : in *
+NOTE PINS data_in[13] : 13 : in *
+NOTE PINS data_in[12] : 12 : in *
+NOTE PINS data_in[11] : 10 : in *
+NOTE PINS data_in[10] : 9 : in *
+NOTE PINS data_in[9] : 8 : in *
+NOTE PINS data_in[8] : 7 : in *
+NOTE PINS data_in[7] : 4 : in *
+NOTE PINS data_in[6] : 3 : in *
+NOTE PINS data_in[5] : 2 : in *
+NOTE PINS data_in[4] : 1 : in *
+NOTE PINS data_in[3] : 99 : in *
+NOTE PINS data_in[2] : 98 : in *
+NOTE PINS data_in[1] : 97 : in *
+NOTE PINS data_in[0] : 96 : in *
 NOTE PINS htack : 38 : in *
 NOTE PINS htclk : 86 : in *
 NOTE PINS SYSCONFIG_PIN_MCLK : 31 : inout *
