@@ -8,6 +8,9 @@ module adc_ft601 (
 	input htack,
 	input htclk );
 
+	// Set D0 high at startup to bypass CH569 bootloader by default
+	initial ch_data = 32'd1;
+
 	// Loop the 120MHz clock from the CH569 htclk back to its hrclk
 	assign hrclk = htclk;
 
