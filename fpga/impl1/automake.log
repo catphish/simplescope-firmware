@@ -1,4 +1,1020 @@
 
+synthesis -f "Scope_impl1_lattice.synproj"
+synthesis:  version Diamond (64-bit) 3.14.0.75.2
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+Sun Mar 29 13:23:13 2026
+
+
+Command Line:  synthesis -f Scope_impl1_lattice.synproj -gui -msgset /home/charlie/scope/fpga/promote.xml 
+
+    <postMsg mid="35002000" type="Info"    dynamic="0" navigation="0"  />
+Synthesis options:
+The -a option is MachXO2.
+The -s option is 4.
+The -t option is TQFP100.
+The -d option is LCMXO2-1200HC.
+Using package TQFP100.
+Using performance grade 4.
+                                                          
+
+##########################################################
+
+### Lattice Family : MachXO2
+
+### Device  : LCMXO2-1200HC
+
+### Package : TQFP100
+
+### Speed   : 4
+
+##########################################################
+
+                                                          
+
+    <postMsg mid="35001781" type="Info"    dynamic="0" navigation="0"  />
+Optimization goal = Timing
+Top-level module name = adc_ft601.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+Mux style = Auto
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = FALSE
+force_gsr = auto
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-p /home/charlie/scope/fpga (searchpath added)
+-p /home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data (searchpath added)
+-p /home/charlie/scope/fpga/impl1 (searchpath added)
+-p /home/charlie/scope/fpga (searchpath added)
+Verilog design file = /home/charlie/scope/fpga/scope.v
+Verilog design file = /home/charlie/scope/fpga/crc32.v
+Verilog design file = /home/charlie/scope/fpga/pll.v
+Verilog design file = /home/charlie/scope/fpga/ram.v
+NGD file = Scope_impl1.ngd
+-sdc option: SDC file input not used.
+-lpf option: Output file option is ON.
+Hardtimer checking is enabled (default). The -dt option is not used.
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Technology check ok...
+
+Analyzing Verilog file /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Compile design.
+Compile Design Begin
+Analyzing Verilog file /home/charlie/scope/fpga/scope.v. VERI-1482
+Analyzing Verilog file /home/charlie/scope/fpga/crc32.v. VERI-1482
+Analyzing Verilog file /home/charlie/scope/fpga/pll.v. VERI-1482
+Analyzing Verilog file /home/charlie/scope/fpga/ram.v. VERI-1482
+Analyzing Verilog file /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Top module name (Verilog): adc_ft601
+    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(1): " arg1="adc_ft601" arg2="/home/charlie/scope/fpga/scope.v" arg3="1"  />
+    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/scope/fpga/ram.v(8): " arg1="ram" arg2="/home/charlie/scope/fpga/ram.v" arg3="8"  />
+    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1291): " arg1="DP8KC(REGMODE_A=&quot;OUTREG&quot;,REGMODE_B=&quot;OUTREG&quot;)" arg2="/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v" arg3="1291"  />
+    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1120): " arg1="VHI" arg2="/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v" arg3="1120"  />
+    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1124): " arg1="VLO" arg2="/home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v" arg3="1124"  />
+    <postMsg mid="35901018" type="Info"    dynamic="2" navigation="2" arg0="/home/charlie/scope/fpga/crc32.v(1): " arg1="crc32" arg2="/home/charlie/scope/fpga/crc32.v" arg3="1"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(48): " arg1="32" arg2="10" arg3="/home/charlie/scope/fpga/scope.v" arg4="48"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(78): " arg1="32" arg2="10" arg3="/home/charlie/scope/fpga/scope.v" arg4="78"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(91): " arg1="32" arg2="10" arg3="/home/charlie/scope/fpga/scope.v" arg4="91"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(96): " arg1="32" arg2="10" arg3="/home/charlie/scope/fpga/scope.v" arg4="96"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(100): " arg1="32" arg2="10" arg3="/home/charlie/scope/fpga/scope.v" arg4="100"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(105): " arg1="32" arg2="4" arg3="/home/charlie/scope/fpga/scope.v" arg4="105"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(110): " arg1="32" arg2="10" arg3="/home/charlie/scope/fpga/scope.v" arg4="110"  />
+    <postMsg mid="35901209" type="Warning" dynamic="3" navigation="2" arg0="/home/charlie/scope/fpga/scope.v(111): " arg1="32" arg2="9" arg3="/home/charlie/scope/fpga/scope.v" arg4="111"  />
+Last elaborated design is adc_ft601()
+Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00a/data/xo2alib.ngl'...
+Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data/xo2clib.ngl'...
+Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/mg5g00/data/mg5glib.ngl'...
+Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/or5g00/data/orc5glib.ngl'...
+Loading device for application map from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
+Package Status:                     Final          Version 1.44.
+Top-level module name = adc_ft601.
+
+
+
+GSR will not be inferred because no asynchronous signal was found in the netlist.
+Applying 200.000000 MHz constraint to all clocks
+
+    <postMsg mid="35001611" type="Warning" dynamic="0" navigation="0"  />
+Results of NGD DRC are available in adc_ft601_drc.log.
+Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00a/data/xo2alib.ngl'...
+Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data/xo2clib.ngl'...
+Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/mg5g00/data/mg5glib.ngl'...
+Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/or5g00/data/orc5glib.ngl'...
+
+
+Running DRC...
+
+DRC complete with no errors or warnings
+
+Design Results:
+    765 blocks expanded
+completed the first expansion
+All blocks are expanded and NGD expansion is successful.
+Writing NGD file Scope_impl1.ngd.
+
+################### Begin Area Report (adc_ft601)######################
+Number of register bits => 303 of 1520 (19 % )
+CCU2D => 35
+DP8KC => 4
+FD1P3AX => 145
+FD1P3IX => 2
+FD1P3JX => 32
+FD1S3AX => 71
+FD1S3IX => 19
+GSR => 1
+IB => 2
+LUT4 => 378
+OB => 35
+OFS1P3DX => 34
+PFUMX => 4
+################### End Area Report ##################
+
+################### Begin BlackBox Report ######################
+TSALL => 1
+################### End BlackBox Report ##################
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 1
+  Net : htclk_c, loads : 312
+Clock Enable Nets
+Number of Clock Enables: 9
+Top 9 highest fanout Clock Enables:
+  Net : htclk_c_enable_105, loads : 64
+  Net : htclk_c_enable_154, loads : 50
+  Net : htclk_c_enable_74, loads : 32
+  Net : counter_0, loads : 25
+  Net : htclk_c_enable_148, loads : 7
+  Net : htclk_c_enable_41, loads : 1
+  Net : htclk_c_enable_43, loads : 1
+  Net : htclk_c_enable_6, loads : 1
+  Net : htclk_c_enable_8, loads : 1
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : state_2, loads : 110
+  Net : state_0, loads : 80
+  Net : state_1, loads : 75
+  Net : htclk_c_enable_105, loads : 64
+  Net : htclk_c_enable_154, loads : 50
+  Net : n5320, loads : 33
+  Net : n2714, loads : 32
+  Net : htclk_c_enable_74, loads : 32
+  Net : counter_0, loads : 25
+  Net : n5306, loads : 17
+################### End Clock Report ##################
+
+Timing Report Summary
+--------------
+--------------------------------------------------------------------------------
+Constraint                              |   Constraint|       Actual|Levels
+--------------------------------------------------------------------------------
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk0 [get_nets htclk_c]                 |  200.000 MHz|   98.357 MHz|     6 *
+                                        |             |             |
+--------------------------------------------------------------------------------
+
+
+1 constraints not met.
+
+
+Peak Memory Usage: 183.715  MB
+
+--------------------------------------------------------------
+Elapsed CPU time for LSE flow : 0.656  secs
+--------------------------------------------------------------
+
+map -a "MachXO2" -p LCMXO2-1200HC -t TQFP100 -s 4 -oc Industrial   "Scope_impl1.ngd" -o "Scope_impl1_map.ncd" -pr "Scope_impl1.prf" -mp "Scope_impl1.mrp" -lpf "/home/charlie/scope/fpga/impl1/Scope_impl1.lpf" -lpf "/home/charlie/scope/fpga/Scope.lpf"             
+map:  version Diamond (64-bit) 3.14.0.75.2
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+   Process the file: Scope_impl1.ngd
+   Picdevice="LCMXO2-1200HC"
+
+   Pictype="TQFP100"
+
+   Picspeed=4
+
+   Remove unused logic
+
+   Do not produce over sized NCDs.
+
+Part used: LCMXO2-1200HCTQFP100, Performance used: 4.
+
+Loading device for application map from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
+Package Status:                     Final          Version 1.44.
+
+Running general design DRC...
+
+Removing unused logic...
+
+Optimizing...
+
+
+
+
+Design Summary:
+   Number of registers:    303 out of  1520 (20%)
+      PFU registers:          269 out of  1280 (21%)
+      PIO registers:           34 out of   240 (14%)
+   Number of SLICEs:       287 out of   640 (45%)
+      SLICEs as Logic/ROM:    287 out of   640 (45%)
+      SLICEs as RAM:            0 out of   480 (0%)
+      SLICEs as Carry:         35 out of   640 (5%)
+   Number of LUT4s:        448 out of  1280 (35%)
+      Number used as logic LUTs:        378
+      Number used as distributed RAM:     0
+      Number used as ripple logic:       70
+      Number used as shift registers:     0
+   Number of PIO sites used: 37 + 4(JTAG) out of 80 (51%)
+   Number of block RAMs:  4 out of 7 (57%)
+   Number of GSRs:        0 out of 1 (0%)
+   EFB used :        No
+   JTAG used :       No
+   Readback used :   No
+   Oscillator used : No
+   Startup used :    No
+   POR :             On
+   Bandgap :         On
+   Number of Power Controller:  0 out of 1 (0%)
+   Number of Dynamic Bank Controller (BCINRD):  0 out of 4 (0%)
+   Number of Dynamic Bank Controller (BCLVDSO):  0 out of 1 (0%)
+   Number of DCCA:  0 out of 8 (0%)
+   Number of DCMA:  0 out of 2 (0%)
+   Number of PLLs:  0 out of 1 (0%)
+   Number of DQSDLLs:  0 out of 2 (0%)
+   Number of CLKDIVC:  0 out of 4 (0%)
+   Number of ECLKSYNCA:  0 out of 4 (0%)
+   Number of ECLKBRIDGECS:  0 out of 2 (0%)
+   Notes:-
+      1. Total number of LUT4s = (Number of logic LUT4s) + 2*(Number of distributed RAMs) + 2*(Number of ripple logic)
+      2. Number of logic LUT4s does not include count of distributed RAM and ripple logic.
+   Number of clocks:  1
+     Net htclk_c: 185 loads, 185 rising, 0 falling (Driver: PIO htclk )
+   Number of Clock Enables:  9
+     Net counter_0: 13 loads, 13 LSLICEs
+     Net htclk_c_enable_105: 32 loads, 32 LSLICEs
+     Net htclk_c_enable_74: 16 loads, 16 LSLICEs
+     Net htclk_c_enable_6: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_154: 26 loads, 26 LSLICEs
+     Net htclk_c_enable_8: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_148: 3 loads, 3 LSLICEs
+     Net htclk_c_enable_43: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_41: 1 loads, 1 LSLICEs
+   Number of LSRs:  5
+     Net n5306: 5 loads, 5 LSLICEs
+     Net n1712: 5 loads, 5 LSLICEs
+     Net n2714: 16 loads, 16 LSLICEs
+     Net n5269: 2 loads, 2 LSLICEs
+     Net n5362: 1 loads, 1 LSLICEs
+   Number of nets driven by tri-state buffers:  0
+   Top 10 highest fanout non-clock nets:
+     Net state_2: 110 loads
+     Net state_0: 80 loads
+     Net state_1: 75 loads
+     Net n5320: 33 loads
+     Net htclk_c_enable_105: 32 loads
+     Net htclk_c_enable_154: 27 loads
+     Net htclk_c_enable_74: 16 loads
+     Net n2714: 16 loads
+     Net crcData_0: 15 loads
+     Net counter_0: 13 loads
+ 
+
+   Number of warnings:  0
+   Number of errors:    0
+
+
+
+Total CPU Time: 0 secs  
+Total REAL Time: 0 secs  
+Peak Memory Usage: 162 MB
+
+Dumping design to file Scope_impl1_map.ncd.
+
+ncd2vdb "Scope_impl1_map.ncd" ".vdbs/Scope_impl1_map.vdb"
+
+Loading device for application ncd2vdb from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
+
+mpartrce -p "Scope_impl1.p2t" -f "Scope_impl1.p3t" -tf "Scope_impl1.pt" "Scope_impl1_map.ncd" "Scope_impl1.ncd"
+
+---- MParTrce Tool ----
+Removing old design directory at request of -rem command line option to this program.
+Running par. Please wait . . .
+
+Lattice Place and Route Report for Design "Scope_impl1_map.ncd"
+Sun Mar 29 13:23:14 2026
+
+PAR: Place And Route Diamond (64-bit) 3.14.0.75.2.
+Command Line: par -w -l 5 -i 10 -t 1 -c 2 -e 2 -gui -msgset /home/charlie/scope/fpga/promote.xml -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=ON:parASE=1 Scope_impl1_map.ncd Scope_impl1.dir/5_1.ncd Scope_impl1.prf
+Preference file: Scope_impl1.prf.
+Placement level-cost: 5-1.
+Routing Iterations: 10
+
+Loading design for application par from file Scope_impl1_map.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 4
+Loading device for application par from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+License checked out.
+
+
+Ignore Preference Error(s):  True
+Device utilization summary:
+
+   PIO (prelim)   37+4(JTAG)/108     38% used
+                  37+4(JTAG)/80      51% bonded
+   IOLOGIC           34/108          31% used
+
+   SLICE            287/640          44% used
+
+   EBR                4/7            57% used
+
+
+Number of Signals: 803
+Number of Connections: 2205
+    <postMsg mid="61061045" type="Warning" dynamic="0" navigation="0"  />
+
+Pin Constraint Summary:
+   37 out of 37 pins locked (100% locked).
+
+The following 1 signal is selected to use the primary clock routing resources:
+    htclk_c (driver: htclk, clk load #: 185)
+
+
+The following 5 signals are selected to use the secondary clock routing resources:
+    htclk_c_enable_105 (driver: SLICE_218, clk load #: 0, sr load #: 0, ce load #: 32)
+    htclk_c_enable_154 (driver: SLICE_122, clk load #: 0, sr load #: 0, ce load #: 26)
+    n2714 (driver: SLICE_127, clk load #: 0, sr load #: 16, ce load #: 0)
+    htclk_c_enable_74 (driver: SLICE_147, clk load #: 0, sr load #: 0, ce load #: 16)
+    counter_0 (driver: SLICE_30, clk load #: 0, sr load #: 0, ce load #: 13)
+
+No signal is selected as Global Set/Reset.
+Starting Placer Phase 0.
+..........
+Finished Placer Phase 0.  REAL time: 0 secs 
+
+Starting Placer Phase 1.
+....................
+Placer score = 6010193.
+Finished Placer Phase 1.  REAL time: 5 secs 
+
+Starting Placer Phase 2.
+.
+Placer score =  5236251
+Finished Placer Phase 2.  REAL time: 5 secs 
+
+
+------------------ Clock Report ------------------
+
+Global Clock Resources:
+  CLK_PIN    : 1 out of 8 (12%)
+  PLL        : 0 out of 1 (0%)
+  DCM        : 0 out of 2 (0%)
+  DCC        : 0 out of 8 (0%)
+
+Global Clocks:
+  PRIMARY "htclk_c" from comp "htclk" on CLK_PIN site "86 (PT12C)", clk load = 185
+  SECONDARY "htclk_c_enable_105" from F0 on comp "SLICE_218" on site "R5C13B", clk load = 0, ce load = 32, sr load = 0
+  SECONDARY "htclk_c_enable_154" from Q1 on comp "SLICE_122" on site "R9C12C", clk load = 0, ce load = 26, sr load = 0
+  SECONDARY "n2714" from F1 on comp "SLICE_127" on site "R5C14D", clk load = 0, ce load = 0, sr load = 16
+  SECONDARY "htclk_c_enable_74" from F1 on comp "SLICE_147" on site "R3C14D", clk load = 0, ce load = 16, sr load = 0
+  SECONDARY "counter_0" from Q1 on comp "SLICE_30" on site "R10C6D", clk load = 0, ce load = 13, sr load = 0
+
+  PRIMARY  : 1 out of 8 (12%)
+  SECONDARY: 5 out of 8 (62%)
+
+Edge Clocks:
+  No edge clock selected.
+
+--------------- End of Clock Report ---------------
+
+
+I/O Usage Summary (final):
+   37 + 4(JTAG) out of 108 (38.0%) PIO sites used.
+   37 + 4(JTAG) out of 80 (51.2%) bonded PIO sites used.
+   Number of PIO comps: 37; differential: 0.
+   Number of Vref pins used: 0.
+
+I/O Bank Usage Summary:
++----------+----------------+------------+-----------+
+| I/O Bank | Usage          | Bank Vccio | Bank Vref |
++----------+----------------+------------+-----------+
+| 0        | 10 / 19 ( 52%) | 3.3V       | -         |
+| 1        | 21 / 21 (100%) | 3.3V       | -         |
+| 2        | 6 / 20 ( 30%)  | 3.3V       | -         |
+| 3        | 0 / 20 (  0%)  | -          | -         |
++----------+----------------+------------+-----------+
+
+Total placer CPU time: 5 secs 
+
+Dumping design to file Scope_impl1.dir/5_1.ncd.
+
+0 connections routed; 2205 unrouted.
+Starting router resource preassignment
+
+Completed router resource preassignment. Real time: 5 secs 
+
+Start NBR router at Sun Mar 29 13:23:19 BST 2026
+
+*****************************************************************
+Info: NBR allows conflicts(one node used by more than one signal)
+      in the earlier iterations. In each iteration, it tries to  
+      solve the conflicts while keeping the critical connections 
+      routed as short as possible. The routing process is said to
+      be completed when no conflicts exist and all connections   
+      are routed.                                                
+Note: NBR uses a different method to calculate timing slacks. The
+      worst slack and total negative slack may not be the same as
+      that in TRCE report. You should always run TRCE to verify  
+      your design.                                               
+*****************************************************************
+
+Start NBR special constraint process at Sun Mar 29 13:23:19 BST 2026
+
+Start NBR section for initial routing at Sun Mar 29 13:23:19 BST 2026
+Level 1, iteration 1
+16(0.02%) conflicts; 1568(71.11%) untouched conns; 756 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.126ns/-0.756ns; real time: 5 secs 
+Level 2, iteration 1
+63(0.07%) conflicts; 1253(56.83%) untouched conns; 954 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.159ns/-0.954ns; real time: 6 secs 
+Level 3, iteration 1
+123(0.14%) conflicts; 387(17.55%) untouched conns; 1446 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.241ns/-1.446ns; real time: 6 secs 
+Level 4, iteration 1
+74(0.09%) conflicts; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 6 secs 
+
+Info: Initial congestion level at 75% usage is 0
+Info: Initial congestion area  at 75% usage is 0 (0.00%)
+
+Start NBR section for normal routing at Sun Mar 29 13:23:20 BST 2026
+Level 1, iteration 1
+43(0.05%) conflicts; 31(1.41%) untouched conns; 1457 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.243ns/-1.458ns; real time: 6 secs 
+Level 1, iteration 2
+29(0.03%) conflicts; 43(1.95%) untouched conns; 1457 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.243ns/-1.458ns; real time: 6 secs 
+Level 2, iteration 1
+31(0.04%) conflicts; 34(1.54%) untouched conns; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 6 secs 
+Level 2, iteration 2
+20(0.02%) conflicts; 40(1.81%) untouched conns; 1674 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.279ns/-1.674ns; real time: 6 secs 
+Level 3, iteration 1
+23(0.03%) conflicts; 19(0.86%) untouched conns; 1674 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.279ns/-1.674ns; real time: 7 secs 
+Level 4, iteration 1
+28(0.03%) conflicts; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 7 secs 
+Level 4, iteration 2
+16(0.02%) conflicts; 0(0.00%) untouched conn; 1674 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.279ns/-1.674ns; real time: 7 secs 
+Level 4, iteration 3
+7(0.01%) conflicts; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 7 secs 
+Level 4, iteration 4
+4(0.00%) conflicts; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 7 secs 
+Level 4, iteration 5
+2(0.00%) conflicts; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 7 secs 
+Level 4, iteration 6
+3(0.00%) conflicts; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 7 secs 
+Level 4, iteration 7
+1(0.00%) conflict; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 7 secs 
+Level 4, iteration 8
+0(0.00%) conflict; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 7 secs 
+
+Start NBR section for performance tuning (iteration 1) at Sun Mar 29 13:23:21 BST 2026
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 7 secs 
+
+Start NBR section for re-routing at Sun Mar 29 13:23:21 BST 2026
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 1409 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.235ns/-1.410ns; real time: 7 secs 
+
+Start NBR section for post-routing at Sun Mar 29 13:23:21 BST 2026
+
+End NBR router with 0 unrouted connection
+
+NBR Summary
+-----------
+  Number of unrouted connections : 0 (0.00%)
+  Number of connections with timing violations : 6 (0.27%)
+  Estimated worst slack<setup> : -0.235ns
+  Timing score<setup> : 235
+-----------
+Notes: The timing info is calculated for SETUP only and all PAR_ADJs are ignored.
+
+
+
+Total CPU time 7 secs 
+Total REAL time: 7 secs 
+Completely routed.
+End of route.  2205 routed (100.00%); 0 unrouted.
+
+Hold time timing score: 0, hold timing errors: 0
+
+Timing score: 235 
+
+Dumping design to file Scope_impl1.dir/5_1.ncd.
+
+
+PAR_SUMMARY::Run status = Completed
+PAR_SUMMARY::Number of unrouted conns = 0
+PAR_SUMMARY::Worst  slack<setup/<ns>> = -0.235
+PAR_SUMMARY::Timing score<setup/<ns>> = 0.235
+PAR_SUMMARY::Worst  slack<hold /<ns>> = 0.197
+PAR_SUMMARY::Timing score<hold /<ns>> = 0.000
+PAR_SUMMARY::Number of errors = 0
+
+Total CPU  time to completion: 7 secs 
+Total REAL time to completion: 7 secs 
+
+par done!
+
+Note: user must run 'Trace' for timing closure signoff.
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+
+Lattice Place and Route Report for Design "Scope_impl1_map.ncd"
+Sun Mar 29 13:23:21 2026
+
+PAR: Place And Route Diamond (64-bit) 3.14.0.75.2.
+Command Line: par -w -l 5 -i 10 -t 2 -c 2 -e 2 -gui -msgset /home/charlie/scope/fpga/promote.xml -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=ON:parASE=1:aseRouteInitSetupSlackThreshold=-0.235 Scope_impl1_map.ncd Scope_impl1.dir/5_2.ncd Scope_impl1.prf
+Preference file: Scope_impl1.prf.
+Placement level-cost: 5-2.
+Routing Iterations: 10
+
+Loading design for application par from file /tmp/neo_VqOYDD.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 4
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Device utilization summary:
+
+   PIO (prelim)   37+4(JTAG)/108     38% used
+                  37+4(JTAG)/80      51% bonded
+   IOLOGIC           34/108          31% used
+
+   SLICE            287/640          44% used
+
+   EBR                4/7            57% used
+
+
+Number of Signals: 803
+Number of Connections: 2205
+    <postMsg mid="61061045" type="Warning" dynamic="0" navigation="0"  />
+
+Pin Constraint Summary:
+   37 out of 37 pins locked (100% locked).
+
+The following 1 signal is selected to use the primary clock routing resources:
+    htclk_c (driver: htclk, clk load #: 185)
+
+
+The following 5 signals are selected to use the secondary clock routing resources:
+    htclk_c_enable_105 (driver: SLICE_218, clk load #: 0, sr load #: 0, ce load #: 32)
+    htclk_c_enable_154 (driver: SLICE_122, clk load #: 0, sr load #: 0, ce load #: 26)
+    n2714 (driver: SLICE_127, clk load #: 0, sr load #: 16, ce load #: 0)
+    htclk_c_enable_74 (driver: SLICE_147, clk load #: 0, sr load #: 0, ce load #: 16)
+    counter_0 (driver: SLICE_30, clk load #: 0, sr load #: 0, ce load #: 13)
+
+No signal is selected as Global Set/Reset.
+Starting Placer Phase 0.
+...........
+Finished Placer Phase 0.  REAL time: 0 secs 
+
+Starting Placer Phase 1.
+....................
+Placer score = 4937031.
+Finished Placer Phase 1.  REAL time: 5 secs 
+
+Starting Placer Phase 2.
+.
+Placer score =  5183622
+Finished Placer Phase 2.  REAL time: 6 secs 
+
+
+------------------ Clock Report ------------------
+
+Global Clock Resources:
+  CLK_PIN    : 1 out of 8 (12%)
+  PLL        : 0 out of 1 (0%)
+  DCM        : 0 out of 2 (0%)
+  DCC        : 0 out of 8 (0%)
+
+Global Clocks:
+  PRIMARY "htclk_c" from comp "htclk" on CLK_PIN site "86 (PT12C)", clk load = 185
+  SECONDARY "htclk_c_enable_105" from F0 on comp "SLICE_218" on site "R5C12D", clk load = 0, ce load = 32, sr load = 0
+  SECONDARY "htclk_c_enable_154" from Q1 on comp "SLICE_122" on site "R10C18A", clk load = 0, ce load = 26, sr load = 0
+  SECONDARY "n2714" from F1 on comp "SLICE_127" on site "R5C12B", clk load = 0, ce load = 0, sr load = 16
+  SECONDARY "htclk_c_enable_74" from F1 on comp "SLICE_147" on site "R5C14A", clk load = 0, ce load = 16, sr load = 0
+  SECONDARY "counter_0" from Q1 on comp "SLICE_30" on site "R10C18D", clk load = 0, ce load = 13, sr load = 0
+
+  PRIMARY  : 1 out of 8 (12%)
+  SECONDARY: 5 out of 8 (62%)
+
+Edge Clocks:
+  No edge clock selected.
+
+--------------- End of Clock Report ---------------
+
+
+I/O Usage Summary (final):
+   37 + 4(JTAG) out of 108 (38.0%) PIO sites used.
+   37 + 4(JTAG) out of 80 (51.2%) bonded PIO sites used.
+   Number of PIO comps: 37; differential: 0.
+   Number of Vref pins used: 0.
+
+I/O Bank Usage Summary:
++----------+----------------+------------+-----------+
+| I/O Bank | Usage          | Bank Vccio | Bank Vref |
++----------+----------------+------------+-----------+
+| 0        | 10 / 19 ( 52%) | 3.3V       | -         |
+| 1        | 21 / 21 (100%) | 3.3V       | -         |
+| 2        | 6 / 20 ( 30%)  | 3.3V       | -         |
+| 3        | 0 / 20 (  0%)  | -          | -         |
++----------+----------------+------------+-----------+
+
+Total placer CPU time: 5 secs 
+
+Dumping design to file Scope_impl1.dir/5_2.ncd.
+
+0 connections routed; 2205 unrouted.
+Starting router resource preassignment
+
+Completed router resource preassignment. Real time: 6 secs 
+
+Start NBR router at Sun Mar 29 13:23:27 BST 2026
+
+*****************************************************************
+Info: NBR allows conflicts(one node used by more than one signal)
+      in the earlier iterations. In each iteration, it tries to  
+      solve the conflicts while keeping the critical connections 
+      routed as short as possible. The routing process is said to
+      be completed when no conflicts exist and all connections   
+      are routed.                                                
+Note: NBR uses a different method to calculate timing slacks. The
+      worst slack and total negative slack may not be the same as
+      that in TRCE report. You should always run TRCE to verify  
+      your design.                                               
+*****************************************************************
+
+Start NBR special constraint process at Sun Mar 29 13:23:27 BST 2026
+
+Start NBR section for initial routing at Sun Mar 29 13:23:27 BST 2026
+Level 1, iteration 1
+12(0.01%) conflicts; 1573(71.34%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.532ns/0.000ns; real time: 6 secs 
+Level 2, iteration 1
+108(0.13%) conflicts; 1252(56.78%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.503ns/0.000ns; real time: 6 secs 
+Level 3, iteration 1
+176(0.21%) conflicts; 353(16.01%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.465ns/0.000ns; real time: 6 secs 
+Level 4, iteration 1
+121(0.14%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.465ns/0.000ns; real time: 7 secs 
+
+Info: Initial congestion level at 75% usage is 0
+Info: Initial congestion area  at 75% usage is 0 (0.00%)
+
+Start NBR section for normal routing at Sun Mar 29 13:23:28 BST 2026
+Level 1, iteration 1
+83(0.10%) conflicts; 41(1.86%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.469ns/0.000ns; real time: 7 secs 
+Level 1, iteration 2
+64(0.08%) conflicts; 61(2.77%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.469ns/0.000ns; real time: 7 secs 
+Level 1, iteration 3
+36(0.04%) conflicts; 74(3.36%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 7 secs 
+Level 1, iteration 4
+24(0.03%) conflicts; 79(3.58%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 7 secs 
+Level 1, iteration 5
+22(0.03%) conflicts; 79(3.58%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 7 secs 
+Level 1, iteration 6
+21(0.02%) conflicts; 83(3.76%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 7 secs 
+Level 1, iteration 7
+10(0.01%) conflicts; 92(4.17%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 7 secs 
+Level 2, iteration 1
+22(0.03%) conflicts; 86(3.90%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 7 secs 
+Level 2, iteration 2
+17(0.02%) conflicts; 81(3.67%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 7 secs 
+Level 2, iteration 3
+18(0.02%) conflicts; 82(3.72%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 7 secs 
+Level 3, iteration 1
+27(0.03%) conflicts; 24(1.09%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 7 secs 
+Level 3, iteration 2
+14(0.02%) conflicts; 22(1.00%) untouched conns; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 8 secs 
+Level 4, iteration 1
+16(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 8 secs 
+Level 4, iteration 2
+8(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.402ns/0.000ns; real time: 8 secs 
+Level 4, iteration 3
+6(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.039ns/0.000ns; real time: 8 secs 
+Level 4, iteration 4
+5(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.039ns/0.000ns; real time: 8 secs 
+Level 4, iteration 5
+2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.039ns/0.000ns; real time: 8 secs 
+Level 4, iteration 6
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.039ns/0.000ns; real time: 8 secs 
+
+Start NBR section for setup/hold timing optimization with effort level 3 at Sun Mar 29 13:23:29 BST 2026
+
+Start NBR section for re-routing at Sun Mar 29 13:23:29 BST 2026
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 0.039ns/0.000ns; real time: 8 secs 
+
+Start NBR section for post-routing at Sun Mar 29 13:23:29 BST 2026
+
+End NBR router with 0 unrouted connection
+
+NBR Summary
+-----------
+  Number of unrouted connections : 0 (0.00%)
+  Number of connections with timing violations : 0 (0.00%)
+  Estimated worst slack<setup> : 0.039ns
+  Timing score<setup> : 0
+-----------
+Notes: The timing info is calculated for SETUP only and all PAR_ADJs are ignored.
+
+
+
+Total CPU time 7 secs 
+Total REAL time: 8 secs 
+Completely routed.
+End of route.  2205 routed (100.00%); 0 unrouted.
+
+Hold time timing score: 0, hold timing errors: 0
+
+Timing score: 0 
+
+Dumping design to file Scope_impl1.dir/5_2.ncd.
+
+
+PAR_SUMMARY::Run status = Completed
+PAR_SUMMARY::Number of unrouted conns = 0
+PAR_SUMMARY::Worst  slack<setup/<ns>> = 0.039
+PAR_SUMMARY::Timing score<setup/<ns>> = 0.000
+PAR_SUMMARY::Worst  slack<hold /<ns>> = 0.195
+PAR_SUMMARY::Timing score<hold /<ns>> = 0.000
+PAR_SUMMARY::Number of errors = 0
+
+Total CPU  time to completion: 8 secs 
+Total REAL time to completion: 8 secs 
+
+par done!
+
+Note: user must run 'Trace' for timing closure signoff.
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+Exiting par with exit code 0
+Exiting mpartrce with exit code 0
+
+trce -f "Scope_impl1.pt" -o "Scope_impl1.twr" "Scope_impl1.ncd" "Scope_impl1.prf"
+trce:  version Diamond (64-bit) 3.14.0.75.2
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+
+Loading design for application trce from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 4
+Loading device for application trce from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Setup and Hold Report
+
+--------------------------------------------------------------------------------
+Lattice TRACE Report - Setup, Version Diamond (64-bit) 3.14.0.75.2
+Sun Mar 29 13:23:32 2026
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+
+Report Information
+------------------
+Command line:    trce -v 10 -gt -sethld -sp 4 -sphld m -o Scope_impl1.twr -gui -msgset /home/charlie/scope/fpga/promote.xml Scope_impl1.ncd Scope_impl1.prf 
+Design file:     Scope_impl1.ncd
+Preference file: Scope_impl1.prf
+Device,speed:    LCMXO2-1200HC,4
+Report level:    verbose report, limited to 10 items per preference
+--------------------------------------------------------------------------------
+
+BLOCK ASYNCPATHS
+BLOCK RESETPATHS
+--------------------------------------------------------------------------------
+
+
+
+Timing summary (Setup):
+---------------
+
+Timing errors: 0  Score: 0
+Cumulative negative slack: 0
+
+Constraints cover 3789 paths, 1 nets, and 2163 connections (98.10% coverage)
+
+--------------------------------------------------------------------------------
+Lattice TRACE Report - Hold, Version Diamond (64-bit) 3.14.0.75.2
+Sun Mar 29 13:23:32 2026
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+
+Report Information
+------------------
+Command line:    trce -v 10 -gt -sethld -sp 4 -sphld m -o Scope_impl1.twr -gui -msgset /home/charlie/scope/fpga/promote.xml Scope_impl1.ncd Scope_impl1.prf 
+Design file:     Scope_impl1.ncd
+Preference file: Scope_impl1.prf
+Device,speed:    LCMXO2-1200HC,m
+Report level:    verbose report, limited to 10 items per preference
+--------------------------------------------------------------------------------
+
+BLOCK ASYNCPATHS
+BLOCK RESETPATHS
+--------------------------------------------------------------------------------
+
+
+
+Timing summary (Hold):
+---------------
+
+Timing errors: 0  Score: 0
+Cumulative negative slack: 0
+
+Constraints cover 3789 paths, 1 nets, and 2163 connections (98.10% coverage)
+
+
+
+Timing summary (Setup and Hold):
+---------------
+
+Timing errors: 0 (setup), 0 (hold)
+Score: 0 (setup), 0 (hold)
+Cumulative negative slack: 0 (0+0)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+Total CPU Time: 0 secs 
+Total REAL Time: 0 secs 
+Peak Memory Usage: 124 MB
+
+
+iotiming  "Scope_impl1.ncd" "Scope_impl1.prf"
+I/O Timing Report:
+:  version Diamond (64-bit) 3.14.0.75.2
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
+
+Loading design for application iotiming from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 4
+Loading device for application iotiming from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Running Performance Grade: 4
+Computing Setup Time ...
+Computing Max Clock to Output Delay ...
+Computing Hold Time ...
+Computing Min Clock to Output Delay ...
+
+Loading design for application iotiming from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 5
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Running Performance Grade: 5
+Computing Setup Time ...
+Computing Max Clock to Output Delay ...
+Computing Hold Time ...
+Computing Min Clock to Output Delay ...
+
+Loading design for application iotiming from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: 6
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Running Performance Grade: 6
+Computing Setup Time ...
+Computing Max Clock to Output Delay ...
+Computing Hold Time ...
+Computing Min Clock to Output Delay ...
+
+Loading design for application iotiming from file Scope_impl1.ncd.
+Design name: adc_ft601
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-1200HC
+Package:     TQFP100
+Performance: M
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 36.4.
+Running Performance Grade: M
+Computing Setup Time ...
+Computing Max Clock to Output Delay ...
+Computing Hold Time ...
+Computing Min Clock to Output Delay ...
+Done.
+
 tmcheck -par "Scope_impl1.par" 
 
 bitgen -f "Scope_impl1.t2b" -w "Scope_impl1.ncd"  -jedec "Scope_impl1.prf"
@@ -89,9 +1105,9 @@ Initialized UFM Pages:                     0 Page.
 =========
 Padding summary
 =========
-Padded 251008 bits for this design
+Padded 245120 bits for this design
 
 
 Total CPU Time: 1 secs 
-Total REAL Time: 2 secs 
+Total REAL Time: 0 secs 
 Peak Memory Usage: 374 MB

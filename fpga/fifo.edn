@@ -4,9 +4,9 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timestamp 2026 3 26 23 41 47)
+      (timestamp 2026 3 28 17 12 44)
       (program "SCUBA" (version "Diamond (64-bit) 3.14.0.75.2"))))
-      (comment "/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n fifo -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ebfifo -depth 1024 -width 32 -rwidth 32 -regout -resetmode SYNC -no_enable -pe 10 -pf 520 -sync_reset ")
+      (comment "/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n fifo -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ebfifo -depth 1024 -width 32 -rwidth 32 -regout -resetmode ASYNC -reset_rel SYNC -pe 516 -pf 516 ")
   (library ORCLIB
     (edifLevel 0)
     (technology
@@ -175,19 +175,19 @@
             (property FULLPOINTER
               (string "0b10000000000000"))
             (property AFPOINTER1
-              (string "0b01000000111000"))
+              (string "0b01000000011000"))
             (property AFPOINTER
-              (string "0b01000001000000"))
+              (string "0b01000000100000"))
             (property AEPOINTER1
-              (string "0b00000001011000"))
+              (string "0b01000000101000"))
             (property AEPOINTER
-              (string "0b00000001010000"))
+              (string "0b01000000100000"))
             (property ASYNC_RESET_RELEASE
               (string "SYNC"))
             (property GSR
               (string "DISABLED"))
             (property RESETMODE
-              (string "SYNC"))
+              (string "ASYNC"))
             (property REGMODE
               (string "OUTREG"))
             (property CSDECODE_R
@@ -218,7 +218,7 @@
             (property GSR
               (string "DISABLED"))
             (property RESETMODE
-              (string "SYNC"))
+              (string "ASYNC"))
             (property REGMODE
               (string "OUTREG"))
             (property CSDECODE_R
@@ -249,7 +249,7 @@
             (property GSR
               (string "DISABLED"))
             (property RESETMODE
-              (string "SYNC"))
+              (string "ASYNC"))
             (property REGMODE
               (string "OUTREG"))
             (property CSDECODE_R
@@ -286,7 +286,7 @@
             (property GSR
               (string "DISABLED"))
             (property RESETMODE
-              (string "SYNC"))
+              (string "ASYNC"))
             (property REGMODE
               (string "OUTREG"))
             (property CSDECODE_R
@@ -302,24 +302,20 @@
               (portRef Z (instanceRef scuba_vhi_inst))
               (portRef CSR1 (instanceRef fifo_0_3))
               (portRef CSW1 (instanceRef fifo_0_3))
+              (portRef CSR0 (instanceRef fifo_0_3))
               (portRef CSW0 (instanceRef fifo_0_3))
-              (portRef ORE (instanceRef fifo_0_3))
-              (portRef RE (instanceRef fifo_0_3))
               (portRef CSR1 (instanceRef fifo_1_2))
               (portRef CSW1 (instanceRef fifo_1_2))
+              (portRef CSR0 (instanceRef fifo_1_2))
               (portRef CSW0 (instanceRef fifo_1_2))
-              (portRef ORE (instanceRef fifo_1_2))
-              (portRef RE (instanceRef fifo_1_2))
               (portRef CSR1 (instanceRef fifo_2_1))
               (portRef CSW1 (instanceRef fifo_2_1))
+              (portRef CSR0 (instanceRef fifo_2_1))
               (portRef CSW0 (instanceRef fifo_2_1))
-              (portRef ORE (instanceRef fifo_2_1))
-              (portRef RE (instanceRef fifo_2_1))
               (portRef CSR1 (instanceRef fifo_3_0))
               (portRef CSW1 (instanceRef fifo_3_0))
-              (portRef CSW0 (instanceRef fifo_3_0))
-              (portRef ORE (instanceRef fifo_3_0))
-              (portRef RE (instanceRef fifo_3_0))))
+              (portRef CSR0 (instanceRef fifo_3_0))
+              (portRef CSW0 (instanceRef fifo_3_0))))
           (net scuba_vlo
             (joined
               (portRef Z (instanceRef scuba_vlo_inst))
@@ -532,10 +528,14 @@
           (net rden
             (joined
               (portRef RdEn)
-              (portRef CSR0 (instanceRef fifo_0_3))
-              (portRef CSR0 (instanceRef fifo_1_2))
-              (portRef CSR0 (instanceRef fifo_2_1))
-              (portRef CSR0 (instanceRef fifo_3_0))))
+              (portRef ORE (instanceRef fifo_0_3))
+              (portRef RE (instanceRef fifo_0_3))
+              (portRef ORE (instanceRef fifo_1_2))
+              (portRef RE (instanceRef fifo_1_2))
+              (portRef ORE (instanceRef fifo_2_1))
+              (portRef RE (instanceRef fifo_2_1))
+              (portRef ORE (instanceRef fifo_3_0))
+              (portRef RE (instanceRef fifo_3_0))))
           (net wren
             (joined
               (portRef WrEn)

@@ -4,7 +4,7 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timestamp 2026 3 28 2 29 16)
+      (timestamp 2026 3 28 18 38 22)
       (program "SCUBA" (version "Diamond (64-bit) 3.14.0.75.2"))))
       (comment "/home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type bram -wp 10 -rp 0011 -rdata_width 32 -data_width 32 -num_rows 1024 -outdata REGISTERED -cascade -1 -resetmode SYNC -sync_reset -mem_init0 ")
   (library ORCLIB

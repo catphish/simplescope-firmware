@@ -1,5 +1,5 @@
 SCUBA, Version Diamond (64-bit) 3.14.0.75.2
-Sat Mar 28 02:29:16 2026
+Sat Mar 28 23:07:12 2026
   
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -9,24 +9,21 @@ Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
   
 BEGIN SCUBA Module Synthesis
   
-    Issued command   : /home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n ram -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ramdps -device LCMXO2-1200HC -raddr_width 10 -rwidth 32 -waddr_width 10 -wwidth 32 -rnum_words 1024 -wnum_words 1024 -outdata REGISTERED -cascade -1 -resetmode SYNC -sync_reset -mem_init0 
-    Circuit name     : ram
-    Module type      : RAM_DP
-    Module Version   : 6.5
+    Issued command   : /home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/scuba -w -n pll -lang verilog -synth lse -arch xo2c00 -type pll -fin 120 -fclkop 100 -fclkop_tol 0.0 -trimp 0 -phasep 0 -trimp_r -phase_cntl STATIC -fb_mode 1 
+    Circuit name     : pll
+    Module type      : pll
+    Module Version   : 5.7
     Ports            : 
-    Inputs       : WrAddress[9:0], RdAddress[9:0], Data[31:0], WE, RdClock, RdClockEn, Reset, WrClock, WrClockEn
-    Outputs      : Q[31:0]
+    Inputs       : CLKI
+    Outputs      : CLKOP
     I/O buffer       : not inserted
-    Memory file      : INIT_ALL_0s
-    EDIF output      : ram.edn
-    Verilog output   : ram.v
-    Verilog template : ram_tmpl.v
-    Verilog testbench: tb_ram_tmpl.v
+    EDIF output      : pll.edn
+    Verilog output   : pll.v
+    Verilog template : pll_tmpl.v
     Verilog purpose  : for synthesis and simulation
     Bus notation     : big endian
-    Report output    : ram.srp
+    Report output    : pll.srp
     Estimated Resource Usage:
-            EBR : 4
   
 END   SCUBA Module Synthesis
 

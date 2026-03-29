@@ -4,7 +4,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Sat Mar 28 03:25:08 2026
+Sun Mar 29 13:23:14 2026
 
 /home/charlie/lscc/diamond/3.14/ispfpga/bin/lin64/par -f Scope_impl1.p2t
 Scope_impl1_map.ncd Scope_impl1.dir Scope_impl1.prf -gui -msgset
@@ -16,14 +16,12 @@ Preference file: Scope_impl1.prf.
 Level/       Number       Worst        Timing       Worst        Timing       Run          NCD
 Cost [ncd]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
 ----------   --------     -----        ------       -----------  -----------  ----         ------
-5_1   *      0            0.214        0            0.178        0            04           Completed
-5_2          -            -            -            -            -            03           Skipped
+5_2   *      0            0.039        0            0.195        0            08           Completed
+5_1          0            -0.235       235          0.197        0            07           Completed
 
 * : Design saved.
 
-INFO - par: Iteration 5_2 was skipped during the PAR process to save total runtime, as it was determined it would not improve upon a timing result achieved in a previous iteration.
-
-Total (real) run time for 2-seed: 7 secs 
+Total (real) run time for 2-seed: 15 secs 
 
 par done!
 

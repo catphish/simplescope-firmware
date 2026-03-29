@@ -1,25 +1,26 @@
 ----------------------------------------------------------------------
 Report for cell adc_ft601.TECH
-Register bits:  278 of 1520 (18.289%)
+Register bits:  303 of 1520 (19.934%)
 I/O cells:      37
                                   Cell usage:
                                cell     count   Res Usage(%)
-                              CCU2D        36          100.0
+                              CCU2D        35          100.0
                               DP8KC         4          100.0
-                            FD1P3AX       147          100.0
+                            FD1P3AX       145          100.0
                             FD1P3IX         2          100.0
-                            FD1S3AX        42          100.0
-                            FD1S3IX        21          100.0
-                            FD1S3JX        32          100.0
+                            FD1P3JX        32          100.0
+                            FD1S3AX        71          100.0
+                            FD1S3IX        19          100.0
                                 GSR         1          100.0
                                  IB         2          100.0
-                               LUT4       322          100.0
+                               LUT4       378          100.0
                                  OB        35          100.0
                            OFS1P3DX        34          100.0
+                              PFUMX         4          100.0
 SUB MODULES
                               crc32         1
                                 ram         1
-                              TOTAL       680
+                              TOTAL       764
 ----------------------------------------------------------------------
 Report for cell ram.v1
 Instance Path : ram
@@ -32,5 +33,5 @@ Report for cell crc32.v1
 Instance Path : crc32
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4       235           73.0
-                              TOTAL       235
+                               LUT4       238           63.0
+                              TOTAL       238

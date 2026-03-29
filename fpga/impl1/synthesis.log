@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Sat Mar 28 03:25:06 2026
+Sun Mar 29 13:23:13 2026
 
 
 Command Line:  synthesis -f Scope_impl1_lattice.synproj -gui -msgset /home/charlie/scope/fpga/promote.xml 
@@ -91,6 +91,14 @@ INFO - synthesis: /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESI
 INFO - synthesis: /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1120): compiling module VHI. VERI-1018
 INFO - synthesis: /home/charlie/lscc/diamond/3.14/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1124): compiling module VLO. VERI-1018
 INFO - synthesis: /home/charlie/scope/fpga/crc32.v(1): compiling module crc32. VERI-1018
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(48): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(78): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(91): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(96): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(100): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(105): expression size 32 truncated to fit in target size 4. VERI-1209
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(110): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING - synthesis: /home/charlie/scope/fpga/scope.v(111): expression size 32 truncated to fit in target size 9. VERI-1209
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00a/data/xo2alib.ngl'...
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data/xo2clib.ngl'...
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/mg5g00/data/mg5glib.ngl'...
@@ -98,73 +106,9 @@ Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/or5g00/data/orc5gli
 Loading device for application map from file 'xo2c1200.nph' in environment: /home/charlie/lscc/diamond/3.14/ispfpga.
 Package Status:                     Final          Version 1.44.
 Top-level module name = adc_ft601.
-WARNING - synthesis: I/O Port data_in[31] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[30] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[29] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[28] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[27] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[26] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[25] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[24] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[23] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[22] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[21] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[20] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[19] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[18] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[17] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[16] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[15] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[14] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[13] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[12] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[11] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[10] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[9] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[8] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[7] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[6] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[5] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[4] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[3] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[2] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[1] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[0] 's net has no driver and is unused.
 
 
 
-WARNING - synthesis: I/O Port data_in[31] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[30] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[29] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[28] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[27] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[26] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[25] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[24] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[23] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[22] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[21] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[20] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[19] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[18] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[17] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[16] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[15] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[14] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[13] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[12] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[11] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[10] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[9] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[8] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[7] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[6] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[5] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[4] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[3] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[2] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[1] 's net has no driver and is unused.
-WARNING - synthesis: I/O Port data_in[0] 's net has no driver and is unused.
 GSR will not be inferred because no asynchronous signal was found in the netlist.
 Applying 200.000000 MHz constraint to all clocks
 
@@ -174,88 +118,24 @@ Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00a/data/xo2ali
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/xo2c00/data/xo2clib.ngl'...
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/mg5g00/data/mg5glib.ngl'...
 Loading NGL library '/home/charlie/lscc/diamond/3.14/ispfpga/or5g00/data/orc5glib.ngl'...
-WARNING - synthesis: logical net 'data_in[31]' has no load.
-WARNING - synthesis: input pad net 'data_in[31]' has no legal load.
-WARNING - synthesis: logical net 'data_in[30]' has no load.
-WARNING - synthesis: input pad net 'data_in[30]' has no legal load.
-WARNING - synthesis: logical net 'data_in[29]' has no load.
-WARNING - synthesis: input pad net 'data_in[29]' has no legal load.
-WARNING - synthesis: logical net 'data_in[28]' has no load.
-WARNING - synthesis: input pad net 'data_in[28]' has no legal load.
-WARNING - synthesis: logical net 'data_in[27]' has no load.
-WARNING - synthesis: input pad net 'data_in[27]' has no legal load.
-WARNING - synthesis: logical net 'data_in[26]' has no load.
-WARNING - synthesis: input pad net 'data_in[26]' has no legal load.
-WARNING - synthesis: logical net 'data_in[25]' has no load.
-WARNING - synthesis: input pad net 'data_in[25]' has no legal load.
-WARNING - synthesis: logical net 'data_in[24]' has no load.
-WARNING - synthesis: input pad net 'data_in[24]' has no legal load.
-WARNING - synthesis: logical net 'data_in[23]' has no load.
-WARNING - synthesis: input pad net 'data_in[23]' has no legal load.
-WARNING - synthesis: logical net 'data_in[22]' has no load.
-WARNING - synthesis: input pad net 'data_in[22]' has no legal load.
-WARNING - synthesis: logical net 'data_in[21]' has no load.
-WARNING - synthesis: input pad net 'data_in[21]' has no legal load.
-WARNING - synthesis: logical net 'data_in[20]' has no load.
-WARNING - synthesis: input pad net 'data_in[20]' has no legal load.
-WARNING - synthesis: logical net 'data_in[19]' has no load.
-WARNING - synthesis: input pad net 'data_in[19]' has no legal load.
-WARNING - synthesis: logical net 'data_in[18]' has no load.
-WARNING - synthesis: input pad net 'data_in[18]' has no legal load.
-WARNING - synthesis: logical net 'data_in[17]' has no load.
-WARNING - synthesis: input pad net 'data_in[17]' has no legal load.
-WARNING - synthesis: logical net 'data_in[16]' has no load.
-WARNING - synthesis: input pad net 'data_in[16]' has no legal load.
-WARNING - synthesis: logical net 'data_in[15]' has no load.
-WARNING - synthesis: input pad net 'data_in[15]' has no legal load.
-WARNING - synthesis: logical net 'data_in[14]' has no load.
-WARNING - synthesis: input pad net 'data_in[14]' has no legal load.
-WARNING - synthesis: logical net 'data_in[13]' has no load.
-WARNING - synthesis: input pad net 'data_in[13]' has no legal load.
-WARNING - synthesis: logical net 'data_in[12]' has no load.
-WARNING - synthesis: input pad net 'data_in[12]' has no legal load.
-WARNING - synthesis: logical net 'data_in[11]' has no load.
-WARNING - synthesis: input pad net 'data_in[11]' has no legal load.
-WARNING - synthesis: logical net 'data_in[10]' has no load.
-WARNING - synthesis: input pad net 'data_in[10]' has no legal load.
-WARNING - synthesis: logical net 'data_in[9]' has no load.
-WARNING - synthesis: input pad net 'data_in[9]' has no legal load.
-WARNING - synthesis: logical net 'data_in[8]' has no load.
-WARNING - synthesis: input pad net 'data_in[8]' has no legal load.
-WARNING - synthesis: logical net 'data_in[7]' has no load.
-WARNING - synthesis: input pad net 'data_in[7]' has no legal load.
-WARNING - synthesis: logical net 'data_in[6]' has no load.
-WARNING - synthesis: input pad net 'data_in[6]' has no legal load.
-WARNING - synthesis: logical net 'data_in[5]' has no load.
-WARNING - synthesis: input pad net 'data_in[5]' has no legal load.
-WARNING - synthesis: logical net 'data_in[4]' has no load.
-WARNING - synthesis: input pad net 'data_in[4]' has no legal load.
-WARNING - synthesis: logical net 'data_in[3]' has no load.
-WARNING - synthesis: input pad net 'data_in[3]' has no legal load.
-WARNING - synthesis: logical net 'data_in[2]' has no load.
-WARNING - synthesis: input pad net 'data_in[2]' has no legal load.
-WARNING - synthesis: logical net 'data_in[1]' has no load.
-WARNING - synthesis: input pad net 'data_in[1]' has no legal load.
-WARNING - synthesis: logical net 'data_in[0]' has no load.
-WARNING - synthesis: input pad net 'data_in[0]' has no legal load.
-WARNING - synthesis: DRC complete with 64 warnings.
 All blocks are expanded and NGD expansion is successful.
 Writing NGD file Scope_impl1.ngd.
 
 ################### Begin Area Report (adc_ft601)######################
-Number of register bits => 278 of 1520 (18 % )
-CCU2D => 36
+Number of register bits => 303 of 1520 (19 % )
+CCU2D => 35
 DP8KC => 4
-FD1P3AX => 147
+FD1P3AX => 145
 FD1P3IX => 2
-FD1S3AX => 42
-FD1S3IX => 21
-FD1S3JX => 32
+FD1P3JX => 32
+FD1S3AX => 71
+FD1S3IX => 19
 GSR => 1
 IB => 2
-LUT4 => 322
+LUT4 => 378
 OB => 35
 OFS1P3DX => 34
+PFUMX => 4
 ################### End Area Report ##################
 
 ################### Begin BlackBox Report ######################
@@ -265,29 +145,31 @@ TSALL => 1
 ################### Begin Clock Report ######################
 Clock Nets
 Number of Clocks: 1
-  Net : htclk_c, loads : 287
+  Net : htclk_c, loads : 312
 Clock Enable Nets
-Number of Clock Enables: 7
-Top 7 highest fanout Clock Enables:
-  Net : htclk_c_enable_121, loads : 50
-  Net : htclk_c_enable_42, loads : 32
-  Net : htclk_c_enable_103, loads : 32
+Number of Clock Enables: 9
+Top 9 highest fanout Clock Enables:
+  Net : htclk_c_enable_105, loads : 64
+  Net : htclk_c_enable_154, loads : 50
+  Net : htclk_c_enable_74, loads : 32
   Net : counter_0, loads : 25
-  Net : htclk_c_enable_106, loads : 7
-  Net : htclk_c_enable_72, loads : 4
-  Net : hract_internal_N_411, loads : 4
+  Net : htclk_c_enable_148, loads : 7
+  Net : htclk_c_enable_41, loads : 1
+  Net : htclk_c_enable_43, loads : 1
+  Net : htclk_c_enable_6, loads : 1
+  Net : htclk_c_enable_8, loads : 1
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : state_1, loads : 63
-  Net : htclk_c_enable_121, loads : 50
-  Net : state_4_N_300_3, loads : 39
-  Net : htclk_c_enable_103, loads : 32
-  Net : htclk_c_enable_42, loads : 32
-  Net : n1429, loads : 32
+  Net : state_2, loads : 110
+  Net : state_0, loads : 80
+  Net : state_1, loads : 75
+  Net : htclk_c_enable_105, loads : 64
+  Net : htclk_c_enable_154, loads : 50
+  Net : n5320, loads : 33
+  Net : n2714, loads : 32
+  Net : htclk_c_enable_74, loads : 32
   Net : counter_0, loads : 25
-  Net : n1438, loads : 21
-  Net : state_0, loads : 15
-  Net : crcData_2, loads : 15
+  Net : n5306, loads : 17
 ################### End Clock Report ##################
 
 Timing Report Summary
@@ -297,7 +179,7 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets htclk_c]                 |  200.000 MHz|   97.991 MHz|     6 *
+clk0 [get_nets htclk_c]                 |  200.000 MHz|   98.357 MHz|     6 *
                                         |             |             |
 --------------------------------------------------------------------------------
 
@@ -305,8 +187,8 @@ clk0 [get_nets htclk_c]                 |  200.000 MHz|   97.991 MHz|     6 *
 1 constraints not met.
 
 
-Peak Memory Usage: 183.828  MB
+Peak Memory Usage: 183.715  MB
 
 --------------------------------------------------------------
-Elapsed CPU time for LSE flow : 0.600  secs
+Elapsed CPU time for LSE flow : 0.656  secs
 --------------------------------------------------------------

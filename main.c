@@ -226,20 +226,28 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
       error = 1;
     }
     if(error) {
-      // We could handle errors here but for now it's fine to just discard the data and wait for the next packet
+      // // Send a short packet with error status to notify the host
+      // if(usb_idle) {
+      //   // Put 0xFFFFFFFF in the first 4 bytes of the current USB head buffer to indicate an error
+      //   ((uint32_t*)(RING_BUFFER + ring_buffer_head_usb))[0] = 0xFFFFFFFF;
+      //   USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)(RING_BUFFER);
+      //   USB30_IN_clearIT(ENDP_2);
+      //   USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 4); // Send a short packet to indicate an error
+      //   USB30_send_ERDY(ENDP_2 | IN, 1);
+      //   usb_idle = 0;
+      // }
     } else {
       if(R8_HSPI_RX_SC & RB_HSPI_RX_TOG) {
         // Buffer 0 received. Advance the head index and wrap around if necessary
-        ring_buffer_head_hspi_a += 4096;
+        ring_buffer_head_hspi_a = ring_buffer_head_hspi_b + 2048;
         // Set RX buffer zero to the next segment in the ring buffer
         R32_HSPI_RX_ADDR0 = (uint32_t)(uint8_t *)(RING_BUFFER + ring_buffer_head_hspi_a);
       } else {
+        ring_buffer_head_usb = ring_buffer_head_hspi_a;
         // Buffer 1 received. Advance the head index and wrap around if necessary
-        ring_buffer_head_hspi_b += 4096;
+        ring_buffer_head_hspi_b = ring_buffer_head_hspi_a + 2048;
         // Set RX buffer one to the next segment in the ring buffer
         R32_HSPI_RX_ADDR1 = (uint32_t)(uint8_t *)(RING_BUFFER + ring_buffer_head_hspi_b);
-        // Advance the USB head index by 4096 bytes (2 segments) to point to the next free space for USB transmission
-        ring_buffer_head_usb += 4096;
       }
 
       // If the USB is idle, trigger the transmision of the first buffer in the queue

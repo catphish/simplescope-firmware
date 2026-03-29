@@ -6,4 +6,4 @@
 -s 1
 -c 2
 -e 2
--exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=OFF:parASE=1
+-exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=ON:parASE=1

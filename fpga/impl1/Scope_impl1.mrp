@@ -14,22 +14,22 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-1200HCTQFP100
 Target Performance:   4
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.14.0.75.2
-Mapped on:  03/28/26  03:25:07
+Mapped on:  03/29/26  13:23:13
 
 Design Summary
 --------------
 
-   Number of registers:    278 out of  1520 (18%)
-      PFU registers:          244 out of  1280 (19%)
+   Number of registers:    303 out of  1520 (20%)
+      PFU registers:          269 out of  1280 (21%)
       PIO registers:           34 out of   240 (14%)
-   Number of SLICEs:       262 out of   640 (41%)
-      SLICEs as Logic/ROM:    262 out of   640 (41%)
+   Number of SLICEs:       287 out of   640 (45%)
+      SLICEs as Logic/ROM:    287 out of   640 (45%)
       SLICEs as RAM:            0 out of   480 (0%)
-      SLICEs as Carry:         36 out of   640 (6%)
-   Number of LUT4s:        395 out of  1280 (31%)
-      Number used as logic LUTs:        323
+      SLICEs as Carry:         35 out of   640 (5%)
+   Number of LUT4s:        448 out of  1280 (35%)
+      Number used as logic LUTs:        378
       Number used as distributed RAM:     0
-      Number used as ripple logic:       72
+      Number used as ripple logic:       70
       Number used as shift registers:     0
    Number of PIO sites used: 37 + 4(JTAG) out of 80 (51%)
    Number of block RAMs:  4 out of 7 (57%)
@@ -57,169 +57,57 @@ Design Summary
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
    Number of clocks:  1
-     Net htclk_c: 175 loads, 175 rising, 0 falling (Driver: PIO htclk )
-   Number of Clock Enables:  7
-     Net htclk_c_enable_42: 16 loads, 16 LSLICEs
+     Net htclk_c: 185 loads, 185 rising, 0 falling (Driver: PIO htclk )
+   Number of Clock Enables:  9
+     Net counter_0: 13 loads, 13 LSLICEs
 
                                     Page 1
 
 
 
 
-Design:  adc_ft601                                     Date:  03/28/26  03:25:07
+Design:  adc_ft601                                     Date:  03/29/26  13:23:13
 
 Design Summary (cont)
 ---------------------
-     Net hract_internal_N_411: 3 loads, 3 LSLICEs
-     Net htclk_c_enable_103: 16 loads, 16 LSLICEs
-     Net htclk_c_enable_121: 26 loads, 26 LSLICEs
-     Net htclk_c_enable_106: 2 loads, 2 LSLICEs
-     Net htclk_c_enable_72: 3 loads, 3 LSLICEs
-     Net counter_0: 14 loads, 14 LSLICEs
-   Number of LSRs:  4
-     Net n1438: 13 loads, 13 LSLICEs
-     Net n1429: 16 loads, 16 LSLICEs
-     Net n1571: 1 loads, 1 LSLICEs
-     Net n2194: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_105: 32 loads, 32 LSLICEs
+     Net htclk_c_enable_74: 16 loads, 16 LSLICEs
+     Net htclk_c_enable_6: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_154: 26 loads, 26 LSLICEs
+     Net htclk_c_enable_8: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_148: 3 loads, 3 LSLICEs
+     Net htclk_c_enable_43: 1 loads, 1 LSLICEs
+     Net htclk_c_enable_41: 1 loads, 1 LSLICEs
+   Number of LSRs:  5
+     Net n5306: 5 loads, 5 LSLICEs
+     Net n1712: 5 loads, 5 LSLICEs
+     Net n2714: 16 loads, 16 LSLICEs
+     Net n5269: 2 loads, 2 LSLICEs
+     Net n5362: 1 loads, 1 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net state_1: 63 loads
-     Net state_4_N_300_3: 39 loads
-     Net htclk_c_enable_121: 27 loads
-     Net htclk_c_enable_103: 16 loads
-     Net htclk_c_enable_42: 16 loads
-     Net n1429: 16 loads
-     Net crcData_2: 15 loads
-     Net state_0: 15 loads
-     Net counter_0: 14 loads
-     Net crcIn_2: 14 loads
+     Net state_2: 110 loads
+     Net state_0: 80 loads
+     Net state_1: 75 loads
+     Net n5320: 33 loads
+     Net htclk_c_enable_105: 32 loads
+     Net htclk_c_enable_154: 27 loads
+     Net htclk_c_enable_74: 16 loads
+     Net n2714: 16 loads
+     Net crcData_0: 15 loads
+     Net counter_0: 13 loads
 
 
 
 
-   Number of warnings:  64
+   Number of warnings:  0
    Number of errors:    0
      
 
 Design Errors/Warnings
 ----------------------
 
-WARNING - map: input pad net 'data_in[31]' has no legal load.
-WARNING - map: input pad net 'data_in[30]' has no legal load.
-WARNING - map: input pad net 'data_in[29]' has no legal load.
-WARNING - map: input pad net 'data_in[28]' has no legal load.
-WARNING - map: input pad net 'data_in[27]' has no legal load.
-WARNING - map: input pad net 'data_in[26]' has no legal load.
-WARNING - map: input pad net 'data_in[25]' has no legal load.
-WARNING - map: input pad net 'data_in[24]' has no legal load.
-WARNING - map: input pad net 'data_in[23]' has no legal load.
-WARNING - map: input pad net 'data_in[22]' has no legal load.
-WARNING - map: input pad net 'data_in[21]' has no legal load.
-WARNING - map: input pad net 'data_in[20]' has no legal load.
-WARNING - map: input pad net 'data_in[19]' has no legal load.
-WARNING - map: input pad net 'data_in[18]' has no legal load.
-WARNING - map: input pad net 'data_in[17]' has no legal load.
-WARNING - map: input pad net 'data_in[16]' has no legal load.
-WARNING - map: input pad net 'data_in[15]' has no legal load.
-WARNING - map: input pad net 'data_in[14]' has no legal load.
-WARNING - map: input pad net 'data_in[13]' has no legal load.
-WARNING - map: input pad net 'data_in[12]' has no legal load.
-WARNING - map: input pad net 'data_in[11]' has no legal load.
-WARNING - map: input pad net 'data_in[10]' has no legal load.
-
-                                    Page 2
-
-
-
-
-Design:  adc_ft601                                     Date:  03/28/26  03:25:07
-
-Design Errors/Warnings (cont)
------------------------------
-WARNING - map: input pad net 'data_in[9]' has no legal load.
-WARNING - map: input pad net 'data_in[8]' has no legal load.
-WARNING - map: input pad net 'data_in[7]' has no legal load.
-WARNING - map: input pad net 'data_in[6]' has no legal load.
-WARNING - map: input pad net 'data_in[5]' has no legal load.
-WARNING - map: input pad net 'data_in[4]' has no legal load.
-WARNING - map: input pad net 'data_in[3]' has no legal load.
-WARNING - map: input pad net 'data_in[2]' has no legal load.
-WARNING - map: input pad net 'data_in[1]' has no legal load.
-WARNING - map: input pad net 'data_in[0]' has no legal load.
-WARNING - map: IO buffer missing for top level port data_in[31:0](31)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](30)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](29)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](28)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](27)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](26)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](25)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](24)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](23)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](22)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](21)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](20)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](19)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](18)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](17)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](16)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](15)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](14)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](13)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](12)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](11)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](10)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](9)...logic
-     will be discarded.
-
-                                    Page 3
-
-
-
-
-Design:  adc_ft601                                     Date:  03/28/26  03:25:07
-
-Design Errors/Warnings (cont)
------------------------------
-WARNING - map: IO buffer missing for top level port data_in[31:0](8)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](7)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](6)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](5)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](4)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](3)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](2)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](1)...logic
-     will be discarded.
-WARNING - map: IO buffer missing for top level port data_in[31:0](0)...logic
-     will be discarded.
+   No errors or warnings present.
 
 IO (PIO) Attributes
 -------------------
@@ -238,6 +126,16 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+------------+
 | ch_data[30]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
+
+                                    Page 2
+
+
+
+
+Design:  adc_ft601                                     Date:  03/29/26  13:23:13
+
+IO (PIO) Attributes (cont)
+--------------------------
 | ch_data[31]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
 | ch_data[25]         | OUTPUT    | LVCMOS33  | OUT        |
@@ -258,16 +156,6 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+------------+
 | ch_data[17]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
-
-                                    Page 4
-
-
-
-
-Design:  adc_ft601                                     Date:  03/28/26  03:25:07
-
-IO (PIO) Attributes (cont)
---------------------------
 | ch_data[16]         | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
 | ch_data[15]         | OUTPUT    | LVCMOS33  | OUT        |
@@ -304,6 +192,16 @@ IO (PIO) Attributes (cont)
 +---------------------+-----------+-----------+------------+
 | hrvld               | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
+
+                                    Page 3
+
+
+
+
+Design:  adc_ft601                                     Date:  03/29/26  13:23:13
+
+IO (PIO) Attributes (cont)
+--------------------------
 | hract               | OUTPUT    | LVCMOS33  | OUT        |
 +---------------------+-----------+-----------+------------+
 | hrclk               | OUTPUT    | LVCMOS33  |            |
@@ -317,48 +215,56 @@ Removed logic
 -------------
 
 Block GSR_INST undriven or does not drive anything - clipped.
+Signal n2713 was merged into signal n5362
 Signal GND_net undriven or does not drive anything - clipped.
 Signal VCC_net undriven or does not drive anything - clipped.
-Signal read_addr_243_add_4_11/S1 undriven or does not drive anything - clipped.
-Signal read_addr_243_add_4_11/CO undriven or does not drive anything - clipped.
-Signal frame_idx_242_add_4_1/S0 undriven or does not drive anything - clipped.
-Signal frame_idx_242_add_4_1/CI undriven or does not drive anything - clipped.
-Signal data_counter_241_add_4_33/S1 undriven or does not drive anything -
-
-                                    Page 5
-
-
-
-
-Design:  adc_ft601                                     Date:  03/28/26  03:25:07
-
-Removed logic (cont)
---------------------
+Signal ram_write_addr_278_add_4_11/S1 undriven or does not drive anything -
      clipped.
-Signal data_counter_241_add_4_33/CO undriven or does not drive anything -
+Signal ram_write_addr_278_add_4_11/CO undriven or does not drive anything -
      clipped.
-Signal write_addr_240_add_4_1/S0 undriven or does not drive anything - clipped.
-Signal write_addr_240_add_4_1/CI undriven or does not drive anything - clipped.
-Signal write_addr_240_add_4_11/S1 undriven or does not drive anything - clipped.
-     
-Signal write_addr_240_add_4_11/CO undriven or does not drive anything - clipped.
-     
-Signal counter_239_251_add_4_1/S0 undriven or does not drive anything - clipped.
-     
-Signal counter_239_251_add_4_1/CO undriven or does not drive anything - clipped.
-     
-Signal counter_239_251_add_4_1/CI undriven or does not drive anything - clipped.
-     
-Signal read_addr_243_add_4_1/S0 undriven or does not drive anything - clipped.
-Signal read_addr_243_add_4_1/CI undriven or does not drive anything - clipped.
-Signal frame_idx_242_add_4_11/S1 undriven or does not drive anything - clipped.
-Signal frame_idx_242_add_4_11/CO undriven or does not drive anything - clipped.
-Signal data_counter_241_add_4_1/S0 undriven or does not drive anything -
+Signal ram_write_addr_278_add_4_1/S0 undriven or does not drive anything -
      clipped.
-Signal data_counter_241_add_4_1/CI undriven or does not drive anything -
+Signal ram_write_addr_278_add_4_1/CI undriven or does not drive anything -
      clipped.
+Signal counter_273_288_add_4_1/S0 undriven or does not drive anything - clipped.
+     
+Signal counter_273_288_add_4_1/CO undriven or does not drive anything - clipped.
+     
+Signal counter_273_288_add_4_1/CI undriven or does not drive anything - clipped.
+     
+Signal frame_idx_277_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal frame_idx_277_add_4_1/CI undriven or does not drive anything - clipped.
+Signal frame_idx_277_add_4_9/CO undriven or does not drive anything - clipped.
+Signal data_counter_275_add_4_1/S0 undriven or does not drive anything -
+     clipped.
+Signal data_counter_275_add_4_1/CI undriven or does not drive anything -
+     clipped.
+Signal data_counter_275_add_4_33/S1 undriven or does not drive anything -
+     clipped.
+Signal data_counter_275_add_4_33/CO undriven or does not drive anything -
+     clipped.
+Signal ram_read_addr_274_add_4_1/S0 undriven or does not drive anything -
+     clipped.
+Signal ram_read_addr_274_add_4_1/CI undriven or does not drive anything -
+     clipped.
+Signal ram_read_addr_274_add_4_11/S1 undriven or does not drive anything -
+     clipped.
+Signal ram_read_addr_274_add_4_11/CO undriven or does not drive anything -
+     clipped.
+Block i1204_1_lut was optimized away.
 Block i1 was optimized away.
 Block i2 was optimized away.
+
+
+
+
+
+                                    Page 4
+
+
+
+
+Design:  adc_ft601                                     Date:  03/29/26  13:23:13
 
 Memory Usage
 ------------
@@ -391,14 +297,6 @@ Memory Usage
 
      
 
-                                    Page 6
-
-
-
-
-Design:  adc_ft601                                     Date:  03/28/26  03:25:07
-
-
 ASIC Components
 ---------------
 
@@ -427,37 +325,7 @@ Run Time and Memory Usage
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    Page 7
+                                    Page 5
 
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.

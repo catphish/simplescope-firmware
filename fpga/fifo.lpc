@@ -16,8 +16,8 @@ CoreRevision=5.8
 ModuleName=fifo
 SourceFormat=Verilog HDL
 ParameterFileVersion=1.0
-Date=03/26/2026
-Time=23:41:47
+Date=03/28/2026
+Time=17:12:44
 
 [Parameters]
 Verilog=1
@@ -33,21 +33,21 @@ RWidth=32
 WDepth=1024
 WWidth=32
 regout=1
-CtrlByRdEn=0
+CtrlByRdEn=1
 ClockEn=0
 EmpFlg=1
 PeMode=Static - Single Threshold
-PeAssert=10
+PeAssert=516
 PeDeassert=12
 FullFlg=1
 PfMode=Static - Single Threshold
-PfAssert=520
+PfAssert=516
 PfDeassert=506
-Reset=Sync
+Reset=Async
 Reset1=Sync
 RDataCount=0
 WDataCount=0
 EnECC=0
 
 [Command]
-cmd_line= -w -n fifo -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ebfifo -depth 1024 -width 32 -rwidth 32 -regout -resetmode SYNC -no_enable -pe 10 -pf 520 -sync_reset
+cmd_line= -w -n fifo -lang verilog -synth lse -bus_exp 7 -bb -arch xo2c00 -type ebfifo -depth 1024 -width 32 -rwidth 32 -regout -resetmode ASYNC -reset_rel SYNC -pe 516 -pf 516

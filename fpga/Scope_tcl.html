@@ -16,134 +16,6 @@ prj_run Export -impl impl1 -forceAll
 
 
 
-<A name="pn260323004931"></A><B><U><big>pn260323004931</big></U></B>
-#Start recording tcl command: 3/22/2026 23:36:12
-#Project Location: /home/charlie/scope/fpga; Project name: Scope
-prj_project open "/home/charlie/scope/fpga/Scope.ldf"
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-#Stop recording: 3/23/2026 00:49:31
-
-
-
-<A name="pn260324170228"></A><B><U><big>pn260324170228</big></U></B>
-#Start recording tcl command: 3/24/2026 15:53:58
-#Project Location: /home/charlie/scope/fpga; Project name: Scope
-prj_project open "/home/charlie/scope/fpga/Scope.ldf"
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_project save
-prj_project close
-#Stop recording: 3/24/2026 17:02:28
-
-
-
-<A name="pn260325003847"></A><B><U><big>pn260325003847</big></U></B>
-#Start recording tcl command: 3/24/2026 17:03:32
-#Project Location: /home/charlie/scope/fpga; Project name: Scope
-prj_project open "/home/charlie/scope/fpga/Scope.ldf"
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_strgy set_value -strategy Strategy1 lse_max_fanout_limit=2
-prj_run Export -impl impl1
-prj_strgy set_value -strategy Strategy1 lse_max_fanout_limit=3 lse_frequency=120
-prj_run Synthesis -impl impl1
-prj_strgy set_value -strategy Strategy1 lse_max_fanout_limit=10
-prj_run Synthesis -impl impl1
-prj_strgy set_value -strategy Strategy1 lse_max_fanout_limit=1000 lse_remove_dup_regs=False lse_opt_goal=Timing
-prj_run Synthesis -impl impl1
-prj_run Export -impl impl1
-prj_strgy set "Timing"
-prj_run Export -impl impl1
-prj_strgy set "Strategy1"
-prj_strgy copy -from "Timing" -name "Custom Timing" -file "/home/charlie/scope/fpga/Custom Timing.sty"
-prj_strgy set "Custom Timing"
-prj_strgy set_value -strategy Custom Timing lse_remove_dup_regs=False lse_frequency=120
-prj_strgy set_value -strategy Custom Timing iotiming_all_speed=True
-prj_run PAR -impl impl1 -task IOTiming
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_strgy set_value -strategy Strategy1 lse_remove_dup_regs=True lse_opt_goal=Balanced lse_frequency=200
-prj_strgy set "Strategy1"
-prj_strgy delete "Custom Timing"
-pgr_project open "/home/charlie/scope/fpga/impl1/prog1.xcf"
-pgr_project close
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_strgy set "Timing"
-prj_run Export -impl impl1
-prj_strgy copy -from "Timing" -name "Custom Timing" -file "/home/charlie/scope/fpga/Custom Timing.sty"
-prj_strgy set_value -strategy Custom Timing lse_frequency=120
-prj_strgy set "Custom Timing"
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1 -forceAll
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-prj_run Export -impl impl1
-#Stop recording: 3/25/2026 00:38:47
-
-
-
 <A name="pn260325010356"></A><B><U><big>pn260325010356</big></U></B>
 #Start recording tcl command: 3/25/2026 00:43:40
 #Project Location: /home/charlie/scope/fpga; Project name: Scope
@@ -318,6 +190,89 @@ prj_run Export -impl impl1
 prj_project save
 prj_project close
 #Stop recording: 3/28/2026 12:53:50
+
+
+
+<A name="pn260328131841"></A><B><U><big>pn260328131841</big></U></B>
+#Start recording tcl command: 3/28/2026 12:54:24
+#Project Location: /home/charlie/scope/fpga; Project name: Scope
+prj_project open "/home/charlie/scope/fpga/Scope.ldf"
+prj_project close
+#Stop recording: 3/28/2026 13:18:41
+
+
+
+<A name="pn260329002755"></A><B><U><big>pn260329002755</big></U></B>
+#Start recording tcl command: 3/28/2026 13:25:13
+#Project Location: /home/charlie/scope/fpga; Project name: Scope
+prj_project open "/home/charlie/scope/fpga/Scope.ldf"
+prj_run PAR -impl impl1 -task PARTrace
+prj_src remove "/home/charlie/scope/fpga/ram.ipx"
+prj_src add "/home/charlie/scope/fpga/fifo.ipx"
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_strgy set_value -strategy Custom par_pathbased_place=On
+prj_strgy set_value -strategy Custom par_place_iterator=4
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_src remove "/home/charlie/scope/fpga/fifo.ipx"
+prj_src add "/home/charlie/scope/fpga/ram.ipx"
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+#Stop recording: 3/29/2026 00:27:55
 
 
 

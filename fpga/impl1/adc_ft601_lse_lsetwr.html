@@ -9,7 +9,7 @@
 <PRE><A name="Map_Twr"></A><B><U><big>Lattice Synthesis Timing Report</big></U></B>
 --------------------------------------------------------------------------------
 Lattice Synthesis Timing Report, Version  
-Sat Mar 28 03:25:07 2026
+Sun Mar 29 13:23:13 2026
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -28,112 +28,112 @@ Report level:    verbose report, limited to 3 items per constraint
 
 ================================================================================
 Constraint: create_clock -period 5.000000 -name clk0 [get_nets htclk_c]
-            108 items scored, 108 timing errors detected.
+            98 items scored, 98 timing errors detected.
 --------------------------------------------------------------------------------
 
 
-Error:  The following path violates requirements by 5.205ns
+Error:  The following path violates requirements by 5.167ns
 
  Logical Details:  Cell type  Pin type       Cell name  (clock net +/-)
 
-   Source:         FD1S3JX    CK             crcIn_i7  (from htclk_c +)
-   Destination:    FD1P3AX    D              ch_data_internal_i0_i31  (to htclk_c +)
+   Source:         FD1P3AX    CK             crcData_i7  (from htclk_c +)
+   Destination:    FD1P3AX    D              ch_data_internal_i27  (to htclk_c +)
 
-   Delay:                  10.045ns  (29.0% logic, 71.0% route), 6 logic levels.
+   Delay:                  10.007ns  (29.1% logic, 70.9% route), 6 logic levels.
 
  Constraint Details:
 
-     10.045ns data_path crcIn_i7 to ch_data_internal_i0_i31 violates
+     10.007ns data_path crcData_i7 to ch_data_internal_i27 violates
       5.000ns delay constraint less
-      0.160ns L_S requirement (totaling 4.840ns) by 5.205ns
+      0.160ns L_S requirement (totaling 4.840ns) by 5.167ns
 
- Path Details: crcIn_i7 to ch_data_internal_i0_i31
+ Path Details: crcData_i7 to ch_data_internal_i27
 
    Name    Fanout   Delay (ns)          Pins               Resource(Cell.Net)
-L_CO        ---     0.444             CK to Q              crcIn_i7 (from htclk_c)
-Route         8   e 1.598                                  crcIn[7]
-LUT4        ---     0.493              A to Z              \crc32/i1_2_lut_rep_72
-Route         9   e 1.574                                  \crc32/n4311
-LUT4        ---     0.493              B to Z              \crc32/i1_3_lut_4_lut_adj_70
-Route         1   e 0.941                                  \crc32/n3980
-LUT4        ---     0.493              A to Z              \crc32/i1_4_lut_adj_165
-Route         1   e 0.941                                  \crc32/n3984
-LUT4        ---     0.493              A to Z              \crc32/i1_4_lut_adj_164
-Route         2   e 1.141                                  crcOut[31]
-LUT4        ---     0.493              D to Z              mux_45_i32_3_lut_4_lut
-Route         1   e 0.941                                  ch_data_internal_31__N_337[31]
+L_CO        ---     0.444             CK to Q              crcData_i7 (from htclk_c)
+Route         9   e 1.632                                  crcData[7]
+LUT4        ---     0.493              A to Z              \crc32/i1_2_lut_rep_128
+Route         7   e 1.502                                  \crc32/n5316
+LUT4        ---     0.493              A to Z              \crc32/i1_4_lut_adj_33
+Route         1   e 0.941                                  \crc32/n4479
+LUT4        ---     0.493              C to Z              \crc32/i1_4_lut_adj_31
+Route         1   e 0.941                                  \crc32/n4487
+LUT4        ---     0.493              B to Z              \crc32/i1_4_lut_adj_30
+Route         2   e 1.141                                  crcOut[27]
+LUT4        ---     0.493              D to Z              ch_data_internal_31__I_0_106_i28_3_lut_4_lut
+Route         1   e 0.941                                  ch_data_internal_31__N_197[27]
                   --------
-                   10.045  (29.0% logic, 71.0% route), 6 logic levels.
+                   10.007  (29.1% logic, 70.9% route), 6 logic levels.
 
 
-Error:  The following path violates requirements by 5.205ns
+Error:  The following path violates requirements by 5.167ns
 
  Logical Details:  Cell type  Pin type       Cell name  (clock net +/-)
 
-   Source:         FD1S3JX    CK             crcIn_i7  (from htclk_c +)
-   Destination:    FD1P3AX    D              ch_data_internal_i0_i30  (to htclk_c +)
+   Source:         FD1P3AX    CK             crcData_i7  (from htclk_c +)
+   Destination:    FD1P3AX    D              ch_data_internal_i3  (to htclk_c +)
 
-   Delay:                  10.045ns  (29.0% logic, 71.0% route), 6 logic levels.
+   Delay:                  10.007ns  (29.1% logic, 70.9% route), 6 logic levels.
 
  Constraint Details:
 
-     10.045ns data_path crcIn_i7 to ch_data_internal_i0_i30 violates
+     10.007ns data_path crcData_i7 to ch_data_internal_i3 violates
       5.000ns delay constraint less
-      0.160ns L_S requirement (totaling 4.840ns) by 5.205ns
+      0.160ns L_S requirement (totaling 4.840ns) by 5.167ns
 
- Path Details: crcIn_i7 to ch_data_internal_i0_i30
+ Path Details: crcData_i7 to ch_data_internal_i3
 
    Name    Fanout   Delay (ns)          Pins               Resource(Cell.Net)
-L_CO        ---     0.444             CK to Q              crcIn_i7 (from htclk_c)
-Route         8   e 1.598                                  crcIn[7]
-LUT4        ---     0.493              A to Z              \crc32/i1_2_lut_rep_72
-Route         9   e 1.574                                  \crc32/n4311
-LUT4        ---     0.493              D to Z              \crc32/i1_3_lut_4_lut_adj_157
-Route         1   e 0.941                                  \crc32/n3466
-LUT4        ---     0.493              D to Z              \crc32/i1_4_lut_adj_147
-Route         1   e 0.941                                  \crc32/n3476
-LUT4        ---     0.493              A to Z              \crc32/i1_4_lut_adj_146
-Route         2   e 1.141                                  crcOut[30]
-LUT4        ---     0.493              D to Z              mux_45_i31_3_lut_4_lut
-Route         1   e 0.941                                  ch_data_internal_31__N_337[30]
+L_CO        ---     0.444             CK to Q              crcData_i7 (from htclk_c)
+Route         9   e 1.632                                  crcData[7]
+LUT4        ---     0.493              A to Z              \crc32/i1_2_lut_rep_128
+Route         7   e 1.502                                  \crc32/n5316
+LUT4        ---     0.493              C to Z              \crc32/i1_3_lut_4_lut_adj_111
+Route         1   e 0.941                                  \crc32/n4067
+LUT4        ---     0.493              A to Z              \crc32/i1_4_lut_adj_102
+Route         1   e 0.941                                  \crc32/n4069
+LUT4        ---     0.493              D to Z              \crc32/i1_4_lut_adj_100
+Route         2   e 1.141                                  crcOut[3]
+LUT4        ---     0.493              D to Z              ch_data_internal_31__I_0_106_i4_3_lut_4_lut
+Route         1   e 0.941                                  ch_data_internal_31__N_197[3]
                   --------
-                   10.045  (29.0% logic, 71.0% route), 6 logic levels.
+                   10.007  (29.1% logic, 70.9% route), 6 logic levels.
 
 
-Error:  The following path violates requirements by 5.205ns
+Error:  The following path violates requirements by 5.167ns
 
  Logical Details:  Cell type  Pin type       Cell name  (clock net +/-)
 
-   Source:         FD1S3JX    CK             crcIn_i7  (from htclk_c +)
-   Destination:    FD1P3AX    D              ch_data_internal_i0_i24  (to htclk_c +)
+   Source:         FD1P3JX    CK             crcIn_i7  (from htclk_c +)
+   Destination:    FD1P3AX    D              ch_data_internal_i27  (to htclk_c +)
 
-   Delay:                  10.045ns  (29.0% logic, 71.0% route), 6 logic levels.
+   Delay:                  10.007ns  (29.1% logic, 70.9% route), 6 logic levels.
 
  Constraint Details:
 
-     10.045ns data_path crcIn_i7 to ch_data_internal_i0_i24 violates
+     10.007ns data_path crcIn_i7 to ch_data_internal_i27 violates
       5.000ns delay constraint less
-      0.160ns L_S requirement (totaling 4.840ns) by 5.205ns
+      0.160ns L_S requirement (totaling 4.840ns) by 5.167ns
 
- Path Details: crcIn_i7 to ch_data_internal_i0_i24
+ Path Details: crcIn_i7 to ch_data_internal_i27
 
    Name    Fanout   Delay (ns)          Pins               Resource(Cell.Net)
 L_CO        ---     0.444             CK to Q              crcIn_i7 (from htclk_c)
-Route         8   e 1.598                                  crcIn[7]
-LUT4        ---     0.493              A to Z              \crc32/i1_2_lut_rep_72
-Route         9   e 1.574                                  \crc32/n4311
-LUT4        ---     0.493              C to Z              \crc32/i1_2_lut_3_lut_4_lut_adj_84
-Route         1   e 0.941                                  \crc32/n3434
-LUT4        ---     0.493              B to Z              \crc32/i1_4_lut_adj_58
-Route         1   e 0.941                                  \crc32/n3440
-LUT4        ---     0.493              A to Z              \crc32/i1_4_lut_adj_57
-Route         2   e 1.141                                  crcOut[24]
-LUT4        ---     0.493              D to Z              mux_45_i25_3_lut_4_lut
-Route         1   e 0.941                                  ch_data_internal_31__N_337[24]
+Route         9   e 1.632                                  crcIn[7]
+LUT4        ---     0.493              B to Z              \crc32/i1_2_lut_rep_128
+Route         7   e 1.502                                  \crc32/n5316
+LUT4        ---     0.493              A to Z              \crc32/i1_4_lut_adj_33
+Route         1   e 0.941                                  \crc32/n4479
+LUT4        ---     0.493              C to Z              \crc32/i1_4_lut_adj_31
+Route         1   e 0.941                                  \crc32/n4487
+LUT4        ---     0.493              B to Z              \crc32/i1_4_lut_adj_30
+Route         2   e 1.141                                  crcOut[27]
+LUT4        ---     0.493              D to Z              ch_data_internal_31__I_0_106_i28_3_lut_4_lut
+Route         1   e 0.941                                  ch_data_internal_31__N_197[27]
                   --------
-                   10.045  (29.0% logic, 71.0% route), 6 logic levels.
+                   10.007  (29.1% logic, 70.9% route), 6 logic levels.
 
-Warning: 10.205 ns is the maximum delay for this constraint.
+Warning: 10.167 ns is the maximum delay for this constraint.
 
 
 <A name="mtw1_rs"></A><B><U><big>Timing Report Summary</big></U></B>
@@ -143,7 +143,7 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets htclk_c]                 |     5.000 ns|    10.205 ns|     6 *
+clk0 [get_nets htclk_c]                 |     5.000 ns|    10.167 ns|     6 *
                                         |             |             |
 --------------------------------------------------------------------------------
 
@@ -153,11 +153,19 @@ clk0 [get_nets htclk_c]                 |     5.000 ns|    10.205 ns|     6 *
 --------------------------------------------------------------------------------
 Critical Nets                           |   Loads|  Errors| % of total
 --------------------------------------------------------------------------------
-\crc32/n4022                            |       1|      12|     11.11%
+\crc32/n4553                            |       1|      16|     16.33%
                                         |        |        |
-ch_data_internal_31__N_337[17]          |       1|      12|     11.11%
+ch_data_internal_31__N_197[18]          |       1|      16|     16.33%
                                         |        |        |
-crcOut[17]                              |       2|      12|     11.11%
+crcOut[18]                              |       2|      16|     16.33%
+                                        |        |        |
+\crc32/n4587                            |       1|      12|     12.24%
+                                        |        |        |
+ch_data_internal_31__N_197[5]           |       1|      12|     12.24%
+                                        |        |        |
+crcOut[5]                               |       2|      12|     12.24%
+                                        |        |        |
+\crc32/n4551                            |       1|      10|     10.20%
                                         |        |        |
 --------------------------------------------------------------------------------
 
@@ -165,12 +173,12 @@ crcOut[17]                              |       2|      12|     11.11%
 <A name="mtw1_ts"></A><B><U><big>Timing summary:</big></U></B>
 ---------------
 
-Timing errors: 108  Score: 533165
+Timing errors: 98  Score: 472349
 
-Constraints cover  3397 paths, 692 nets, and 2059 connections (97.8% coverage)
+Constraints cover  4189 paths, 775 nets, and 2405 connections (98.2% coverage)
 
 
-Peak memory: 190652416 bytes, TRCE: 0 bytes, DLYMAN: 0 bytes
+Peak memory: 190533632 bytes, TRCE: 0 bytes, DLYMAN: 0 bytes
 CPU_TIME_REPORT: 0 secs 
 
 
