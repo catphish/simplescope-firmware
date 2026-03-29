@@ -1,6 +1,0 @@
-#Start recording tcl command: 3/26/2026 18:17:31
-#Project Location: /home/charlie/scope/fpga; Project name: Scope
-prj_project open "/home/charlie/scope/fpga/Scope.ldf"
-prj_project save
-prj_project close
-#Stop recording: 3/26/2026 18:17:51

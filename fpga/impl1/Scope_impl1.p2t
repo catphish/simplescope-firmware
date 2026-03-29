@@ -1,9 +1,0 @@
--w
--l 5
--i 10
--n 5
--t 1
--s 1
--c 2
--e 5
--exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=ON:parASE=1
