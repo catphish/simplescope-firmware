@@ -3,18 +3,18 @@ Report for cell adc_ft601
    Instance path: adc_ft601
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	     287.00        100.0
+                                  SLIC	     257.00        100.0
                                  IOLGC	      34.00        100.0
-                                  LUT4	     378.00        100.0
+                                  LUT4	     331.00        100.0
                                  IOREG	         34        100.0
                                  IOBUF	         37        100.0
-                                PFUREG	        269        100.0
+                                PFUREG	        238        100.0
                                 RIPPLE	         35        100.0
                                    EBR	          4        100.0
 SUB MODULES
                                   cell	      count    SLC Usage(%)
                                    ram	          1         0.0
-                                 crc32	          1        47.0
+                                 crc32	          1        47.1
 ---------------------------------------------------
 Report for cell ram
    Instance path: adc_ft601/ram
@@ -26,5 +26,5 @@ Report for cell crc32
    Instance path: adc_ft601/crc32
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	     135.00        47.0
-                                  LUT4	     238.00        63.0
+                                  SLIC	     121.00        47.1
+                                  LUT4	     224.00        67.7

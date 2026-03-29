@@ -78,74 +78,38 @@
         <Message>
             <ID>35901209</ID>
             <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(48): </Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(50): </Dynamic>
             <Dynamic>32</Dynamic>
             <Dynamic>10</Dynamic>
             <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>48</Navigation>
+            <Navigation>50</Navigation>
         </Message>
         <Message>
             <ID>35901209</ID>
             <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(78): </Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(80): </Dynamic>
             <Dynamic>32</Dynamic>
             <Dynamic>10</Dynamic>
             <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>78</Navigation>
+            <Navigation>80</Navigation>
         </Message>
         <Message>
             <ID>35901209</ID>
             <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(91): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>91</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(96): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>96</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(100): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>100</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(105): </Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(104): </Dynamic>
             <Dynamic>32</Dynamic>
             <Dynamic>4</Dynamic>
             <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>105</Navigation>
+            <Navigation>104</Navigation>
         </Message>
         <Message>
             <ID>35901209</ID>
             <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(110): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>110</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>/home/charlie/scope/fpga/scope.v(111): </Dynamic>
+            <Dynamic>/home/charlie/scope/fpga/scope.v(109): </Dynamic>
             <Dynamic>32</Dynamic>
             <Dynamic>9</Dynamic>
             <Navigation>/home/charlie/scope/fpga/scope.v</Navigation>
-            <Navigation>111</Navigation>
+            <Navigation>109</Navigation>
         </Message>
         <Message>
             <ID>35001611</ID>
