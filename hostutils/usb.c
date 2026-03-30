@@ -55,15 +55,14 @@ int send_request(libusb_device_handle *handle, unsigned char *data, int length)
     }
     printf("\n");
 
-    unsigned char response_buf[length];
-    res = libusb_bulk_transfer(handle, ENDPOINT, response_buf, length, &transferred, 1000);
+    res = libusb_bulk_transfer(handle, ENDPOINT, data, length, &transferred, 1000);
     if (res < 0) {
         printf("Failed to read response: %s\n", libusb_error_name(res));
         return res;
     }
     printf("Received response: ");
     for (int i = 0; i < transferred; i++) {
-        printf("%02x ", response_buf[i]);
+        printf("%02x ", data[i]);
     }
     printf("\n");
 
@@ -88,11 +87,11 @@ void wait_busy(libusb_device_handle *handle)
             printf("Failed to read busy response: %s\n", libusb_error_name(res));
             break;
         }
-        printf("Busy check response: ");
-        for (int i = 0; i < transferred; i++) {
-            printf("%02x ", response[i]);
-        }
-        printf("\n");
+        // printf("Busy check response: ");
+        // for (int i = 0; i < transferred; i++) {
+        //     printf("%02x ", response[i]);
+        // }
+        // printf("\n");
 
         if (response[4] == 0x00) {
             // Device is ready
@@ -136,12 +135,32 @@ int main()
         return 1;
     }
 
+    int r;
+    // Send a vendor control transfer on EP0. bRequest= 0x01
+    r = libusb_control_transfer(handle, 0x40, 0x01, 0, 0, NULL, 0, TIMEOUT);
+    if (r < 0) {
+        printf("Control transfer failed\n");
+        libusb_release_interface(handle, INTERFACE);
+        libusb_close(handle);
+        libusb_exit(ctx);
+        return 1;
+    }
+
+    // Wait 100ms
+    usleep(100000);
+
     unsigned char request[1024];
 
     // Fetch the device ID
     // Send {0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}
     memcpy(request, (unsigned char[]){0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}, 8);
     if (send_request(handle, request, 8) < 0) return 1;
+
+    // Check that the returned device ID is 0x012ba043 as expected. If not, exit with an error.
+    if (request[4] != 0x01 || request[5] != 0x2b || request[6] != 0xa0 || request[7] != 0x43) {
+        printf("Unexpected device ID: %02x%02x%02x%02x\n", request[4], request[5], request[6], request[7]);
+        return 1;
+    }
 
     // Fetch the status register
     // Send {0x3C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}
@@ -173,7 +192,7 @@ int main()
 
     // Erase the flash
     // Send {0x0E, 0x04, 0x00, 0x00}
-    memcpy(request, (unsigned char[]){0x0E, 0x04, 0x00, 0x00}, 4);
+    memcpy(request, (unsigned char[]){0x0E, 0x0F, 0x00, 0x00}, 4);
     if (send_request(handle, request, 4) < 0) return 1;
 
     wait_busy(handle);
@@ -264,6 +283,11 @@ int main()
         }
     }
 
+    // Write the FEABITS to configure the device
+    // Send {0xF8, 0x00, 0x00, 0x00, 0x00, 0x60}
+    memcpy(request, (unsigned char[]){0xF8, 0x00, 0x00, 0x00, 0x00, 0x60}, 6);
+    if (send_request(handle, request, 6) < 0) return 1;
+
     // Set the DONE bit
     // Send {0x5e 0x00 0x00 0x00}
     memcpy(request, (unsigned char[]){0x5e, 0x00, 0x00, 0x00}, 4);
@@ -273,6 +297,16 @@ int main()
     // Send {0x79, 0x00, 0x00}
     memcpy(request, (unsigned char[]){0x79, 0x00, 0x00}, 3);
     if (send_request(handle, request, 3) < 0) return 1;
+
+    // Send a vendor control transfer on EP0. bRequest= 0x02 to exit programming mode
+    r = libusb_control_transfer(handle, 0x40, 0x02, 0, 0, NULL, 0, TIMEOUT);
+    if (r < 0) {
+        printf("Control transfer failed\n");
+        libusb_release_interface(handle, INTERFACE);
+        libusb_close(handle);
+        libusb_exit(ctx);
+        return 1;
+    }
 
     return(0);
 }

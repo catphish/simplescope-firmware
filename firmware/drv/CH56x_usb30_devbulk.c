@@ -163,64 +163,17 @@ uint16_t USB30_NonStandardReq()
 	endp_dir = UsbSetupBuf->bRequestType & 0x80;
 	uint16_t len = 0;
 
-#if DEBUG_USB3_REQ
-	cprintf("NSU3:%02x %02x %02x %02x %02x %02x %02x %02x\n", endp0RTbuff[0], endp0RTbuff[1],
-			endp0RTbuff[2], endp0RTbuff[3], endp0RTbuff[4], endp0RTbuff[5],
-			endp0RTbuff[6], endp0RTbuff[7]);
-#endif
 	switch(SetupReqCode)
 	{
-		case 0x01: // Microsoft OS 2.0 Descriptors
-			switch(UsbSetupBuf->wIndex.bw.bb1)
-			{
-				case 0x04: // Compat ID Descriptor
-					if(SetupLen>sizeof(USB_CompatId)) SetupLen = sizeof(USB_CompatId);
-					pDescr = (uint8_t*)USB_CompatId;
-					//cprintf(" 0104:CompactId\n");
-					break;
-				case 0x05: // Ext Props
-					if(SetupLen>sizeof(USB_PropertyHeader)) SetupLen = sizeof(USB_PropertyHeader);
-					pDescr = (uint8_t*)USB_PropertyHeader;
-					//cprintf(" 0105:PropertyHeader\n");
-					break;
-				case 0x06:
-					break;
-				case 0x09:
-					break;
-				case 0x07:
-					if(SetupLen>sizeof(USB_MSOS20DescriptorSet)) SetupLen = sizeof(USB_MSOS20DescriptorSet);
-					pDescr = (uint8_t*)USB_MSOS20DescriptorSet;
-					//cprintf(" 0107:MSOS20DescriptorSet\n");
-					break;
-				case 0x08:
-					break;
-				case 0xc0:
-					break;
-				default:
-#if DEBUG_USB3_REQ
-					cprintf(" 01D:INVALID_REQ_CODE\n");
-#endif
-					SetupReqCode = INVALID_REQ_CODE;
-					return USB_DESCR_UNSUPPORTED;
-					break;
-			}
+		case 0x01: // Enter programming mode
+			// Set the PROGRAMN pin to low level to enter programming mode
+		  GPIOA_ResetBits(GPIO_Pin_23);
 			break;
-		case 0x02: // user-defined command
-			switch(UsbSetupBuf->wIndex.bw.bb1)
-			{
-				default:
-#if DEBUG_USB3_REQ
-					cprintf(" 02D:INVALID_REQ_CODE\n");
-#endif
-					SetupReqCode = INVALID_REQ_CODE;
-					return USB_DESCR_UNSUPPORTED;
-					break;
-			}
+		case 0x02: // Exit programming mode
+			// Set the PROGRAMN pin to high level to exit programming mode
+		  GPIOA_SetBits(GPIO_Pin_23);
 			break;
 		default:
-#if DEBUG_USB3_REQ
-			cprintf(" D:INVALID_REQ_CODE\n");
-#endif
 			SetupReqCode = INVALID_REQ_CODE;
 			return USB_DESCR_UNSUPPORTED;
 			break;
@@ -248,11 +201,6 @@ uint16_t USB30_StandardReq()
 	SetupLen = UsbSetupBuf->wLength;
 	uint16_t len = 0;
 
-#if DEBUG_USB3_REQ
-	cprintf("SU3:%02x %02x %02x %02x %02x %02x %02x %02x\n", endp0RTbuff[0], endp0RTbuff[1],
-			endp0RTbuff[2], endp0RTbuff[3], endp0RTbuff[4], endp0RTbuff[5],
-			endp0RTbuff[6], endp0RTbuff[7]);
-#endif
 	switch(SetupReqCode)
 	{
 		case USB_GET_DESCRIPTOR:
@@ -366,24 +314,13 @@ uint16_t USB30_StandardReq()
 uint16_t EP0_IN_Callback(void)
 {
 	uint16_t len = 0;
-#if DEBUG_USB3_EP0
-	cprintf("USB3 EP0 IN\n");
-#endif
 	switch(SetupReqCode)
 	{
 		case USB_GET_DESCRIPTOR:
 			len = SetupLen >= ENDP0_MAXPACK ? ENDP0_MAXPACK : SetupLen;
-#if 0
-//DEBUG_USB3_EP0
-			cprintf("USB3 EP0 IN: GetDesc len=%d SetupLen=%d pDescr=0x%08X Before\n", len, SetupLen, pDescr);
-#endif
 			memcpy(endp0RTbuff, pDescr, len);
 			SetupLen -= len;
 			pDescr += len;
-#if 0
-//DEBUG_USB3_EP0
-			cprintf("USB3 EP0 IN: GetDesc len=%d SetupLen=%d pDescr=0x%08X After\n", len, SetupLen, pDescr);
-#endif
 			break;
 			/* Note USB_SET_ADDRESS is done in USB30_Setup_Status() */
 	}
@@ -415,9 +352,6 @@ uint16_t EP0_OUT_Callback(void)
  */
 void USB30_Setup_Status(void)
 {
-#if DEBUG_USB3_EP
-	cprintf("USB3 Setup: SetupReqCode=0x%02X\n", SetupReqCode);
-#endif
 	switch(SetupReqCode)
 	{
 		case USB_SET_ADDRESS:

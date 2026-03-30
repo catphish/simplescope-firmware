@@ -73,17 +73,12 @@ int main() {
   // Configure HTACK pin PA10 as push-pull output
   GPIOA_ModeCfg(GPIO_Pin_10, GPIO_Highspeed_PP_8mA);
   // Configure HRCLK pin PA19 as pull-down input
-  //GPIOA_ModeCfg(GPIO_Pin_19, GPIO_ModeIN_PD_NSMT);
+  GPIOA_ModeCfg(GPIO_Pin_19, GPIO_ModeIN_PD_NSMT);
   // Configure HRACT pin PA18 as pull-down input
-  //GPIOA_ModeCfg(GPIO_Pin_18, GPIO_ModeIN_PD_NSMT);
+  GPIOA_ModeCfg(GPIO_Pin_18, GPIO_ModeIN_PD_NSMT);
   // Configure HRVLD pin PA6 as pull-down input
-  //GPIOA_ModeCfg(GPIO_Pin_6, GPIO_ModeIN_PD_NSMT);
-
-  // Temporary LEDs on PB22, PB23, PB24 for debugging
-  // GPIOB_ModeCfg(GPIO_Pin_22, GPIO_Highspeed_PP_8mA);
-  // GPIOB_ModeCfg(GPIO_Pin_23, GPIO_Highspeed_PP_8mA);
-  // GPIOB_ModeCfg(GPIO_Pin_24, GPIO_Highspeed_PP_8mA);
-
+  GPIOA_ModeCfg(GPIO_Pin_6, GPIO_ModeIN_PD_NSMT);
+  
   // Initialize SPI0 in master mode
   SPI0_MasterDefInit();
   // Set SPI data mode to Mode 0, MSB first

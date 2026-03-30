@@ -377,36 +377,35 @@ uint8_t USB_OSStringDescriptor[LEN_USB_OSStringDescriptor] =
 	0x00
 };
 
-/* USB2.0 / 3.0 Binary Device Object Store (BOS) descriptor */
 uint8_t USB_BOSDescriptor[LEN_USB_BOSDescriptor] =
 {
-	// USB 3.0 and USB 2.0 LPM Binary Device Object Store (BOS) Descriptor
-	0x05, // length of this descriptor
-	0x0f, // CONFIGURATION (2)
-	LEN_USB_BOSDescriptor, // total length includes endpoint descriptors (should be 1 more than last address)
-	0x00, // total length high byte
-	0x02, // number of device cap
+    /* BOS Descriptor Header - 5 bytes */
+    0x05,                    // bLength
+    0x0F,                    // bDescriptorType = BOS
+    LEN_USB_BOSDescriptor,   // wTotalLength low
+    0x00,                    // wTotalLength high
+    0x02,                    // bNumDeviceCaps = 2
 
-	0x07,
-	0x10, // DEVICE CAPABILITY type
-	0x02, // USB2.0 EXTENSION
-	0x1E, // bmAttributes
-	// LPM Capable=1, BESL And Alternate HIRD Supported=1,
-	// Baseline BESL Valid=1, Deep BESL Valid=1,
-	0xF4, // Baseline BESL=4 (400 us), Deep BESL=15 (10000 us)
-	0x00,
-	0x00,
+    /* USB 2.0 Extension Capability Descriptor - 7 bytes */
+    0x07,                    // bLength
+    0x10,                    // bDescriptorType = DEVICE CAPABILITY
+    0x02,                    // bDevCapabilityType = USB2.0 EXTENSION
+    0x1E,                    // bmAttributes low  (LPM capable, BESL supported)
+    0xF4,                    // bmAttributes byte 2 (Baseline BESL=4, Deep BESL=15)
+    0x00,                    // bmAttributes byte 3
+    0x00,                    // bmAttributes byte 4
 
-	0x0a, // length of this descriptor
-	0x10, // DEVICE CAPABILITY type
-	0x03, // superspeed usb device capability
-	0x00, //
-	0x0c, // ss/hs
-	0x00,
-	0x02, // the lowest speed is high speed
-	0x0a, // u1 exit latency is 10us
-	0xff, // u1 exit latency is 8us
-	0x07
+    /* SuperSpeed Device Capability Descriptor - 10 bytes */
+    0x0A,                    // bLength
+    0x10,                    // bDescriptorType = DEVICE CAPABILITY
+    0x03,                    // bDevCapabilityType = SUPERSPEED_USB
+    0x00,                    // bmAttributes (no LTM)
+    0x0E,                    // wSpeedsSupported low  (FS | HS | SS)
+    0x00,                    // wSpeedsSupported high
+    0x02,                    // bFunctionalitySupport = HS is lowest fully-supported speed
+    0x0A,                    // bU1DevExitLat = 10us
+    0x20,                    // wU2DevExitLat low = 32us
+    0x00                     // wU2DevExitLat high
 };
 
 /* USB2.0 / 3.0 Microsoft OS 2.0 descriptor */
