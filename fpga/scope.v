@@ -6,7 +6,25 @@ module adc_ft601 (
 	(* syn_useioff = "true" *) output hrclk,
 	input [31:0] data_in,
 	input htack,
-	input htclk );
+	input htclk,
+	input spi_cs,
+	input spi_clk,
+	input spi_mosi );
+
+	// SPI
+	reg [31:0]configuration = 32'h0003000b;
+	reg [31:0]config_sr = 0;
+	wire [15:0] sample_rate = configuration[31:16];
+	wire [1:0] byte_select = configuration[3:2];
+	wire enabled = configuration[0];
+	wire dummy_data_mode = configuration[1];
+    always @(posedge spi_clk) begin
+        if (!spi_cs)
+            config_sr <= {config_sr[30:0], spi_mosi};
+    end
+    always @(posedge spi_cs) begin
+        configuration <= config_sr;
+    end
 
 	// Set D0 high at startup to bypass CH569 bootloader by default
 	initial ch_data = 32'd1;
@@ -34,27 +52,65 @@ module adc_ft601 (
 		registered_input <= data_in;
 	end
 
-	// 33 bit general purpose cycle counter
-	reg [32:0] counter = 0;
+	// 16 bit general purpose cycle counter
+	reg [15:0] counter = 0;
+	// 32 bit counter to generate dummy data
+	reg [31:0] dummy_data = 0;
+	// Small counter to count how much data we've shifted into the RAM write buffer
+	reg [2:0] byte_counter;
 	// Flag to indicate it's time to start sending an HSPI frame
-	reg transmit_now;
+	reg transmit_now = 0;
+	// Flag to indicate it's time to take a sample
+	reg sample_now = 0;
 	// Indicate which memory bank we should read from
-	reg read_msb;
+	reg read_msb = 0;
+
+	wire [31:0] selected_data = (dummy_data_mode ? dummy_data : registered_input);
 
 	// Read input data from probes and write to memory
 	always @ (posedge htclk) begin
-		ram_wren <= 0;
-		counter <= counter + 1;
 		transmit_now <= 0;
-		if(counter[0]) begin
-			ram_wren <= 1;
+		// If we just wrote to RAM, increment the RAM write address
+		if(ram_wren) begin
 			ram_write_addr <= ram_write_addr + 10'd1;
-			// For now we use dummy data
-			// ram_data_in <= counter[32:1];
-			ram_data_in <= registered_input;
 			if(ram_write_addr[8:0] == 9'b111111111) begin
 				transmit_now <= 1;
 				read_msb <= ram_write_addr[9];
+			end
+		end
+		// By default we're not writing to RAM
+		ram_wren <= 0;
+		// Always increment the counter
+		counter <= counter - 1;
+		sample_now <= 0;
+		if(enabled && counter == 0) begin
+			counter <= sample_rate;
+			sample_now <= 1;
+		end
+		
+		if(~enabled && ~sample_now) begin
+			// Measurement is disabled, reset everything in the input chain
+			ram_write_addr <= 0;
+			byte_counter <= 0;
+			counter <= 0;
+		end
+		
+		// When the counter reaches our selected data rate, shift data into the RAM input register
+		if(sample_now) begin
+			dummy_data <= dummy_data + 1;
+			byte_counter <= byte_counter + 1;
+			// Shift bits into the RAM write register, depending on the byte_select register
+			if(byte_select == 0) begin
+				ram_data_in <= {ram_data_in[23:0], selected_data[7:0]};
+				if(byte_counter[1:0] == 3) ram_wren <= 1;
+			end
+			if(byte_select == 1) begin
+				ram_data_in <= {ram_data_in[15:0], selected_data[15:0]};
+				if(byte_counter[0] == 1) ram_wren <= 1;
+			end
+			if(byte_select == 2) begin
+				ram_wren <= 1;
+				ram_data_in <= selected_data;
 			end
 		end
 	end
@@ -63,11 +119,14 @@ module adc_ft601 (
 	reg [31:0] ch_data_internal;
 	reg hrvld_internal;
 	reg hract_internal;
+	reg [31:0] ch_data_internal_2;
+	reg hrvld_internal_2;
+	reg hract_internal_2;
 
 	always @ (posedge htclk) begin
-		ch_data <= ch_data_internal;
-		hrvld <= hrvld_internal;
-		hract <= hract_internal;
+		ch_data <= ch_data_internal_2;
+		hrvld <= hrvld_internal_2;
+		hract <= hract_internal_2;
 	end
 
 
@@ -77,9 +136,15 @@ module adc_ft601 (
 	reg [2:0] state = 0;
 	// Position within the frame
 	reg [8:0] frame_idx = 0;
-
+	// Allow the CRC inversion to be pipelined
+	reg [31:0] crcOut_reg;
+	
 	// Transmit data to CH569 HSPI interface
 	always @ (posedge htclk) begin
+		ch_data_internal_2 <= ch_data_internal;
+		hrvld_internal_2 <= hrvld_internal;
+		hract_internal_2 <= hract_internal;
+		
 		ram_read_addr <= ram_read_addr + 10'd1;
 
 		// No frame is in progress, start one if we have data waiting
@@ -119,11 +184,15 @@ module adc_ft601 (
 		end
 		// End the frame by transmitting the CRC
 		if(state == 5) begin
-			ch_data_internal <= ~crcOut;
+			// The inverse of the CRC output should be written to ch_data here, but this makes the timing very
+			// tight, so we use a small hack to invert it later and inject the result back into the pipeline
+			crcOut_reg <= crcOut;
 			state <= 6;
 		end
 		// Stop sending
 		if(state == 6) begin
+			// We bypass the pipeline here to emulate the CRC output being written at state 5
+			ch_data_internal_2 <= ~crcOut_reg;
 			hrvld_internal <= 0;
 			hract_internal <= 0;
 			state <= 0;

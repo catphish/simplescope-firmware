@@ -50,6 +50,34 @@ void transfer_callback(struct libusb_transfer *transfer)
     }
 }
 
+int send_request(libusb_device_handle *handle, unsigned char *data, int length)
+{
+    int transferred;
+    int res = libusb_bulk_transfer(handle, 0x01, data, length, &transferred, 1000);
+    if (res < 0) {
+        printf("Failed to send request: %s\n", libusb_error_name(res));
+        return res;
+    }
+    printf("Sent request: ");
+    for (int i = 0; i < length; i++) {
+        printf("%02x ", data[i]);
+    }
+    printf("\n");
+
+    res = libusb_bulk_transfer(handle, 0x81, data, length, &transferred, 1000);
+    if (res < 0) {
+        printf("Failed to read response: %s\n", libusb_error_name(res));
+        return res;
+    }
+    printf("Received response: ");
+    for (int i = 0; i < transferred; i++) {
+        printf("%02x ", data[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
 int main()
 {
     libusb_context *ctx = NULL;
@@ -105,6 +133,16 @@ int main()
             return 1;
         }
     }
+
+    // Send a request to the device to commence data transmission.
+    // This consists of a 4 byte command sent do endpoint 0x01.
+    // The value consists of 2 bytes to set the sample rate 0x0003
+    // one unused byte 0x00 and a command byte consisting of
+    // 4 empty bits, two bits to set the number of channels 0x08
+    // one bit to enable dummy data 0x02 and one bit to start the transmission 0x01
+    // resulting in the command 0x00 0x03 0x00 0x0B
+    unsigned char command[4] = {0x00, 0x03, 0x00, 0x0B};
+    //send_request(handle, command, sizeof(command));
 
     double last_time = now_seconds();
     size_t last_bytes = 0;
