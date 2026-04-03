@@ -72,3 +72,6 @@ LOCATE COMP "data_in[29]" SITE "35" ;
 LOCATE COMP "data_in[30]" SITE "36" ;
 LOCATE COMP "data_in[31]" SITE "37" ;
 SYSCONFIG SDM_PORT=PROGRAMN ;
+LOCATE COMP "spi_cs" SITE "48" ;
+LOCATE COMP "spi_mosi" SITE "49" ;
+LOCATE COMP "spi_clk" SITE "31" ;

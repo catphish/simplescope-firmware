@@ -123,9 +123,9 @@ int main() {
       // Transmit each received byte to SPI0 and simultaneously receive data from SPI0
       for(int i = 0; i < rx_len; i++)
       {
-        R8_SPI0_BUFFER = endp1Rbuff[i];
+        R8_SPI0_BUFFER = ((volatile uint8_t*)endp1Rbuff)[i];
         while(!(R8_SPI0_INT_FLAG & RB_SPI_FREE));
-        endp1Tbuff[i] = R8_SPI0_BUFFER;
+        ((volatile uint8_t*)endp1Tbuff)[i] = R8_SPI0_BUFFER;
       }
       // Set SPI0 CS high to deselect the SPI slave device
       GPIOA_SetBits(GPIO_Pin_12);
@@ -133,37 +133,33 @@ int main() {
       // After processing, clear the flag
       ep1_data_received = 0;
 
-      // Clear the EP1 IN interrupt
-      USB30_IN_clearIT(ENDP_1);
-      // Point the EP1 IN buffer to the data received from SPI0
-      USBSS->UEP1_TX_DMA = (uint32_t)(uint8_t *)endp1Tbuff;
-      // Set endpoint 1 to ACK and notify the host to take the data
-      USB30_IN_set(ENDP_1, ENABLE, ACK, DEF_ENDP1_IN_BURST_LEVEL, rx_len);
-      USB30_send_ERDY(ENDP_1 | IN, DEF_ENDP1_IN_BURST_LEVEL);
-
-      // Point the EP1 OUT buffer to the start of the buffer for the next reception
-      USBSS->UEP1_RX_DMA = (uint32_t)(uint8_t *)endp1Rbuff;
-      // Able to send DEF_ENDP1_OUT_BURST_LEVEL packets on endpoint 1
-      USB30_OUT_set(ENDP_1, ACK, DEF_ENDP1_OUT_BURST_LEVEL);
-      // Notify the host to take DEF_ENDP1_OUT_BURST_LEVEL packets
-      USB30_send_ERDY(ENDP_1 | OUT, DEF_ENDP1_OUT_BURST_LEVEL); 
+      // To keep things super simple for now, don't touch the USB stack here, don't bother to reply
     }
   }
 }
-volatile uint8_t usb_idle = 1;
 
 void EP1_OUT_Callback(void)
 {
+  bsp_disable_interrupt();
   // Clear interrupt
   USB30_OUT_clearIT(ENDP_1);
+  // Able to send DEF_ENDP1_OUT_BURST_LEVEL packets on endpoint 1
+  USB30_OUT_set(ENDP_1, ACK, DEF_ENDP1_OUT_BURST_LEVEL);
+  // Notify the host to take DEF_ENDP1_OUT_BURST_LEVEL packets
+  USB30_send_ERDY(ENDP_1 | OUT, DEF_ENDP1_OUT_BURST_LEVEL);
+
   // Set a flag to indicate that data has been received on EP1, which can be processed in the main loop
   ep1_data_received = 1;
+  bsp_enable_interrupt();
 }
 
 void EP1_IN_Callback(void)
 {
+  bsp_disable_interrupt();
   // Clear the interrupt and continue
   USB30_IN_clearIT(ENDP_1);
+  USB30_IN_set(ENDP_1, ENABLE, NRDY, 0, 0);
+  bsp_enable_interrupt();
 }
 
 void EP2_IN_Callback(void)
@@ -182,13 +178,12 @@ void EP2_IN_Callback(void)
       USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)(RING_BUFFER + ring_buffer_tail_usb);
       // Advance the tail index to remove the buffer from the queue
       ring_buffer_tail_usb = (ring_buffer_tail_usb + 4096) % RING_BUFFER_SIZE;
-      usb_idle = 0;
       // Set endpoint 2 to ACK and notify the host to take the data
-      USB30_IN_set(ENDP_2, ENABLE, ACK, 4, 1024);
-      USB30_send_ERDY(ENDP_2 | IN, 4);
+      USB30_IN_set(ENDP_2, ENABLE, ACK, DEF_ENDP2_IN_BURST_LEVEL, 1024);
+      USB30_send_ERDY(ENDP_2 | IN, DEF_ENDP2_IN_BURST_LEVEL);
     } else {
       // If there are no packets in the queue, set USB idle flag
-      usb_idle = 1;
+      USB30_IN_set(ENDP_2, ENABLE, NRDY, 0, 0);
     }
   } else if(nump == 1) {
     USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 1024);
@@ -199,7 +194,10 @@ void EP2_IN_Callback(void)
   } else if(nump == 3) {
     USB30_IN_set(ENDP_2, ENABLE, ACK, 3, 1024);
     USB30_send_ERDY(ENDP_2 | IN, 3);
-  }    
+  } else {
+    USB30_IN_set(ENDP_2, ENABLE, ACK, DEF_ENDP2_IN_BURST_LEVEL, 1024);
+    USB30_send_ERDY(ENDP_2 | IN, DEF_ENDP2_IN_BURST_LEVEL);
+  }
   bsp_enable_interrupt();
 }
 
@@ -220,18 +218,7 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
     if (R8_HSPI_RTX_STATUS & RB_HSPI_NUM_MIS) {
       error = 1;
     }
-    if(error) {
-      // // Send a short packet with error status to notify the host
-      // if(usb_idle) {
-      //   // Put 0xFFFFFFFF in the first 4 bytes of the current USB head buffer to indicate an error
-      //   ((uint32_t*)(RING_BUFFER + ring_buffer_head_usb))[0] = 0xFFFFFFFF;
-      //   USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)(RING_BUFFER);
-      //   USB30_IN_clearIT(ENDP_2);
-      //   USB30_IN_set(ENDP_2, ENABLE, ACK, 1, 4); // Send a short packet to indicate an error
-      //   USB30_send_ERDY(ENDP_2 | IN, 1);
-      //   usb_idle = 0;
-      // }
-    } else {
+    if(!error) {
       if(R8_HSPI_RX_SC & RB_HSPI_RX_TOG) {
         // Buffer 0 received. Advance the head index and wrap around if necessary
         ring_buffer_head_hspi_a = ring_buffer_head_hspi_b + 2048;
@@ -244,21 +231,21 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
         // Set RX buffer one to the next segment in the ring buffer
         R32_HSPI_RX_ADDR1 = (uint32_t)(uint8_t *)(RING_BUFFER + ring_buffer_head_hspi_b);
       }
-
+      uint8_t nump;
+      nump = USB30_IN_nump(ENDP_2); //nump: number of remaining packets to be sent
       // If the USB is idle, trigger the transmision of the first buffer in the queue
-      if (usb_idle && (ring_buffer_head_usb != ring_buffer_tail_usb)) {
+      if (nump == 0 && (ring_buffer_head_usb != ring_buffer_tail_usb)) {
         USB30_IN_clearIT(ENDP_2);
         // Point the EP2 IN buffer to the USB tail
         USBSS->UEP2_TX_DMA = (uint32_t)(uint8_t *)(RING_BUFFER + ring_buffer_tail_usb);
         // Advance the tail index to remove the buffer from the queue
         ring_buffer_tail_usb = (ring_buffer_tail_usb + 4096) % RING_BUFFER_SIZE;
-        usb_idle = 0;
         // Set endpoint 2 to ACK and notify the host to take the data
         USB30_IN_set(ENDP_2, ENABLE, ACK, 4, 1024);
         USB30_send_ERDY(ENDP_2 | IN, 4);
       }
     }
-    R8_HSPI_INT_FLAG = RB_HSPI_IF_R_DONE; // Clear Interrupt
   }
+  R8_HSPI_INT_FLAG = RB_HSPI_IF_R_DONE; // Clear Interrupt
   bsp_enable_interrupt();
 }

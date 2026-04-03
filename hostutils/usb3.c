@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <sys/time.h>
+#include <string.h>
 #include <libusb-1.0/libusb.h>
 
 #define VID 0x16c0
@@ -11,10 +12,11 @@
 
 #define BUF_SIZE 4096*64
 #define NUM_TRANSFERS 8
-#define TIMEOUT 0
+#define TIMEOUT 100
 
 static volatile int running = 1;
 static size_t bytes_received = 0;
+static volatile int transfers_in_flight = 0;
 
 void handle_sigint(int sig)
 {
@@ -35,6 +37,8 @@ void transfer_callback(struct libusb_transfer *transfer)
         bytes_received += transfer->actual_length;
     }
 
+    // Print some data about the packet including the transfer status and length
+        printf("Received packet: length=%d status=%d\n", transfer->actual_length, transfer->status);
     // Check the received data as 4 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
     for (int i = 0; i < transfer->actual_length; i += 4)
     {
@@ -47,7 +51,37 @@ void transfer_callback(struct libusb_transfer *transfer)
 
     if (running && transfer->status != LIBUSB_TRANSFER_CANCELLED) {
         libusb_submit_transfer(transfer);
+    } else {
+        transfers_in_flight--;
     }
+}
+
+int send_request(libusb_device_handle *handle, unsigned char *data, int length)
+{
+    int transferred;
+    int res = libusb_bulk_transfer(handle, 0x01, data, length, &transferred, 1000);
+    if (res < 0) {
+        printf("Failed to send request: %s\n", libusb_error_name(res));
+        return res;
+    }
+    printf("Sent request: ");
+    for (int i = 0; i < length; i++) {
+        printf("%02x ", data[i]);
+    }
+    printf("\n");
+
+//    res = libusb_bulk_transfer(handle, 0x81, data, length, &transferred, 1000);
+//    if (res < 0) {
+//        printf("Failed to read response: %s\n", libusb_error_name(res));
+//        return res;
+//    }
+ //   printf("Received response: ");
+ //   for (int i = 0; i < transferred; i++) {
+ //       printf("%02x ", data[i]);
+ //   }
+ //   printf("\n");
+
+    return 0;
 }
 
 int main()
@@ -82,6 +116,9 @@ int main()
         return 1;
     }
 
+    unsigned char command[4] = {0x00, 0x02, 0x00, 0x03};
+    send_request(handle, command, sizeof(command));
+
     printf("Starting throughput test with %d transfers, buffer=%d bytes\n",
            NUM_TRANSFERS, BUF_SIZE);
 
@@ -103,6 +140,8 @@ int main()
         if (libusb_submit_transfer(transfers[i]) < 0) {
             printf("Failed to submit transfer %d\n", i);
             return 1;
+        } else {
+            transfers_in_flight++;
         }
     }
 
@@ -126,16 +165,27 @@ int main()
 
             last_bytes = bytes_received;
             last_time = t;
+
+            //int i = (int)(t) % 2; // Alternate between 0 and 1 to send different commands
+            //memcpy(command, (unsigned char[]){0x00, 0x02, 0x00, 0x02 | i}, sizeof(command));
+            //send_request(handle, command, sizeof(command));
         }
     }
 
     printf("Stopping...\n");
 
-    for (int i = 0; i < NUM_TRANSFERS; i++) {
-        libusb_cancel_transfer(transfers[i]);
-    }
+    // Send a command to the device to stop sending data
+    memcpy(command, (unsigned char[]){0x00, 0x02, 0x00, 0x03}, sizeof(command));
+    send_request(handle, command, sizeof(command));
 
-    while (libusb_handle_events_completed(ctx, NULL) == 0);
+    //for (int i = 0; i < NUM_TRANSFERS; i++) {
+    //    libusb_cancel_transfer(transfers[i]);
+    //}
+
+    // Handle any outstanding events to ensure all transfers are completed or cancelled before freeing resources
+    while (transfers_in_flight > 0) {
+        libusb_handle_events(ctx);
+    }
 
     for (int i = 0; i < NUM_TRANSFERS; i++) {
         libusb_free_transfer(transfers[i]);

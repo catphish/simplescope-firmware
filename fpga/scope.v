@@ -6,13 +6,32 @@ module adc_ft601 (
 	(* syn_useioff = "true" *) output hrclk,
 	input [31:0] data_in,
 	input htack,
-	input htclk );
+	input htclk,
+	input spi_cs,
+	input spi_clk,
+	input spi_mosi );
 
 	// Set D0 high at startup to bypass CH569 bootloader by default
 	initial ch_data = 32'd1;
 
 	// Loop the 120MHz clock from the CH569 htclk back to its hrclk
 	assign hrclk = htclk;
+
+	// SPI
+	reg [31:0]configuration_in = 0;
+	reg [31:0]configuration = 0;
+	reg [31:0]config_sr = 0;
+	wire [15:0] sample_rate = configuration[31:16];
+	wire [1:0] byte_select = configuration[3:2];
+	wire enabled = configuration[0];
+	wire dummy_data_mode = configuration[1];
+    always @(posedge spi_clk) begin
+        if (!spi_cs)
+            config_sr <= {config_sr[30:0], spi_mosi};
+    end
+    always @(posedge spi_cs) begin
+        configuration_in <= config_sr;
+    end
 
 	// Set up a 4KiB pseudo dual port RAM for 2 x 2KiB buffers
 	reg ram_wren;
@@ -35,27 +54,51 @@ module adc_ft601 (
 	end
 
 	// 33 bit general purpose cycle counter
-	reg [32:0] counter = 0;
+	reg [15:0] counter = 0;
+	// 32 bit counter to generate dummy data
+	reg [31:0] dummy_data = 0;
 	// Flag to indicate it's time to start sending an HSPI frame
-	reg transmit_now;
+	reg transmit_now = 0;
+	// Flag to indicate it's time to take a sample
+	reg sample_now = 0;
 	// Indicate which memory bank we should read from
 	reg read_msb;
 
+	wire [31:0] selected_data = (dummy_data_mode ? dummy_data : registered_input);
+
 	// Read input data from probes and write to memory
 	always @ (posedge htclk) begin
-		ram_wren <= 0;
-		counter <= counter + 1;
+		configuration <= configuration_in;
 		transmit_now <= 0;
-		if(counter[0]) begin
-			ram_wren <= 1;
+		// If we just wrote to RAM, increment the RAM write address
+		if(ram_wren) begin
 			ram_write_addr <= ram_write_addr + 10'd1;
-			// For now we use dummy data
-			// ram_data_in <= counter[32:1];
-			ram_data_in <= registered_input;
 			if(ram_write_addr[8:0] == 9'b111111111) begin
 				transmit_now <= 1;
 				read_msb <= ram_write_addr[9];
 			end
+		end
+		// By default we're not writing to RAM
+		ram_wren <= 0;
+		// Always increment the counter
+		counter <= counter - 1;
+		sample_now <= 0;
+		if(counter == 0 && enabled) begin
+			counter <= sample_rate;
+			sample_now <= 1;
+		end
+		if(sample_now && enabled) begin
+			dummy_data <= dummy_data + 1;
+			ram_wren <= 1;
+			// For now we use dummy data
+			ram_data_in <= selected_data;
+			//ram_data_in <= registered_input;
+		end
+		if(~enabled) begin
+			counter <= 0;
+			ram_write_addr <= 0;
+			sample_now <= 0;
+			dummy_data <= 0;
 		end
 	end
 
@@ -69,7 +112,6 @@ module adc_ft601 (
 		hrvld <= hrvld_internal;
 		hract <= hract_internal;
 	end
-
 
 	// Sequence number for HSPI frames
 	reg [3:0] seq = 0;
