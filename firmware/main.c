@@ -251,6 +251,7 @@ void reset_EP2(void)
   // Clear EP2 IN interrupt and set it to NRDY
   USB30_IN_clearIT(ENDP_2);
   USB30_IN_set(ENDP_2, ENABLE, NRDY, 0, 0);
+  usb_idle = 1;
   // Reset ring buffer indices
   ring_buffer_head_hspi_a = 0;
   ring_buffer_head_hspi_b = 2048;

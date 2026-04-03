@@ -30,7 +30,7 @@ double now_seconds()
     return tv.tv_sec + tv.tv_usec / 1000000.0;
 }
 
-uint32_t prev_value;
+uint32_t prev_value = -1;
 void transfer_callback(struct libusb_transfer *transfer)
 {
     if (transfer->status == LIBUSB_TRANSFER_COMPLETED) {
@@ -121,15 +121,7 @@ int main()
     send_request(handle, command, sizeof(command));
 
     // Send a vendor control transfer on EP0. bRequest= 0x03 to flush EP2
-    // int r = libusb_control_transfer(handle, 0x40, 0x03, 0, 0, NULL, 0, TIMEOUT);
-    // if (r < 0) {
-    //     printf("Control transfer failed\n");
-    //     libusb_release_interface(handle, INTERFACE);
-    //     libusb_close(handle);
-    //     libusb_exit(ctx);
-    //     return 1;
-    // }
-
+    libusb_control_transfer(handle, 0x40, 0x03, 0, 0, NULL, 0, TIMEOUT);
     // Begin FPGA transmission by sending a command to the device.
     memcpy(command, (unsigned char[]){0x00, 0x01, 0x00, 0x03}, sizeof(command));
     send_request(handle, command, sizeof(command));
