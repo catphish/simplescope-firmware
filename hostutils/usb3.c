@@ -38,7 +38,7 @@ void transfer_callback(struct libusb_transfer *transfer)
     }
 
     // Print some data about the packet including the transfer status and length
-        printf("Received packet: length=%d status=%d\n", transfer->actual_length, transfer->status);
+    // printf("Received packet: length=%d status=%d\n", transfer->actual_length, transfer->status);
     // Check the received data as 4 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
     for (int i = 0; i < transfer->actual_length; i += 4)
     {
@@ -70,16 +70,16 @@ int send_request(libusb_device_handle *handle, unsigned char *data, int length)
     }
     printf("\n");
 
-//    res = libusb_bulk_transfer(handle, 0x81, data, length, &transferred, 1000);
-//    if (res < 0) {
-//        printf("Failed to read response: %s\n", libusb_error_name(res));
-//        return res;
-//    }
- //   printf("Received response: ");
- //   for (int i = 0; i < transferred; i++) {
- //       printf("%02x ", data[i]);
- //   }
- //   printf("\n");
+   res = libusb_bulk_transfer(handle, 0x81, data, length, &transferred, 1000);
+   if (res < 0) {
+       printf("Failed to read response: %s\n", libusb_error_name(res));
+       return res;
+   }
+   printf("Received response: ");
+   for (int i = 0; i < transferred; i++) {
+       printf("%02x ", data[i]);
+   }
+   printf("\n");
 
     return 0;
 }
@@ -116,7 +116,22 @@ int main()
         return 1;
     }
 
-    unsigned char command[4] = {0x00, 0x02, 0x00, 0x03};
+    // Reset the FPGA configuration
+    unsigned char command[4] = {0x00, 0x02, 0x00, 0x02};
+    send_request(handle, command, sizeof(command));
+
+    // Send a vendor control transfer on EP0. bRequest= 0x03 to flush EP2
+    // int r = libusb_control_transfer(handle, 0x40, 0x03, 0, 0, NULL, 0, TIMEOUT);
+    // if (r < 0) {
+    //     printf("Control transfer failed\n");
+    //     libusb_release_interface(handle, INTERFACE);
+    //     libusb_close(handle);
+    //     libusb_exit(ctx);
+    //     return 1;
+    // }
+
+    // Begin FPGA transmission by sending a command to the device.
+    memcpy(command, (unsigned char[]){0x00, 0x01, 0x00, 0x03}, sizeof(command));
     send_request(handle, command, sizeof(command));
 
     printf("Starting throughput test with %d transfers, buffer=%d bytes\n",
@@ -174,10 +189,6 @@ int main()
 
     printf("Stopping...\n");
 
-    // Send a command to the device to stop sending data
-    memcpy(command, (unsigned char[]){0x00, 0x02, 0x00, 0x03}, sizeof(command));
-    send_request(handle, command, sizeof(command));
-
     //for (int i = 0; i < NUM_TRANSFERS; i++) {
     //    libusb_cancel_transfer(transfers[i]);
     //}
@@ -191,6 +202,10 @@ int main()
         libusb_free_transfer(transfers[i]);
         free(buffers[i]);
     }
+
+    // Send a command to the device to stop sending data
+    memcpy(command, (unsigned char[]){0x00, 0x02, 0x00, 0x02}, sizeof(command));
+    send_request(handle, command, sizeof(command));
 
     libusb_release_interface(handle, INTERFACE);
     libusb_close(handle);

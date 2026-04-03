@@ -10,7 +10,6 @@
 *******************************************************************************/
 #include "CH56x_common.h"
 
-#include "CH56x_usb20_devbulk.h"
 #include "CH56x_usb30_devbulk.h"
 #include "CH56x_usb30_devbulk_LIB.h"
 #include "CH56x_usb_devbulk_desc_cmd.h"
@@ -34,29 +33,6 @@ __attribute__((aligned(16))) uint8_t endp0RTbuff[512] __attribute__((section(".D
 __attribute__((aligned(16))) uint8_t endp1Rbuff[DEF_ENDP1_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 1 data Receive buffer
 __attribute__((aligned(16))) uint8_t endp1Tbuff[DEF_ENDP1_MAX_SIZE] __attribute__((section(".DMADATA"))); // Endpoint 1 data Transmit buffer
 
-/*******************************************************************************
- * @fn     USB3_force
- *
- * @brief  Switch to USB3 or do a fallback to USB2 if not available
- *
- * @return None
- */
-void USB3_force(void)
-{
-	USB20_Device_Init(DISABLE);
-
-	// USB2 & USB3 Init
-	// USB2 & USB3 are managed in LINK_IRQHandler/TMR0_IRQHandler/USBHS_IRQHandler
-	R32_USB_CONTROL = 0;
-	PFIC_EnableIRQ(USBSS_IRQn);
-	PFIC_EnableIRQ(LINK_IRQn);
-
-	PFIC_EnableIRQ(TMR0_IRQn);
-	R8_TMR0_INTER_EN = RB_TMR_IE_CYC_END;
-	TMR0_TimerInit(67000000); // USB3.0 connection failure timeout about 0.56 seconds
-
-	USB30D_init(ENABLE); // USB3.0 initialization, make sure that the two USB3.0 interrupts are enabled before initialization
-}
 
 /*******************************************************************************
  * @fn     USB30_bus_reset
@@ -172,6 +148,9 @@ uint16_t USB30_NonStandardReq()
 		case 0x02: // Exit programming mode
 			// Set the PROGRAMN pin to high level to exit programming mode
 		  GPIOA_SetBits(GPIO_Pin_23);
+			break;
+		case 0x03: // Flush EP2
+			reset_EP2();
 			break;
 		default:
 			SetupReqCode = INVALID_REQ_CODE;
@@ -363,42 +342,6 @@ void USB30_Setup_Status(void)
 }
 
 /*******************************************************************************
- * @fn     TMR0_IRQHandler
- *
- * @brief  USB3.0 connection failure timeout processing
- *
- * @return None
- */
-__attribute__((interrupt())) void TMR0_IRQHandler(void)
-{
-	R8_TMR0_INT_FLAG = RB_TMR_IF_CYC_END;
-	if(link_sta == 1)
-	{
-		link_sta = 0;
-		PFIC_DisableIRQ(USBSS_IRQn);
-		PFIC_DisableIRQ(LINK_IRQn);
-		USB30D_init(DISABLE);
-		// cprintf("USB3.0 disable\n");
-		return;
-	}
-	if(link_sta != 3)
-	{
-		PFIC_DisableIRQ(USBSS_IRQn);
-		PFIC_DisableIRQ(LINK_IRQn);
-		USB30D_init(DISABLE);
-		// cprintf("USB2.0\n");
-		R32_USB_CONTROL = 0;
-		PFIC_EnableIRQ(USBHS_IRQn);
-		USB20_Device_Init(ENABLE);
-	}
-	link_sta = 1;
-	R8_TMR0_INTER_EN = 0;
-	PFIC_DisableIRQ(TMR0_IRQn);
-	R8_TMR0_CTRL_MOD = RB_TMR_ALL_CLEAR;
-	return;
-}
-
-/*******************************************************************************
  * @fn     LINK_IRQHandler
  *
  * @brief  USB3.0 Link Interrupt Handler.
@@ -427,11 +370,6 @@ __attribute__((interrupt())) void LINK_IRQHandler(void)
 		}
 		// Successful USB3.0 communication
 		link_sta = 3;
-		PFIC_DisableIRQ(TMR0_IRQn);
-		R8_TMR0_CTRL_MOD = RB_TMR_ALL_CLEAR;
-		R8_TMR0_INTER_EN = 0;
-		PFIC_DisableIRQ(USBHS_IRQn);
-		USB20_Device_Init(DISABLE);
 	}
 
 	if(USBSS->LINK_INT_FLAG & LINK_INACT_FLAG)
@@ -445,11 +383,6 @@ __attribute__((interrupt())) void LINK_IRQHandler(void)
 		link_sta = 1;
 		USB30D_init(DISABLE);
 		PFIC_DisableIRQ(USBSS_IRQn);
-		R8_TMR0_CTRL_MOD = RB_TMR_ALL_CLEAR;
-		R8_TMR0_INTER_EN = 0;
-		PFIC_DisableIRQ(TMR0_IRQn);
-		PFIC_EnableIRQ(USBHS_IRQn);
-		USB20_Device_Init(ENABLE);
 	}
 	if(USBSS->LINK_INT_FLAG & LINK_RX_DET_FLAG)
 	{

@@ -53,7 +53,7 @@ extern vuint8_t g_DeviceUsbType;
 /* Function declaration */
 void USB30D_init(FunctionalState sta);
 
-void USB3_force(void);
+void reset_EP2(void);
 
 // For USB Descriptors see CH56x_usb_devbulk_desc_cmd.c & CH56x_usb_devbulk_desc_cmd.h
 
