@@ -63,7 +63,8 @@ module adc_ft601 (
 	reg sample_now = 0;
 	// Indicate which memory bank we should read from
 	reg read_msb;
-
+	// Count how many bytes have been shifted in
+	reg [1:0] byte_counter;
 	wire [31:0] selected_data = (dummy_data_mode ? dummy_data : registered_input);
 
 	// Read input data from probes and write to memory
@@ -89,16 +90,27 @@ module adc_ft601 (
 		end
 		if(sample_now && enabled) begin
 			dummy_data <= dummy_data + 1;
-			ram_wren <= 1;
-			// For now we use dummy data
-			ram_data_in <= selected_data;
-			//ram_data_in <= registered_input;
+			byte_counter <= byte_counter + 1;
+			// Shift bits into the RAM write register, depending on the byte_select register
+			if(byte_select == 0) begin
+				ram_data_in <= {selected_data[7:0], ram_data_in[31:8]};
+				if(byte_counter[1:0] == 3) ram_wren <= 1;
+			end
+			if(byte_select == 1) begin
+				ram_data_in <= {selected_data[15:0], ram_data_in[31:16]};
+				if(byte_counter[0] == 1) ram_wren <= 1;
+			end
+			if(byte_select == 2) begin
+				ram_wren <= 1;
+				ram_data_in <= selected_data;
+			end
 		end
 		if(~enabled) begin
 			counter <= 0;
 			ram_write_addr <= 0;
 			sample_now <= 0;
 			dummy_data <= 0;
+			byte_counter <= 0;
 		end
 	end
 

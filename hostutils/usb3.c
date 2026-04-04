@@ -12,7 +12,7 @@
 
 #define BUF_SIZE 4096*64
 #define NUM_TRANSFERS 8
-#define TIMEOUT 100
+#define TIMEOUT 1000
 
 static volatile int running = 1;
 static size_t bytes_received = 0;
@@ -39,12 +39,32 @@ void transfer_callback(struct libusb_transfer *transfer)
 
     // Print some data about the packet including the transfer status and length
     // printf("Received packet: length=%d status=%d\n", transfer->actual_length, transfer->status);
-    // Check the received data as 4 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
-    for (int i = 0; i < transfer->actual_length; i += 4)
+
+    // // Check the received data as 4 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
+    // for (int i = 0; i < transfer->actual_length; i += 4)
+    // {
+    //     uint32_t value = transfer->buffer[i] | (transfer->buffer[i + 1] << 8) | (transfer->buffer[i + 2] << 16) | (transfer->buffer[i + 3] << 24);
+    //     if (value != prev_value + 1) {
+    //         printf("Value at index %d: %u (hex: 0x%08x) (expected %u), difference: %d\n", i / 4, value, value, prev_value + 1, value - (prev_value + 1));
+    //     }
+    //     prev_value = value;
+    // }
+    // // Check the received data as 1 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
+    // for (int i = 0; i < transfer->actual_length; i++)
+    // {
+    //     uint8_t value = transfer->buffer[i];
+    //     if (value != (prev_value + 1) % 256) {
+    //         printf("Value at index %d: %u (hex: 0x%02x) (expected %u), difference: %d\n", i, value, value, (prev_value + 1) % 256, (int)value - ((prev_value + 1) % 256));
+    //     }
+    //     prev_value = value;
+    // }
+
+    // Check the received data as 2 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
+    for (int i = 0; i < transfer->actual_length; i += 2)
     {
-        uint32_t value = transfer->buffer[i] | (transfer->buffer[i + 1] << 8) | (transfer->buffer[i + 2] << 16) | (transfer->buffer[i + 3] << 24);
-        if (value != prev_value + 1) {
-            printf("Value at index %d: %u (hex: 0x%08x) (expected %u), difference: %d\n", i / 4, value, value, prev_value + 1, value - (prev_value + 1));
+        uint16_t value = transfer->buffer[i] | (transfer->buffer[i + 1] << 8);
+        if (value != (prev_value + 1) % 65536) {
+            printf("Value at index %d: %u (hex: 0x%04x) (expected %u), difference: %d\n", i / 2, value, value, (prev_value + 1) % 65536, (int)value - ((prev_value + 1) % 65536));
         }
         prev_value = value;
     }
@@ -117,13 +137,14 @@ int main()
     }
 
     // Reset the FPGA configuration
-    unsigned char command[4] = {0x00, 0x02, 0x00, 0x02};
+    unsigned char command[4] = {0x00, 0x00, 0x00, 0x00};
     send_request(handle, command, sizeof(command));
 
     // Send a vendor control transfer on EP0. bRequest= 0x03 to flush EP2
     libusb_control_transfer(handle, 0x40, 0x03, 0, 0, NULL, 0, TIMEOUT);
+
     // Begin FPGA transmission by sending a command to the device.
-    memcpy(command, (unsigned char[]){0x00, 0x01, 0x00, 0x03}, sizeof(command));
+    memcpy(command, (unsigned char[]){0x00, 0x00, 0x00, 0x07}, sizeof(command));
     send_request(handle, command, sizeof(command));
 
     printf("Starting throughput test with %d transfers, buffer=%d bytes\n",
@@ -196,7 +217,7 @@ int main()
     }
 
     // Send a command to the device to stop sending data
-    memcpy(command, (unsigned char[]){0x00, 0x02, 0x00, 0x02}, sizeof(command));
+    memcpy(command, (unsigned char[]){0x00, 0x00, 0x00, 0x00}, sizeof(command));
     send_request(handle, command, sizeof(command));
 
     libusb_release_interface(handle, INTERFACE);
