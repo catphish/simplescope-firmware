@@ -40,7 +40,7 @@ void transfer_callback(struct libusb_transfer *transfer)
     // Print some data about the packet including the transfer status and length
     // printf("Received packet: length=%d status=%d\n", transfer->actual_length, transfer->status);
 
-    // // Check the received data as 4 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
+    // Check the received data as 4 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
     // for (int i = 0; i < transfer->actual_length; i += 4)
     // {
     //     uint32_t value = transfer->buffer[i] | (transfer->buffer[i + 1] << 8) | (transfer->buffer[i + 2] << 16) | (transfer->buffer[i + 3] << 24);
@@ -49,7 +49,8 @@ void transfer_callback(struct libusb_transfer *transfer)
     //     }
     //     prev_value = value;
     // }
-    // // Check the received data as 1 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
+
+    // Check the received data as 1 byte integers and confirm that each integer increments by one. Check the increment each time and print the index and value of any integer that does not increment by one.
     // for (int i = 0; i < transfer->actual_length; i++)
     // {
     //     uint8_t value = transfer->buffer[i];
@@ -136,16 +137,13 @@ int main()
         return 1;
     }
 
-    // Reset the FPGA configuration
-    unsigned char command[4] = {0x00, 0x00, 0x00, 0x00};
+    // Begin FPGA transmission by sending a command to the device.
+    unsigned char command[4];
+    memcpy(command, (unsigned char[]){0x00, 0x00, 0x00, 0x07}, sizeof(command));
     send_request(handle, command, sizeof(command));
 
     // Send a vendor control transfer on EP0. bRequest= 0x03 to flush EP2
     libusb_control_transfer(handle, 0x40, 0x03, 0, 0, NULL, 0, TIMEOUT);
-
-    // Begin FPGA transmission by sending a command to the device.
-    memcpy(command, (unsigned char[]){0x00, 0x00, 0x00, 0x07}, sizeof(command));
-    send_request(handle, command, sizeof(command));
 
     printf("Starting throughput test with %d transfers, buffer=%d bytes\n",
            NUM_TRANSFERS, BUF_SIZE);

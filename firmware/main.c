@@ -248,17 +248,13 @@ __attribute__((interrupt())) void HSPI_IRQHandler(void)
 
 void reset_EP2(void)
 {
+  bsp_disable_interrupt();
   // Clear EP2 IN interrupt and set it to NRDY
   USB30_IN_clearIT(ENDP_2);
   USB30_IN_set(ENDP_2, ENABLE, NRDY, 0, 0);
   usb_idle = 1;
   // Reset ring buffer indices
-  ring_buffer_head_hspi_a = 0;
-  ring_buffer_head_hspi_b = 2048;
-  ring_buffer_head_usb = 0;
-  ring_buffer_tail_usb = 0;
-  R8_HSPI_RX_SC = R8_HSPI_RX_SC;
-  HSPI_DoubleDMA_Init(HSPI_DEVICE, RB_HSPI_DAT32_MOD,
-    (uint32_t)RING_BUFFER,
-    (uint32_t)(RING_BUFFER + 2048), 0);
+  ring_buffer_head_usb = ring_buffer_tail_usb;
+  bsp_enable_interrupt();
+
 }
